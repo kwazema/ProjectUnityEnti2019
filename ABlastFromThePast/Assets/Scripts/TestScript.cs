@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class TestScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -11,6 +11,6 @@ public class NewBehaviourScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 }
