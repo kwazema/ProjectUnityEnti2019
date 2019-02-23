@@ -13,11 +13,14 @@ public class Movement : MonoBehaviour
     private int nextBlock, nextLine;
     private float posCorrectY = 1.5f;
     private float dirHorizontal, dirVertical;
+    private float speedCharacter;
     private Vector2 v2PosActual;
 
     public GameObjectArray[] lines; // Array de Clases
+    public Rigidbody2D rb;
     public Block[,] blocks;
     SpriteRenderer[,] m_SpriteRenderer;
+    private float speed = 10.0f;
 
     bool displacedHorizontal = false;
     bool displacedVertical = false;
@@ -27,6 +30,12 @@ public class Movement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //---------- Init RB ----------- //
+        rb = GetComponent<Rigidbody2D>();
+        //rb.isKinematic = true;
+        //velocity = new Vector2(1.75f, 1.1f);
+
+
         //---------- Init Blocks ----------- //
         blocks = new Block[lines.Length, lines[0].columns.Length];
         m_SpriteRenderer = new SpriteRenderer[lines.Length, lines[0].columns.Length];
@@ -40,7 +49,6 @@ public class Movement : MonoBehaviour
                 m_SpriteRenderer[i, j] = lines[i].columns[j].GetComponent<SpriteRenderer>();
             }
         }
-
 
         //---------- Init First Position ----------- //
         v2PosActual = blocks[0, 0].transform.position;
@@ -71,7 +79,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    void movement(float horizontal, float vertical)
+    void SetPositionBlocks(float horizontal, float vertical)
     {
         Debug.Log("Horizontal: " + Input.GetAxisRaw("Horizontal"));
         //Debug.Log(Input.GetAxisRaw("Vertical"));
@@ -102,15 +110,30 @@ public class Movement : MonoBehaviour
         //        nextLine--;
         //}
 
-        transform.position = new Vector2
-            (
-                blocks[nextLine, nextBlock].transform.position.x,
-                blocks[nextLine, nextBlock].transform.position.y + posCorrectY
-            );
+        //transform.position = new Vector2
+        //    (
+        //        blocks[nextLine, nextBlock].transform.position.x,
+        //        blocks[nextLine, nextBlock].transform.position.y + posCorrectY
+        //    );
 
         //Debug.Log("Line[" + nextLine + "] // Block[" + nextBlock + "]");
         //Debug.Log("Disables: " + blocks[nextLine, nextBlock].disableBlock);
         // Debug.Log("Disables++: " + bloques[nextLine, nextBlock + 1].disableBlock);
+    }
+
+    private void FixedUpdate()
+    {
+        MovementCharacter();
+    }
+
+    void MovementCharacter()
+    {
+        // Configurar que no puedas moverte hacia otra posición hasta que llegues a la celda deseada.
+
+        //rb.MovePosition((Vector2)blocks[nextLine, nextBlock].transform.position + velocity * Time.fixedDeltaTime);
+        float step = speed * Time.fixedDeltaTime;
+        transform.position = Vector2.MoveTowards(transform.position, blocks[nextLine, nextBlock].transform.position, step);
+        //Debug.Log(rb.isKinematic);
     }
 
     void getAxisMovement()
@@ -142,7 +165,7 @@ public class Movement : MonoBehaviour
         {
             if (displacedHorizontal == false)
             {
-                movement(dirHorizontal, 0);
+                SetPositionBlocks(dirHorizontal, 0);
                 displacedHorizontal = true;
             }
         }
@@ -156,7 +179,7 @@ public class Movement : MonoBehaviour
         {
             if (displacedVertical == false)
             {
-                movement(0, dirVertical);
+                SetPositionBlocks(0, dirVertical);
                 displacedVertical = true;
             }
         }
@@ -166,3 +189,4 @@ public class Movement : MonoBehaviour
         }
     }
 }
+
