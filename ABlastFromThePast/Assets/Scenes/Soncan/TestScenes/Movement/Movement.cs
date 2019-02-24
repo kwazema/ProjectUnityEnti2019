@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
     public Block[,] blocks;
     SpriteRenderer[,] m_SpriteRenderer;
 
-    private float speed = 50.0f;
+    private float speed = 5.0f;
     bool isMoving = false, moveToSecondPoint = false, aLotOfMovements = false;
     Vector2[] v2NextPosition;
     Vector2 v2SavePosition;
@@ -142,7 +142,8 @@ public class Movement : MonoBehaviour
             v2NextPosition[posV2Guardada] = blocks[nextLine, nextBlock].transform.position;
             moveToSecondPoint = true; 
         }
-        else
+
+        if (!isMoving )
         {
             v2NextPosition[posV2Guardada] = blocks[nextLine, nextBlock].transform.position;
             lastNextBlock = nextBlock;
@@ -235,6 +236,8 @@ public class Movement : MonoBehaviour
         float step = speed * Time.fixedDeltaTime;
         transform.position = Vector2.MoveTowards(transform.position, v2NextPosition[nextPositionVector], step);
 
+        Debug.Log("Line: " + nextLine + "// Block: " + nextBlock + "// Pos: " + nextPositionVector);
+
         if ((Vector2)transform.position != v2NextPosition[nextPositionVector])
         {
             isMoving = true;
@@ -252,11 +255,15 @@ public class Movement : MonoBehaviour
                 {
                     nextPositionVector = 1;
                     moveToSecondPoint = false;
+                    lastNextBlock = nextBlock;
+                    lastNextLine = nextLine;
                 }
                 else
                 {
                     nextPositionVector = 0;
                     moveToSecondPoint = false;
+                    lastNextBlock = nextBlock;
+                    lastNextLine = nextLine;
                 }
 
 
