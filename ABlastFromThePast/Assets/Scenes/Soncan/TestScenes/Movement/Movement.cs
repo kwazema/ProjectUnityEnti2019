@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
     public Block[,] blocks;
     SpriteRenderer[,] m_SpriteRenderer;
 
-    private float speed = 5.0f;
+    private float speed = 45.0f;
     bool isMoving = false, moveToSecondPoint = false, aLotOfMovements = false;
     Vector2[] v2NextPosition;
     Vector2 v2SavePosition;
@@ -34,6 +34,7 @@ public class Movement : MonoBehaviour
 
     bool displacedHorizontal = false;
     bool displacedVertical = false;
+    bool ready = false;
 
     int Line, Column;
 
@@ -89,6 +90,9 @@ public class Movement : MonoBehaviour
 
            // Debug.Log("Input");
         }
+
+        MovementCharacter();
+
     }
 
     void SetPositionBlocks(float horizontal, float vertical)
@@ -96,12 +100,14 @@ public class Movement : MonoBehaviour
         //Debug.Log("Horizontal: " + Input.GetAxisRaw("Horizontal"));
         //Debug.Log(Input.GetAxisRaw("Vertical"));
 
+        // Carga a la pos que me estoy moviendo
         if (moveToSecondPoint)
         {
             nextBlock = lastNextBlock;
             nextLine = lastNextLine;
-        }
+            Debug.Log("Paso 4: Sobre escribe Segunda Pos");
 
+        }
 
 
         //--------------- Move Right --------------- //
@@ -125,118 +131,30 @@ public class Movement : MonoBehaviour
                 nextLine -= (int)vertical;
 
 
-
-        if (isMoving && ((int)vertical != 0 || (int)horizontal != 0))
-        {
-
-
-            if (nextPositionVector == 0)
-            {
-                posV2Guardada = 1;
-            }
-            else
-            {
-                posV2Guardada = 0;
-            }
-
-            v2NextPosition[posV2Guardada] = blocks[nextLine, nextBlock].transform.position;
-            moveToSecondPoint = true; 
-        }
-
-        if (!isMoving )
-        {
-            v2NextPosition[posV2Guardada] = blocks[nextLine, nextBlock].transform.position;
-            lastNextBlock = nextBlock;
-            lastNextLine = nextLine;
-        }
-
-        // Y la segunfa vuelva a ser la primera ()
-
-        // Si me estoy moviendo guardarme la posicion siguiente en v2NextPosition
-
-        // Si aun me estoy moviendo y vuelvo a clicar resetear la ultima posicion y guardar a v2NextPosition
-
-
-
-
-
-        // Se guardan a los bloques que se esta moviendo.
-
-
-        //Debug.Log("Pos Guardada");
-        //Debug.Log("Block Actual :" + nextBlock + "// Linea Actual :" + nextLine);
-
-
-
-
         //if (isMoving && ((int)vertical != 0 || (int)horizontal != 0))
         //{
-        //    moveToSecondPoint = true;
 
-        //    saveNextBlock = lastNextBlock;
-        //    saveNextLine = lastNextLine;
-
-
-
-        //    if (horizontal > 0 && saveNextBlock < lines[saveNextLine].columns.Length - 1)
-        //        if (!blocks[saveNextLine, saveNextBlock + 1].disableBlock)
-        //            saveNextBlock += (int)horizontal;
-
-        //    //--------------- Move Left --------------- //
-        //    if (horizontal < 0 && saveNextBlock > 0)
-        //        if (!blocks[saveNextLine, saveNextBlock - 1].disableBlock)
-        //            saveNextBlock += (int)horizontal;
-
-        //    //--------------- Move Up --------------- //
-        //    if (vertical < 0 && saveNextLine < lines.Length - 1)
-        //        if (!blocks[saveNextLine + 1, saveNextBlock].disableBlock)
-        //            saveNextLine -= (int)vertical;
-
-        //    //--------------- Move Down --------------- //
-        //    if (vertical > 0 && saveNextLine > 0)
-        //        if (!blocks[saveNextLine - 1, saveNextBlock].disableBlock)
-        //            saveNextLine -= (int)vertical;
-
-        //    //if (posV2 == 1 && !isMoving)
-        //        v2NextPosition[posV2] = blocks[saveNextLine, saveNextBlock].transform.position; //(AQUI ESTAN LOS PROBLEMAS!)
-
-        //    //    Debug.Log("Block Last :" + saveNextBlock + "// Linea Last :" + saveNextLine);
-
-        //    //    //Guardar en la ultima posicion que has estado
-
-        //    //    //Debug.Log(v2NextPosition[1]);
-        //    // }
+        //    ready = true;
         //}
-
-        //if (direction == Direction.top && nextLine > 0)
+        //else
         //{
-        //    if (!blocks[nextLine -1, nextBlock].disableBlock)
-        //        nextLine--;
+        //    ready = false;
         //}
-
-        //transform.position = new Vector2
-        //    (
-        //        blocks[nextLine, nextBlock].transform.position.x,
-        //        blocks[nextLine, nextBlock].transform.position.y + posCorrectY
-        //    );
-
-        //Debug.Log("Line[" + nextLine + "] // Block[" + nextBlock + "]");
-        //Debug.Log("Disables: " + blocks[nextLine, nextBlock].disableBlock);
-        // Debug.Log("Disables++: " + bloques[nextLine, nextBlock + 1].disableBlock);
     }
 
     private void FixedUpdate()
     {
-        MovementCharacter();
     }
 
     void MovementCharacter()
     {
         //bool playerCanMove = false;
-        float step = speed * Time.fixedDeltaTime;
+        float step = speed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, v2NextPosition[nextPositionVector], step);
 
-        Debug.Log("Line: " + nextLine + "// Block: " + nextBlock + "// Pos: " + nextPositionVector);
+        // Debug.Log("Line: " + nextLine + "// Block: " + nextBlock + "// Pos: " + nextPositionVector);
+
+        Debug.Log(ready);
 
         if ((Vector2)transform.position != v2NextPosition[nextPositionVector])
         {
@@ -249,55 +167,62 @@ public class Movement : MonoBehaviour
 
         }
 
+        if (isMoving && ((int)dirVertical != 0 || (int)dirHorizontal != 0))
+        {
+
+            if (nextPositionVector == 0)
+            {
+                posV2Guardada = 1;
+            }
+            else
+            {
+                posV2Guardada = 0;
+            }
+
+            v2NextPosition[posV2Guardada] = blocks[nextLine, nextBlock].transform.position;
+
+            moveToSecondPoint = true;
+            Debug.Log("Paso 2 Guardar Segunda pos");
+
+
+            //lastNextBlock = nextBlock;
+            //lastNextLine = nextLine;
+        }
+
         if (!isMoving)
             if (moveToSecondPoint)
                 if (nextPositionVector == 0)
                 {
                     nextPositionVector = 1;
                     moveToSecondPoint = false;
-                    lastNextBlock = nextBlock;
-                    lastNextLine = nextLine;
+                    //lastNextBlock = nextBlock;
+                    //lastNextLine = nextLine;
+                    Debug.Log("Paso 3 Mueve Segunda pos");
+
                 }
                 else
                 {
                     nextPositionVector = 0;
                     moveToSecondPoint = false;
-                    lastNextBlock = nextBlock;
-                    lastNextLine = nextLine;
+                    //lastNextBlock = nextBlock;
+                    //lastNextLine = nextLine;
+                    Debug.Log("Paso 3 Mueve Segunda pos");
+
                 }
 
 
+        // Antes de moverse, guarda la pos donde se esta desplazando.
+        if (!isMoving)
+        {
 
-        //if(!isMoving && posV2 == 0)
-        //   v2NextPosition[0] = blocks[nextLine, nextBlock].transform.position;
+            v2NextPosition[posV2Guardada] = blocks[nextLine, nextBlock].transform.position;
 
+            lastNextBlock = nextBlock;
+            lastNextLine = nextLine;
+            Debug.Log("Paso 1 Guardar");
+        }
 
-        //Debug.Log("Last: " + posV2);
-
-
-
-
-        //if (!isMoving)
-        //    if(moveToSecondPoint)
-        //    {
-        //        posV2 = 1;
-
-        //        nextLine = saveNextLine;
-        //        nextBlock = saveNextBlock;
-        //    }
-
-
-        //if (!isMoving)
-        //    if (posV2 == 1)
-        //    {
-        //        posV2 = 0;
-        //    }
-
-        // Usar el array de v2Next para eliguir donde moverse solo son eso!
-
-
-        //Debug.Log("Pos: " + posV2 + "// Moving: " + isMoving);
-        //Debug.Log("Move Second Point: " + moveToSecondPoint);
+        
     }
 
     void getAxisMovement()
