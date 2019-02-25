@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
     public Block[,] blocks;
     SpriteRenderer[,] m_SpriteRenderer;
 
-    private float speed = 45.0f;
+    private float speed = 65.0f;
     bool isMoving = false, moveToSecondPoint = false, aLotOfMovements = false;
     Vector2[] v2NextPosition;
     Vector2 v2SavePosition;
@@ -232,6 +232,7 @@ public class Movement : MonoBehaviour
 
         //--------------- Direction Horizontal --------------- //
         dirHorizontal = Input.GetAxisRaw("Mouse X");
+        
 
         if (Input.GetKeyDown(KeyCode.A))
             if (!posConfirmed)
@@ -264,6 +265,10 @@ public class Movement : MonoBehaviour
                 posConfirmed = true;
             }
 
+        if (Input.GetAxisRaw("Mouse Y") > 0f)
+            
+            Debug.Log(Input.GetJoystickNames() + " is moved");
+        
         //Debug.Log("dirHorizontal" + dirHorizontal + "dirVertical" + dirVertical);
 
         //--------------- Direction Horizontal --------------- //
