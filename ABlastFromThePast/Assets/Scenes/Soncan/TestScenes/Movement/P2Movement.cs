@@ -44,7 +44,7 @@ public class P2Movement : MonoBehaviour
         //---------- Init RB ----------- //
         rb = GetComponent<Rigidbody2D>();
         v2NextPosition = new Vector2[2];
-        speed = 55f;
+        speed = 40f;
         //rb.isKinematic = true;
         //velocity = new Vector2(1.75f, 1.1f);
 

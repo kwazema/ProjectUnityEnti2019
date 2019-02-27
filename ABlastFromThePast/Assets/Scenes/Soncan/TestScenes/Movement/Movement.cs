@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,12 +17,13 @@ public class Movement : MonoBehaviour
     private float speedCharacter;
     private Vector2 v2PosActual;
 
+    public GameObject blockPrefab;
     public GameObjectArray[] lines; // Array de Clases
     public Rigidbody2D rb;
     public Block[,] blocks;
     SpriteRenderer[,] m_SpriteRenderer;
 
-    private float speed = 65.0f;
+    private float speed;
     bool isMoving = false, moveToSecondPoint = false, aLotOfMovements = false;
     Vector2[] v2NextPosition;
     Vector2 v2SavePosition;
@@ -44,29 +46,48 @@ public class Movement : MonoBehaviour
         //---------- Init RB ----------- //
         rb = GetComponent<Rigidbody2D>();
         v2NextPosition = new Vector2[2];
+        speed = 40.0f;
+
         //rb.isKinematic = true;
         //velocity = new Vector2(1.75f, 1.1f);
 
 
         //---------- Init Blocks ----------- //
-        blocks = new Block[lines.Length, lines[0].columns.Length];
-        m_SpriteRenderer = new SpriteRenderer[lines.Length, lines[0].columns.Length];
+        //blocks = new Block[lines.Length, lines[0].columns.Length];
+        blocks = InstantiateBlocks(3, 4, new Vector2Int(-15, -5), 3, 5, 1);
+
+        //m_SpriteRenderer = new SpriteRenderer[lines.Length, lines[0].columns.Length];
 
 
-        for (int i = 0; i < lines.Length; i++)
-        {
-            for (int j = 0; j < lines[i].columns.Length; j++)
-            {
-                blocks[i, j] = lines[i].columns[j].GetComponent<Block>();
-                m_SpriteRenderer[i, j] = lines[i].columns[j].GetComponent<SpriteRenderer>();
-            }
-        }
+        //for (int i = 0; i < lines.Length; i++)
+        //{
+        //    for (int j = 0; j < lines[i].columns.Length; j++)
+        //    {
+        //        blocks[i, j] = lines[i].columns[j].GetComponent<Block>();
+        //        m_SpriteRenderer[i, j] = lines[i].columns[j].GetComponent<SpriteRenderer>();
+        //    }
+        //}
 
         //---------- Init First Position ----------- //
         //  v2PosActual = blocks[0, 0].transform.position;
         // v2PosActual.y += posCorrectY;
         //transform.position = v2PosActual;
-        v2NextPosition[0] = blocks[0, 0].transform.position;
+        //v2NextPosition[0] = blocks[0, 0].transform.position;
+    }
+
+    Block[,] InstantiateBlocks(int row, int column, Vector2Int offset, float width, float height, float margin)
+    {
+        Block[,] blocks = new Block[row, column];
+
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < column; j++)
+            {
+                blocks[i, j] = Instantiate(blockPrefab).GetComponent<Block>();
+                blocks[i, j].transform.position = offset + new Vector2(i * (width + margin), j * (height + margin));
+            }
+        }
+        return blocks;
     }
 
     // Update is called once per frame
@@ -82,8 +103,8 @@ public class Movement : MonoBehaviour
                 m_SpriteRenderer[Line, Column].color = Color.green;
             }
 
-            Line = Random.Range(0, 3);
-            Column = Random.Range(0, 4);
+            //Line = Random.Range(0, 3);
+            //Column = Random.Range(0, 4);
 
             blocks[Line, Column].disableBlock = true;
             m_SpriteRenderer[Line, Column].color = Color.red;
