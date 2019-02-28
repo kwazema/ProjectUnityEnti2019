@@ -2,44 +2,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-[System.Serializable]
-public class GameObjectArray
-{
-    public GameObject[] columns; // Array de Game Objects
-}
+//[System.Serializable]
+//public class GameObjectArray
+//{
+//    public GameObject[] columns; // Array de Game Objects
+//}
 
 public class Movement : MonoBehaviour
 {
-    private int nextBlock, nextLine, nextBlockOne, nextLineOne;
+    private int nextColumn, nextRow, nextBlockOne, nextLineOne;
     private float posCorrectY = 1.5f;
     private float dirHorizontal, dirVertical;
     private float speedCharacter;
     private Vector2 v2PosActual;
 
     public GameObject blockPrefab;
-    public GameObjectArray[] lines; // Array de Clases
+    //public GameObjectArray[] lines; // Array de Clases
     public Rigidbody2D rb;
+
     public Block[,] blocks;
     SpriteRenderer[,] m_SpriteRenderer;
 
     private float speed;
-    bool isMoving = false, moveToSecondPoint = false, aLotOfMovements = false;
+    bool isMoving = false, moveToSecondPoint = false;
     Vector2[] v2NextPosition;
     Vector2 v2SavePosition;
     int nextPositionVector = 0, posV2Guardada = 0;
-    int saveNextBlock = 0;
-    int saveNextLine = 0;
-    int lastNextBlock = 0;
-    int lastNextLine = 0;
+    int lastNextColumn = 0;
+    int lastNextRow = 0;
+
+    int columnLenth = 4;
+    int rowLenth = 3;
 
 
     bool displacedHorizontal = false;
     bool displacedVertical = false;
     bool ready = false;
 
-    int Line, Column;
 
+    //aLotOfMovements = false;
+    //int saveNextBlock = 0;
+    //int saveNextLine = 0;
     // Use this for initialization
     void Start()
     {
@@ -54,19 +59,18 @@ public class Movement : MonoBehaviour
 
         //---------- Init Blocks ----------- //
         //blocks = new Block[lines.Length, lines[0].columns.Length];
-        blocks = InstantiateBlocks(3, 4, new Vector2Int(-15, -5), 3, 5, 1);
+        blocks = InstantiateBlocks(columnLenth, rowLenth, new Vector2Int(-15, 3), 3, 3, 1);
+        m_SpriteRenderer = new SpriteRenderer[columnLenth, rowLenth];
 
-        //m_SpriteRenderer = new SpriteRenderer[lines.Length, lines[0].columns.Length];
 
-
-        //for (int i = 0; i < lines.Length; i++)
-        //{
-        //    for (int j = 0; j < lines[i].columns.Length; j++)
-        //    {
-        //        blocks[i, j] = lines[i].columns[j].GetComponent<Block>();
-        //        m_SpriteRenderer[i, j] = lines[i].columns[j].GetComponent<SpriteRenderer>();
-        //    }
-        //}
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                blocks[i, j] = blocks[i, j].GetComponent<Block>();
+                m_SpriteRenderer[i, j] = blocks[i, j].GetComponent<SpriteRenderer>();
+            }
+        }
 
         //---------- Init First Position ----------- //
         //  v2PosActual = blocks[0, 0].transform.position;
@@ -75,19 +79,41 @@ public class Movement : MonoBehaviour
         //v2NextPosition[0] = blocks[0, 0].transform.position;
     }
 
-    Block[,] InstantiateBlocks(int row, int column, Vector2Int offset, float width, float height, float margin)
+    Block[,] InstantiateBlocks(int column, int row, Vector2Int offset, float width, float height, float margin)
     {
-        Block[,] blocks = new Block[row, column];
+        Block[,] blocks = new Block[column, row];
 
-        for (int i = 0; i < row; i++)
+        for (int i = 0; i < column; i++)
         {
-            for (int j = 0; j < column; j++)
+            for (int j = 0; j < row; j++)
             {
                 blocks[i, j] = Instantiate(blockPrefab).GetComponent<Block>();
-                blocks[i, j].transform.position = offset + new Vector2(i * (width + margin), j * (height + margin));
+                blocks[i, j].transform.position = offset + new Vector2(i * (width + margin), j * -(height + margin));
+
+                //blocks[i, j] = blocks[i, j].GetComponent<Block>();
+                //m_SpriteRenderer[i, j] = blocks[i, j].GetComponent<SpriteRenderer>();
             }
         }
         return blocks;
+    }
+
+    void destroyBlock(int columnLenth, int rowLenth)
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            Debug.Log("H");
+            int column = Random.Range(0, columnLenth);
+            int row = Random.Range(0, rowLenth);
+
+            if (blocks[column, row].disableBlock)
+            {
+                blocks[column, row].disableBlock = false;
+                m_SpriteRenderer[column, row].color = Color.green;
+            }
+
+            blocks[column, row].disableBlock = true;
+            m_SpriteRenderer[column, row].color = Color.red;
+        }
     }
 
     // Update is called once per frame
@@ -95,22 +121,7 @@ public class Movement : MonoBehaviour
     {
         getAxisMovement();
 
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            if(blocks[Line, Column].disableBlock)
-            {
-                blocks[Line, Column].disableBlock = false;
-                m_SpriteRenderer[Line, Column].color = Color.green;
-            }
-
-            //Line = Random.Range(0, 3);
-            //Column = Random.Range(0, 4);
-
-            blocks[Line, Column].disableBlock = true;
-            m_SpriteRenderer[Line, Column].color = Color.red;
-
-           // Debug.Log("Input");
-        }
+        destroyBlock(columnLenth, rowLenth);
 
         MovementCharacter();
 
@@ -124,32 +135,32 @@ public class Movement : MonoBehaviour
         // Carga a la pos que me estoy moviendo
         if (moveToSecondPoint)
         {
-            nextBlock = lastNextBlock;
-            nextLine = lastNextLine;
+            nextColumn = lastNextColumn;
+            nextRow = lastNextRow;
             Debug.Log("Paso 4: Sobre escribe Segunda Pos");
 
         }
 
 
-        //--------------- Move Right --------------- //
-        if (horizontal > 0 && nextBlock < lines[nextLine].columns.Length - 1)
-            if (!blocks[nextLine, nextBlock + 1].disableBlock)
-                nextBlock += (int)horizontal;
+        ////--------------- Move Right --------------- //
+        //if (horizontal > 0 && nextColumn < blocks.[nextRow].Length - 1)
+        //    if (!blocks[nextRow, nextColumn + 1].disableBlock)
+        //        nextColumn += (int)horizontal;
 
-        //--------------- Move Left --------------- //
-        if (horizontal < 0 && nextBlock > 0)
-            if (!blocks[nextLine, nextBlock - 1].disableBlock)
-                nextBlock += (int)horizontal;
+        ////--------------- Move Left --------------- //
+        //if (horizontal < 0 && nextColumn > 0)
+        //    if (!blocks[nextRow, nextColumn - 1].disableBlock)
+        //        nextColumn += (int)horizontal;
 
-        //--------------- Move Up --------------- //
-        if (vertical < 0 && nextLine < lines.Length - 1)
-            if (!blocks[nextLine + 1, nextBlock].disableBlock)
-                nextLine -= (int)vertical;
+        ////--------------- Move Up --------------- //
+        //if (vertical < 0 && nextRow < lines.Length - 1)
+        //    if (!blocks[nextRow + 1, nextColumn].disableBlock)
+        //        nextRow -= (int)vertical;
 
-        //--------------- Move Down --------------- //
-        if (vertical > 0 && nextLine > 0)
-            if (!blocks[nextLine - 1, nextBlock].disableBlock)
-                nextLine -= (int)vertical;
+        ////--------------- Move Down --------------- //
+        //if (vertical > 0 && nextRow > 0)
+        //    if (!blocks[nextRow - 1, nextColumn].disableBlock)
+        //        nextRow -= (int)vertical;
 
 
         //if (isMoving && ((int)vertical != 0 || (int)horizontal != 0))
@@ -200,7 +211,7 @@ public class Movement : MonoBehaviour
                 posV2Guardada = 0;
             }
 
-            v2NextPosition[posV2Guardada] = blocks[nextLine, nextBlock].transform.position;
+            v2NextPosition[posV2Guardada] = blocks[nextColumn, nextRow].transform.position;
 
             moveToSecondPoint = true;
             Debug.Log("Paso 2 Guardar Segunda pos");
@@ -236,10 +247,10 @@ public class Movement : MonoBehaviour
         if (!isMoving)
         {
 
-            v2NextPosition[posV2Guardada] = blocks[nextLine, nextBlock].transform.position;
+            v2NextPosition[posV2Guardada] = blocks[nextColumn, nextRow].transform.position;
 
-            lastNextBlock = nextBlock;
-            lastNextLine = nextLine;
+            lastNextColumn = nextColumn;
+            lastNextRow = nextRow;
             Debug.Log("Paso 1 Guardar");
         }
 
