@@ -3,26 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player1Movement : MonoBehaviour {
+
     private int column, row;
-    int nextColumn = 0;
-    int nextRow = 0;
+    private int nextColumn, nextRow;
+    private int columnLenth = 4, rowLenth = 3;
 
-    int columnLenth = 4;
-    int rowLenth = 3;
-
-    int numPositionMove = 0; // 
-    int numPositionSave = 0; // 
+    private int numPositionMove = 0, numPositionSave = 0;
 
     public float speed;
+
     bool isMoving = false;
     bool moveToSecondBlock = false;
 
-    public GameObject blockPrefab;
-    private Block[,] blocks;
     private Vector2[] v2Position;
     public Rigidbody2D rb;
-
     Player1Input player1Input;
+
+    private Block[,] blocks;
+    public GameObject blockPrefab;
 
     // Use this for initialization
     void Start ()
@@ -47,23 +45,25 @@ public class Player1Movement : MonoBehaviour {
         MovementCharacter();
     }
 
+
+    //----------- Functions: Movement -----------//
     void MovementCharacter()
     {
         float step = speed * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, v2Position[numPositionMove], step);
 
-        // Resumir...
+        // Compruba si se esta movimiento
         if ((Vector2)transform.position != v2Position[numPositionMove])
         {
             isMoving = true;
         }
         else
         {
-            isMoving = false; 
+            isMoving = false;
         }
 
         // Cambiar el num de guardado y guardar la siguiente posicion del v2.
-        if (isMoving && player1Input.actionMove)
+        if (isMoving && player1Input.isInput)
         {
 
             if (numPositionMove == 0)
@@ -82,19 +82,15 @@ public class Player1Movement : MonoBehaviour {
             Debug.Log("Me muevo y click");
         }
 
-        // Resumir...
+        // Si tenemos una posición guardada cambiar el numPosition para movernos a la siguiente posició.
         if (!isMoving && moveToSecondBlock)
         {
+            moveToSecondBlock = false;
+
             if (numPositionMove == 0)
-            {
                 numPositionMove = 1;
-                moveToSecondBlock = false;
-            }
             else
-            {
                 numPositionMove = 0;
-                moveToSecondBlock = false;
-            }
         }
 
         // Guarda la posicion del bloque actual del Player.
@@ -108,10 +104,10 @@ public class Player1Movement : MonoBehaviour {
         }
     }
 
-
-    //----------- Functions: Movement -----------//
     void MovementAction(int horizontal, int vertical)
     {
+
+        //if (Can i move?)
         //-------------- Move Right -------------- //
         if (horizontal > 0 && column < columnLenth - 1)
             column += horizontal;
