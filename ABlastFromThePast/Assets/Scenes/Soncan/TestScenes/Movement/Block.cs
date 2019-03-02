@@ -22,15 +22,15 @@ public class Block : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            //Line = Random.Range(0, 3);
-            //Column = Random.Range(0, 4);
+        //if (Input.GetKeyDown(KeyCode.H))
+        //{
+        //    //Line = Random.Range(0, 3);
+        //    //Column = Random.Range(0, 4);
 
-            //blocks[2, 2].disableBlock = true;
-            //m_SpriteRenderer[2, 2].color = Color.red;
+        //    //blocks[2, 2].disableBlock = true;
+        //    //m_SpriteRenderer[2, 2].color = Color.red;
 
-            Debug.Log("Input");
-        }
+        //    Debug.Log("Input");
+        //}
     }
 }

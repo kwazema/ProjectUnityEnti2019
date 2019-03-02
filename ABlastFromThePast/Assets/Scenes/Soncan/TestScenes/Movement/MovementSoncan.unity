@@ -337,7 +337,8 @@ GameObject:
   m_Component:
   - component: {fileID: 433552839}
   - component: {fileID: 433552840}
-  - component: {fileID: 433552838}
+  - component: {fileID: 433552842}
+  - component: {fileID: 433552841}
   m_Layer: 0
   m_Name: P1ControlerCharacter
   m_TagString: Untagged
@@ -345,36 +346,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &433552838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 433552837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c3cb60e5ad495a449d80610b42720e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockPrefab: {fileID: 1924483091404750, guid: 374dfb99d53c03046b087fde64c8d45f,
-    type: 2}
-  lines:
-  - columns:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  - columns:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  - columns:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  rb: {fileID: 433552840}
 --- !u!4 &433552839
 Transform:
   m_ObjectHideFlags: 0
@@ -409,6 +380,33 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &433552841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 433552837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b49fd5743c959e469b7a48d59eebec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  blockPrefab: {fileID: 1924483091404750, guid: 374dfb99d53c03046b087fde64c8d45f,
+    type: 2}
+  rb: {fileID: 433552840}
+--- !u!114 &433552842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 433552837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5554edf7ab38a042beee9acf9d0dc4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionMove: 0
 --- !u!1 &465951813
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,7 +719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &906430163
 MonoBehaviour:
   m_ObjectHideFlags: 0
