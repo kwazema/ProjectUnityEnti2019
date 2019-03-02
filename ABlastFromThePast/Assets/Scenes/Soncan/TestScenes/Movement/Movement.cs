@@ -5,15 +5,11 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 //[System.Serializable]
-//public class GameObjectArray
-//{
-//    public GameObject[] columns; // Array de Game Objects
-//}
+//[System.NonSerialized]
 
 public class Movement : MonoBehaviour
 {
     private int nextColumn, nextRow, nextBlockOne, nextLineOne;
-    private float posCorrectY = 1.5f;
     private float dirHorizontal, dirVertical;
     private float speedCharacter;
     private Vector2 v2PosActual;
@@ -23,7 +19,7 @@ public class Movement : MonoBehaviour
     public Rigidbody2D rb;
 
     public Block[,] blocks;
-    SpriteRenderer[,] m_SpriteRenderer;
+    public SpriteRenderer[,] spriteRenderers;
 
     private float speed;
     bool isMoving = false, moveToSecondPoint = false;
@@ -35,17 +31,12 @@ public class Movement : MonoBehaviour
 
     int columnLenth = 4;
     int rowLenth = 3;
-
+    int randomColumn = 0;
+    int randomRow = 0;
 
     bool displacedHorizontal = false;
     bool displacedVertical = false;
-    bool ready = false;
 
-
-    //aLotOfMovements = false;
-    //int saveNextBlock = 0;
-    //int saveNextLine = 0;
-    // Use this for initialization
     void Start()
     {
         //---------- Init RB ----------- //
@@ -53,24 +44,9 @@ public class Movement : MonoBehaviour
         v2NextPosition = new Vector2[2];
         speed = 40.0f;
 
-        //rb.isKinematic = true;
-        //velocity = new Vector2(1.75f, 1.1f);
-
-
         //---------- Init Blocks ----------- //
-        //blocks = new Block[lines.Length, lines[0].columns.Length];
         blocks = InstantiateBlocks(columnLenth, rowLenth, new Vector2Int(-15, 3), 3, 3, 1);
-        m_SpriteRenderer = new SpriteRenderer[columnLenth, rowLenth];
-
-
-        for (int i = 0; i < 4; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                blocks[i, j] = blocks[i, j].GetComponent<Block>();
-                m_SpriteRenderer[i, j] = blocks[i, j].GetComponent<SpriteRenderer>();
-            }
-        }
+        spriteRenderers = InitRenderBlocks(columnLenth, rowLenth);
 
         //---------- Init First Position ----------- //
         //  v2PosActual = blocks[0, 0].transform.position;
@@ -78,6 +54,22 @@ public class Movement : MonoBehaviour
         //transform.position = v2PosActual;
         //v2NextPosition[0] = blocks[0, 0].transform.position;
     }
+
+    SpriteRenderer[,] InitRenderBlocks(int columnLenth, int rowLenth)
+    {
+        SpriteRenderer[,] spriteRenderers = new SpriteRenderer[columnLenth, rowLenth];
+
+        for (int i = 0; i < columnLenth; i++)
+        {
+            for (int j = 0; j < rowLenth; j++)
+            {
+                spriteRenderers[i, j] = blocks[i, j].GetComponent<SpriteRenderer>();
+            }
+        }
+
+        return spriteRenderers;
+    }
+
 
     Block[,] InstantiateBlocks(int column, int row, Vector2Int offset, float width, float height, float margin)
     {
@@ -89,11 +81,9 @@ public class Movement : MonoBehaviour
             {
                 blocks[i, j] = Instantiate(blockPrefab).GetComponent<Block>();
                 blocks[i, j].transform.position = offset + new Vector2(i * (width + margin), j * -(height + margin));
-
-                //blocks[i, j] = blocks[i, j].GetComponent<Block>();
-                //m_SpriteRenderer[i, j] = blocks[i, j].GetComponent<SpriteRenderer>();
             }
         }
+
         return blocks;
     }
 
@@ -101,22 +91,22 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
-            Debug.Log("H");
-            int column = Random.Range(0, columnLenth);
-            int row = Random.Range(0, rowLenth);
+            //Debug.Log("H " + randomColumn + " // " + randomRow);
 
-            if (blocks[column, row].disableBlock)
+            if (blocks[randomColumn, randomRow].disableBlock)
             {
-                blocks[column, row].disableBlock = false;
-                m_SpriteRenderer[column, row].color = Color.green;
+                blocks[randomColumn, randomRow].disableBlock = false;
+                spriteRenderers[randomColumn, randomRow].color = Color.green;
             }
 
-            blocks[column, row].disableBlock = true;
-            m_SpriteRenderer[column, row].color = Color.red;
+            randomColumn = Random.Range(0, columnLenth);
+            randomRow = Random.Range(0, rowLenth);
+
+            blocks[randomColumn, randomRow].disableBlock = true;
+            spriteRenderers[randomColumn, randomRow].color = Color.red;
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         getAxisMovement();
@@ -141,37 +131,27 @@ public class Movement : MonoBehaviour
 
         }
 
+        //--------------- Move Right --------------- //
+        if (horizontal > 0 && nextColumn < columnLenth - 1)
+            if (!blocks[nextColumn + 1, nextRow].disableBlock)
+                nextColumn += (int)horizontal;
 
-        ////--------------- Move Right --------------- //
-        //if (horizontal > 0 && nextColumn < blocks.[nextRow].Length - 1)
-        //    if (!blocks[nextRow, nextColumn + 1].disableBlock)
-        //        nextColumn += (int)horizontal;
+        //--------------- Move Left --------------- //
+        if (horizontal < 0 && nextColumn > 0)
+            if (!blocks[nextColumn - 1, nextRow].disableBlock)
+                nextColumn += (int)horizontal;
 
-        ////--------------- Move Left --------------- //
-        //if (horizontal < 0 && nextColumn > 0)
-        //    if (!blocks[nextRow, nextColumn - 1].disableBlock)
-        //        nextColumn += (int)horizontal;
+        //--------------- Move Up --------------- //
+        if (vertical < 0 && nextRow < rowLenth - 1)
+            if (!blocks[nextColumn, nextRow + 1].disableBlock)
+                nextRow -= (int)vertical;
 
-        ////--------------- Move Up --------------- //
-        //if (vertical < 0 && nextRow < lines.Length - 1)
-        //    if (!blocks[nextRow + 1, nextColumn].disableBlock)
-        //        nextRow -= (int)vertical;
+        //--------------- Move Down --------------- //
+        if (vertical > 0 && nextRow > 0)
+            if (!blocks[nextColumn, nextRow - 1].disableBlock)
+                nextRow -= (int)vertical;
 
-        ////--------------- Move Down --------------- //
-        //if (vertical > 0 && nextRow > 0)
-        //    if (!blocks[nextRow - 1, nextColumn].disableBlock)
-        //        nextRow -= (int)vertical;
-
-
-        //if (isMoving && ((int)vertical != 0 || (int)horizontal != 0))
-        //{
-
-        //    ready = true;
-        //}
-        //else
-        //{
-        //    ready = false;
-        //}
+        //Debug.Log("Column: " + nextColumn + " // Row: " + nextRow);
     }
 
     private void FixedUpdate()
@@ -186,7 +166,7 @@ public class Movement : MonoBehaviour
 
         // Debug.Log("Line: " + nextLine + "// Block: " + nextBlock + "// Pos: " + nextPositionVector);
 
-        Debug.Log(ready);
+        //Debug.Log(ready);
 
         if ((Vector2)transform.position != v2NextPosition[nextPositionVector])
         {
@@ -214,11 +194,7 @@ public class Movement : MonoBehaviour
             v2NextPosition[posV2Guardada] = blocks[nextColumn, nextRow].transform.position;
 
             moveToSecondPoint = true;
-            Debug.Log("Paso 2 Guardar Segunda pos");
-
-
-            //lastNextBlock = nextBlock;
-            //lastNextLine = nextLine;
+            //Debug.Log("Paso 2 Guardar Segunda pos");
         }
 
         if (!isMoving)
@@ -227,19 +203,13 @@ public class Movement : MonoBehaviour
                 {
                     nextPositionVector = 1;
                     moveToSecondPoint = false;
-                    //lastNextBlock = nextBlock;
-                    //lastNextLine = nextLine;
-                    Debug.Log("Paso 3 Mueve Segunda pos");
-
+                    //Debug.Log("Paso 3 Mueve Segunda pos");
                 }
                 else
                 {
                     nextPositionVector = 0;
                     moveToSecondPoint = false;
-                    //lastNextBlock = nextBlock;
-                    //lastNextLine = nextLine;
-                    Debug.Log("Paso 3 Mueve Segunda pos");
-
+                    //Debug.Log("Paso 3 Mueve Segunda pos");
                 }
 
 
@@ -251,11 +221,22 @@ public class Movement : MonoBehaviour
 
             lastNextColumn = nextColumn;
             lastNextRow = nextRow;
-            Debug.Log("Paso 1 Guardar");
+            //Debug.Log("Paso 1 Guardar");
         }
-
-        
     }
+
+
+
+
+
+
+
+
+    //---------------------------------------------------------------------------------------//
+
+
+
+
 
     void getAxisMovement()
     {
@@ -297,13 +278,61 @@ public class Movement : MonoBehaviour
                 posConfirmed = true;
             }
 
-        if (Input.GetAxisRaw("Mouse Y") > 0f)
-            
-            Debug.Log(Input.GetJoystickNames() + " is moved");
-        
-        //Debug.Log("dirHorizontal" + dirHorizontal + "dirVertical" + dirVertical);
+        //if (Input.GetAxisRaw("Mouse Y") > 0f)
 
-        //--------------- Direction Horizontal --------------- //
+        for (int i = 0; i < 2; i++)
+        {
+            if (Input.GetAxis("Joy" + 0 + "Y") > 0f)
+            {
+                Debug.Log(Input.GetJoystickNames()[i] + " is moved: " + 0 + " TOP");
+            }
+
+            if (Input.GetAxis("Joy" + 1 + "Y") > 0f)
+            {
+                Debug.Log(Input.GetJoystickNames()[i] + " is moved: " + 1 + " TOP");
+            }
+
+            //----------------------------------------//
+
+            if (Input.GetAxis("Joy" + 0 + "Y") < -0f)
+            {
+                Debug.Log(Input.GetJoystickNames()[i] + " is moved: " + 0 + " Down");
+            }
+
+            if (Input.GetAxis("Joy" + 1 + "Y") < -0f)
+            {
+                Debug.Log(Input.GetJoystickNames()[i] + " is moved: " + 1 + " Down");
+            }
+
+            //----------------------------------------//
+
+            if (Input.GetAxis("Joy" + 0 + "X") > 0f)
+            {
+                Debug.Log(Input.GetJoystickNames()[i] + " is moved: " + 0 + " Right");
+            }
+
+            if (Input.GetAxis("Joy" + 1 + "X") > 0f)
+            {
+                Debug.Log(Input.GetJoystickNames()[i] + " is moved: " + 1 + " Right");
+            }
+
+            //----------------------------------------//
+
+            if (Input.GetAxis("Joy" + 0 + "X") < -0f)
+            {
+                Debug.Log(Input.GetJoystickNames()[i] + " is moved: " + 0 + " Left");
+            }
+
+            if (Input.GetAxis("Joy" + 1 + "X") < -0f)
+            {
+                Debug.Log(Input.GetJoystickNames()[i] + " is moved: " + 1 + " Left");
+            }
+        }
+
+        //Debug.Log(Input.GetJoystickNames() + " is moved");
+
+        //Debug.Log("dirHorizontal" + dirHorizontal + "dirVertical" + dirVertical);
+        //----------- Horizontal Controller ------------ //
         if (dirHorizontal != 0)
         {
             if (displacedHorizontal == false)
@@ -317,7 +346,7 @@ public class Movement : MonoBehaviour
             displacedHorizontal = false;
         }
 
-        //--------------- Direction Vertical --------------- //
+        //----------- Vertical Controller ------------ //
         if (dirVertical != 0)
         {
             if (displacedVertical == false)
