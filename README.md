@@ -1,5 +1,4 @@
 # A Blast from the Past
-We are developing a video game for the end of course project.
+--> We are a team of 3 people (students) developing a videogame as a final project for the university.
 
-Hi i'm trying some random shitttttt. :D
-
+--> We're using Unity while we keep learning!.
