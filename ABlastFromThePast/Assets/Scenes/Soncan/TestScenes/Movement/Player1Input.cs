@@ -134,7 +134,7 @@ public class Player1Input : MonoBehaviour {
     {
         //bool posConfirmed = false;
 
-
+        //Arreglar el poblema si pulsas dos teclas en el mismo frame.
         //--------------- Direction Horizontal --------------- //
         dirHorizontal = Input.GetAxisRaw("Mouse X");
 
@@ -156,12 +156,13 @@ public class Player1Input : MonoBehaviour {
                 dirVertical = -1f;
     }
 
+
     //// Se comprueba 
-    bool isInputPress(bool posConfirmed)
-    {
+    //bool isInputPress(bool posConfirmed)
+    //{
 
-        if (dirVertical != 0 && dirHorizontal)
+    //    if (dirVertical != 0 && dirHorizontal)
 
-            return false;
-    }
+    //        return false;
+    //}
 }
