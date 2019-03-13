@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Block : MonoBehaviour {
+public class StatsBlock : MonoBehaviour {
 
     public bool disableBlock = false;
-    public Block blocks;
+    public StatsBlock blocks;
 
     SpriteRenderer m_SpriteRenderer;
 

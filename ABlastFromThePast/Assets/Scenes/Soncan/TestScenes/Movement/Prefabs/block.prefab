@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212585953406938488}
   - component: {fileID: 114914907217710042}
   m_Layer: 0
-  m_Name: block (00)
+  m_Name: block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,6 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c1022b54846144984b44fd64373705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableBlock: 0
+  blocks: {fileID: 0}
 --- !u!212 &212585953406938488
 SpriteRenderer:
   m_ObjectHideFlags: 1

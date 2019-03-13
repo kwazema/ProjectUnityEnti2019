@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour
     //public GameObjectArray[] lines; // Array de Clases
     public Rigidbody2D rb;
 
-    public Block[,] blocks;
+    public StatsBlock[,] blocks;
     public SpriteRenderer[,] spriteRenderers;
 
     private float speed;
@@ -71,15 +71,15 @@ public class Movement : MonoBehaviour
     }
 
 
-    Block[,] InstantiateBlocks(int column, int row, Vector2Int offset, float width, float height, float margin)
+    StatsBlock[,] InstantiateBlocks(int column, int row, Vector2Int offset, float width, float height, float margin)
     {
-        Block[,] blocks = new Block[column, row];
+        StatsBlock[,] blocks = new StatsBlock[column, row];
 
         for (int i = 0; i < column; i++)
         {
             for (int j = 0; j < row; j++)
             {
-                blocks[i, j] = Instantiate(blockPrefab).GetComponent<Block>();
+                blocks[i, j] = Instantiate(blockPrefab).GetComponent<StatsBlock>();
                 blocks[i, j].transform.position = offset + new Vector2(i * (width + margin), j * -(height + margin));
             }
         }

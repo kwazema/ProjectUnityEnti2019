@@ -6,7 +6,7 @@ public class Player1Movement : MonoBehaviour {
 
     private int column, row;
     private int nextColumn, nextRow;
-    private int columnLenth = 4, rowLenth = 3;
+    private int columnLenth, rowLenth;
 
     private int numPositionMove = 0, numPositionSave = 0;
 
@@ -19,12 +19,24 @@ public class Player1Movement : MonoBehaviour {
     public Rigidbody2D rb;
     Player1Input player1Input;
 
-    private Block[,] blocks;
+    //private StatsBlock[,] blocks;
+    private Map map;
+
     public GameObject blockPrefab;
+
+    private void Awake()
+    {
+        //map = GameObject.Find("Map").GetComponent<Map>();
+        map = FindObjectOfType<Map>();
+    }
 
     // Use this for initialization
     void Start ()
     {
+        //---------- Init Length ----------- //
+        columnLenth = map.columnLenth / 2;
+        rowLenth = map.rowLenth;
+
         //player1Input = gameObject.GetComponent<Player1Input>(); // Diferencia?
         player1Input = GetComponent<Player1Input>();
 
@@ -36,7 +48,7 @@ public class Player1Movement : MonoBehaviour {
         speed = 40.0f;
 
         //----- Init Game Objects ----- //
-        blocks = InstantiateBlocks(columnLenth, rowLenth, new Vector2Int(-15, 3), 3, 3, 1);
+        //blocks = InstantiateBlocks(columnLenth, rowLenth, new Vector2Int(-15, 3), 3, 3, 1);
     }
 
     // Update is called once per frame
@@ -75,7 +87,7 @@ public class Player1Movement : MonoBehaviour {
                 numPositionSave = 0;
             }
 
-            v2Position[numPositionSave] = blocks[column, row].transform.position;
+            v2Position[numPositionSave] = map.blocks[column, row].transform.position;
 
             moveToSecondBlock = true;
 
@@ -96,7 +108,7 @@ public class Player1Movement : MonoBehaviour {
         // Guarda la posicion del bloque actual del Player.
         if (!isMoving)
         {
-            v2Position[numPositionSave] = blocks[column, row].transform.position;
+            v2Position[numPositionSave] = map.blocks[column, row].transform.position;
 
             nextColumn = column;
             nextRow = row;
@@ -139,19 +151,19 @@ public class Player1Movement : MonoBehaviour {
 
 
     //----------- Functions: Game Objects -----------//
-    Block[,] InstantiateBlocks(int column, int row, Vector2Int offset, float width, float height, float margin)
-    {
-        Block[,] blocks = new Block[column, row];
+    //StatsBlock[,] InstantiateBlocks(int column, int row, Vector2Int offset, float width, float height, float margin)
+    //{
+    //    StatsBlock[,] blocks = new StatsBlock[column, row];
 
-        for (int i = 0; i < column; i++)
-        {
-            for (int j = 0; j < row; j++)
-            {
-                blocks[i, j] = Instantiate(blockPrefab).GetComponent<Block>();
-                blocks[i, j].transform.position = offset + new Vector2(i * (width + margin), j * -(height + margin));
-            }
-        }
+    //    for (int i = 0; i < column; i++)
+    //    {
+    //        for (int j = 0; j < row; j++)
+    //        {
+    //            blocks[i, j] = Instantiate(blockPrefab).GetComponent<StatsBlock>();
+    //            blocks[i, j].transform.position = offset + new Vector2(i * (width + margin), j * -(height + margin));
+    //        }
+    //    }
 
-        return blocks;
-    }
+    //    return blocks;
+    //}
 }
