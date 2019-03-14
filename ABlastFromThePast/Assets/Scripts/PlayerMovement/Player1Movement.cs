@@ -19,6 +19,12 @@ public class Player1Movement : MonoBehaviour {
     public Rigidbody2D rb;
     Player1Input player1Input;
 
+    // <-- Funciones Get --> //
+    #region Functions
+    public bool GetIsMoving() { return isMoving; }
+    #endregion
+
+
     //private StatsBlock[,] blocks;
     private Map map;
 
