@@ -8,6 +8,7 @@ public class Player1Attack : MonoBehaviour {
 
     public Transform basicShotSpawn;
     public GameObject basicAttack;
+    public SpriteRenderer shieldRender;
 
     #region  Variables
     private float fireRate;
@@ -49,13 +50,14 @@ public class Player1Attack : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.N))
             UltimateAttack();
 
-        if (Input.GetKey(KeyCode.M) && (shieldHealth == maxShieldHealth))
+        if (Input.GetKey(KeyCode.M) && (shieldHealth > 0))
         {
             Debug.Log("Activando Protocolo Ruedines.");
             isShieldActive = true;
+            shieldRender.enabled = true;
         }
 
-        if (Input.GetKeyUp(KeyCode.M) /*|| (shieldHealth > 0)*/)
+        if (Input.GetKeyUp(KeyCode.M) || (shieldHealth < 0))
         {
             Debug.Log("Descactivando Protocolo Ruedines.");
             UnableShield();
@@ -75,13 +77,16 @@ public class Player1Attack : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-
+        if (isShieldActive)
+        {
+            shieldHealth -= 5;
+        }
     }
-
 
     void UnableShield()
     {
         isShieldActive = false;
+        shieldRender.enabled = false;
         // Animaciones de rotura de escudo o desactivacion.
     }
 }
