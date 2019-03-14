@@ -12,9 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Almorax/TestScenes/TestSceneAlex.unity
     guid: 6f6c6baf94990954a956d4c65abf2762
   - enabled: 1
-    path: Assets/Scenes/Almorax/TestScenes/Menus/Menu.unity
+    path: Assets/Scenes/Main/Menu.unity
     guid: d334bde6977945649850baddc2f8e2b4
   - enabled: 1
-    path: Assets/Scenes/Almorax/TestScenes/ModoJuego.unity
+    path: Assets/Scenes/Main/ModoJuego.unity
     guid: b7dc9bbc75d2a5c4a8f1e0e89ce2d7c5
+  - enabled: 1
+    path: Assets/Scenes/Main/MovementSoncan.unity
+    guid: b7699f9e05d2e6741bdc5bc74c9ac548
   m_configObjects: {}

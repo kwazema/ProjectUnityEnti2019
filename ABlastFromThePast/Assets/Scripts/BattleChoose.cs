@@ -17,7 +17,7 @@ public class BattleChoose : MonoBehaviour {
 
     public void Play()
     {
-        SceneManager.LoadScene("TestSceneAlex");
+        SceneManager.LoadScene("MovementSoncan");
     }
 
     public void Return()
