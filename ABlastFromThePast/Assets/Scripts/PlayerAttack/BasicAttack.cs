@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BAMove : MonoBehaviour {
+public class BasicAttack : MonoBehaviour {
 
     Transform shot;
 
@@ -18,4 +18,11 @@ public class BAMove : MonoBehaviour {
 	void Update () {
         shot.Translate(Vector2.right * shotSpeed);
 	}
+
+    private void OnCollisionEnter2D (Collision2D col)
+    {
+        Debug.Log("Shot to point");
+        Destroy(gameObject);
+    }
+
 }
