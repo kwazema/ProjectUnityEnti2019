@@ -14,6 +14,10 @@ public class Player1Input : MonoBehaviour {
 
     private Player1Movement playerMovement;
 
+
+    [SerializeField] enum EnumPlayer { Player1, Player2}
+    [SerializeField] EnumPlayer player;
+
     // Use this for initialization
     void Start ()
     {
@@ -40,7 +44,7 @@ public class Player1Input : MonoBehaviour {
 
     void getAxisMovement()
     {
-        InputMovement();
+        InputMovement(player);
 
         GetController();
 
@@ -130,30 +134,21 @@ public class Player1Input : MonoBehaviour {
         }
     }
 
-    void InputMovement()
+    void InputMovement(EnumPlayer player)
     {
         //bool posConfirmed = false;
 
         //Arreglar el poblema si pulsas dos teclas en el mismo frame.
-        //--------------- Direction Horizontal --------------- //
-        dirHorizontal = Input.GetAxisRaw("Mouse X");
+        switch (player)
+        {
+        case EnumPlayer.Player1:
+            InputKeyPlayer1();
+            break;
 
-        if (Input.GetKeyDown(KeyCode.A))
-                dirHorizontal = -1f;
-
-        if (Input.GetKeyDown(KeyCode.D))
-                dirHorizontal = 1f;
-
-
-
-        //--------------- Direction Vertical --------------- //
-        dirVertical = Input.GetAxisRaw("Mouse Y");
-
-        if (Input.GetKeyDown(KeyCode.W))
-                dirVertical = 1f;
-
-        if (Input.GetKeyDown(KeyCode.S))
-                dirVertical = -1f;
+        case EnumPlayer.Player2:
+            InputKeyPlayer2();
+            break;
+        }
     }
 
 
@@ -165,4 +160,47 @@ public class Player1Input : MonoBehaviour {
 
     //        return false;
     //}
+
+
+    void InputKeyPlayer1()
+    {
+        //--------------- Direction Horizontal --------------- //
+        dirHorizontal = Input.GetAxisRaw("Mouse X");
+
+        if (Input.GetKeyDown(KeyCode.A))
+            dirHorizontal = -1f;
+
+        if (Input.GetKeyDown(KeyCode.D))
+            dirHorizontal = 1f;
+
+        //--------------- Direction Vertical --------------- //
+        dirVertical = Input.GetAxisRaw("Mouse Y");
+
+        if (Input.GetKeyDown(KeyCode.W))
+            dirVertical = 1f;
+
+        if (Input.GetKeyDown(KeyCode.S))
+            dirVertical = -1f;
+    }
+
+    void InputKeyPlayer2()
+    {
+        //--------------- Direction Horizontal --------------- //
+        dirHorizontal = Input.GetAxisRaw("Mouse X");
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+            dirHorizontal = -1f;
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            dirHorizontal = 1f;
+
+        //--------------- Direction Vertical --------------- //
+        dirVertical = Input.GetAxisRaw("Mouse Y");
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+            dirVertical = 1f;
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+            dirVertical = -1f;
+    }
 }
