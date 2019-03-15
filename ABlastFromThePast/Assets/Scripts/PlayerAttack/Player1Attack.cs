@@ -75,11 +75,8 @@ public class Player1Attack : MonoBehaviour
                 ActiveShield(); 
         }
 
-        if (
-            Input.GetKeyUp(KeyCode.M) ||
-            (shieldHealth < 0) ||
-            isShooting
-            )
+        //if (Input.GetKeyUp(KeyCode.M) || (shieldHealth < 0) || isShooting)
+        if (Input.GetKeyUp(KeyCode.M) || (shieldHealth < 0))
         {
             DeactivateShield();
         }
