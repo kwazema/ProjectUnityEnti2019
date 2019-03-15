@@ -29,8 +29,8 @@ public class Player1Attack : MonoBehaviour
     {
         playerMove = GetComponent<Player1Movement>();
         
-        shieldHealth = maxShieldHealth;
-        //shieldHealth = 10;
+        //shieldHealth = maxShieldHealth;
+        shieldHealth = 10;
 
         /* <-- Funcion que siempre comprueba y añade vida al escudo por cada segundo --> */
         StartCoroutine(ShieldRecovery()); 
@@ -40,7 +40,7 @@ public class Player1Attack : MonoBehaviour
     void Update()
     {
         GetInput();
-        Debug.Log("Shield: " + shieldHealth);
+        //Debug.Log("Shield: " + shieldHealth);
     }
 
     void GetInput()
@@ -53,7 +53,10 @@ public class Player1Attack : MonoBehaviour
         {
             BasicAttack();
         }
-        else { isShooting = false; }
+        else
+        {
+            isShooting = false;
+        }
 
         if (Input.GetKeyDown(KeyCode.B))
             SkillAttack();
@@ -85,7 +88,13 @@ public class Player1Attack : MonoBehaviour
     void BasicAttack()
     {
         Debug.Log("Basic Attack");
+
+        // Cada vez que disparas te iguala el time.time y despues le sumas el fireRate 
+        // sino hasta el nextFire no sea mayor a Time.Time actual no dejara de disparar
+        nextFire = Time.time; 
         nextFire += Time.deltaTime + fireRate;
+       
+        Debug.Log("Next Fire: " + nextFire);
         Instantiate(basicAttack, basicShotSpawn.position, basicShotSpawn.rotation);
         isShooting = true;
     }

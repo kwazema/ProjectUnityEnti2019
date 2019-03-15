@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 433552842}
   - component: {fileID: 433552841}
   - component: {fileID: 433552838}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: P1ControlerCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -741,6 +741,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1436818323303384, guid: c880d4c4ec329a643a6007aa9f9b3b49, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c880d4c4ec329a643a6007aa9f9b3b49, type: 2}
   m_IsPrefabParent: 0
@@ -1035,7 +1039,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1353767381}
   - component: {fileID: 1353767382}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1225,7 +1229,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1542415841}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BasicShotSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1567,7 +1571,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1975970141}
   - component: {fileID: 1975970142}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GraficCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}

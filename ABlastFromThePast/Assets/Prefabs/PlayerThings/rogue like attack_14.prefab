@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50985781013090702}
   - component: {fileID: 61670643542903704}
   - component: {fileID: 114897807822231458}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rogue like attack_14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
