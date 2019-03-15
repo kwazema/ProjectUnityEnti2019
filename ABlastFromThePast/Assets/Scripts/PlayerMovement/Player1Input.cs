@@ -14,7 +14,6 @@ public class Player1Input : MonoBehaviour {
 
     private Player1Movement playerMovement;
 
-
     [SerializeField] enum EnumPlayer { Player1, Player2}
     [SerializeField] EnumPlayer player;
 

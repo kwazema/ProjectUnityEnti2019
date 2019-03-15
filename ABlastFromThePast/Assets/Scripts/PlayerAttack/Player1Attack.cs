@@ -84,28 +84,28 @@ public class Player1Attack : MonoBehaviour
 
     void BasicAttack()
     {
-        Debug.Log("Basic Attack");
+        //Debug.Log("Basic Attack");
 
         // Cada vez que disparas te iguala el time.time y despues le sumas el fireRate 
         // sino hasta el nextFire no sea mayor a Time.Time actual no dejara de disparar
         nextFire = Time.time; 
         nextFire += Time.deltaTime + fireRate;
        
-        Debug.Log("Next Fire: " + nextFire);
+        //Debug.Log("Next Fire: " + nextFire);
         Instantiate(basicAttack, basicShotSpawn.position, basicShotSpawn.rotation);
         isShooting = true;
     }
 
     private void ActiveShield()
     {
-        Debug.Log("Activando Protocolo Ruedines.");
+        //Debug.Log("Activando Protocolo Ruedines.");
         isShieldActive = true;
         shieldRender.enabled = true;
     }
 
     private void DeactivateShield()
     {
-        Debug.Log("Descactivando Protocolo Ruedines.");
+       //Debug.Log("Descactivando Protocolo Ruedines.");
         isShieldActive = false;
         shieldRender.enabled = false;
     }

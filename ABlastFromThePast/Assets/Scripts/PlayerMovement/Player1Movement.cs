@@ -51,10 +51,12 @@ public class Player1Movement : MonoBehaviour {
 
         //------- Init Movemen --------- //
         v2Position = new Vector2[2];
+        v2Position[0] = map.blocks[0, 0].transform.position;
+        v2Position[1] = map.blocks[0, 0].transform.position;
         speed = 40.0f;
 
-        //----- Init Game Objects ----- //
-        //blocks = InstantiateBlocks(columnLenth, rowLenth, new Vector2Int(-15, 3), 3, 3, 1);
+        //----- Init Player Position ----- //
+        transform.position = map.blocks[0, 0].transform.position;
     }
 
     // Update is called once per frame
@@ -68,6 +70,8 @@ public class Player1Movement : MonoBehaviour {
     void MovementCharacter()
     {
         float step = speed * Time.deltaTime;
+        Debug.Log("Position Player: " + transform.position);
+        Debug.Log("Position GO: " + v2Position[numPositionMove]);
         transform.position = Vector2.MoveTowards(transform.position, v2Position[numPositionMove], step);
 
         // Compruba si se esta movimiento
