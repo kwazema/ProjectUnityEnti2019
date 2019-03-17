@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61670643542903704}
   - component: {fileID: 114897807822231458}
   m_Layer: 9
-  m_Name: rogue like attack_14
+  m_Name: BasicAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c5b33389cb1424292582c41267dc30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shotSpeed: 0
 --- !u!212 &212805163880538524
 SpriteRenderer:
   m_ObjectHideFlags: 1

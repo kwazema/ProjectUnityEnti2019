@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-
+    public PlayerStats playerStats;
     PlayerMovement playerMove;
 
     public Transform basicShotSpawn;
@@ -12,25 +12,16 @@ public class PlayerAttack : MonoBehaviour
     public SpriteRenderer shieldRender;
 
     #region  Variables
-    private const float fireRate = 0.2f;
     private float nextFire = 0.0f;
-    private int shieldHealth;
-    private const int maxShieldHealth = 20;
-    private const int recoveryShieldTime = 1;
-
-
     private bool isShieldActive = false;
     private bool isShooting = false;
-
     #endregion
 
     // Use this for initialization
     void Start()
     {
         playerMove = GetComponent<PlayerMovement>();
-        
-        //shieldHealth = maxShieldHealth;
-        shieldHealth = 10;
+        playerStats = GetComponent<PlayerStats>();
 
         /* <-- Funcion que siempre comprueba y añade vida al escudo por cada segundo --> */
         StartCoroutine(ShieldRecovery()); 
@@ -40,7 +31,8 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         GetInput();
-        //Debug.Log("Shield: " + shieldHealth);
+        Debug.Log("Escudo: " + playerStats.shield);
+        Debug.Log("Vida: " + playerStats.health);
     }
 
     void GetInput()
@@ -71,12 +63,12 @@ public class PlayerAttack : MonoBehaviour
         */
         if (Input.GetKey(KeyCode.M))
         {
-            if (shieldHealth > 0 && !isShooting)
+            if (playerStats.GetShield() > 0 && !isShooting)
                 ActiveShield(); 
         }
 
         //if (Input.GetKeyUp(KeyCode.M) || (shieldHealth < 0) || isShooting)
-        if (Input.GetKeyUp(KeyCode.M) || (shieldHealth < 0))
+        if (Input.GetKeyUp(KeyCode.M) || (playerStats.GetShield() < 0))
         {
             DeactivateShield();
         }
@@ -84,21 +76,19 @@ public class PlayerAttack : MonoBehaviour
 
     void BasicAttack()
     {
-        //Debug.Log("Basic Attack");
-
         // Cada vez que disparas te iguala el time.time y despues le sumas el fireRate 
         // sino hasta el nextFire no sea mayor a Time.Time actual no dejara de disparar
         nextFire = Time.time; 
-        nextFire += Time.deltaTime + fireRate;
+        nextFire += Time.deltaTime + playerStats.GetFireRate();
        
-        //Debug.Log("Next Fire: " + nextFire);
-        Instantiate(basicAttack, basicShotSpawn.position, basicShotSpawn.rotation);
+        GameObject basicAttackClone = (GameObject)Instantiate(basicAttack, basicShotSpawn.position, basicShotSpawn.rotation);
+        basicAttackClone.transform.rotation = transform.rotation;
+        
         isShooting = true;
     }
 
     private void ActiveShield()
     {
-        //Debug.Log("Activando Protocolo Ruedines.");
         isShieldActive = true;
         shieldRender.enabled = true;
     }
@@ -115,11 +105,13 @@ public class PlayerAttack : MonoBehaviour
         while (true)
         { // loops forever...
             if (
-                shieldHealth < 20 &&
+                playerStats.shield < 20 &&
                 !isShieldActive
                 )
             {
-                shieldHealth += recoveryShieldTime; // increase health and wait the specified time
+                playerStats.shield += playerStats.recoveryShieldTime;
+                //playerStats.SetShield(RecoveryShield()); 
+                // increase health and wait the specified time
                 yield return new WaitForSeconds(1);
             }
             else
@@ -131,25 +123,35 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (isShieldActive)
-        {
-            Debug.Log("Hitted shield");
-            shieldHealth -= 5;
-            if (shieldHealth <= 0)
-            {
-                // <-- Player pierde vida --> //
-            }
-        }
-        else // <-- Si no esta activado el escudo directamente pierde vida --> //
-        {
-            Debug.Log("Hitted");
-            //if (player.isAlive())
-            //{
-            //    // <-- Player pierde vida --> //
-            //}
-        }
+        GetDamage();
     }
 
+    //private int RecoveryShield()
+    //{
+    //    int shield = (int)playerStats.GetShield();
+    //    shield += playerStats.GetRecoveryShieldTime();
+    //    return shield;
+    //}
+
+    private void GetDamage()
+    {
+        if (isShieldActive)
+        {
+            playerStats.shield += playerStats.damageBasicAttack;
+            
+            if (playerStats.shield < 0)
+            {
+                playerStats.health += playerStats.shield;
+                playerStats.shield = 0;
+                
+            }
+        }
+        else
+        {
+            playerStats.health += playerStats.damageBasicAttack;
+            
+        }
+    }
 
     // *************************** //
     void SkillAttack() {}
@@ -157,6 +159,9 @@ public class PlayerAttack : MonoBehaviour
     void UltimateAttack() {}
     // *************************** //
 }
+
+
+
 
 /*
  Asi es como se hace un timer y pienso que puede estar 
