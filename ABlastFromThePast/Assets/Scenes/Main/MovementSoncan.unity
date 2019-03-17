@@ -395,9 +395,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b49fd5743c959e469b7a48d59eebec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 0
-  column: 0
-  row: 0
+  playerColumn: 0
+  playerRow: 0
   speed: 0
   rb: {fileID: 433552840}
   blockPrefab: {fileID: 1924483091404750, guid: 374dfb99d53c03046b087fde64c8d45f,
@@ -890,9 +889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b49fd5743c959e469b7a48d59eebec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 1
-  column: 0
-  row: 0
+  playerColumn: 0
+  playerRow: 0
   speed: 0
   rb: {fileID: 1221282844}
   blockPrefab: {fileID: 1924483091404750, guid: 374dfb99d53c03046b087fde64c8d45f,

@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player1Movement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour {
 
-    [SerializeField] enum EnumPlayer { Player1, Player2 }
-    [SerializeField] EnumPlayer player;
-
-    public int column, row;
+    public int playerColumn, playerRow;
     private int nextColumn, nextRow;
     private int columnLenth, rowLenth;
 
@@ -20,7 +17,7 @@ public class Player1Movement : MonoBehaviour {
 
     private Vector2[] v2Position;
     public Rigidbody2D rb;
-    Player1Input player1Input;
+    PlayerInput playerInput;
 
     //private StatsBlock[,] blocks;
     private Map map;
@@ -38,15 +35,11 @@ public class Player1Movement : MonoBehaviour {
     public bool GetIsMoving() { return isMoving; }
     #endregion
 
-
     // Use this for initialization
     void Start ()
     {
-        //---------- Init Length ----------- //
-        
-
         //player1Input = gameObject.GetComponent<Player1Input>(); // Diferencia?
-        player1Input = GetComponent<Player1Input>();
+        playerInput = GetComponent<PlayerInput>();
 
         //---------- Init RB ----------- //
         rb = GetComponent<Rigidbody2D>();
@@ -57,22 +50,20 @@ public class Player1Movement : MonoBehaviour {
         columnLenth = map.columnLenth / 2;
         rowLenth = map.rowLenth;
 
-        if (EnumPlayer.Player1 == player)
+        if (PlayerInput.EnumPlayer.Player1 == playerInput.player)
         {
-            column = 0; row = 0;
+            playerColumn = 0; playerRow = 0;
 
-            v2Position[0] = map.blocks[column, row].transform.position;
+            v2Position[0] = map.blocks[playerColumn, playerRow].transform.position;
             transform.position = v2Position[0];
         }
-        else
+        else if (PlayerInput.EnumPlayer.Player2 == playerInput.player)
         {
-            column = map.columnLenth - 1; row = 0;
+            playerColumn = map.columnLenth - 1; playerRow = 0;
 
-            v2Position[0] = map.blocks[column, row].transform.position;
+            v2Position[0] = map.blocks[playerColumn, playerRow].transform.position;
             transform.position = v2Position[0];
         }
-
-        //----- Init Player Position ----- //
     }
 
     // Update is called once per frame
@@ -92,28 +83,19 @@ public class Player1Movement : MonoBehaviour {
 
         // Compruba si se esta movimiento
         if ((Vector2)transform.position != v2Position[numPositionMove])
-        {
             isMoving = true;
-        }
         else
-        {
             isMoving = false;
-        }
 
         // Cambiar el num de guardado y guardar la siguiente posicion del v2.
-        if (isMoving && player1Input.isInput)
+        if (isMoving && playerInput.IsInput())
         {
-
             if (numPositionMove == 0)
-            {
                 numPositionSave = 1;
-            }
             else
-            {
                 numPositionSave = 0;
-            }
 
-            v2Position[numPositionSave] = map.blocks[column, row].transform.position;
+            v2Position[numPositionSave] = map.blocks[playerColumn, playerRow].transform.position;
 
             moveToSecondBlock = true;
 
@@ -134,53 +116,53 @@ public class Player1Movement : MonoBehaviour {
         // Guarda la posicion del bloque actual del Player.
         if (!isMoving)
         {
-            v2Position[numPositionSave] = map.blocks[column, row].transform.position;
+            v2Position[numPositionSave] = map.blocks[playerColumn, playerRow].transform.position;
 
-            nextColumn = column;
-            nextRow = row;
+            nextColumn = playerColumn;
+            nextRow = playerRow;
             //Debug.Log("Paso 1 Guardar");
         }
     }
 
     void MovementAction(int dirHorizontal, int dirVertical)
     {
-        if (EnumPlayer.Player1 == player)
+        if (PlayerInput.EnumPlayer.Player1 == playerInput.player)
         {
             //if (Can i move?)
             //-------------- Move Right -------------- //
-            if (dirHorizontal > 0 && column < columnLenth - 1)
-                column += dirHorizontal;
+            if (dirHorizontal > 0 && playerColumn < columnLenth - 1)
+                playerColumn += dirHorizontal;
 
             //-------------- Move Left -------------- //
-            if (dirHorizontal < 0 && column > 0)
-                column += dirHorizontal;
+            if (dirHorizontal < 0 && playerColumn > 0)
+                playerColumn += dirHorizontal;
 
             //--------------- Move Up --------------- //
-            if (dirVertical < 0 && row < rowLenth - 1)
-                row -= dirVertical;
+            if (dirVertical < 0 && playerRow < rowLenth - 1)
+                playerRow -= dirVertical;
 
             //-------------- Move Down -------------- //
-            if (dirVertical > 0 && row > 0)
-                row -= dirVertical;
+            if (dirVertical > 0 && playerRow > 0)
+                playerRow -= dirVertical;
         }
-        else
+        else if (PlayerInput.EnumPlayer.Player2 == playerInput.player) 
         {
             //if (Can i move?)
             //-------------- Move Right -------------- //
-            if (dirHorizontal > 0 && column < map.columnLenth - 1)
-                column += dirHorizontal;
+            if (dirHorizontal > 0 && playerColumn < map.columnLenth - 1)
+                playerColumn += dirHorizontal;
 
             //-------------- Move Left -------------- //
-            if (dirHorizontal < 0 && column > map.columnLenth / 2)
-                column += dirHorizontal;
+            if (dirHorizontal < 0 && playerColumn > columnLenth)
+                playerColumn += dirHorizontal;
 
             //--------------- Move Up --------------- //
-            if (dirVertical < 0 && row < rowLenth - 1)
-                row -= dirVertical;
+            if (dirVertical < 0 && playerRow < rowLenth - 1)
+                playerRow -= dirVertical;
 
             //-------------- Move Down -------------- //
-            if (dirVertical > 0 && row > 0)
-                row -= dirVertical;
+            if (dirVertical > 0 && playerRow > 0)
+                playerRow -= dirVertical;
         }
     }
 
@@ -188,29 +170,11 @@ public class Player1Movement : MonoBehaviour {
     {
         if (moveToSecondBlock)
         {
-            column = nextColumn;
-            row = nextRow;
+            playerColumn = nextColumn;
+            playerRow = nextRow;
             Debug.Log("Paso 4: Sobre escribe Segunda Pos");
         }
 
         MovementAction(dirHorizontal, dirVertical);
     }
-
-
-    //----------- Functions: Game Objects -----------//
-    //StatsBlock[,] InstantiateBlocks(int column, int row, Vector2Int offset, float width, float height, float margin)
-    //{
-    //    StatsBlock[,] blocks = new StatsBlock[column, row];
-
-    //    for (int i = 0; i < column; i++)
-    //    {
-    //        for (int j = 0; j < row; j++)
-    //        {
-    //            blocks[i, j] = Instantiate(blockPrefab).GetComponent<StatsBlock>();
-    //            blocks[i, j].transform.position = offset + new Vector2(i * (width + margin), j * -(height + margin));
-    //        }
-    //    }
-
-    //    return blocks;
-    //}
 }

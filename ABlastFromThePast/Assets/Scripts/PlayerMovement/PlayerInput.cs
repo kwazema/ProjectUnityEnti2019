@@ -3,27 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 //using XInputDotNetPure; // Required in C#
 
-public class Player1Input : MonoBehaviour {
+public class PlayerInput : MonoBehaviour {
 
-    [SerializeField] enum EnumPlayer { Player1, Player2 }
-    [SerializeField] EnumPlayer player;
-
+    [SerializeField] public enum EnumPlayer { Player1, Player2 }
+    [SerializeField] public EnumPlayer player;
+    
     private float dirHorizontal, dirVertical;
 
     private bool displacedHorizontal = false;
     private bool displacedVertical = false;
 
-    [System.NonSerialized]
-    public bool isInput = false;
-    bool joystickDialogue;
 
-    private Player1Movement playerMovement;
+    private PlayerMovement playerMovement;
 
     // Use this for initialization
     void Start ()
     {
         //playerMovement = gameObject.GetComponent<Player1Movement>(); // Diferencia?
-        playerMovement = GetComponent<Player1Movement>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -31,16 +28,16 @@ public class Player1Input : MonoBehaviour {
     {
         getAxisMovement();
 
-        ActionMove();
+        IsInput();
     }
 
     //----------- Functions: Movement -----------//
-    void ActionMove()
+    public bool IsInput()
     {
         if (((int)dirVertical != 0) || ((int)dirHorizontal != 0))
-            isInput = true;
+            return true;
         else
-            isInput = false;
+            return false;
     }
 
     void getAxisMovement()
@@ -82,8 +79,6 @@ public class Player1Input : MonoBehaviour {
             displacedVertical = false;
         }
     }
-
-    int connected = 0;
 
     void JostickController()
     {
@@ -158,17 +153,6 @@ public class Player1Input : MonoBehaviour {
         }
     }
 
-
-    //// Se comprueba 
-    //bool isInputPress(bool posConfirmed)
-    //{
-
-    //    if (dirVertical != 0 && dirHorizontal)
-
-    //        return false;
-    //}
-
-
     void InputKeyPlayer1()
     {
         //--------------- Direction Horizontal --------------- //
@@ -181,13 +165,16 @@ public class Player1Input : MonoBehaviour {
             dirHorizontal = 1f;
 
         //--------------- Direction Vertical --------------- //
-        dirVertical = Input.GetAxisRaw("Joy0Y");
+        if (dirHorizontal == 0)
+        {
+            dirVertical = Input.GetAxisRaw("Joy0Y");
 
-        if (Input.GetKeyDown(KeyCode.W))
-            dirVertical = 1f;
+            if (Input.GetKeyDown(KeyCode.W))
+                dirVertical = 1f;
 
-        if (Input.GetKeyDown(KeyCode.S))
-            dirVertical = -1f;
+            if (Input.GetKeyDown(KeyCode.S))
+                dirVertical = -1f;
+        }
     }
 
     void InputKeyPlayer2()
@@ -202,12 +189,15 @@ public class Player1Input : MonoBehaviour {
             dirHorizontal = 1f;
 
         //--------------- Direction Vertical --------------- //
-        dirVertical = Input.GetAxisRaw("Joy1Y");
+        if (dirHorizontal == 0)
+        {
+            dirVertical = Input.GetAxisRaw("Joy1Y");
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-            dirVertical = 1f;
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+                dirVertical = 1f;
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-            dirVertical = -1f;
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+                dirVertical = -1f;
+        }
     }
 }

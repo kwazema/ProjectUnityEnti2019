@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player1Attack : MonoBehaviour
+public class PlayerAttack : MonoBehaviour
 {
 
-    Player1Movement playerMove;
+    PlayerMovement playerMove;
 
     public Transform basicShotSpawn;
     public GameObject basicAttack;
@@ -27,7 +27,7 @@ public class Player1Attack : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        playerMove = GetComponent<Player1Movement>();
+        playerMove = GetComponent<PlayerMovement>();
         
         //shieldHealth = maxShieldHealth;
         shieldHealth = 10;
