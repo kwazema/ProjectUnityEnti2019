@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using XInputDotNetPure; // Required in C#
 
 public class Player1Input : MonoBehaviour {
+
+    [SerializeField] enum EnumPlayer { Player1, Player2 }
+    [SerializeField] EnumPlayer player;
 
     private float dirHorizontal, dirVertical;
 
@@ -11,11 +15,9 @@ public class Player1Input : MonoBehaviour {
 
     [System.NonSerialized]
     public bool isInput = false;
+    bool joystickDialogue;
 
     private Player1Movement playerMovement;
-
-    [SerializeField] enum EnumPlayer { Player1, Player2}
-    [SerializeField] EnumPlayer player;
 
     // Use this for initialization
     void Start ()
@@ -45,7 +47,7 @@ public class Player1Input : MonoBehaviour {
     {
         InputMovement(player);
 
-        GetController();
+        JostickController();
 
         SetController();
     }
@@ -81,9 +83,15 @@ public class Player1Input : MonoBehaviour {
         }
     }
 
-    void GetController()
+    int connected = 0;
+
+    void JostickController()
     {
-        for (int i = 0; i < 2; i++)
+        string[] names = Input.GetJoystickNames();
+
+        Debug.Log("Josticks: " + names.Length);
+
+        for (int i = 0; i < Input.GetJoystickNames().Length; i++)
         {
             if (Input.GetAxis("Joy" + 0 + "Y") > 0f)
             {
@@ -164,7 +172,7 @@ public class Player1Input : MonoBehaviour {
     void InputKeyPlayer1()
     {
         //--------------- Direction Horizontal --------------- //
-        dirHorizontal = Input.GetAxisRaw("Mouse X");
+        dirHorizontal = Input.GetAxisRaw("Joy0X");
 
         if (Input.GetKeyDown(KeyCode.A))
             dirHorizontal = -1f;
@@ -173,7 +181,7 @@ public class Player1Input : MonoBehaviour {
             dirHorizontal = 1f;
 
         //--------------- Direction Vertical --------------- //
-        dirVertical = Input.GetAxisRaw("Mouse Y");
+        dirVertical = Input.GetAxisRaw("Joy0Y");
 
         if (Input.GetKeyDown(KeyCode.W))
             dirVertical = 1f;
@@ -185,7 +193,7 @@ public class Player1Input : MonoBehaviour {
     void InputKeyPlayer2()
     {
         //--------------- Direction Horizontal --------------- //
-        dirHorizontal = Input.GetAxisRaw("Mouse X");
+        dirHorizontal = Input.GetAxisRaw("Joy1X");
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
             dirHorizontal = -1f;
@@ -194,7 +202,7 @@ public class Player1Input : MonoBehaviour {
             dirHorizontal = 1f;
 
         //--------------- Direction Vertical --------------- //
-        dirVertical = Input.GetAxisRaw("Mouse Y");
+        dirVertical = Input.GetAxisRaw("Joy1Y");
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
             dirVertical = 1f;

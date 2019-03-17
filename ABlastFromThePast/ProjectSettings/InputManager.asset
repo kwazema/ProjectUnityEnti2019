@@ -308,7 +308,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 5
-    joyNum: 2
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Joy0Y
     descriptiveName: 
@@ -324,7 +324,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 6
-    joyNum: 2
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Joy1X
     descriptiveName: 
@@ -340,7 +340,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 5
-    joyNum: 3
+    joyNum: 2
   - serializedVersion: 3
     m_Name: Joy1Y
     descriptiveName: 
@@ -356,4 +356,4 @@ InputManager:
     invert: 0
     type: 2
     axis: 6
-    joyNum: 3
+    joyNum: 2

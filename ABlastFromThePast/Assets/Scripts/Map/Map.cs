@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Map : MonoBehaviour {
 
-    public int columnLenth = 8, rowLenth = 2;
+    public int columnLenth, rowLenth;
 
     public GameObject blockPrefab;
 
@@ -12,13 +12,13 @@ public class Map : MonoBehaviour {
 
     private void Awake()
     {
+        columnLenth = 8; rowLenth = 4;
         blocks = InstantiateBlocks(columnLenth, rowLenth, new Vector2Int(-15, 3), 3, 3, 1);
     }
 
     // Use this for initialization
     void Start () {
-		
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
