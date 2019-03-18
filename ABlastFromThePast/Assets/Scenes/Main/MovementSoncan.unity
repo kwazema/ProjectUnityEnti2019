@@ -340,8 +340,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04e2c1631b9505945aebc0c72cca7b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enumPlayer: 0
   game: {fileID: 0}
-  player: 0
+  player: []
   basicShotSpawn: {fileID: 761177749}
   basicAttack: {fileID: 1905425902709846, guid: 1bb4fccf9beacc9438fcb44404864bd2,
     type: 2}
@@ -374,7 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5554edf7ab38a042beee9acf9d0dc4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 0
+  enumPlayer: 0
 --- !u!50 &158638254
 Rigidbody2D:
   serializedVersion: 4
@@ -410,7 +411,7 @@ Transform:
   - {fileID: 99473779}
   - {fileID: 207357594}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &207357593 stripped
 SpriteRenderer:
@@ -577,7 +578,7 @@ GameObject:
   - component: {fileID: 433552841}
   - component: {fileID: 433552838}
   - component: {fileID: 433552844}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,8 +596,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04e2c1631b9505945aebc0c72cca7b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enumPlayer: 1
   game: {fileID: 0}
-  player: 0
+  player: []
   basicShotSpawn: {fileID: 1542415841}
   basicAttack: {fileID: 1570851383404196, guid: 3da3e31f41822e946be115aab0b9ae31,
     type: 2}
@@ -616,7 +618,7 @@ Transform:
   - {fileID: 1975970141}
   - {fileID: 464352168}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &433552840
 Rigidbody2D:
@@ -666,7 +668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5554edf7ab38a042beee9acf9d0dc4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 0
+  enumPlayer: 1
 --- !u!114 &433552844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -678,6 +680,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b50c5433f907347b51702dd7e440f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enumPlayer: 1
+  damageBasicAttack: 0
+  health: 0
+  shield: 0
 --- !u!212 &464352167 stripped
 SpriteRenderer:
   m_PrefabParentObject: {fileID: 212941492836063274, guid: c880d4c4ec329a643a6007aa9f9b3b49,
@@ -1092,7 +1098,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1436818323303384, guid: c880d4c4ec329a643a6007aa9f9b3b49, type: 2}
       propertyPath: m_Layer
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c880d4c4ec329a643a6007aa9f9b3b49, type: 2}
@@ -1204,7 +1210,7 @@ GameObject:
   - component: {fileID: 1221282842}
   - component: {fileID: 1221282841}
   - component: {fileID: 1221282846}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1222,8 +1228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04e2c1631b9505945aebc0c72cca7b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enumPlayer: 0
   game: {fileID: 0}
-  player: 1
+  player: []
   basicShotSpawn: {fileID: 1451637126}
   basicAttack: {fileID: 1905425902709846, guid: 1bb4fccf9beacc9438fcb44404864bd2,
     type: 2}
@@ -1256,7 +1263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5554edf7ab38a042beee9acf9d0dc4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 1
+  enumPlayer: 0
 --- !u!50 &1221282844
 Rigidbody2D:
   serializedVersion: 4
@@ -1305,6 +1312,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e787ce2bd589346a6b927be89dc033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enumPlayer: 0
+  damageBasicAttack: 0
+  health: 0
+  shield: 0
 --- !u!4 &1304594201 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4004508784938110, guid: 374dfb99d53c03046b087fde64c8d45f,
@@ -1366,7 +1377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1353767381}
   - component: {fileID: 1353767382}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: BodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1470,7 +1481,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1451637126}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: BasicShotSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1540,7 +1551,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1542415841}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: BasicShotSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1601,7 +1612,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1436818323303384, guid: c880d4c4ec329a643a6007aa9f9b3b49, type: 2}
       propertyPath: m_Layer
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 212941492836063274, guid: c880d4c4ec329a643a6007aa9f9b3b49,
         type: 2}
@@ -1697,7 +1708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3f21793504c83242a3de0d071fd684e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  columnLenth: 8
+  columnLenth: 500
   rowLenth: 2
   blockPrefab: {fileID: 1924483091404750, guid: 374dfb99d53c03046b087fde64c8d45f,
     type: 2}
@@ -1725,6 +1736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b7d58c6bd2bd54daa2d3391a7b08b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numPlayer: 
   playerStats: []
 --- !u!1 &1718668078
 GameObject:
@@ -1735,7 +1747,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1718668079}
   - component: {fileID: 1718668080}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: BodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2000,7 +2012,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1959391780}
   - component: {fileID: 1959391781}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: GraficCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2074,7 +2086,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1975970141}
   - component: {fileID: 1975970142}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: GraficCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}

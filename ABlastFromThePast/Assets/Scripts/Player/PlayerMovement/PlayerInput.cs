@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour {
 
     [SerializeField] public enum EnumPlayer { Player1, Player2 }
-    [SerializeField] public EnumPlayer player;
+    [SerializeField] public EnumPlayer enumPlayer;
     
     private float dirHorizontal, dirVertical;
 
@@ -42,7 +42,7 @@ public class PlayerInput : MonoBehaviour {
 
     void getAxisMovement()
     {
-        InputMovement(player);
+        InputMovement(enumPlayer);
 
         JostickController();
 

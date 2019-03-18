@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerAttackInput : MonoBehaviour
 {
-    public Game game;
-    [SerializeField] public enum EnumPlayer { Player1, Player2 }
-    [SerializeField] public EnumPlayer player;
+    public enum EnumPlayer { Player1, Player2 }
+    public EnumPlayer enumPlayer;
 
-    //private AnotherScript anotherScript;
+    public Game game;
+    Stats[] player;
+
     PlayerMovement playerMove;
 
     public Transform basicShotSpawn;
@@ -25,14 +26,14 @@ public class PlayerAttackInput : MonoBehaviour
     void Start()
     {
         playerMove = GetComponent<PlayerMovement>();
-        //playerStats = GetComponent<BrayanStats>();
         game = GameObject.Find("Map").GetComponent<Game>();
 
-        /* <-- Funcion que siempre comprueba y añade vida al escudo por cada segundo --> */
-        //StartCoroutine(ShieldRecovery()); 
+        player = new Stats[2];
+        player[0] = game.playerStats[0];
+        player[1] = game.playerStats[1];
+
     }
 
-    // Update is called once per frame
     void Update()
     {
         GetInput();
@@ -40,9 +41,19 @@ public class PlayerAttackInput : MonoBehaviour
         //Debug.Log("Vida: " + playerStats.health);
     }
 
-    void InitPlayer()
+    private void OnCollisionEnter2D(Collision2D col)
     {
 
+        if (EnumPlayer.Player1 == enumPlayer)
+        {
+            Debug.Log("take 0");
+            player[0].TakeDamage(player[1].GetDamageBasicAttack());
+        }
+        else
+        {
+            Debug.Log("take 1");
+            player[1].TakeDamage(player[0].GetDamageBasicAttack());
+        }
     }
 
     void GetInput()
@@ -66,41 +77,20 @@ public class PlayerAttackInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N))
             UltimateAttack();
 
-        /*
-         Hay problemas a la hora de seleccionar que tiene prioridad:
-         si el disparo o el escudo. 
-         De cualquier manera, si mantienes pulsado el escudo y disparas, este se desactiva intermitentemente 
-        */
         for (int i = 0; i < 2; i++)
         {
             if (Input.GetKey(KeyCode.M))
             {
-                if (game.playerStats[i].GetShield() > 0 && !isShooting)
+                if (player[i].GetShield() > 0 && !isShooting)
                     ActiveShield();
             }
 
             //if (Input.GetKeyUp(KeyCode.M) || (shieldHealth < 0) || isShooting)
-            if (Input.GetKeyUp(KeyCode.M) || (game.playerStats[i].GetShield() < 0))
+            if (Input.GetKeyUp(KeyCode.M) || (player[i].GetShield() < 0))
             {
                 DeactivateShield();
             }
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        //GetDamage();
-        //Debug.Log("Hit " + col.gameObject.name);
-
-        if (EnumPlayer.Player1 == player)
-        {
-            game.playerStats[0].TakeDamage(game.playerStats[1].GetDamageBasicAttack());
-        }
-        else
-        {
-            game.playerStats[1].TakeDamage(game.playerStats[0].GetDamageBasicAttack());
-        }
-        //playerStats.TakeDamage(20);
     }
 
     void BasicAttack()
@@ -110,7 +100,7 @@ public class PlayerAttackInput : MonoBehaviour
         nextFire = Time.time;
         for (int i = 0; i < 2; i++)
         {
-            nextFire += Time.deltaTime + game.playerStats[i].GetFireRate();
+            nextFire += Time.deltaTime + player[i].GetFireRate();
         }
        
         GameObject basicAttackClone = (GameObject)Instantiate(basicAttack, basicShotSpawn.position, basicShotSpawn.rotation);
@@ -132,26 +122,7 @@ public class PlayerAttackInput : MonoBehaviour
         shieldRender.enabled = false;
     }
 
-    IEnumerator ShieldRecovery()
-    {
-        while (true)
-        { // loops forever...
-            //if (
-            //    playerStats.shield < 20 &&
-            //    !isShieldActive
-            //    )
-            //{
-            //    playerStats.shield += playerStats.recoveryShieldTime;
-            //    //playerStats.SetShield(RecoveryShield()); 
-            //    // increase health and wait the specified time
-            //    yield return new WaitForSeconds(1);
-            //}
-            //else
-            //{ // if shieldHealth >= 100, just yield 
-            //    yield return null;
-            //}
-        }
-    }
+
 
     //private void OnCollisionEnter2D(Collision2D col)
     //{

@@ -6,13 +6,20 @@ public class Stats : MonoBehaviour {
 
     protected bool isShieldActive = false;
 
+    [SerializeField] public enum EnumPlayer { Player1, Player2 }
+    [SerializeField] public EnumPlayer enumPlayer;
+
     #region Variables
     // <-- Los valores de daño asignadlos en negativo y asi tiene más sentido a la hora de leer --> //
+    [SerializeField]
     protected int damageBasicAttack;
     protected int damageSkill;
     protected int damageUltimate;
 
+    [SerializeField]
     protected int health;
+
+    [SerializeField]
     protected int shield;
     protected int recoveryShieldTime;
 
@@ -24,6 +31,8 @@ public class Stats : MonoBehaviour {
 
     protected int skillDistance;
     protected int ultimateDistance;
+
+    //public int idPlayer;
     #endregion
 
     #region Get Functions
@@ -59,12 +68,13 @@ public class Stats : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        /* <-- Funcion que siempre comprueba y añade vida al escudo por cada segundo --> */
+        shield = 5;
+    }
 
     // Update is called once per frame
     protected virtual void Update () {
-		
+        //Debug.Log("Shield: " + shield);
 	}
 
     virtual public void TakeDamage(int enemyDamage)
@@ -95,5 +105,28 @@ public class Stats : MonoBehaviour {
     void Die()
     {
         Destroy(gameObject);
+    }
+
+    virtual public IEnumerator ShieldRecovery()
+    {
+        while (true)
+        { // loops forever...
+            if (
+                shield < 20 &&
+                !isShieldActive
+                )
+            {
+                shield += recoveryShieldTime;
+                if (shield > 20)
+                    shield = 20;
+                //playerStats.SetShield(RecoveryShield()); 
+                // increase health and wait the specified time
+                yield return new WaitForSeconds(1);
+            }
+            else
+            { // if shieldHealth >= 100, just yield 
+                yield return null;
+            }
+        }
     }
 }

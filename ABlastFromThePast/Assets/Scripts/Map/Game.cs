@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Game : MonoBehaviour {
 
-    int[] numPlayer;
+    public int[] numPlayer; //int para de la sección de los personajes
     public Stats[] playerStats;
     GameObject[] GameObjectsPlayers;
 
@@ -33,23 +33,24 @@ public class Game : MonoBehaviour {
         }
     }
 
-    void InitColliders()
-    {
-        for (int i = 0; i < 2; i++)
-        {
-            GameObjectsPlayers[i] = GameObject.Find("Player" + (i + 1));
-            Debug.Log("Player" + (i + 1));
-        }
-    }
+    //void InitColliders()
+    //{
+    //    for (int i = 0; i < 2; i++)
+    //    {
+    //        GameObjectsPlayers[i] = GameObject.Find("Player" + (i + 1));
+    //        Debug.Log("Player" + (i + 1));
+    //    }
+    //}
 	
     void InitPlayers()
     {
         for (int i = 0; i < 2; i++)
         {
-
+            //playerStats[i].enumPlayer = (Stats.EnumPlayer)i;
             switch (numPlayer[i])
             {
                 case 0:
+                    //playerStats[i] = GameObject.Find("Player" + (i + 1)).GetComponent<NewPlayer>();
                     //player[i] = new NameStats();
                     break;
 
@@ -61,16 +62,25 @@ public class Game : MonoBehaviour {
                 case 2:
                     playerStats[i] = GameObject.Find("Player" + (i + 1)).GetComponent<BrayanStats>();
                     //playerStats[i] = new BrayanStats();
+                    //playerStats[i].idPlayer = i;
                     break;
 
                 case 3:
                     //player[i] = new NameStats();
                     break;
             }
+            /* --- Asignamos valores enum(Player) para vada Script --- */
+
+            #region Assign Enum
+            // Class Stats
+            playerStats[i].enumPlayer = (Stats.EnumPlayer)i; 
+
+            // Class Input Attack
+            GameObject.Find("Player" + (i + 1)).GetComponent<PlayerAttackInput>().enumPlayer = (PlayerAttackInput.EnumPlayer)i;
+
+            // Class Input Movement
+            GameObject.Find("Player" + (i + 1)).GetComponent<PlayerInput>().enumPlayer = (PlayerInput.EnumPlayer)i;
+            #endregion
         }
     }
-
-
-
-
 }
