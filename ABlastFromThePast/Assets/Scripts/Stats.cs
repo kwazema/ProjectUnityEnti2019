@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour {
 
+    protected bool isShieldActive = false;
+
     #region Variables
     // <-- Los valores de daño asignadlos en negativo y asi tiene más sentido a la hora de leer --> //
-    public int damageBasicAttack;
-    public int damageSkill;
-    public int damageUltimate;
+    protected int damageBasicAttack;
+    protected int damageSkill;
+    protected int damageUltimate;
 
-    public int health;
-    public int shield;
-    public int recoveryShieldTime; 
-    
-    public float fireRate;
-    //protected float nextFire;
+    protected int health;
+    protected int shield;
+    protected int recoveryShieldTime;
 
-    public float skillCD;
-    public float ultimateCD;
+    protected float fireRate;
+    //protectedected float nextFire;
 
-    public int skillDistance;
-    public int ultimateDistance;
+    protected float skillCD;
+    protected float ultimateCD;
+
+    protected int skillDistance;
+    protected int ultimateDistance;
     #endregion
 
     #region Get Functions
@@ -64,4 +66,34 @@ public class Stats : MonoBehaviour {
     protected virtual void Update () {
 		
 	}
+
+    virtual public void TakeDamage(int enemyDamage)
+    {
+        if (isShieldActive)
+        {
+            shield -= enemyDamage;
+
+            if (shield < 0)
+            {
+                health += shield;
+                shield = 0;
+            }
+        }
+        else
+        {
+            health -= enemyDamage;
+        }
+
+        if (health <= 0)
+        {
+            health = 0;
+            Die();
+        }
+
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+    }
 }

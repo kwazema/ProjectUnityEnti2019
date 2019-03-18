@@ -84,7 +84,7 @@ public class PlayerInput : MonoBehaviour {
     {
         string[] names = Input.GetJoystickNames();
 
-        Debug.Log("Josticks: " + names.Length);
+        //Debug.Log("Josticks: " + names.Length);
 
         for (int i = 0; i < Input.GetJoystickNames().Length; i++)
         {
