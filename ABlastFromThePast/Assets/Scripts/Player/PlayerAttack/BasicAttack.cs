@@ -6,7 +6,7 @@ public class BasicAttack : MonoBehaviour {
 
     Transform shot;
 
-    float shotSpeed;
+    public float shotSpeed;
 
     // Use this for initialization
     void Start () {
@@ -17,12 +17,17 @@ public class BasicAttack : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         shot.Translate(Vector2.right * shotSpeed);
+        CheckField();
 	}
 
     private void OnCollisionEnter2D (Collision2D col)
     {
-        Debug.Log("Shot to point");
         Destroy(gameObject);
     }
 
+    private void CheckField()
+    {
+        if (shot.position.x > Screen.width || shot.position.x < -20)    
+            Destroy(gameObject);
+    }   
 }
