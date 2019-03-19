@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AI : MonoBehaviour {
+public class AIBraindMove : MonoBehaviour {
 
     [SerializeField] public enum EnumPlayer { Player1, Player2 }
     [SerializeField] public EnumPlayer player;
@@ -11,13 +11,18 @@ public class AI : MonoBehaviour {
     private bool displacedHorizontal = false;
     private bool displacedVertical = false;
 
+    private float timeToMove = 1;
+    int numPlayer;
+
     private AIMovement playerMovement;
+    public Game game;
     private Map map;
 
     private void Awake()
     {
         //map = GameObject.Find("Map").GetComponent<Map>();
         map = FindObjectOfType<Map>();
+        game = GameObject.Find("Map").GetComponent<Game>();
     }
 
     // Use this for initialization
@@ -27,12 +32,21 @@ public class AI : MonoBehaviour {
         playerMovement = GetComponent<AIMovement>();
         player = EnumPlayer.Player2;
         StartCoroutine(Horizontal());
+
+        numPlayer = (int)player;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("horizontal: " + dirHorizontal);
+        //Debug.Log("horizontal: " + dirHorizontal);
+
+        //timeToMove = game.playerStats[numPlayer].GetHealth() / 100;
+        float value = game.playerStats[numPlayer].GetHealth() / 100f * 100f;
+        timeToMove = value / 100f;
+
+        Debug.Log("%: " + value);
+        Debug.Log("timeToMove: " + value / 100f);
 
 
     }
@@ -46,24 +60,45 @@ public class AI : MonoBehaviour {
     {
         while (true)
         { // loops forever...
-            if (GetMove())
+            int random = Random.Range(0, 5);
+            //Debug.Log("Random: " + random);
+            switch (random)
             {
-                Debug.Log("Left");
-                dirHorizontal = -1;
-                playerMovement.SetPositionBlocks(-1, 0);
+                case 0:
+                    dirVertical = 1;
+                    break;
 
+                case 1:
+                    dirVertical = -1;
+                    break;
+
+                case 2:
+                    dirHorizontal = 1;
+                    break;
+
+                case 3:
+                    dirHorizontal = -1;
+                    break;
             }
-            else
-            {
-                //playerMovement.SetPositionBlocks(1, 0);
-                //dirHorizontal = -1;
-            }
 
-            //SetController();
-
+            SetController();
             dirHorizontal = 0;
-            //dirVertical = 0;
-            yield return new WaitForSeconds(1);
+            dirVertical = 0;
+
+            yield return new WaitForSeconds(timeToMove);
+
+            //if (GetMove())
+            //{
+            //    Debug.Log("Left");
+            //    dirHorizontal = -1;
+            //    playerMovement.SetPositionBlocks(-1, 0);
+
+            //}
+            //else
+            //{
+            //    //playerMovement.SetPositionBlocks(1, 0);
+            //    //dirHorizontal = -1;
+            //}
         }
     }
 
@@ -119,8 +154,6 @@ public class AI : MonoBehaviour {
             displacedVertical = false;
         }
     }
-
-   
 
     //void InputMovement(EnumPlayer player)
     //{

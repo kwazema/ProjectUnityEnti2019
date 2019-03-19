@@ -306,17 +306,18 @@ GameObject:
   - component: {fileID: 158638255}
   - component: {fileID: 158638254}
   - component: {fileID: 158638253}
-  - component: {fileID: 158638252}
   - component: {fileID: 158638251}
-  - component: {fileID: 158638249}
+  - component: {fileID: 158638257}
+  - component: {fileID: 158638250}
+  - component: {fileID: 158638256}
   m_Layer: 8
-  m_Name: Player1
+  m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &158638249
+  m_IsActive: 1
+--- !u!114 &158638250
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -324,11 +325,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 158638248}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3de1a9a1856f67c48900a3fc72e8160b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3926b0f782463964aafedea6ea6a8139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game: {fileID: 0}
-  player: 0
+  playerColumn: 0
+  playerRow: 0
+  speed: 0
+  rb: {fileID: 158638254}
 --- !u!114 &158638251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,35 +345,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enumPlayer: 0
   game: {fileID: 0}
-  player: []
   basicShotSpawn: {fileID: 761177749}
   basicAttack: {fileID: 1905425902709846, guid: 1bb4fccf9beacc9438fcb44404864bd2,
     type: 2}
   shieldRender: {fileID: 207357593}
---- !u!114 &158638252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 158638248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b49fd5743c959e469b7a48d59eebec8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerColumn: 0
-  playerRow: 0
-  speed: 0
-  rb: {fileID: 158638254}
-  blockPrefab: {fileID: 1924483091404750, guid: 374dfb99d53c03046b087fde64c8d45f,
-    type: 2}
 --- !u!114 &158638253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 158638248}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5554edf7ab38a042beee9acf9d0dc4c, type: 3}
   m_Name: 
@@ -411,8 +396,36 @@ Transform:
   - {fileID: 99473779}
   - {fileID: 207357594}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &158638256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 158638248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e787ce2bd589346a6b927be89dc033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enumPlayer: 0
+  damageBasicAttack: 0
+  health: 0
+  shield: 0
+--- !u!114 &158638257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 158638248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09bb54c46c7a60a428e1ad11b62878b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: 0
+  game: {fileID: 0}
 --- !u!212 &207357593 stripped
 SpriteRenderer:
   m_PrefabParentObject: {fileID: 212941492836063274, guid: c880d4c4ec329a643a6007aa9f9b3b49,
@@ -598,7 +611,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enumPlayer: 1
   game: {fileID: 0}
-  player: []
   basicShotSpawn: {fileID: 1542415841}
   basicAttack: {fileID: 1570851383404196, guid: 3da3e31f41822e946be115aab0b9ae31,
     type: 2}
@@ -618,7 +630,7 @@ Transform:
   - {fileID: 1975970141}
   - {fileID: 464352168}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &433552840
 Rigidbody2D:
@@ -774,7 +786,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &465951818
 MonoBehaviour:
@@ -838,7 +850,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 400595067}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &504696828
@@ -1027,7 +1039,7 @@ Transform:
   m_Children:
   - {fileID: 276633725}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &699422855
 GameObject:
@@ -1167,7 +1179,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 400595067}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4002429506388554, guid: c880d4c4ec329a643a6007aa9f9b3b49, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1248,7 +1260,7 @@ Transform:
   - {fileID: 1304594201}
   - {fileID: 293418062}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1163885451 stripped
 Transform:
@@ -1330,7 +1342,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enumPlayer: 0
   game: {fileID: 0}
-  player: []
   basicShotSpawn: {fileID: 1451637126}
   basicAttack: {fileID: 1905425902709846, guid: 1bb4fccf9beacc9438fcb44404864bd2,
     type: 2}
@@ -1399,7 +1410,7 @@ Transform:
   - {fileID: 1959391780}
   - {fileID: 1472528397}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1221282846
 MonoBehaviour:
@@ -1552,8 +1563,8 @@ Transform:
   m_LocalPosition: {x: 0.133, y: 0.085, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 400595067}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1431208401
 Prefab:
@@ -1659,7 +1670,7 @@ Transform:
   - {fileID: 1844851391}
   - {fileID: 1405845609}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1472528396 stripped
 SpriteRenderer:
@@ -1851,7 +1862,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1626575747
 MonoBehaviour:
@@ -1992,7 +2003,7 @@ Transform:
   m_LocalScale: {x: 0.74472606, y: 0.7447271, z: 0.7447271}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1814226352
 Prefab:
@@ -2129,7 +2140,7 @@ Transform:
   - {fileID: 1163885451}
   - {fileID: 240984682}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1959391779
 GameObject:

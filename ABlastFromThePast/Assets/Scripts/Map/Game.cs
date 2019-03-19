@@ -28,8 +28,8 @@ public class Game : MonoBehaviour {
     {
         for (int i = 0; i < 2; i++)
         {
-            Debug.Log("Player" + (i + 1) + " Damage: " + playerStats[i].GetDamageBasicAttack());
-            Debug.Log("Player" + (i + 1) + " Health: " + playerStats[i].GetHealth());
+            //Debug.Log("Player" + (i + 1) + " Damage: " + playerStats[i].GetDamageBasicAttack());
+            //Debug.Log("Player" + (i + 1) + " Health: " + playerStats[i].GetHealth());
         }
     }
 

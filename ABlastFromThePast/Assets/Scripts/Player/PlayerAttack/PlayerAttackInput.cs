@@ -46,12 +46,10 @@ public class PlayerAttackInput : MonoBehaviour
 
         if (EnumPlayer.Player1 == enumPlayer)
         {
-            Debug.Log("take 0");
             player[0].TakeDamage(player[1].GetDamageBasicAttack());
         }
         else
         {
-            Debug.Log("take 1");
             player[1].TakeDamage(player[0].GetDamageBasicAttack());
         }
     }
@@ -105,7 +103,6 @@ public class PlayerAttackInput : MonoBehaviour
        
         GameObject basicAttackClone = (GameObject)Instantiate(basicAttack, basicShotSpawn.position, basicShotSpawn.rotation);
         basicAttackClone.transform.rotation = transform.rotation;
-        
         isShooting = true;
     }
 
