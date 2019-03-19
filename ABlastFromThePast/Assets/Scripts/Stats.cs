@@ -59,6 +59,7 @@ public class Stats : MonoBehaviour {
     virtual public void SetDamageUltimate(int value) { damageUltimate = value; }
     virtual public void SetHealth(int value) { health = value; }
     virtual public void SetShield(int value) { shield = value; }
+    virtual public void SetIsShieldActive(bool value) { isShieldActive= value; }
     virtual public void SetFireRate(int value) { fireRate = value; }
     //virtual public void SetNextFire(int value) { nextFire = value; }
     virtual public void SetSkillCD(int value) { skillCD = value; }
@@ -84,11 +85,10 @@ public class Stats : MonoBehaviour {
         if (isShieldActive)
         {
             shield -= enemyDamage;
-
             if (shield < 0)
             {
-                health += shield;
                 shield = 0;
+                health += shield;
             }
         }
         else
@@ -101,7 +101,6 @@ public class Stats : MonoBehaviour {
             health = 0;
             Die();
         }
-
     }
 
     void Die()

@@ -20,7 +20,7 @@ public class PlayerAttackInput : MonoBehaviour
 
     #region  Variables
     private float nextFire = 0.0f;
-    private bool isShieldActive = false;
+    //private bool isShieldActive = false;
     private bool isShooting = false;
     #endregion
 
@@ -73,11 +73,11 @@ public class PlayerAttackInput : MonoBehaviour
 
         if (Input.GetKey(KeyCode.M))
         {
-            if (player[0].GetShield() > 0 && !isShooting)
+            if (player[0].GetShield() > 2 && !isShooting)
                 ActiveShield();
         }
 
-        if (Input.GetKeyUp(KeyCode.M) || (player[0].GetShield() < 0))
+        if (Input.GetKeyUp(KeyCode.M) || (player[0].GetShield() <= 0))
         {
             DeactivateShield();
         }
@@ -106,11 +106,11 @@ public class PlayerAttackInput : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Keypad0))
         {
-            if (player[1].GetShield() > 0 && !isShooting)
+            if (player[1].GetShield() > 2 && !isShooting)
                 ActiveShield();
         }
 
-        if (Input.GetKeyUp(KeyCode.Keypad0) || (player[1].GetShield() < 0))
+        if (Input.GetKeyUp(KeyCode.Keypad0) || (player[1].GetShield() <= 0))
         {
             DeactivateShield();
         }
@@ -134,32 +134,21 @@ public class PlayerAttackInput : MonoBehaviour
 
     private void ActiveShield()
     {
-        isShieldActive = true;
+        player[numPlayer].SetIsShieldActive(true);
         shieldRender.enabled = true;
     }
 
     private void DeactivateShield()
     {
-       //Debug.Log("Descactivando Protocolo Ruedines.");
-        isShieldActive = false;
+        player[numPlayer].SetIsShieldActive(false);
         shieldRender.enabled = false;
     }
 
-    //void SkillAttack()
-    //{
-    //    if (EnumPlayer.Player1 == enumPlayer)
-    //        SkillAttackPlayer1();
-    //    else
-    //        SkillAttackPlayer2();
-    //}
-    //void UltimateAttack() {}
-
-
     private void SkillAttack()
     {
-        Debug.Log("NumPlayer: " + numPlayer);
         player[numPlayer].SkillMoveTo();
-        player[1].LookForwardBlocks();
+        // añadir a los dos player // 
+        player[numPlayer].LookForwardBlocks();
     }
 
     private void UltimateAttack()
@@ -178,13 +167,6 @@ public class PlayerAttackInput : MonoBehaviour
             player[1].TakeDamage(player[0].GetDamageBasicAttack());
         }
     }
-
-
-    //private void LookForwardBlocks()
-    //{
-        
-    //}
-
 }
 
 /*

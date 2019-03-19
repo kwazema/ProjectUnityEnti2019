@@ -14,12 +14,16 @@ public class SwipperStats : Stats {
     float timeToGoBack;
     bool isMovingGraph = false;
 
+    int graphicMove;
+    int dirSkillArea;
+    const int skillArea = 3;
+
 
     // Use this for initialization
     void Start () {
-        health = 120;
-        shield = 5;
-        damageBasicAttack = 20;
+        health = 100;
+        shield = 20;
+        damageBasicAttack = 5;
         damageSkill = 20;
         damageUltimate = 50;
         fireRate = 0.2f;
@@ -36,6 +40,19 @@ public class SwipperStats : Stats {
         map = GameObject.Find("Map").GetComponent<Map>();
         timeToGoBack = 0f;
 
+
+        if (whatIsThisPlayer == 0)
+        {
+            graphicMove = -4;
+            dirSkillArea = -1;
+        }
+        else
+        {
+            graphicMove = 4;
+            dirSkillArea = 1;
+        }
+
+
     }
 
     // Update is called once per frame
@@ -49,7 +66,7 @@ public class SwipperStats : Stats {
     public override void SkillMoveTo()
     {
         Map map = GameObject.Find("Map").GetComponent<Map>();
-        int graphicMove = -4;
+        graphicMove = -4;
 
         if (transform.rotation.y > 0)
             graphicMove = 4;
@@ -58,9 +75,10 @@ public class SwipperStats : Stats {
 
         if (!playerMove.GetIsMoving())
         {
+            Debug.Log("HEREEEEEEE --> 2 : " + whatIsThisPlayer);
             playerMove.enabled = false;
-            
-            Vector2 moveTo = new Vector2(map.blocks[(playerMove.playerColumn - graphicMove), playerMove.playerRow].transform.position.x, playerGraphic.transform.position.y);
+            Vector2 moveTo = new Vector2(map.blocks[(playerMove.playerColumn + graphicMove), playerMove.playerRow].transform.position.x, playerGraphic.transform.position.y);
+            Debug.Log("HEREEEEEEE --> 3 --> " + moveTo);
             playerGraphic.transform.position = moveTo;
         }
         //playerGraphic.position = Vector2.MoveTowards(transform.position, moveTo, 1);
@@ -86,7 +104,4 @@ public class SwipperStats : Stats {
             }
         }
     }
-
-
-
 }
