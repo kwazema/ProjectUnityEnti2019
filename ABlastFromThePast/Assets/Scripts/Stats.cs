@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour {
 
+
     protected bool isShieldActive = false;
 
     [SerializeField] public enum EnumPlayer { Player1, Player2 }
     [SerializeField] public EnumPlayer enumPlayer;
 
     #region Variables
-    // <-- Los valores de daño asignadlos en negativo y asi tiene más sentido a la hora de leer --> //
     [SerializeField]
     protected int damageBasicAttack;
     protected int damageSkill;
@@ -32,8 +32,10 @@ public class Stats : MonoBehaviour {
     protected int skillDistance;
     protected int ultimateDistance;
 
+
     //public int idPlayer;
     #endregion
+
 
     #region Get Functions
     virtual public int GetDamageBasicAttack() { return damageBasicAttack; }
@@ -68,14 +70,12 @@ public class Stats : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        /* <-- Funcion que siempre comprueba y añade vida al escudo por cada segundo --> */
-        shield = 5;
     }
 
     // Update is called once per frame
     protected virtual void Update () {
         //Debug.Log("Shield: " + shield);
-	}
+    }
 
     virtual public void TakeDamage(int enemyDamage)
     {
@@ -129,4 +129,8 @@ public class Stats : MonoBehaviour {
             }
         }
     }
+
+    virtual public void SkillMoveTo() {}
+
+    private void MoveToXPos() {}
 }

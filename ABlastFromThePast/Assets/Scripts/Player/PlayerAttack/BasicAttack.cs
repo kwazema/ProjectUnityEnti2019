@@ -27,7 +27,7 @@ public class BasicAttack : MonoBehaviour {
 
     private void CheckField()
     {
-        if (shot.position.x > Screen.width || shot.position.x < -20)    
+        if (shot.position.x > 20 || shot.position.x < -20)    
             Destroy(gameObject);
     }   
 }

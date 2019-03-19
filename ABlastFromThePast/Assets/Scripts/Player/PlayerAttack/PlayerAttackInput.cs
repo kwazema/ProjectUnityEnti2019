@@ -16,6 +16,8 @@ public class PlayerAttackInput : MonoBehaviour
     public GameObject basicAttack;
     public SpriteRenderer shieldRender;
 
+    int numPlayer;
+
     #region  Variables
     private float nextFire = 0.0f;
     private bool isShieldActive = false;
@@ -32,37 +34,29 @@ public class PlayerAttackInput : MonoBehaviour
         player[0] = game.playerStats[0];
         player[1] = game.playerStats[1];
 
+        numPlayer = (int)enumPlayer;
     }
-
+     
     void Update()
     {
         GetInput();
-        //Debug.Log("Escudo: " + playerStats.shield);
-        //Debug.Log("Vida: " + playerStats.health);
-    }
-
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-
-        if (EnumPlayer.Player1 == enumPlayer)
-        {
-            Debug.Log("take 0");
-            player[0].TakeDamage(player[1].GetDamageBasicAttack());
-        }
-        else
-        {
-            Debug.Log("take 1");
-            player[1].TakeDamage(player[0].GetDamageBasicAttack());
-        }
     }
 
     void GetInput()
     {
+        if (EnumPlayer.Player1 == enumPlayer)
+            GetInputPlayer1();
+        else
+            GetInputPlayer2();
+    }
+
+    private void GetInputPlayer1()
+    {
         if (
-           Input.GetKey(KeyCode.V) &&
-           !playerMove.GetIsMoving() &&
-           Time.time > nextFire
-           )
+          Input.GetKey(KeyCode.V) &&
+          !playerMove.GetIsMoving() &&
+          Time.time > nextFire
+          )
         {
             BasicAttack();
         }
@@ -77,19 +71,48 @@ public class PlayerAttackInput : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N))
             UltimateAttack();
 
-        for (int i = 0; i < 2; i++)
+        if (Input.GetKey(KeyCode.M))
         {
-            if (Input.GetKey(KeyCode.M))
-            {
-                if (player[i].GetShield() > 0 && !isShooting)
-                    ActiveShield();
-            }
+            if (player[0].GetShield() > 0 && !isShooting)
+                ActiveShield();
+        }
 
-            //if (Input.GetKeyUp(KeyCode.M) || (shieldHealth < 0) || isShooting)
-            if (Input.GetKeyUp(KeyCode.M) || (player[i].GetShield() < 0))
-            {
-                DeactivateShield();
-            }
+        if (Input.GetKeyUp(KeyCode.M) || (player[0].GetShield() < 0))
+        {
+            DeactivateShield();
+        }
+    }
+
+    private void GetInputPlayer2()
+    {
+        if (
+          Input.GetKey(KeyCode.Keypad1) &&
+          !playerMove.GetIsMoving() &&
+          Time.time > nextFire
+          )
+        {
+            BasicAttack();
+        }
+        else
+        {
+            isShooting = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+            SkillAttack();
+
+        if (Input.GetKeyDown(KeyCode.Keypad3))
+            UltimateAttack();
+
+        if (Input.GetKey(KeyCode.Keypad0))
+        {
+            if (player[1].GetShield() > 0 && !isShooting)
+                ActiveShield();
+        }
+
+        if (Input.GetKeyUp(KeyCode.Keypad0) || (player[1].GetShield() < 0))
+        {
+            DeactivateShield();
         }
     }
 
@@ -122,26 +145,38 @@ public class PlayerAttackInput : MonoBehaviour
         shieldRender.enabled = false;
     }
 
-
-
-    //private void OnCollisionEnter2D(Collision2D col)
+    //void SkillAttack()
     //{
-    //    //GetDamage();
-    //    playerStats.TakeDamage(1);
+    //    if (EnumPlayer.Player1 == enumPlayer)
+    //        SkillAttackPlayer1();
+    //    else
+    //        SkillAttackPlayer2();
     //}
+    //void UltimateAttack() {}
 
-    //private int RecoveryShield()
-    //{
-    //    int shield = (int)playerStats.GetShield();
-    //    shield += playerStats.GetRecoveryShieldTime();
-    //    return shield;
-    //}
 
-    // *************************** //
-    void SkillAttack() {}
+    private void SkillAttack()
+    {
+        Debug.Log("NumPlayer: " + numPlayer);
+        player[numPlayer].SkillMoveTo();
+    }
 
-    void UltimateAttack() {}
-    // *************************** //
+    private void UltimateAttack()
+    {
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+
+        if (EnumPlayer.Player1 == enumPlayer)
+        {
+            player[0].TakeDamage(player[1].GetDamageBasicAttack());
+        }
+        else
+        {
+            player[1].TakeDamage(player[0].GetDamageBasicAttack());
+        }
+    }
 }
 
 /*

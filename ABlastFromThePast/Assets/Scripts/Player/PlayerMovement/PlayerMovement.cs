@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour {
     private int nextColumn, nextRow;
     private int columnLenth, rowLenth;
 
+
     private int numPositionMove = 0, numPositionSave = 0;
 
     public float speed;
