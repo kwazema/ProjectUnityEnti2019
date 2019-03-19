@@ -5,23 +5,68 @@ using UnityEngine.SceneManagement;
 
 public class BattleChoose : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    bool foxy;
+    bool skull;
+    bool mage;
+
+    public static int[] charactersChoice;
+
+    private void Awake()
+    {
+        charactersChoice = new int[2];
+
+    }
+    // Use this for initialization
+    void Start () {
+        foxy = false;
+        skull= false;
+        mage = false;
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
 
+    int selectedPLayers = 0;
+
     public void Play()
     {
-        SceneManager.LoadScene("MovementSoncan");
+        if (selectedPLayers == 1)
+        {
+            SceneManager.LoadScene("MovementSoncan");
+        }
+        selectedPLayers++;
     }
 
     public void Return()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void setFoxy()
+    {
+        foxy = true;
+        Debug.Log("Swiper no robes");
+        charactersChoice[selectedPLayers] = 1;
+        Debug.Log(charactersChoice[selectedPLayers]);
+    }
+
+    public void setSkull()
+    {
+        skull = true;
+        Debug.Log("Eres el portador de la muerte");
+        charactersChoice[selectedPLayers] = 0;
+        Debug.Log(charactersChoice[selectedPLayers]);
+
+    }
+
+    public void setMage()
+    {
+        mage = true;
+        Debug.Log("Freeze you fool");
+        charactersChoice[selectedPLayers] = 2;
+        Debug.Log(charactersChoice[selectedPLayers]);
     }
 }

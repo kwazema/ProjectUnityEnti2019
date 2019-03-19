@@ -1,0 +1,1052 @@
+fileFormatVersion: 2
+guid: 21bce75327e58f147a0b9874cbef668d
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: MagaAttack_500-500_0
+    21300002: MagaAttack_500-500_1
+    21300004: MagaAttack_500-500_2
+    21300006: MagaAttack_500-500_3
+    21300008: MagaAttack_500-500_4
+    21300010: MagaAttack_500-500_5
+    21300012: MagaAttack_500-500_6
+    21300014: MagaAttack_500-500_7
+    21300016: MagaAttack_500-500_8
+    21300018: MagaAttack_500-500_9
+    21300020: MagaAttack_500-500_10
+    21300022: MagaAttack_500-500_11
+    21300024: MagaAttack_500-500_12
+    21300026: MagaAttack_500-500_13
+    21300028: MagaAttack_500-500_14
+    21300030: MagaAttack_500-500_15
+    21300032: MagaAttack_500-500_16
+    21300034: MagaAttack_500-500_17
+    21300036: MagaAttack_500-500_18
+    21300038: MagaAttack_500-500_19
+    21300040: MagaAttack_500-500_20
+    21300042: MagaAttack_500-500_21
+    21300044: MagaAttack_500-500_22
+    21300046: MagaAttack_500-500_23
+    21300048: MagaAttack_500-500_24
+    21300050: MagaAttack_500-500_25
+    21300052: MagaAttack_500-500_26
+    21300054: MagaAttack_500-500_27
+    21300056: MagaAttack_500-500_28
+    21300058: MagaAttack_500-500_29
+    21300060: MagaAttack_500-500_30
+    21300062: MagaAttack_500-500_31
+    21300064: MagaAttack_500-500_32
+    21300066: MagaAttack_500-500_33
+    21300068: MagaAttack_500-500_34
+    21300070: MagaAttack_500-500_35
+    21300072: MagaAttack_500-500_36
+    21300074: MagaAttack_500-500_37
+    21300076: MagaAttack_500-500_38
+    21300078: MagaAttack_500-500_39
+    21300080: MagaAttack_500-500_40
+    21300082: MagaAttack_500-500_41
+    21300084: MagaAttack_500-500_42
+    21300086: MagaAttack_500-500_43
+    21300088: MagaAttack_500-500_44
+    21300090: MagaAttack_500-500_45
+    21300092: MagaAttack_500-500_46
+    21300094: MagaAttack_500-500_47
+    21300096: MagaAttack_500-500_48
+    21300098: MagaAttack_500-500_49
+    21300100: MagaAttack_500-500_50
+    21300102: MagaAttack_500-500_51
+    21300104: MagaAttack_500-500_52
+    21300106: MagaAttack_500-500_53
+    21300108: MagaAttack_500-500_54
+    21300110: MagaAttack_500-500_55
+    21300112: MagaAttack_500-500_56
+    21300114: MagaAttack_500-500_57
+    21300116: MagaAttack_500-500_58
+    21300118: MagaAttack_500-500_59
+    21300120: MagaAttack_500-500_60
+    21300122: MagaAttack_500-500_61
+    21300124: MagaAttack_500-500_62
+    21300126: MagaAttack_500-500_63
+    21300128: MagaAttack_500-500_64
+    21300130: MagaAttack_500-500_65
+    21300132: MagaAttack_500-500_66
+    21300134: MagaAttack_500-500_67
+    21300136: MagaAttack_500-500_68
+    21300138: MagaAttack_500-500_69
+    21300140: MagaAttack_500-500_70
+    21300142: MagaAttack_500-500_71
+    21300144: MagaAttack_500-500_72
+    21300146: MagaAttack_500-500_73
+    21300148: MagaAttack_500-500_74
+    21300150: MagaAttack_500-500_75
+    21300152: MagaAttack_500-500_76
+    21300154: MagaAttack_500-500_77
+    21300156: MagaAttack_500-500_78
+    21300158: MagaAttack_500-500_79
+    21300160: MagaAttack_500-500_80
+    21300162: MagaAttack_500-500_81
+    21300164: MagaAttack_500-500_82
+    21300166: MagaAttack_500-500_83
+    21300168: MagaAttack_500-500_84
+    21300170: MagaAttack_500-500_85
+    21300172: MagaAttack_500-500_86
+    21300174: MagaAttack_500-500_87
+    21300176: MagaAttack_500-500_88
+    21300178: MagaAttack_500-500_89
+    21300180: MagaAttack_500-500_90
+    21300182: MagaAttack_500-500_91
+    21300184: MagaAttack_500-500_92
+    21300186: MagaAttack_500-500_93
+    21300188: MagaAttack_500-500_94
+    21300190: MagaAttack_500-500_95
+    21300192: MagaAttack_500-500_96
+    21300194: MagaAttack_500-500_97
+    21300196: MagaAttack_500-500_98
+    21300198: MagaAttack_500-500_99
+    21300200: MagaAttack_500-500_100
+    21300202: MagaAttack_500-500_101
+    21300204: MagaAttack_500-500_102
+    21300206: MagaAttack_500-500_103
+    21300208: MagaAttack_500-500_104
+    21300210: MagaAttack_500-500_105
+    21300212: MagaAttack_500-500_106
+    21300214: MagaAttack_500-500_107
+    21300216: MagaAttack_500-500_108
+    21300218: MagaAttack_500-500_109
+    21300220: MagaAttack_500-500_110
+    21300222: MagaAttack_500-500_111
+    21300224: MagaAttack_500-500_112
+    21300226: MagaAttack_500-500_113
+    21300228: MagaAttack_500-500_114
+    21300230: MagaAttack_500-500_115
+    21300232: MagaAttack_500-500_116
+    21300234: MagaAttack_500-500_117
+    21300236: MagaAttack_500-500_118
+    21300238: MagaAttack_500-500_119
+    21300240: MagaAttack_500-500_120
+    21300242: MagaAttack_500-500_121
+    21300244: MagaAttack_500-500_122
+    21300246: MagaAttack_500-500_123
+    21300248: MagaAttack_500-500_124
+    21300250: MagaAttack_500-500_125
+    21300252: MagaAttack_500-500_126
+    21300254: MagaAttack_500-500_127
+    21300256: MagaAttack_500-500_128
+    21300258: MagaAttack_500-500_129
+    21300260: MagaAttack_500-500_130
+    21300262: MagaAttack_500-500_131
+    21300264: MagaAttack_500-500_132
+    21300266: MagaAttack_500-500_133
+    21300268: MagaAttack_500-500_134
+    21300270: MagaAttack_500-500_135
+    21300272: MagaAttack_500-500_136
+    21300274: MagaAttack_500-500_137
+    21300276: MagaAttack_500-500_138
+    21300278: MagaAttack_500-500_139
+    21300280: MagaAttack_500-500_140
+    21300282: MagaAttack_500-500_141
+    21300284: MagaAttack_500-500_142
+    21300286: MagaAttack_500-500_143
+    21300288: MagaAttack_500-500_144
+    21300290: MagaAttack_500-500_145
+    21300292: MagaAttack_500-500_146
+    21300294: MagaAttack_500-500_147
+    21300296: MagaAttack_500-500_148
+    21300298: MagaAttack_500-500_149
+    21300300: MagaAttack_500-500_150
+    21300302: MagaAttack_500-500_151
+    21300304: MagaAttack_500-500_152
+    21300306: MagaAttack_500-500_153
+    21300308: MagaAttack_500-500_154
+    21300310: MagaAttack_500-500_155
+    21300312: MagaAttack_500-500_156
+  externalObjects: {}
+  serializedVersion: 5
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 500
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MagaAttack_500-500_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f27b914b5bac4384694f459933b0b658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_1
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 346f6219c3ae2064b9da19333e5413a8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_2
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c98ef6a66a02827409bc7ad25ba28381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_3
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 762ffed3d8e271d4ea178693a7da2518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_4
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fede2f0bf7e98644acf267fbd95e752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_5
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3be4063d19ec1a54783449c32732461d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_6
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98e9c405186b44b40ab15a713614af4a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_7
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d57d2ec2d496a894ba86ea8399721278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_8
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a2f25f2e02f35d46ab7c471265d92da
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22660c3b44ffc62438ca847df274b27b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_10
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a3004cc4a40580428a5efb559718985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_11
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f85799d683f58fd49a253196a399cc89
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_12
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee31e2957adac2f4bb95cac8c9e5029e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_13
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62e12d58580e132449ddc4c87ec11b34
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_14
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d70ba4b5084ca4440a8990fa11fa291b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_15
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df0934f1e7ed3442b7e9101889c8998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_16
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d646493147476094180480c64f2a08e6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_17
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: facc491c27aea1c4cbaf036e3a223601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b1445cc4c502fc43a3eed65c4a4e277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_19
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a4271d3c7c4ce244baec517af56166a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_20
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2edc5c3304abe2d408ae28fa3eb65828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_21
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31b357ae164a4544aa65dfb948fb3902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_22
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78741afb3687e6e4c988bfad6c25a008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_23
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47d7340215ec7684b8fee9f71a3960ca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_24
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66264ea1e1eaaf64982177ce2137aac7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_25
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54eab941f1190cd48a96e7121d1ff11e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_26
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02eab9e49f25a1340b8c72998fc28773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d61ea8dd96722b94b8c37a4c20e84d81
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_28
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5e223e7b2e4a874480bf36b7e29570d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_29
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4009dc9700c948b4b832fbb915d784e4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_30
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e457617f14b218c4496311b6b30d196e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_31
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14cf33eef2a766540b3ac644d861340a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_32
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66258ff22fe81794c9d4a86b13210ab9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_33
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8577ee0367f459042afbbdde416769a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_34
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a3dc121e3684f44fa41cdfd78db1f24
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_35
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ff4430a196018e49b5edc726ab36447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dd82b16e3379d5409593d4ccc401f9f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_37
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 706f886683b26674ebf97258f9cddec0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_38
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 485d3e3de40d8d942812add286001a50
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagaAttack_500-500_39
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e0d769a94fd76f4b9f8f884fb18f937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: de9819dd22fa3174ca61c046e64bf677
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
