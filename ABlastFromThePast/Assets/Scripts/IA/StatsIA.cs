@@ -9,7 +9,7 @@ public class StatsIA : Stats
         damageBasicAttack = 30;
         damageSkill = 100;
         damageUltimate = 200;
-
+        recoveryShieldTime = 2;
         fireRate = 2.5f;
 	}
 

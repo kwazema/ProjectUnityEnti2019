@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour {
     private int nextColumn, nextRow;
     private int columnLenth, rowLenth;
 
+
     private int numPositionMove = 0, numPositionSave = 0;
 
     public float speed;
@@ -50,14 +51,14 @@ public class PlayerMovement : MonoBehaviour {
         columnLenth = map.columnLenth / 2;
         rowLenth = map.rowLenth;
 
-        if (PlayerInput.EnumPlayer.Player1 == playerInput.player)
+        if (PlayerInput.EnumPlayer.Player1 == playerInput.enumPlayer)
         {
             playerColumn = 0; playerRow = 0;
 
             v2Position[0] = map.blocks[playerColumn, playerRow].transform.position;
             transform.position = v2Position[0];
         }
-        else if (PlayerInput.EnumPlayer.Player2 == playerInput.player)
+        else if (PlayerInput.EnumPlayer.Player2 == playerInput.enumPlayer)
         {
             playerColumn = map.columnLenth - 1; playerRow = 0;
 
@@ -126,7 +127,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void MovementAction(int dirHorizontal, int dirVertical)
     {
-        if (PlayerInput.EnumPlayer.Player1 == playerInput.player)
+        if (PlayerInput.EnumPlayer.Player1 == playerInput.enumPlayer)
         {
             //if (Can i move?)
             //-------------- Move Right -------------- //
@@ -145,7 +146,7 @@ public class PlayerMovement : MonoBehaviour {
             if (dirVertical > 0 && playerRow > 0)
                 playerRow -= dirVertical;
         }
-        else if (PlayerInput.EnumPlayer.Player2 == playerInput.player) 
+        else if (PlayerInput.EnumPlayer.Player2 == playerInput.enumPlayer) 
         {
             //if (Can i move?)
             //-------------- Move Right -------------- //
