@@ -70,7 +70,7 @@ public class Game : MonoBehaviour {
                     break;
             }
             /* --- Asignamos valores enum(Player) para vada Script --- */
-
+            playerStats[i].whatIsThisPlayer = i;
             #region Assign Enum
             // Class Stats
             playerStats[i].enumPlayer = (Stats.EnumPlayer)i; 

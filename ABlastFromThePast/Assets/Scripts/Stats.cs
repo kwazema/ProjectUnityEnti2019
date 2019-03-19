@@ -33,9 +33,8 @@ public class Stats : MonoBehaviour {
     protected int ultimateDistance;
 
 
-    //public int idPlayer;
+    public int whatIsThisPlayer;
     #endregion
-
 
     #region Get Functions
     virtual public int GetDamageBasicAttack() { return damageBasicAttack; }
@@ -51,6 +50,7 @@ public class Stats : MonoBehaviour {
     virtual public int GetUltimateDistance() { return ultimateDistance; }
     virtual public int GetRecoveryShieldTime() { return recoveryShieldTime; }
 
+    virtual public int WhatIsThisPlayer() { return whatIsThisPlayer; }
     #endregion
 
     #region Set Functions
@@ -66,6 +66,8 @@ public class Stats : MonoBehaviour {
     virtual public void SetSkillDistance(int value) { skillDistance = value; }
     virtual public void SetUltimateDistance(int value) { ultimateDistance = value; }
     virtual public void SetRecoveryShieldTime(int value) {  recoveryShieldTime = value; }
+
+    virtual public void SetThisPlayer(int value) { whatIsThisPlayer = value; }
     #endregion
 
     // Use this for initialization
