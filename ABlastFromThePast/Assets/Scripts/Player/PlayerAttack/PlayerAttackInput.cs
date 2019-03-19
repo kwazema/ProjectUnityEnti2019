@@ -159,6 +159,7 @@ public class PlayerAttackInput : MonoBehaviour
     {
         Debug.Log("NumPlayer: " + numPlayer);
         player[numPlayer].SkillMoveTo();
+        player[1].LookForwardBlocks();
     }
 
     private void UltimateAttack()
@@ -177,6 +178,13 @@ public class PlayerAttackInput : MonoBehaviour
             player[1].TakeDamage(player[0].GetDamageBasicAttack());
         }
     }
+
+
+    //private void LookForwardBlocks()
+    //{
+        
+    //}
+
 }
 
 /*

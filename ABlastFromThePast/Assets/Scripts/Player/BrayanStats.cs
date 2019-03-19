@@ -14,6 +14,9 @@ public class BrayanStats : Stats {
     float timeToGoBack;
     bool isMovingGraph = false;
 
+    int graphicMove = -4;
+    int skillArea = -3;
+
     // Use this for initialization
     void Start () {
         health = 100;
@@ -31,6 +34,10 @@ public class BrayanStats : Stats {
         playerGraphic = GameObject.Find("GraficCharacter").GetComponent<Transform>();
         map = GameObject.Find("Map").GetComponent<Map>();
         timeToGoBack = 0f;
+
+        if (transform.rotation.y > 0)
+            graphicMove = 4; skillArea = 3;
+
     }
 
     // Update is called once per frame
@@ -38,15 +45,13 @@ public class BrayanStats : Stats {
     {
         base.Update();
         MoveToXPos();
+        
     }
 
     public override void SkillMoveTo() 
     {
         Map map = GameObject.Find("Map").GetComponent<Map>();
-        int graphicMove = -4;
-
-        if (transform.rotation.y > 0)
-            graphicMove = 4;
+ 
 
         isMovingGraph = true;
 
@@ -81,11 +86,33 @@ public class BrayanStats : Stats {
         }
     }
 
-    public void LookForwardBlocks()
+    public override void LookForwardBlocks(/*EnumPlayer player*/)
     {
+        Game game = GameObject.Find("Map").GetComponent<Game>();
+        PlayerInput playerInput = GetComponent<PlayerInput>();
+        Stats[] player;
+        player = new Stats[2];
+        player[0] = game.playerStats[0];
+        player[1] = game.playerStats[1];
+        
+        for (int i = 0; i < skillArea; i++)
+        {
+            if (map.blocks[(playerMove.playerColumn - graphicMove) - i, playerMove.playerRow] != null)
+            {
+                //if (map.blocks[(playerMove.playerColumn - graphicMove) - i, playerMove.playerRow] == map.blocks[playerMove.playerColumn , playerMove.playerRow] && transform.rotation.y > 0)
+                if (map.blocks[(playerMove.playerColumn - graphicMove) - i, playerMove.playerRow].transform.position == player[0].transform.position)
+                 Debug.Log("HEREEEEEEEEEEEEEEEEEEEEEEEEE::" + map.blocks[(playerMove.playerColumn - graphicMove) - i, playerMove.playerRow].transform.position);
+            }
 
+            //if (map.blocks[(playerMove.playerColumn - graphicMove)-skillArea , playerMove.playerRow] == map.blocks[playerMove.playerColumn, playerMove.playerRow])
+            //{
+            //    Debug.Log("HEREEEEEEEEEEEEEEEEEEEEEEEEE::");
+            //}
+            
+        }
 
-        if (true) { }
+        
+
 
     }
 

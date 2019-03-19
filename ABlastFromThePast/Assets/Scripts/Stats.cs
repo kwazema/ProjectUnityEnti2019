@@ -133,4 +133,6 @@ public class Stats : MonoBehaviour {
     virtual public void SkillMoveTo() {}
 
     private void MoveToXPos() {}
+
+    virtual public void LookForwardBlocks(/*EnumPlayer player*/) {}
 }
