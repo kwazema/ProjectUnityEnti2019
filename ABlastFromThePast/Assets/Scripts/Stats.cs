@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour {
 
-
+    //Map map;
     protected bool isShieldActive = false;
 
     [SerializeField] public enum EnumPlayer { Player1, Player2 }
@@ -33,7 +33,7 @@ public class Stats : MonoBehaviour {
     protected int ultimateDistance;
 
 
-    public int whatIsThisPlayer;
+    public int whichIs;
     #endregion
 
     #region Get Functions
@@ -50,7 +50,7 @@ public class Stats : MonoBehaviour {
     virtual public int GetUltimateDistance() { return ultimateDistance; }
     virtual public int GetRecoveryShieldTime() { return recoveryShieldTime; }
 
-    virtual public int WhatIsThisPlayer() { return whatIsThisPlayer; }
+    virtual public int WhichIs() { return whichIs; }
     #endregion
 
     #region Set Functions
@@ -68,11 +68,12 @@ public class Stats : MonoBehaviour {
     virtual public void SetUltimateDistance(int value) { ultimateDistance = value; }
     virtual public void SetRecoveryShieldTime(int value) {  recoveryShieldTime = value; }
 
-    virtual public void SetThisPlayer(int value) { whatIsThisPlayer = value; }
+    virtual public void SetThisPlayer(int value) { whichIs = value; }
     #endregion
 
     // Use this for initialization
     void Start () {
+        //map = GameObject.Find("Map").GetComponent<Map>();
     }
 
     // Update is called once per frame

@@ -28,8 +28,8 @@ public class Game : MonoBehaviour {
     {
         for (int i = 0; i < 2; i++)
         {
-            Debug.Log("Player" + (i + 1) + " Damage: " + playerStats[i].GetDamageBasicAttack());
-            Debug.Log("Player" + (i + 1) + " Health: " + playerStats[i].GetHealth());
+            //Debug.Log("Player" + (i + 1) + " Damage: " + playerStats[i].GetDamageBasicAttack());
+            //Debug.Log("Player" + (i + 1) + " Health: " + playerStats[i].GetHealth());
         }
     }
 
@@ -70,8 +70,10 @@ public class Game : MonoBehaviour {
                     break;
             }
             /* --- Asignamos valores enum(Player) para vada Script --- */
-            playerStats[i].whatIsThisPlayer = i;
-            #region Assign Enum
+            #region Assign Num Player
+            playerStats[i].whichIs = i;
+            GameObject.Find("Player" + (i + 1)).GetComponent<PlayerMovement>().whichIs = i;
+            
             // Class Stats
             playerStats[i].enumPlayer = (Stats.EnumPlayer)i; 
 

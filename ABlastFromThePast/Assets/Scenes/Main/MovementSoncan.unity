@@ -3504,6 +3504,7 @@ MonoBehaviour:
   rowLenth: 2
   blockPrefab: {fileID: 1924483091404750, guid: 374dfb99d53c03046b087fde64c8d45f,
     type: 2}
+  map: {fileID: 1626575744}
 --- !u!4 &1626575746
 Transform:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class Map : MonoBehaviour {
     public int columnLenth, rowLenth;
 
     public GameObject blockPrefab;
-
+    public GameObject map;
     public StatsBlock[,] blocks;
 
     private void Awake()
@@ -34,7 +34,10 @@ public class Map : MonoBehaviour {
             for (int j = 0; j < row; j++)
             {
                 blocks[i, j] = Instantiate(blockPrefab).GetComponent<StatsBlock>();
+                blocks[i, j].transform.SetParent(map.transform);
                 blocks[i, j].transform.position = offset + new Vector2(i * (width + margin), j * -(height + margin));
+                blocks[i, j].thisColumn = i;
+                blocks[i, j].thisRow = j;
             }
         }
 

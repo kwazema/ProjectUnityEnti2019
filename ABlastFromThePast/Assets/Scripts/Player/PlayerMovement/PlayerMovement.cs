@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour {
     private int nextColumn, nextRow;
     private int columnLenth, rowLenth;
 
+    public int whichIs;
+    public int GetWhichIs() { return whichIs; }
 
     private int numPositionMove = 0, numPositionSave = 0;
 
@@ -19,6 +21,7 @@ public class PlayerMovement : MonoBehaviour {
     private Vector2[] v2Position;
     public Rigidbody2D rb;
     PlayerInput playerInput;
+    Stats stats;
 
     //private StatsBlock[,] blocks;
     private Map map;
