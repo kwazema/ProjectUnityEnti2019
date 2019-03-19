@@ -7,13 +7,21 @@ public class BattleChoose : MonoBehaviour {
 
     bool foxy;
     bool skull;
+    bool mage;
 
-    static int charactersChoice;
+    public static int[] charactersChoice;
 
+    private void Awake()
+    {
+        charactersChoice = new int[2];
+
+    }
     // Use this for initialization
     void Start () {
         foxy = false;
         skull= false;
+        mage = false;
+
     }
 	
 	// Update is called once per frame
@@ -21,9 +29,15 @@ public class BattleChoose : MonoBehaviour {
 		
 	}
 
+    int selectedPLayers = 0;
+
     public void Play()
     {
-        SceneManager.LoadScene("MovementSoncan");
+        if (selectedPLayers == 1)
+        {
+            SceneManager.LoadScene("MovementSoncan");
+        }
+        selectedPLayers++;
     }
 
     public void Return()
@@ -35,15 +49,27 @@ public class BattleChoose : MonoBehaviour {
     {
         foxy = true;
         Debug.Log("Swiper no robes");
-        charactersChoice = 2;
-        Debug.Log(charactersChoice);
+        charactersChoice[selectedPLayers] = 1;
+        Debug.Log(charactersChoice[selectedPLayers]);
     }
 
     public void setSkull()
     {
         skull = true;
         Debug.Log("Eres el portador de la muerte");
-        charactersChoice = 1;
-        Debug.Log(charactersChoice);
+        //selectedPLayers++;
+        charactersChoice[selectedPLayers] = 0;
+        Debug.Log(charactersChoice[selectedPLayers]);
+
+    }
+
+    public void setMage()
+    {
+        mage = true;
+        Debug.Log("Freeze you fool");
+        charactersChoice[selectedPLayers] = 2;
+        Debug.Log(charactersChoice[selectedPLayers]);
+        //selectedPLayers++;
+
     }
 }
