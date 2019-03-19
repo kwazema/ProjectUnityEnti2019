@@ -57,7 +57,6 @@ public class BattleChoose : MonoBehaviour {
     {
         skull = true;
         Debug.Log("Eres el portador de la muerte");
-        //selectedPLayers++;
         charactersChoice[selectedPLayers] = 0;
         Debug.Log(charactersChoice[selectedPLayers]);
 
@@ -69,7 +68,5 @@ public class BattleChoose : MonoBehaviour {
         Debug.Log("Freeze you fool");
         charactersChoice[selectedPLayers] = 2;
         Debug.Log(charactersChoice[selectedPLayers]);
-        //selectedPLayers++;
-
     }
 }

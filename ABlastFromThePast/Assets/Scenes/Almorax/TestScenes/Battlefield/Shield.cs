@@ -5,32 +5,49 @@ using UnityEngine.UI;
 
 public class Shield : MonoBehaviour {
 
+    Game game;
+
     public Slider player1;
     public Slider player2;
 
-
-    void AssociateShieldWithSlide()
+    private void Awake()
     {
-        int life1 = 100;
-        int life2 = 100;
-
-        player1.value = life1;
-        player2.value = life2;
+        game = GameObject.Find("Map").GetComponent<Game>();
     }
 
-    void ReduceShield()
-    {
-        player1.value -= 0.01f;
-        player2.value -= 0.01f;
-    }
 
     private void Start()
     {
-        AssociateShieldWithSlide();
+        //AssociateShieldWithSlide();
     }
 
     private void Update()
     {
-        ReduceShield();
+        SliderShield();
     }
+
+    void SliderShield()
+    {
+        float shield1 = game.playerStats[0].GetShield() / 20f * 100f;
+        float shield2 = game.playerStats[1].GetShield() / 20f * 100f;
+
+        player1.value = shield1;
+        player2.value = shield2;
+    }
+
+    void AssociateShieldWithSlide()
+    {
+        int shield1 = game.playerStats[0].GetShield();
+        int shield2 = game.playerStats[1].GetShield();
+
+        player1.value = shield1;
+        player2.value = shield2;
+    }
+
+    void ReduceShield()
+    {
+        player1.value -= 1;
+        player2.value -= 1;
+    }
+
 }

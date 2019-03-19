@@ -200,7 +200,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -215,7 +215,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -226,7 +226,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -242,18 +242,18 @@ TextureImporter:
       name: MagaAttack_500-500_0
       rect:
         serializedVersion: 2
-        x: 51
-        y: 2072
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47441acc5bd2a6e4eb3c39cdc3542813
+      spriteID: f27b914b5bac4384694f459933b0b658
       vertices: []
       indices: 
       edges: []
@@ -262,18 +262,18 @@ TextureImporter:
       name: MagaAttack_500-500_1
       rect:
         serializedVersion: 2
-        x: 552
-        y: 2078
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 500
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 476786725aae4d04fa1af661f1bae26d
+      spriteID: 346f6219c3ae2064b9da19333e5413a8
       vertices: []
       indices: 
       edges: []
@@ -282,18 +282,18 @@ TextureImporter:
       name: MagaAttack_500-500_2
       rect:
         serializedVersion: 2
-        x: 1055
-        y: 2064
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1000
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fe2cdae7b19aa54993d60a5620ac64c
+      spriteID: c98ef6a66a02827409bc7ad25ba28381
       vertices: []
       indices: 
       edges: []
@@ -302,18 +302,18 @@ TextureImporter:
       name: MagaAttack_500-500_3
       rect:
         serializedVersion: 2
-        x: 1549
-        y: 2066
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1500
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f6e3c6a490a4284fb389d42b12fa3d7
+      spriteID: 762ffed3d8e271d4ea178693a7da2518
       vertices: []
       indices: 
       edges: []
@@ -322,18 +322,18 @@ TextureImporter:
       name: MagaAttack_500-500_4
       rect:
         serializedVersion: 2
-        x: 2049
-        y: 2064
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2000
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e55904eac7574145803fec11e587295
+      spriteID: 7fede2f0bf7e98644acf267fbd95e752
       vertices: []
       indices: 
       edges: []
@@ -342,18 +342,18 @@ TextureImporter:
       name: MagaAttack_500-500_5
       rect:
         serializedVersion: 2
-        x: 3365
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2500
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29dd9ffe639018c459365f9d3b4845b9
+      spriteID: 3be4063d19ec1a54783449c32732461d
       vertices: []
       indices: 
       edges: []
@@ -362,18 +362,18 @@ TextureImporter:
       name: MagaAttack_500-500_6
       rect:
         serializedVersion: 2
-        x: 2552
-        y: 2075
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3000
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d992f53f60f15534dad3fd452802bcc3
+      spriteID: 98e9c405186b44b40ab15a713614af4a
       vertices: []
       indices: 
       edges: []
@@ -382,18 +382,18 @@ TextureImporter:
       name: MagaAttack_500-500_7
       rect:
         serializedVersion: 2
-        x: 3212
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3500
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2900b749b0c8c94d955bcc5f38a3a01
+      spriteID: d57d2ec2d496a894ba86ea8399721278
       vertices: []
       indices: 
       edges: []
@@ -402,18 +402,18 @@ TextureImporter:
       name: MagaAttack_500-500_8
       rect:
         serializedVersion: 2
-        x: 3048
-        y: 2072
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4000
+        y: 2000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04ff4a3a588fdb843aa00df605117be0
+      spriteID: 4a2f25f2e02f35d46ab7c471265d92da
       vertices: []
       indices: 
       edges: []
@@ -422,18 +422,18 @@ TextureImporter:
       name: MagaAttack_500-500_9
       rect:
         serializedVersion: 2
-        x: 3551
-        y: 2072
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67343853c0382c24fb7969ed07b7af59
+      spriteID: 22660c3b44ffc62438ca847df274b27b
       vertices: []
       indices: 
       edges: []
@@ -442,18 +442,18 @@ TextureImporter:
       name: MagaAttack_500-500_10
       rect:
         serializedVersion: 2
-        x: 4051
-        y: 2072
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 500
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54b4843fc7ec4c84c9adaa5e6ba1667f
+      spriteID: 5a3004cc4a40580428a5efb559718985
       vertices: []
       indices: 
       edges: []
@@ -462,18 +462,18 @@ TextureImporter:
       name: MagaAttack_500-500_11
       rect:
         serializedVersion: 2
-        x: 4100
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1000
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7536595afb055b43bce62548247e610
+      spriteID: f85799d683f58fd49a253196a399cc89
       vertices: []
       indices: 
       edges: []
@@ -482,18 +482,18 @@ TextureImporter:
       name: MagaAttack_500-500_12
       rect:
         serializedVersion: 2
-        x: 3859
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1500
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91c26a0eaf9d1434c8adbe277f2cc115
+      spriteID: ee31e2957adac2f4bb95cac8c9e5029e
       vertices: []
       indices: 
       edges: []
@@ -502,18 +502,18 @@ TextureImporter:
       name: MagaAttack_500-500_13
       rect:
         serializedVersion: 2
-        x: 3658
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2000
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c290e03a34c4b34f9a7adee1f106e02
+      spriteID: 62e12d58580e132449ddc4c87ec11b34
       vertices: []
       indices: 
       edges: []
@@ -522,18 +522,18 @@ TextureImporter:
       name: MagaAttack_500-500_14
       rect:
         serializedVersion: 2
-        x: 3812
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2500
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f0bce6eec3c473468a7026d3d64622a
+      spriteID: d70ba4b5084ca4440a8990fa11fa291b
       vertices: []
       indices: 
       edges: []
@@ -542,18 +542,18 @@ TextureImporter:
       name: MagaAttack_500-500_15
       rect:
         serializedVersion: 2
-        x: 3459
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3000
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0832380f9d3fa5148b404a88b75b8a12
+      spriteID: 2df0934f1e7ed3442b7e9101889c8998
       vertices: []
       indices: 
       edges: []
@@ -562,18 +562,18 @@ TextureImporter:
       name: MagaAttack_500-500_16
       rect:
         serializedVersion: 2
-        x: 3659
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3500
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85f3b99bbebb92848ad6e24b96e839b4
+      spriteID: d646493147476094180480c64f2a08e6
       vertices: []
       indices: 
       edges: []
@@ -582,18 +582,18 @@ TextureImporter:
       name: MagaAttack_500-500_17
       rect:
         serializedVersion: 2
-        x: 3032
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4000
+        y: 1500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 359c8a90cb3b0ce4d8a481f8b3d8379b
+      spriteID: facc491c27aea1c4cbaf036e3a223601
       vertices: []
       indices: 
       edges: []
@@ -602,18 +602,18 @@ TextureImporter:
       name: MagaAttack_500-500_18
       rect:
         serializedVersion: 2
-        x: 3266
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9b1ca297d7917249a8b5489f23040f2
+      spriteID: 0b1445cc4c502fc43a3eed65c4a4e277
       vertices: []
       indices: 
       edges: []
@@ -622,18 +622,18 @@ TextureImporter:
       name: MagaAttack_500-500_19
       rect:
         serializedVersion: 2
-        x: 3286
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ade19e2f3586a4547a6735660d10540b
+      spriteID: 1a4271d3c7c4ce244baec517af56166a
       vertices: []
       indices: 
       edges: []
@@ -642,18 +642,18 @@ TextureImporter:
       name: MagaAttack_500-500_20
       rect:
         serializedVersion: 2
-        x: 3640
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1000
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 800bfc9a9bb17e44aa446317162be9e5
+      spriteID: 2edc5c3304abe2d408ae28fa3eb65828
       vertices: []
       indices: 
       edges: []
@@ -662,18 +662,18 @@ TextureImporter:
       name: MagaAttack_500-500_21
       rect:
         serializedVersion: 2
-        x: 3571
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c3b78283f20bf74c94cba418355e878
+      spriteID: 31b357ae164a4544aa65dfb948fb3902
       vertices: []
       indices: 
       edges: []
@@ -682,18 +682,18 @@ TextureImporter:
       name: MagaAttack_500-500_22
       rect:
         serializedVersion: 2
-        x: 54
-        y: 1568
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2000
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 897d6baa9a9b92e4b9098f0324b36449
+      spriteID: 78741afb3687e6e4c988bfad6c25a008
       vertices: []
       indices: 
       edges: []
@@ -702,18 +702,18 @@ TextureImporter:
       name: MagaAttack_500-500_23
       rect:
         serializedVersion: 2
-        x: 546
-        y: 1568
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f146ca98078325645ad43b1fce69d097
+      spriteID: 47d7340215ec7684b8fee9f71a3960ca
       vertices: []
       indices: 
       edges: []
@@ -722,18 +722,18 @@ TextureImporter:
       name: MagaAttack_500-500_24
       rect:
         serializedVersion: 2
-        x: 1046
-        y: 1568
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3000
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 979abe5aec3c40940b4aa912ec0d92df
+      spriteID: 66264ea1e1eaaf64982177ce2137aac7
       vertices: []
       indices: 
       edges: []
@@ -742,18 +742,18 @@ TextureImporter:
       name: MagaAttack_500-500_25
       rect:
         serializedVersion: 2
-        x: 3531
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c7a701de3b5e8f4393db0249798d9a7
+      spriteID: 54eab941f1190cd48a96e7121d1ff11e
       vertices: []
       indices: 
       edges: []
@@ -762,18 +762,18 @@ TextureImporter:
       name: MagaAttack_500-500_26
       rect:
         serializedVersion: 2
-        x: 1557
-        y: 1571
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4000
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8ebcbf844ed26a4d9bfc66a48bc654b
+      spriteID: 02eab9e49f25a1340b8c72998fc28773
       vertices: []
       indices: 
       edges: []
@@ -782,18 +782,18 @@ TextureImporter:
       name: MagaAttack_500-500_27
       rect:
         serializedVersion: 2
-        x: 2057
-        y: 1574
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33fba30320c978d4b89e97db7ed9dab4
+      spriteID: d61ea8dd96722b94b8c37a4c20e84d81
       vertices: []
       indices: 
       edges: []
@@ -802,18 +802,18 @@ TextureImporter:
       name: MagaAttack_500-500_28
       rect:
         serializedVersion: 2
-        x: 3527
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef2aa12c7ebfbc8419e2f75bead1ed18
+      spriteID: a5e223e7b2e4a874480bf36b7e29570d
       vertices: []
       indices: 
       edges: []
@@ -822,18 +822,18 @@ TextureImporter:
       name: MagaAttack_500-500_29
       rect:
         serializedVersion: 2
-        x: 2554
-        y: 1574
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1000
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88332e70725265b4e9211718c1c47d87
+      spriteID: 4009dc9700c948b4b832fbb915d784e4
       vertices: []
       indices: 
       edges: []
@@ -842,18 +842,18 @@ TextureImporter:
       name: MagaAttack_500-500_30
       rect:
         serializedVersion: 2
-        x: 3060
-        y: 1574
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5666ac38d2c3b9f499e93d1185d87fc8
+      spriteID: e457617f14b218c4496311b6b30d196e
       vertices: []
       indices: 
       edges: []
@@ -862,18 +862,18 @@ TextureImporter:
       name: MagaAttack_500-500_31
       rect:
         serializedVersion: 2
-        x: 3563
-        y: 1574
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2000
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf0ec8c384c29564ba05c3c376554aaf
+      spriteID: 14cf33eef2a766540b3ac644d861340a
       vertices: []
       indices: 
       edges: []
@@ -882,18 +882,18 @@ TextureImporter:
       name: MagaAttack_500-500_32
       rect:
         serializedVersion: 2
-        x: 4057
-        y: 1574
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc2d837bdf3e38c4882f030edfa0717e
+      spriteID: 66258ff22fe81794c9d4a86b13210ab9
       vertices: []
       indices: 
       edges: []
@@ -902,18 +902,18 @@ TextureImporter:
       name: MagaAttack_500-500_33
       rect:
         serializedVersion: 2
-        x: 46
-        y: 1074
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3000
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d0d804cf0d2ab24a9b4cafcc651fc10
+      spriteID: 8577ee0367f459042afbbdde416769a0
       vertices: []
       indices: 
       edges: []
@@ -922,18 +922,18 @@ TextureImporter:
       name: MagaAttack_500-500_34
       rect:
         serializedVersion: 2
-        x: 552
-        y: 1069
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad74c3c85176b4e4f86dfd6f0eee729d
+      spriteID: 2a3dc121e3684f44fa41cdfd78db1f24
       vertices: []
       indices: 
       edges: []
@@ -942,18 +942,18 @@ TextureImporter:
       name: MagaAttack_500-500_35
       rect:
         serializedVersion: 2
-        x: 1052
-        y: 1074
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4000
+        y: 500
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7da7c879859a6184391d3263a1808d2a
+      spriteID: 2ff4430a196018e49b5edc726ab36447
       vertices: []
       indices: 
       edges: []
@@ -962,18 +962,18 @@ TextureImporter:
       name: MagaAttack_500-500_36
       rect:
         serializedVersion: 2
-        x: 1558
-        y: 1072
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d56f76550e190947976fa1ac5a3385b
+      spriteID: 9dd82b16e3379d5409593d4ccc401f9f
       vertices: []
       indices: 
       edges: []
@@ -982,18 +982,18 @@ TextureImporter:
       name: MagaAttack_500-500_37
       rect:
         serializedVersion: 2
-        x: 2055
-        y: 1066
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8ead1d702d5d964190b2062262c346e
+      spriteID: 706f886683b26674ebf97258f9cddec0
       vertices: []
       indices: 
       edges: []
@@ -1002,18 +1002,18 @@ TextureImporter:
       name: MagaAttack_500-500_38
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 960
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fba5173dd6ecf9a4e8848d4b59997894
+      spriteID: 485d3e3de40d8d942812add286001a50
       vertices: []
       indices: 
       edges: []
@@ -1022,538 +1022,18 @@ TextureImporter:
       name: MagaAttack_500-500_39
       rect:
         serializedVersion: 2
-        x: 2552
-        y: 1063
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f31f031ef16057843a7330cd273a52fd
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_40
-      rect:
-        serializedVersion: 2
-        x: 3052
-        y: 1069
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 17481292c19f5634a94ac868a27aff50
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_41
-      rect:
-        serializedVersion: 2
-        x: 3552
-        y: 1074
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b11498e94bd31eb48b40668a525c886c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_42
-      rect:
-        serializedVersion: 2
-        x: 4052
-        y: 1069
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a272bf23569aaed49ab4d51f0ca9c634
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_43
-      rect:
-        serializedVersion: 2
-        x: 3768
+        x: 1500
         y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 500
+        height: 500
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 171c3cf497e41a14a9b8cf628f6d77e1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_44
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 575
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 599815f7b028e7f4d9ccb6e04025489c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_45
-      rect:
-        serializedVersion: 2
-        x: 552
-        y: 578
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 65a801784078dcf4988da3b5b8016b6c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_46
-      rect:
-        serializedVersion: 2
-        x: 1051
-        y: 572
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d68b22ac7ee3b0146a1ab1ee2aa45206
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_47
-      rect:
-        serializedVersion: 2
-        x: 3657
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3ca5319c443f9cc479ce230e593ee7d6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_48
-      rect:
-        serializedVersion: 2
-        x: 1551
-        y: 572
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e13b53df79c46db4c96cf92d77ca6515
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_49
-      rect:
-        serializedVersion: 2
-        x: 2057
-        y: 569
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e47b72b3222ff2547a83a5e22926996e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_50
-      rect:
-        serializedVersion: 2
-        x: 2552
-        y: 566
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cc3e4010c5f923949ad2b87a15b1b275
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_51
-      rect:
-        serializedVersion: 2
-        x: 3049
-        y: 572
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88ccc113fcdfdbf4795d1c5ffd2b670d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_52
-      rect:
-        serializedVersion: 2
-        x: 3732
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff27806a735380a42b2c0e419c51910d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_53
-      rect:
-        serializedVersion: 2
-        x: 3554
-        y: 572
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 697bd4a0219343846b4f7d8a3b8ca515
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_54
-      rect:
-        serializedVersion: 2
-        x: 4057
-        y: 569
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 38b3e6027d4d8f04992159bccf988591
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_55
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 61
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cfad8d6369cf16741a0b0cb71e73d430
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_56
-      rect:
-        serializedVersion: 2
-        x: 551
-        y: 75
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b5fd755a68882304a8f8031892c8d746
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_57
-      rect:
-        serializedVersion: 2
-        x: 1055
-        y: 73
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b0ea39d3fae0014dadcf1ef145f2e35
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_58
-      rect:
-        serializedVersion: 2
-        x: 3720
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3caaf9d6631fc2d4c93e00cb5baa851a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_59
-      rect:
-        serializedVersion: 2
-        x: 1554
-        y: 81
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e676070b9c9de074b9415e20a542c8d1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_60
-      rect:
-        serializedVersion: 2
-        x: 3691
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a49293d5fbddd14eaa34500e32ef4dd
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_61
-      rect:
-        serializedVersion: 2
-        x: 3610
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 33b4a8d4d1b892643902038b927ae64a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_62
-      rect:
-        serializedVersion: 2
-        x: 3778
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e2fbaa0a5a3384e40999e58e94e0942b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_63
-      rect:
-        serializedVersion: 2
-        x: 3506
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 97c5c0c120cfc7c4e98c2d2f3cd72b32
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_64
-      rect:
-        serializedVersion: 2
-        x: 3820
-        y: 0
-        width: 400
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0ae335b25f0a64b448335ae3cf39211a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MagaAttack_500-500_65
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 4500
-        height: 2500
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a52afa39fc93cac48a3547460ef74093
+      spriteID: 1e0d769a94fd76f4b9f8f884fb18f937
       vertices: []
       indices: 
       edges: []
