@@ -39,7 +39,7 @@ public class BrayanStats : Stats {
 
 
         // <-- Determinates the direction of the Skill Attack --> 
-        if (whatIsThisPlayer == 0)
+        if (whichIsThisPlayer == 0)
         {
             graphicMove = -4;
             dirSkillArea = -1;
@@ -67,7 +67,7 @@ public class BrayanStats : Stats {
 
         if (!playerMove.GetIsMoving())
         {
-            Debug.Log("HEREEEEEEE --> 2 : " + whatIsThisPlayer);
+            Debug.Log("HEREEEEEEE --> 2 : " + whichIsThisPlayer);
             playerMove.enabled = false;
 
             //Vector2 moveTo = new Vector2(map.blocks[(playerMove.playerColumn - graphicMove), playerMove.playerRow].transform.position.x , playerGraphic.transform.position.y);

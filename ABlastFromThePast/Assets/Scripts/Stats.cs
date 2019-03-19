@@ -33,7 +33,7 @@ public class Stats : MonoBehaviour {
     protected int ultimateDistance;
 
 
-    public int whichIs;
+    public int whichIsThisPlayer;
     #endregion
 
     #region Get Functions
@@ -50,7 +50,7 @@ public class Stats : MonoBehaviour {
     virtual public int GetUltimateDistance() { return ultimateDistance; }
     virtual public int GetRecoveryShieldTime() { return recoveryShieldTime; }
 
-    virtual public int WhichIs() { return whichIs; }
+    virtual public int WhichIs() { return whichIsThisPlayer; }
     #endregion
 
     #region Set Functions
@@ -68,7 +68,7 @@ public class Stats : MonoBehaviour {
     virtual public void SetUltimateDistance(int value) { ultimateDistance = value; }
     virtual public void SetRecoveryShieldTime(int value) {  recoveryShieldTime = value; }
 
-    virtual public void SetThisPlayer(int value) { whichIs = value; }
+    virtual public void SetThisPlayer(int value) { whichIsThisPlayer = value; }
     #endregion
 
     // Use this for initialization

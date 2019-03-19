@@ -71,7 +71,7 @@ public class Game : MonoBehaviour {
             }
             /* --- Asignamos valores enum(Player) para vada Script --- */
             #region Assign Num Player
-            playerStats[i].whichIs = i;
+            playerStats[i].whichIsThisPlayer = i;
             GameObject.Find("Player" + (i + 1)).GetComponent<PlayerMovement>().whichIs = i;
             
             // Class Stats
