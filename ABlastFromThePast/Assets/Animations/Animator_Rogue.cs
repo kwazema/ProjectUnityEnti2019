@@ -32,13 +32,13 @@ public class Animator_Rogue : MonoBehaviour
             animator.SetBool("isAttacking", false);
         }
 
-        if (Input.GetButtonDown("Horizontal"))
-        {
-            animator.SetFloat("speed", 0.2f);
-        } else if (Input.GetButtonUp("Horizontal"))
-        {
-            animator.SetFloat("speed", 0);
-        }
+        //if (Input.GetButtonDown("Horizontal"))
+        //{
+        //    animator.SetFloat("speed", 0.2f);
+        //} else if (Input.GetButtonUp("Horizontal"))
+        //{
+        //    animator.SetFloat("speed", 0);
+        //}
     }
 }
 
