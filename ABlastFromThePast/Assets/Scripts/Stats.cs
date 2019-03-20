@@ -85,9 +85,10 @@ public class Stats : MonoBehaviour {
         map = GameObject.Find("Map").GetComponent<Map>();
         playerMovement = GetComponent<PlayerMovement>();
         playerInput = GetComponent<PlayerInput>();
-        playerGraphic = GameObject.Find("Player" + (whichIsThisPlayer + 1) + "/GraficCharacter").GetComponent<Transform>();
+        //playerGraphic = GameObject.Find("Player" + (whichIsThisPlayer + 1) + "/GraficCharacter").GetComponent<Transform>();
 
-        //Debug.Log(playerGraphic.transform.position);
+        playerGraphic = GameObject.Find(BattleChoose.namePlayer[whichIsThisPlayer] + "/GraficCharacter").GetComponent<Transform>();
+
         if (whichIsThisPlayer == 0)
         {
             graphicMove = 4;
@@ -105,8 +106,7 @@ public class Stats : MonoBehaviour {
     protected virtual void Update () {
         //Debug.Log("Shield: " + shield);
         //MoveToPosition();
-
-        //Debug.Log(playerGraphic.transform.position);
+        Debug.Log(playerGraphic.transform.position);
 
         //Debug.Log(playerGraphic.transform.position);
         if (moveToPosition)

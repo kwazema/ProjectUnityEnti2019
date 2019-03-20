@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 114416539658666138}
   - component: {fileID: 114941299557602568}
   m_Layer: 11
-  m_Name: Player1
+  m_Name: Brayan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

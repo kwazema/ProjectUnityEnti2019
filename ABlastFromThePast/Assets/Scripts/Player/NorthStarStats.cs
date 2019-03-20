@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwipperStats : Stats {
+public class NorthStarStats : Stats {
 
     // Use this for initialization
     protected override void Start () {
@@ -24,5 +24,6 @@ public class SwipperStats : Stats {
     protected override void Update()
     {
         base.Update();
+
     }
 }

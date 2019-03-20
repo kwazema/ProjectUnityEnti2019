@@ -251,10 +251,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enumPlayer: 0
   damageBasicAttack: 0
+  damageSkill: 0
   health: 0
   shield: 0
   whichIsThisPlayer: 0
-  graphicMove: 0
 --- !u!114 &114986080581343142
 MonoBehaviour:
   m_ObjectHideFlags: 1

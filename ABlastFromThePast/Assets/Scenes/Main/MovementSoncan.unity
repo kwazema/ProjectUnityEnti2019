@@ -988,14 +988,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1325922399976486, guid: 27ac98cbfe1164a448f8931070eb0734, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114485137624816796, guid: 27ac98cbfe1164a448f8931070eb0734,
         type: 2}
       propertyPath: enumPlayer
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114941299557602568, guid: 27ac98cbfe1164a448f8931070eb0734, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 27ac98cbfe1164a448f8931070eb0734, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &395574490
@@ -2421,7 +2422,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4189551981976690, guid: bee7a162402e4f24b8e94e92c0f657fc, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0.02085516
       objectReference: {fileID: 0}
     - target: {fileID: 4189551981976690, guid: bee7a162402e4f24b8e94e92c0f657fc, type: 2}
       propertyPath: m_LocalRotation.z
@@ -2429,13 +2430,22 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4189551981976690, guid: bee7a162402e4f24b8e94e92c0f657fc, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.9997825
       objectReference: {fileID: 0}
     - target: {fileID: 4189551981976690, guid: bee7a162402e4f24b8e94e92c0f657fc, type: 2}
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4189551981976690, guid: bee7a162402e4f24b8e94e92c0f657fc, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 2.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854191426678060, guid: bee7a162402e4f24b8e94e92c0f657fc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114810169385630342, guid: bee7a162402e4f24b8e94e92c0f657fc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: bee7a162402e4f24b8e94e92c0f657fc, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &979198601 stripped
@@ -3323,6 +3333,28 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1522994572}
+--- !u!1 &1538460593 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1325922399976486, guid: 27ac98cbfe1164a448f8931070eb0734,
+    type: 2}
+  m_PrefabInternal: {fileID: 389245982}
+--- !u!114 &1538460594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1538460593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b50c5433f907347b51702dd7e440f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enumPlayer: 1
+  damageBasicAttack: 0
+  damageSkill: 0
+  health: 0
+  shield: 0
+  whichIsThisPlayer: 0
 --- !u!1 &1540659951
 GameObject:
   m_ObjectHideFlags: 0
@@ -3540,6 +3572,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numPlayer: 
   playerStats: []
+  GameObjectsPlayers:
+  - {fileID: 1325922399976486, guid: 1d97efdb30886fc489b04a2de17a9cdc, type: 2}
+  - {fileID: 1854191426678060, guid: ec1b71da2f5feac4dbd8847f45f236cb, type: 2}
+  - {fileID: 1807604450801538, guid: 01fe0bf86040a5e4d996c27bb73318b6, type: 2}
 --- !u!1 &1702413540
 GameObject:
   m_ObjectHideFlags: 0
@@ -4129,6 +4165,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1866348440 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1854191426678060, guid: bee7a162402e4f24b8e94e92c0f657fc,
+    type: 2}
+  m_PrefabInternal: {fileID: 960630269}
+--- !u!114 &1866348441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1866348440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e787ce2bd589346a6b927be89dc033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enumPlayer: 0
+  damageBasicAttack: 0
+  damageSkill: 0
+  health: 0
+  shield: 0
+  whichIsThisPlayer: 0
 --- !u!1 &1898720560
 GameObject:
   m_ObjectHideFlags: 0

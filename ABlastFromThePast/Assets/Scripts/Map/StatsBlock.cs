@@ -57,7 +57,9 @@ public class StatsBlock : MonoBehaviour {
 
         for (int i = 0; i < 2; i++)
         {
-            playerMovement[i] = GameObject.Find("Player" + (i + 1)).GetComponent<PlayerMovement>();
+            playerMovement[i] = GameObject.Find(BattleChoose.namePlayer[i]).GetComponent<PlayerMovement>();
+            //playerMovement[i] = GameObject.Find("Player" + (i + 1)).GetComponent<PlayerMovement>();
+            //playerMovement[i] = GameObject.Find("GAME.ARRAY STRING NAME)).GetComponent<PlayerMovement>();
             //Debug.Log(playerMovement[i].name);
         }
     }

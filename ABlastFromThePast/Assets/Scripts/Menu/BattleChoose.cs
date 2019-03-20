@@ -7,12 +7,12 @@ using UnityEngine.SceneManagement;
 public class BattleChoose : MonoBehaviour {
     public Text textPlayer;
 
-
     bool foxy;
     bool skull;
     bool mage;
 
     public static int[] charactersChoice;
+    public static string[] namePlayer = new string[2];
 
     private void Awake()
     {
@@ -38,6 +38,11 @@ public class BattleChoose : MonoBehaviour {
 
     public void Play()
     {
+        if (namePlayer[0] == namePlayer[1])
+        {
+            namePlayer[1] += "1";
+        }
+
         if (selectedPLayers == 0)
         {
             textPlayer.text = "Choose for Player " + (selectedPLayers + 2);
@@ -60,6 +65,8 @@ public class BattleChoose : MonoBehaviour {
         foxy = true;
         Debug.Log("Swiper no robes");
         charactersChoice[selectedPLayers] = 1;
+        namePlayer[selectedPLayers] = "Swipper";
+
         Debug.Log(charactersChoice[selectedPLayers]);
     }
 
@@ -68,8 +75,9 @@ public class BattleChoose : MonoBehaviour {
         skull = true;
         Debug.Log("Eres el portador de la muerte");
         charactersChoice[selectedPLayers] = 0;
-        Debug.Log(charactersChoice[selectedPLayers]);
+        namePlayer[selectedPLayers] = "Brayan";
 
+        Debug.Log(charactersChoice[selectedPLayers]);
     }
 
     public void setMage()
@@ -77,6 +85,8 @@ public class BattleChoose : MonoBehaviour {
         mage = true;
         Debug.Log("Freeze you fool");
         charactersChoice[selectedPLayers] = 2;
+        namePlayer[selectedPLayers] = "NorthStart";
+
         Debug.Log(charactersChoice[selectedPLayers]);
     }
 }

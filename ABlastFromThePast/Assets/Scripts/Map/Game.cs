@@ -6,7 +6,8 @@ public class Game : MonoBehaviour {
 
     public int[] numPlayer; //int para de la sección de los personajes
     public Stats[] playerStats;
-    GameObject[] GameObjectsPlayers;
+    public GameObject[] GameObjectsPlayers;
+    //BattleChoose battleInfo;
 
     private void Awake()
     {
@@ -16,11 +17,13 @@ public class Game : MonoBehaviour {
 
         playerStats = new Stats[2]; 
         InitPlayers();
+        //battleInfo 
     }
 
     // Use this for initialization
     void Start () {
-
+        //Debug.Log("Personaje: " + BattleChoose.charactersChoice[0]);
+        //Debug.Log("Personaje: " + BattleChoose.charactersChoice[1]);
     }
 
     // Update is called once per frame
@@ -46,42 +49,56 @@ public class Game : MonoBehaviour {
     {
         for (int i = 0; i < 2; i++)
         {
-            //playerStats[i].enumPlayer = (Stats.EnumPlayer)i;
-            switch (numPlayer[i])
+            //switch (numPlayer[i])
+
+            //GameObjectsPlayers[i].name = BattleChoose.namePlayer[i];
+            Debug.Log("Player " + i + " " + BattleChoose.charactersChoice[i]);
+
+             //Instantiate(GameObjectsPlayers[BattleChoose.charactersChoice[i]]);
+
+            //GameObjectsPlayers[i].name = BattleChoose.namePlayer[i];
+
+            switch (BattleChoose.charactersChoice[i])
             {
                 case 0:
-                    //playerStats[i] = GameObject.Find("Player" + (i + 1)).GetComponent<NewPlayer>();
-                    //player[i] = new NameStats();
+                    playerStats[i] = Instantiate(GameObjectsPlayers[BattleChoose.charactersChoice[i]]).GetComponent<BrayanStats>();
                     break;
 
                 case 1:
-                    playerStats[i] = GameObject.Find("Player" + (i + 1)).GetComponent<SwipperStats>();
-                    //playerStats[i] = new SwipperStats();
+                    playerStats[i] = Instantiate(GameObjectsPlayers[BattleChoose.charactersChoice[i]]).GetComponent<SwipperStats>();
                     break;
 
                 case 2:
-                    playerStats[i] = GameObject.Find("Player" + (i + 1)).GetComponent<BrayanStats>();
-                    //playerStats[i] = new BrayanStats();
-                    //playerStats[i].idPlayer = i;
-                    break;
-
-                case 3:
-                    //player[i] = new NameStats();
+                    playerStats[i] = Instantiate(GameObjectsPlayers[BattleChoose.charactersChoice[i]]).GetComponent<NorthStarStats>();
                     break;
             }
+            playerStats[i].name = BattleChoose.namePlayer[i];
+
+            //playerStats[i].name = BattleChoose.namePlayer[i];
+
             /* --- Asignamos valores enum(Player) para vada Script --- */
             #region Assign Num Player
             playerStats[i].whichIsThisPlayer = i;
-            GameObject.Find("Player" + (i + 1)).GetComponent<PlayerMovement>().whichIs = i;
+
+            if (playerStats[i].whichIsThisPlayer == 0)
+            {
+                playerStats[0].transform.rotation = new Quaternion(0, 0, 0, 0);
+            }
+            else
+            {
+                playerStats[1].transform.rotation = new Quaternion(0, 180, 0, 0);
+            }
+
+            GameObject.Find(BattleChoose.namePlayer[i]).GetComponent<PlayerMovement>().whichIs = i;
             
             // Class Stats
             playerStats[i].enumPlayer = (Stats.EnumPlayer)i; 
 
             // Class Input Attack
-            GameObject.Find("Player" + (i + 1)).GetComponent<PlayerAttackInput>().enumPlayer = (PlayerAttackInput.EnumPlayer)i;
+            GameObject.Find(BattleChoose.namePlayer[i]).GetComponent<PlayerAttackInput>().enumPlayer = (PlayerAttackInput.EnumPlayer)i;
 
             // Class Input Movement
-            GameObject.Find("Player" + (i + 1)).GetComponent<PlayerInput>().enumPlayer = (PlayerInput.EnumPlayer)i;
+            GameObject.Find(BattleChoose.namePlayer[i]).GetComponent<PlayerInput>().enumPlayer = (PlayerInput.EnumPlayer)i;
             #endregion
         }
     }
