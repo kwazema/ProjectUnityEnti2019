@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class BattleChoose : MonoBehaviour {
+    public Text textPlayer;
+
 
     bool foxy;
     bool skull;
@@ -22,10 +25,12 @@ public class BattleChoose : MonoBehaviour {
         skull= false;
         mage = false;
 
+        textPlayer.text = "Choose for Player " + (selectedPLayers+1);
+
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
@@ -33,6 +38,11 @@ public class BattleChoose : MonoBehaviour {
 
     public void Play()
     {
+        if (selectedPLayers == 0)
+        {
+            textPlayer.text = "Choose for Player " + (selectedPLayers + 2);
+        }
+        
         if (selectedPLayers == 1)
         {
             SceneManager.LoadScene("MovementSoncan");
