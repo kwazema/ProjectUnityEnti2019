@@ -34,7 +34,6 @@ public class PlayerAttackInput : MonoBehaviour
         player[0] = game.playerStats[0];
         player[1] = game.playerStats[1];
 
-        numPlayer = (int)enumPlayer;
     }
      
     void Update()
@@ -44,6 +43,7 @@ public class PlayerAttackInput : MonoBehaviour
 
     void GetInput()
     {
+
         if (EnumPlayer.Player1 == enumPlayer)
             GetInputPlayer1();
         else
@@ -58,11 +58,13 @@ public class PlayerAttackInput : MonoBehaviour
           Time.time > nextFire
           )
         {
-            BasicAttack();
+            Debug.Log("take 0");
+            player[0].TakeDamage(player[1].GetDamageBasicAttack());
         }
         else
         {
-            isShooting = false;
+            Debug.Log("take 1");
+            player[1].TakeDamage(player[0].GetDamageBasicAttack());
         }
 
         if (Input.GetKeyDown(KeyCode.B))
@@ -128,7 +130,6 @@ public class PlayerAttackInput : MonoBehaviour
        
         GameObject basicAttackClone = (GameObject)Instantiate(basicAttack, basicShotSpawn.position, basicShotSpawn.rotation);
         basicAttackClone.transform.rotation = transform.rotation;
-        
         isShooting = true;
     }
 
@@ -182,3 +183,10 @@ public class PlayerAttackInput : MonoBehaviour
     }
 
  */
+
+        player[1] = game.playerStats[1];
+
+        numPlayer = (int)enumPlayer;
+            BasicAttack();
+        }
+            isShooting = false;

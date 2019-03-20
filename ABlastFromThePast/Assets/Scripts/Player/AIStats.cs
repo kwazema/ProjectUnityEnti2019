@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatsIA : Stats
+public class AIStats : Stats
 {
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         damageBasicAttack = 30;
         damageSkill = 100;
         damageUltimate = 200;
-        recoveryShieldTime = 2;
+
         fireRate = 2.5f;
 	}
 
