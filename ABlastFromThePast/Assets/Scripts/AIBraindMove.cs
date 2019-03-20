@@ -11,10 +11,10 @@ public class AIBraindMove : MonoBehaviour {
     private bool displacedHorizontal = false;
     private bool displacedVertical = false;
 
-    private float timeToMove = 1;
+    private float timeToMove = 0.7f;
     int numPlayer;
 
-    private AIMovement playerMovement;
+    private PlayerMovement playerMovement;
     public Game game;
     private Map map;
 
@@ -29,7 +29,8 @@ public class AIBraindMove : MonoBehaviour {
     void Start()
     {
         //playerMovement = gameObject.GetComponent<Player1Movement>(); // Diferencia?
-        playerMovement = GetComponent<AIMovement>();
+        playerMovement = GetComponent<PlayerMovement>();
+        //playerMovement = GetComponent<PlayerMovementAI>();
         player = EnumPlayer.Player2;
         StartCoroutine(Horizontal());
 
@@ -43,12 +44,30 @@ public class AIBraindMove : MonoBehaviour {
 
         //timeToMove = game.playerStats[numPlayer].GetHealth() / 100;
         float value = game.playerStats[numPlayer].GetHealth() / 100f * 100f;
-        timeToMove = value / 100f;
 
         Debug.Log("%: " + value);
         Debug.Log("timeToMove: " + value / 100f);
+        if (timeToMove > 10f)
+        {
+        }
+
+        if (game.playerStats[numPlayer].GetHealth() < 80)
+        {
+            timeToMove = 0.5f;
+
+            if (game.playerStats[numPlayer].GetHealth() < 50)
+            {
+
+                timeToMove = 0.2f;
 
 
+                if (game.playerStats[numPlayer].GetHealth() < 50)
+                {
+                    timeToMove = 0.1f;
+
+                }
+            }
+        }
     }
 
     void statLevel(int level)

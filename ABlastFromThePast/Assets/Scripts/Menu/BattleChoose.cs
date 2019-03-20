@@ -18,9 +18,9 @@ public class BattleChoose : MonoBehaviour {
     {
         charactersChoice = new int[2];
         namePlayer[0] = "NorthStart";
-        namePlayer[1] = "Swipper";
+        namePlayer[1] = "BrayanAI";
         charactersChoice[0] = 2;
-        charactersChoice[1] = 0;
+        charactersChoice[1] = 3;
     }
     // Use this for initialization
     void Start () {

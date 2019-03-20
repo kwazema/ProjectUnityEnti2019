@@ -71,6 +71,9 @@ public class Game : MonoBehaviour {
                 case 2:
                     playerStats[i] = Instantiate(GameObjectsPlayers[BattleChoose.charactersChoice[i]]).GetComponent<NorthStarStats>();
                     break;
+                case 3:
+                    playerStats[i] = Instantiate(GameObjectsPlayers[BattleChoose.charactersChoice[i]]).GetComponent<BrayanStats>();
+                    break;
             }
             playerStats[i].name = BattleChoose.namePlayer[i];
 

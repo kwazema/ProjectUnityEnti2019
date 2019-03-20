@@ -10,9 +10,9 @@ public class BrayanStats : Stats {
         base.Start();
 
         health = 100;
-        shield = 20;
-        damageBasicAttack = 5;
-        damageSkill = 20;
+        shield = 10;
+        damageBasicAttack = 8;
+        damageSkill = 12;
         damageUltimate = 50;
         fireRate = 0.2f;
         recoveryShieldTime = 2;

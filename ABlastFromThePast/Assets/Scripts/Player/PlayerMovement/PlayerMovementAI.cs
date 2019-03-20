@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovementAI : MonoBehaviour {
 
     public int playerColumn, playerRow;
     private int nextColumn, nextRow;
@@ -132,50 +132,29 @@ public class PlayerMovement : MonoBehaviour {
 
     void MovementAction(int dirHorizontal, int dirVertical)
     {
-        if (playerInput != null)
+        if (PlayerInput.EnumPlayer.Player1 == playerInput.enumPlayer)
         {
+            //if (Can i move?)
+            //-------------- Move Right -------------- //
+            if (dirHorizontal > 0 && playerColumn < columnLenth - 1)
+                playerColumn += dirHorizontal;
 
-            if (PlayerInput.EnumPlayer.Player1 == playerInput.enumPlayer)
-            {
-                //if (Can i move?)
-                //-------------- Move Right -------------- //
-                if (dirHorizontal > 0 && playerColumn < columnLenth - 1)
-                    playerColumn += dirHorizontal;
+            //-------------- Move Left -------------- //
+            if (dirHorizontal < 0 && playerColumn > 0)
+                playerColumn += dirHorizontal;
 
-                //-------------- Move Left -------------- //
-                if (dirHorizontal < 0 && playerColumn > 0)
-                    playerColumn += dirHorizontal;
+            //--------------- Move Up --------------- //
+            if (dirVertical < 0 && playerRow < rowLenth - 1)
+                playerRow -= dirVertical;
 
-                //--------------- Move Up --------------- //
-                if (dirVertical < 0 && playerRow < rowLenth - 1)
-                    playerRow -= dirVertical;
-
-                //-------------- Move Down -------------- //
-                if (dirVertical > 0 && playerRow > 0)
-                    playerRow -= dirVertical;
-            }
-            else if (PlayerInput.EnumPlayer.Player2 == playerInput.enumPlayer)
-            {
-                //if (Can i move?)
-                //-------------- Move Right -------------- //
-                if (dirHorizontal > 0 && playerColumn < map.columnLenth - 1)
-                    playerColumn += dirHorizontal;
-
-                //-------------- Move Left -------------- //
-                if (dirHorizontal < 0 && playerColumn > columnLenth)
-                    playerColumn += dirHorizontal;
-
-                //--------------- Move Up --------------- //
-                if (dirVertical < 0 && playerRow < rowLenth - 1)
-                    playerRow -= dirVertical;
-
-                //-------------- Move Down -------------- //
-                if (dirVertical > 0 && playerRow > 0)
-                    playerRow -= dirVertical;
-            }
+            //-------------- Move Down -------------- //
+            if (dirVertical > 0 && playerRow > 0)
+                playerRow -= dirVertical;
         }
-        else
+        else if (PlayerInput.EnumPlayer.Player2 == playerInput.enumPlayer) 
         {
+            //if (Can i move?)
+            //-------------- Move Right -------------- //
             if (dirHorizontal > 0 && playerColumn < map.columnLenth - 1)
                 playerColumn += dirHorizontal;
 

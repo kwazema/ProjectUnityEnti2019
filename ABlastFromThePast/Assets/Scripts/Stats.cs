@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Stats : MonoBehaviour {
 
     //Map map;
@@ -106,7 +106,7 @@ public class Stats : MonoBehaviour {
     protected virtual void Update () {
         //Debug.Log("Shield: " + shield);
         //MoveToPosition();
-        Debug.Log(playerGraphic.transform.position);
+        //Debug.Log(playerGraphic.transform.position);
 
         //Debug.Log(playerGraphic.transform.position);
         if (moveToPosition)
@@ -140,7 +140,7 @@ public class Stats : MonoBehaviour {
 
     void Die()
     {
-        Destroy(gameObject);
+        SceneManager.LoadScene("Modojuego");
     }
 
     virtual public IEnumerator ShieldRecovery()

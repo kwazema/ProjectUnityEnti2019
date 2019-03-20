@@ -9,9 +9,9 @@ public class SwipperStats : Stats {
         base.Start();
 
         health = 100;
-        shield = 2;
-        damageBasicAttack = 5;
-        damageSkill = 20;
+        shield = 20;
+        damageBasicAttack = 3;
+        damageSkill = 10;
         damageUltimate = 50;
         fireRate = 0.2f;
         recoveryShieldTime = 2;

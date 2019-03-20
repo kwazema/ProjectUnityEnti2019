@@ -9,9 +9,9 @@ public class NorthStarStats : Stats {
         base.Start();
 
         health = 100;
-        shield = 2;
-        damageBasicAttack = 5;
-        damageSkill = 20;
+        shield = 0;
+        damageBasicAttack = 2;
+        damageSkill = 25;
         damageUltimate = 50;
         fireRate = 0.2f;
         recoveryShieldTime = 2;
