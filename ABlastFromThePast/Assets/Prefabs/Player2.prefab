@@ -101,7 +101,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1057197098106720}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.096, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7288843, y: 0.7647595, z: 0.72888476}
   m_Children: []
   m_Father: {fileID: 4189551981976690}
@@ -221,6 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerColumn: 0
   playerRow: 0
+  whichIs: 0
   speed: 0
   rb: {fileID: 50650539438479248}
   blockPrefab: {fileID: 1924483091404750, guid: 374dfb99d53c03046b087fde64c8d45f,
@@ -252,7 +253,8 @@ MonoBehaviour:
   damageBasicAttack: 0
   health: 0
   shield: 0
-  whatIsThisPlayer: 0
+  whichIsThisPlayer: 0
+  graphicMove: 0
 --- !u!114 &114986080581343142
 MonoBehaviour:
   m_ObjectHideFlags: 1

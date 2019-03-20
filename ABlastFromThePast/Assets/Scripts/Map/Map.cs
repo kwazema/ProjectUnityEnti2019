@@ -12,8 +12,8 @@ public class Map : MonoBehaviour {
 
     private void Awake()
     {
-        columnLenth = 8; rowLenth = 4;
-        blocks = InstantiateBlocks(columnLenth, rowLenth, new Vector2Int(-15, 3), 3, 3, 1);
+        columnLenth = 8; rowLenth = 3;
+        blocks = InstantiateBlocks(columnLenth, rowLenth, new Vector2Int(-14, 4), 3, 3, 1);
     }
 
     // Use this for initialization

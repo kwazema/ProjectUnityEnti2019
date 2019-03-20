@@ -85,11 +85,7 @@ public class PlayerMovement : MonoBehaviour {
         //Debug.Log("Position GO: " + v2Position[numPositionMove]);
         transform.position = Vector2.MoveTowards(transform.position, v2Position[numPositionMove], step);
 
-        // Compruba si se esta movimiento
-        if ((Vector2)transform.position != v2Position[numPositionMove])
-            isMoving = true;
-        else
-            isMoving = false;
+
 
         // Cambiar el num de guardado y guardar la siguiente posicion del v2.
         if (isMoving && playerInput.IsInput())
@@ -126,6 +122,12 @@ public class PlayerMovement : MonoBehaviour {
             nextRow = playerRow;
             //Debug.Log("Paso 1 Guardar");
         }
+
+        // Compruba si se esta movimiento
+        if ((Vector2)transform.position != v2Position[numPositionMove])
+            isMoving = true;
+        else
+            isMoving = false;
     }
 
     void MovementAction(int dirHorizontal, int dirVertical)

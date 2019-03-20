@@ -62,7 +62,7 @@ public class StatsBlock : MonoBehaviour {
         }
     }
 
-    bool PlayerInThisBlock()
+    public bool PlayerInThisBlock()
     {
         bool value = false;
 
@@ -80,7 +80,7 @@ public class StatsBlock : MonoBehaviour {
         return value;
     }
 
-    Stats GetPlayerStats()
+    public Stats GetPlayerStats()
     {
         Stats playerStats = new Stats();
 

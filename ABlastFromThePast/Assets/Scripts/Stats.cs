@@ -10,9 +10,15 @@ public class Stats : MonoBehaviour {
     [SerializeField] public enum EnumPlayer { Player1, Player2 }
     [SerializeField] public EnumPlayer enumPlayer;
 
+    protected Map map;
+    protected PlayerMovement playerMovement;
+    protected Transform playerGraphic;
+    protected PlayerInput playerInput;
+
     #region Variables
     [SerializeField]
     protected int damageBasicAttack;
+    [SerializeField]
     protected int damageSkill;
     protected int damageUltimate;
 
@@ -34,6 +40,9 @@ public class Stats : MonoBehaviour {
 
 
     public int whichIsThisPlayer;
+    protected int graphicMove;
+    protected int dirSkillArea;
+
     #endregion
 
     #region Get Functions
@@ -72,13 +81,38 @@ public class Stats : MonoBehaviour {
     #endregion
 
     // Use this for initialization
-    void Start () {
-        //map = GameObject.Find("Map").GetComponent<Map>();
+    protected virtual void Start () {
+        map = GameObject.Find("Map").GetComponent<Map>();
+        playerMovement = GetComponent<PlayerMovement>();
+        playerInput = GetComponent<PlayerInput>();
+        playerGraphic = GameObject.Find("Player" + (whichIsThisPlayer + 1) + "/GraficCharacter").GetComponent<Transform>();
+
+        //Debug.Log(playerGraphic.transform.position);
+        if (whichIsThisPlayer == 0)
+        {
+            graphicMove = 4;
+            dirSkillArea = 1;
+        }
+        else
+        {
+            graphicMove = -4;
+            dirSkillArea = -1;
+        }
+        Debug.Log("Grafic: " + graphicMove);
     }
 
     // Update is called once per frame
     protected virtual void Update () {
         //Debug.Log("Shield: " + shield);
+        //MoveToPosition();
+
+        //Debug.Log(playerGraphic.transform.position);
+
+        //Debug.Log(playerGraphic.transform.position);
+        if (moveToPosition)
+        {
+            MoveToPosition(60f);
+        }
     }
 
     virtual public void TakeDamage(int enemyDamage)
@@ -132,9 +166,95 @@ public class Stats : MonoBehaviour {
         }
     }
 
-    virtual public void SkillMoveTo() {}
+
+    protected bool moveToPosition = false;
+    Vector2 moveTo;
+    public void SkillMoveTo(float cooldown, float timeToRetorn) {
+
+        moveTo = new Vector2(map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position.x, playerGraphic.transform.position.y);
+        //Debug.Log(moveTo);
+
+        if (!playerMovement.GetIsMoving())
+        {
+            playerInput.enabled = false;
+            moveToPosition = true;
+        }
+    }
+
+    bool moveToOldPosition = false;
+    float waitPosition = 0f;
+    bool noHaAtacado = true;
+    public void MoveToPosition(float velocity)
+    {
+        float step = velocity * Time.deltaTime;
+
+        if ((Vector2)playerGraphic.transform.position == moveTo)
+        {
+            moveToOldPosition = true;
+            
+            if (noHaAtacado)
+            {
+                Debug.Log("Ya atacado");
+                LookForwardBlocks(/*EnumPlayer player*/);
+
+                noHaAtacado = false;
+            }
+        }
+
+        if (moveToOldPosition)
+        {
+            if (Time.time > waitPosition) // Time to Retorn
+            {
+                playerGraphic.transform.position = Vector2.MoveTowards(playerGraphic.transform.position, transform.position, step);
+
+                if (playerGraphic.transform.position == transform.position)
+                {
+                    moveToPosition = false;
+                    moveToOldPosition = false;
+                    noHaAtacado = true;
+                    playerInput.enabled = true;
+                }
+            }
+        }
+        else
+        {
+            playerGraphic.transform.position = Vector2.MoveTowards(playerGraphic.transform.position, moveTo, step);
+
+            waitPosition = Time.time;
+            waitPosition += 0.3f;
+        }
+    }
+
 
     private void MoveToXPos() {}
 
-    virtual public void LookForwardBlocks(/*EnumPlayer player*/) {}
+    virtual public void LookForwardBlocks(/*EnumPlayer player*/) {
+        //for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 3 ; i++)
+        {
+            //Debug.Log("Column: " + map.columnLenth + 3);
+            Debug.Log("Column: " + ((playerMovement.playerColumn + graphicMove) + (i * dirSkillArea)));
+
+            if (
+                ((playerMovement.playerColumn + graphicMove) + (i * dirSkillArea))  < map.columnLenth &&
+                ((playerMovement.playerColumn + graphicMove) + (i * dirSkillArea))  >= 0
+                )
+            {
+                Debug.Log("000000");
+                if (map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillArea), playerMovement.playerRow].PlayerInThisBlock())
+                {
+                    //if (map.blocks[(playerMove.playerColumn - graphicMove) - i, playerMove.playerRow] == map.blocks[playerMove.playerColumn , playerMove.playerRow] && transform.rotation.y > 0)
+                    Debug.Log("Bloque --> Column: " + ((playerMovement.playerColumn + graphicMove) + i) + " Row: " + playerMovement.playerRow);
+                    map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillArea), playerMovement.playerRow].GetPlayerStats().TakeDamage(GetDamageSkill());
+                }
+            }
+
+            //if (map.blocks[(playerMove.playerColumn - graphicMove)-skillArea , playerMove.playerRow] == map.blocks[playerMove.playerColumn, playerMove.playerRow])
+            //{
+            //    Debug.Log("HEREEEEEEEEEEEEEEEEEEEEEEEEE::");
+            //}
+
+        }
+
+    }
 }
