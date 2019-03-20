@@ -17,7 +17,10 @@ public class BattleChoose : MonoBehaviour {
     private void Awake()
     {
         charactersChoice = new int[2];
-
+        namePlayer[0] = "NorthStart";
+        namePlayer[1] = "Swipper";
+        charactersChoice[0] = 2;
+        charactersChoice[1] = 0;
     }
     // Use this for initialization
     void Start () {
@@ -54,6 +57,12 @@ public class BattleChoose : MonoBehaviour {
         }
         selectedPLayers++;
     }
+
+    public void PlayAI()
+    {
+        SceneManager.LoadScene("SceneAI");
+    }
+
 
     public void Return()
     {
