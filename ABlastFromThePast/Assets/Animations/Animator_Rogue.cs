@@ -16,6 +16,15 @@ public class Animator_Rogue : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            int attack = Random.Range(0, 1);
+
+            if (attack == 0)
+            {
+                animator.SetFloat("attack", 0.1f);
+            } else
+            {
+                animator.SetFloat("attack", 1.1f);
+            }
             animator.SetBool("isAttacking", true);
         }
         else if (Input.GetButtonUp("Fire1"))

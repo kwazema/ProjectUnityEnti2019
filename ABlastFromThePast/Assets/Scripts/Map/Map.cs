@@ -7,13 +7,13 @@ public class Map : MonoBehaviour {
     public int columnLenth, rowLenth;
 
     public GameObject blockPrefab;
-
+    public GameObject map;
     public StatsBlock[,] blocks;
 
     private void Awake()
     {
-        columnLenth = 8; rowLenth = 4;
-        blocks = InstantiateBlocks(columnLenth, rowLenth, new Vector2Int(-15, 3), 3, 3, 1);
+        columnLenth = 8; rowLenth = 3;
+        blocks = InstantiateBlocks(columnLenth, rowLenth, new Vector2Int(-14, 4), 3, 3, 1);
     }
 
     // Use this for initialization
@@ -34,7 +34,10 @@ public class Map : MonoBehaviour {
             for (int j = 0; j < row; j++)
             {
                 blocks[i, j] = Instantiate(blockPrefab).GetComponent<StatsBlock>();
+                blocks[i, j].transform.SetParent(map.transform);
                 blocks[i, j].transform.position = offset + new Vector2(i * (width + margin), j * -(height + margin));
+                blocks[i, j].thisColumn = i;
+                blocks[i, j].thisRow = j;
             }
         }
 
