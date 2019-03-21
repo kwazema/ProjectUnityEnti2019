@@ -146,9 +146,7 @@ public class PlayerAttackInput : MonoBehaviour
 
     private void SkillAttack()
     {
-        game.playerStats[numPlayer].SkillMoveTo(0f, 0f);
-        // añadir a los dos player // 
-        //player[numPlayer].LookForwardBlocks();
+        player[numPlayer].SkillMoveTo(0f, 0f);
     }
 
     private void UltimateAttack()

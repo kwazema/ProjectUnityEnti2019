@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pruaba : MonoBehaviour {
+public class ExplosionTrigger : MonoBehaviour {
 
     public GameObject explosion;
     public CameraShake cameraShake;
@@ -19,7 +19,14 @@ public class Pruaba : MonoBehaviour {
         {
             Debug.Log("Explosion");
             Instantiate(explosion, explosionPosition.position, Quaternion.identity);
-            StartCoroutine(cameraShake.Shake(.15f, .4f));
+            StartCoroutine(cameraShake.Shake(.95f, .94f));
         }
     }
+
+    private void OnMouseEnter()
+    {
+        Debug.Log("Enter Mouse");
+    }
+
+
 }
