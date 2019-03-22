@@ -12,14 +12,19 @@ public class Stats : MonoBehaviour {
     protected Transform playerGraphic;
     protected PlayerInput playerInput;
 
-    protected bool isShieldActive = false;
-    protected bool moveToPosition = false;
-    Vector2 moveToBlock;
+    #region Variables Private
+
+    private bool isShieldActive = false;
+    private bool moveToPosition = false;
     private bool returnOldPosition = false;
-    private float timeInPosition = 0f;
     private bool noHaAtacado = true;
-    
+
+    #endregion
+
     #region Variables Protected
+
+    protected Vector2 moveToBlock;
+    protected float timeInPosition;
 
     [SerializeField]
     protected int damageBasicAttack;
@@ -54,14 +59,18 @@ public class Stats : MonoBehaviour {
     virtual public int GetDamageBasicAttack() { return damageBasicAttack; }
     virtual public int GetDamageSkill() { return damageSkill; }
     virtual public int GetDamageUltimate() { return damageUltimate; }
+
     virtual public int GetHealth() { return health; }
     virtual public int GetShield() { return shield; }
     virtual public float GetFireRate() { return fireRate; }
-    //virtual public float GetNextFire() { return nextFire; }
+    virtual public bool GetIsShieldActive() { return isShieldActive; }
+
     virtual public float GetSkillCD() { return skillCD; }
     virtual public float GetUltimateCD() { return ultimateCD; }
+
     virtual public int GetSkillDistance() { return skillDistance; }
     virtual public int GetUltimateDistance() { return ultimateDistance; }
+
     virtual public int GetRecoveryShieldTime() { return recoveryShieldTime; }
 
     virtual public int WhichIs() { return whichIsThisPlayer; }
@@ -71,15 +80,18 @@ public class Stats : MonoBehaviour {
     virtual public void SetDamageBasicAttack(int value) { damageBasicAttack = value; }
     virtual public void SetDamageSkill(int value) { damageSkill = value; }
     virtual public void SetDamageUltimate(int value) { damageUltimate = value; }
+
     virtual public void SetHealth(int value) { health = value; }
     virtual public void SetShield(int value) { shield = value; }
-    virtual public void SetIsShieldActive(bool value) { isShieldActive= value; }
     virtual public void SetFireRate(int value) { fireRate = value; }
-    //virtual public void SetNextFire(int value) { nextFire = value; }
+    virtual public void SetIsShieldActive(bool value) { isShieldActive = value; }
+
     virtual public void SetSkillCD(int value) { skillCD = value; }
     virtual public void SetUltimateCD(int value) { ultimateCD = value; }
+
     virtual public void SetSkillDistance(int value) { skillDistance = value; }
     virtual public void SetUltimateDistance(int value) { ultimateDistance = value; }
+
     virtual public void SetRecoveryShieldTime(int value) {  recoveryShieldTime = value; }
 
     virtual public void SetThisPlayer(int value) { whichIsThisPlayer = value; }
@@ -92,6 +104,17 @@ public class Stats : MonoBehaviour {
 
         playerGraphic = GameObject.Find(BattleChoose.namePlayer[whichIsThisPlayer] + "/GraficCharacter").GetComponent<Transform>();
 
+        SelectedZonaPlayer();
+
+        Test = 20;
+        if (Test > 20)
+        {
+
+        }
+    }
+
+    private void SelectedZonaPlayer()
+    {
         if (whichIsThisPlayer == 0)
         {
             graphicMove = 4;
@@ -162,6 +185,22 @@ public class Stats : MonoBehaviour {
             }
         }
     }
+
+    private int test;
+    public int Test
+    {
+        get
+        {
+            return this.test;
+        }
+
+        set
+        {
+            this.test = value;
+        }
+    }
+
+    
 
     void Die()
     {
@@ -234,11 +273,13 @@ public class Stats : MonoBehaviour {
                 ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone))  >= 0
                 )
             {
+                map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].m_SpriteRenderer.color = Color.red;
                 //Debug.Log("000000");
                 if (map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].PlayerInThisBlock())
                 {
                     //Debug.Log("Bloque --> Column: " + ((playerMovement.playerColumn + graphicMove) + i) + " Row: " + playerMovement.playerRow);
                     map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].GetPlayerStats().TakeDamage(GetDamageSkill());
+
                 }
             }
         }

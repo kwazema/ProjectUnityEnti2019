@@ -15,8 +15,7 @@ public class StatsBlock : MonoBehaviour {
     public Stats statsPlayer;
 
     PlayerMovement[] playerMovement;
-
-    SpriteRenderer m_SpriteRenderer;
+    public SpriteRenderer m_SpriteRenderer;
 
     private void Awake()
     {
@@ -30,7 +29,7 @@ public class StatsBlock : MonoBehaviour {
         //m_SpriteRenderer = new SpriteRenderer;
 
         //blocks = GetComponent<Block>();
-        //m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
 
         //Debug.Log("asd");
     }
