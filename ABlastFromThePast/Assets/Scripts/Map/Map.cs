@@ -16,15 +16,6 @@ public class Map : MonoBehaviour {
         blocks = InstantiateBlocks(columnLenth, rowLenth, new Vector2Int(-14, 4), 3, 3, 1);
     }
 
-    // Use this for initialization
-    void Start () {
-    }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     StatsBlock[,] InstantiateBlocks(int column, int row, Vector2Int offset, float width, float height, float margin)
     {
         StatsBlock[,] blocks = new StatsBlock[column, row];
@@ -36,8 +27,8 @@ public class Map : MonoBehaviour {
                 blocks[i, j] = Instantiate(blockPrefab).GetComponent<StatsBlock>();
                 blocks[i, j].transform.SetParent(map.transform);
                 blocks[i, j].transform.position = offset + new Vector2(i * (width + margin), j * -(height + margin));
-                blocks[i, j].thisColumn = i;
-                blocks[i, j].thisRow = j;
+                blocks[i, j].SetColumn(i);
+                blocks[i, j].SetRow(j);
             }
         }
 

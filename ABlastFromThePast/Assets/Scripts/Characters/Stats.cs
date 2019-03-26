@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class Stats : MonoBehaviour {
 
     [SerializeField] public enum EnumPlayer { Player1, Player2 }
@@ -105,27 +106,6 @@ public class Stats : MonoBehaviour {
         playerGraphic = GameObject.Find(BattleChoose.namePlayer[whichIsThisPlayer] + "/GraficCharacter").GetComponent<Transform>();
 
         SelectedZonaPlayer();
-
-        Test = 20;
-        if (Test > 20)
-        {
-
-        }
-    }
-
-    private void SelectedZonaPlayer()
-    {
-        if (whichIsThisPlayer == 0)
-        {
-            graphicMove = 4;
-            dirSkillZone = 1;
-        }
-        else
-        {
-            graphicMove = -4;
-            dirSkillZone = -1;
-        }
-        Debug.Log("Grafic: " + graphicMove);
     }
 
     protected virtual void Update () {
@@ -137,29 +117,6 @@ public class Stats : MonoBehaviour {
         if (moveToPosition)
         {
             MovingToPosition(60f);
-        }
-    }
-
-    virtual public void TakeDamage(int enemyDamage)
-    {
-        if (isShieldActive)
-        {
-            shield -= enemyDamage;
-            if (shield < 0)
-            {
-                shield = 0;
-                health += shield;
-            }
-        }
-        else
-        {
-            health -= enemyDamage;
-        }
-
-        if (health <= 0)
-        {
-            health = 0;
-            Die();
         }
     }
 
@@ -186,25 +143,32 @@ public class Stats : MonoBehaviour {
         }
     }
 
-    private int test;
-    public int Test
-    {
-        get
-        {
-            return this.test;
-        }
-
-        set
-        {
-            this.test = value;
-        }
-    }
-
-    
-
     void Die()
     {
         SceneManager.LoadScene("Modojuego");
+    }
+
+    virtual public void TakeDamage(int enemyDamage)
+    {
+        if (isShieldActive)
+        {
+            shield -= enemyDamage;
+            if (shield < 0)
+            {
+                shield = 0;
+                health += shield;
+            }
+        }
+        else
+        {
+            health -= enemyDamage;
+        }
+
+        if (health <= 0)
+        {
+            health = 0;
+            Die();
+        }
     }
 
     #region Hability Skills
@@ -273,12 +237,12 @@ public class Stats : MonoBehaviour {
                 ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone))  >= 0
                 )
             {
-                map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].m_SpriteRenderer.color = Color.red;
+                map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].spriteBlock.color = Color.red;
                 //Debug.Log("000000");
-                if (map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].PlayerInThisBlock())
+                if (map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].IsPlayerInThisBlock())
                 {
                     //Debug.Log("Bloque --> Column: " + ((playerMovement.playerColumn + graphicMove) + i) + " Row: " + playerMovement.playerRow);
-                    map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].GetPlayerStats().TakeDamage(GetDamageSkill());
+                    map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].GetPlayerStatsBlock().TakeDamage(GetDamageSkill());
 
                 }
             }
@@ -286,4 +250,23 @@ public class Stats : MonoBehaviour {
     }
 
     #endregion
+
+    #region Hability Ultimate
+
+    #endregion
+
+    private void SelectedZonaPlayer()
+    {
+        if (whichIsThisPlayer == 0)
+        {
+            graphicMove = 4;
+            dirSkillZone = 1;
+        }
+        else
+        {
+            graphicMove = -4;
+            dirSkillZone = -1;
+        }
+        Debug.Log("Grafic: " + graphicMove);
+    }
 }

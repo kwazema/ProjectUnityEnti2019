@@ -8,16 +8,20 @@ public class SwipperStats : Stats {
     protected override void Start () {
         base.Start();
 
+        #region Basic Stats
+
         health = 100;
         shield = 20;
+
         damageBasicAttack = 3;
         damageSkill = 10;
         damageUltimate = 50;
+
+        #endregion
+
         fireRate = 0.2f;
         recoveryShieldTime = 2;
-
         StartCoroutine(ShieldRecovery());
-
     }
 
     // Update is called once per frame

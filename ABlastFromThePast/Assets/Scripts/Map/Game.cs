@@ -49,8 +49,6 @@ public class Game : MonoBehaviour {
     {
         for (int i = 0; i < 2; i++)
         {
-            //switch (numPlayer[i])
-
             //GameObjectsPlayers[i].name = BattleChoose.namePlayer[i];
             Debug.Log("Player " + i + " " + BattleChoose.charactersChoice[i]);
 

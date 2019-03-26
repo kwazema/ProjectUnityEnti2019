@@ -9,16 +9,20 @@ public class BrayanStats : Stats {
     protected override void Start () {
         base.Start();
 
+        #region Basic Stats
+
         health = 100;
         shield = 10;
+
         damageBasicAttack = 8;
         damageSkill = 12;
         damageUltimate = 50;
+
+        #endregion
+
         fireRate = 0.2f;
         recoveryShieldTime = 2;
-
         StartCoroutine(ShieldRecovery());
-
     }
 
     // Update is called once per frame
