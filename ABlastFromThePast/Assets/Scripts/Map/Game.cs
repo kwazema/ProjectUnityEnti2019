@@ -60,7 +60,7 @@ public class Game : MonoBehaviour {
             GameObject.Find(BattleChoose.namePlayer[i]).GetComponent<PlayerMovement>().whichIs = i;
             
             // Class Stats
-            playerStats[i].enumPlayer = (Stats.EnumPlayer)i; 
+            playerStats[i].thisPlayerIs = (Stats.ThisPlayerIs)i; 
 
             // Class Input Attack
             GameObject.Find(BattleChoose.namePlayer[i]).GetComponent<PlayerAttackInput>().enumPlayer = (PlayerAttackInput.EnumPlayer)i;

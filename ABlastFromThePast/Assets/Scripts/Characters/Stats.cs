@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Stats : MonoBehaviour {
 
-    [SerializeField] public enum EnumPlayer { Player1, Player2 }
-    [SerializeField] public EnumPlayer enumPlayer;
+    [SerializeField] public enum ThisPlayerIs { Player1, Player2 }
+    [SerializeField] public ThisPlayerIs thisPlayerIs;
 
     protected Map map;
     protected PlayerMovement playerMovement;
@@ -257,7 +257,7 @@ public class Stats : MonoBehaviour {
 
     private void SelectedZonaPlayer()
     {
-        if (whichIsThisPlayer == 0)
+        if (ThisPlayerIs.Player1 == thisPlayerIs)
         {
             graphicMove = 4;
             dirSkillZone = 1;
@@ -268,5 +268,11 @@ public class Stats : MonoBehaviour {
             dirSkillZone = -1;
         }
         Debug.Log("Grafic: " + graphicMove);
+
+        //if (whichIsThisPlayer == 0)
+        //{
+        //    graphicMove = 4;
+        //    dirSkillZone = 1;
+        //}
     }
 }

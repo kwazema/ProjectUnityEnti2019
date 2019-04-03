@@ -21,9 +21,9 @@ public class PlayerMovement : MonoBehaviour {
     private Vector2[] v2Position;
     public Rigidbody2D rb;
     private PlayerInput playerInput;
+    private Stats playerStats;
 
     private Map map;
-    public GameObject blockPrefab;
 
     #region Functions Gets
 
@@ -42,6 +42,9 @@ public class PlayerMovement : MonoBehaviour {
     {
         //player1Input = gameObject.GetComponent<Player1Input>(); // Diferencia?
         playerInput = GetComponent<PlayerInput>();
+        playerStats = GetComponent<Stats>();
+
+        Debug.Log("This player is: " + playerStats.whichIsThisPlayer);
 
         //---------- Init RB ----------- //
         rb = GetComponent<Rigidbody2D>();
@@ -116,7 +119,7 @@ public class PlayerMovement : MonoBehaviour {
         if (playerInput != null)
         {
 
-            if (PlayerInput.EnumPlayer.Player1 == playerInput.enumPlayer)
+            if (Stats.ThisPlayerIs.Player1 == playerStats.thisPlayerIs)
             {
                 //if (Can i move?)
                 //-------------- Move Right -------------- //
@@ -135,7 +138,7 @@ public class PlayerMovement : MonoBehaviour {
                 if (dirVertical > 0 && playerRow > 0)
                     playerRow -= dirVertical;
             }
-            else if (PlayerInput.EnumPlayer.Player2 == playerInput.enumPlayer)
+            else if (Stats.ThisPlayerIs.Player2 == playerStats.thisPlayerIs)
             {
                 //if (Can i move?)
                 //-------------- Move Right -------------- //
