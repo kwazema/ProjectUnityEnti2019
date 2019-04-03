@@ -11,7 +11,12 @@ public class Stats : MonoBehaviour {
     protected Map map;
     protected PlayerMovement playerMovement;
     protected Transform playerGraphic;
+    protected Transform playerCollider;
+    protected Collider2D bodyCollider;
     protected PlayerInput playerInput;
+
+    protected GameObject player;
+    Vector2 oldPos;
 
     #region Variables Private
 
@@ -104,6 +109,8 @@ public class Stats : MonoBehaviour {
         playerInput = GetComponent<PlayerInput>();
 
         playerGraphic = GameObject.Find(BattleChoose.namePlayer[whichIsThisPlayer] + "/GraficCharacter").GetComponent<Transform>();
+        playerCollider = GameObject.Find(BattleChoose.namePlayer[whichIsThisPlayer] + "/BodyCollider").GetComponent<Transform>();
+        bodyCollider = GameObject.Find(BattleChoose.namePlayer[whichIsThisPlayer] + "/BodyCollider").GetComponent<Collider2D>();
 
         SelectedZonaPlayer();
     }
@@ -173,11 +180,13 @@ public class Stats : MonoBehaviour {
 
     #region Hability Skills
 
-    public void SkillMoveTo(float cooldown, float timeToRetorn)
+    public void SkillMoveTo(float cooldown = 0, float timeToRetorn = 0)
     {
-        moveToBlock = new Vector2(map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position.x, playerGraphic.transform.position.y);
-        //Debug.Log(moveTo);
-
+        oldPos = (Vector2)transform.position;
+        //moveToBlock = new Vector2(map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position.x, playerGraphic.transform.position.y);
+        moveToBlock = new Vector2(map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position.x, transform.position.y);
+       // Debug.Log(moveTo);
+      
         if (!playerMovement.GetIsMoving())
         {
             playerInput.enabled = false;
@@ -188,11 +197,19 @@ public class Stats : MonoBehaviour {
     private void MovingToPosition(float velocity)
     {
         float step = velocity * Time.deltaTime;
+        //SkillMoveTo();
 
-        if ((Vector2)playerGraphic.transform.position == moveToBlock)
+        //if ((Vector2)playerGraphic.transform.position == moveToBlock)
+
+        Debug.Log("HERE -- POSITION - MOVE TO: " + transform.position + " " + moveToBlock);
+
+
+        if ((Vector2)transform.position == moveToBlock)
         {
+            bodyCollider.enabled = true;
             returnOldPosition = true;
-            
+            Debug.Log("HEREEEEEEEEEEEEEEEEEEEEEEEEEE -- CHANGE ORDER: " + returnOldPosition);
+
             if (noHaAtacado)
             {
                 Debug.Log("Ya atacado");
@@ -201,25 +218,15 @@ public class Stats : MonoBehaviour {
                 noHaAtacado = false;
             }
         }
-
-        if (returnOldPosition)
-        {
-            if (Time.time > timeInPosition) // Time to Retorn
-            {
-                playerGraphic.transform.position = Vector2.MoveTowards(playerGraphic.transform.position, transform.position, step);
-
-                if (playerGraphic.transform.position == transform.position)
-                {
-                    moveToPosition = false;
-                    returnOldPosition = false;
-                    noHaAtacado = true;
-                    playerInput.enabled = true;
-                }
-            }
-        }
         else
         {
-            playerGraphic.transform.position = Vector2.MoveTowards(playerGraphic.transform.position, moveToBlock, step);
+            // Graphic
+            //playerGraphic.transform.position = Vector2.MoveTowards(playerGraphic.transform.position, moveToBlock, step);
+            transform.position = Vector2.MoveTowards(transform.position, moveToBlock, step);
+
+            // Collider
+            bodyCollider.enabled = false;            
+            //playerCollider.transform.position = Vector2.MoveTowards(playerCollider.transform.position, moveToBlock, step); 
 
             timeInPosition = Time.time;
             timeInPosition += 0.3f;
@@ -229,19 +236,16 @@ public class Stats : MonoBehaviour {
     private void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0) {
         for (int i = 0; i < rangeEffectColumn; i++)
         {
-            //Debug.Log("Column: " + map.columnLenth + 3);
-            //Debug.Log("Column: " + ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone)));
-
             if (
                 ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone))  < map.columnLenth &&
                 ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone))  >= 0
                 )
             {
                 map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].spriteBlock.color = Color.red;
-                //Debug.Log("000000");
+
                 if (map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].IsPlayerInThisBlock())
                 {
-                    //Debug.Log("Bloque --> Column: " + ((playerMovement.playerColumn + graphicMove) + i) + " Row: " + playerMovement.playerRow);
+                    
                     map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].GetPlayerStatsBlock().TakeDamage(GetDamageSkill());
 
                 }
