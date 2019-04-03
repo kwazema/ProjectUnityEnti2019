@@ -7,7 +7,6 @@ public class Game : MonoBehaviour {
     public int[] numPlayer; //int para de la sección de los personajes
     public Stats[] playerStats;
     public GameObject[] GameObjectsPlayers;
-    //BattleChoose battleInfo;
 
     private void Awake()
     {
@@ -16,44 +15,21 @@ public class Game : MonoBehaviour {
         numPlayer[1] = 2;
 
         playerStats = new Stats[2]; 
+
         InitPlayers();
-        //battleInfo 
     }
 
-    // Use this for initialization
-    void Start () {
-        //Debug.Log("Personaje: " + BattleChoose.charactersChoice[0]);
-        //Debug.Log("Personaje: " + BattleChoose.charactersChoice[1]);
-    }
+    //void Start () { }
 
-    // Update is called once per frame
-    void Update()
-    {
-        for (int i = 0; i < 2; i++)
-        {
-            //Debug.Log("Player" + (i + 1) + " Damage: " + playerStats[i].GetDamageBasicAttack());
-            //Debug.Log("Player" + (i + 1) + " Health: " + playerStats[i].GetHealth());
-        }
-    }
+    //void Update() { }
 
-    //void InitColliders()
-    //{
-    //    for (int i = 0; i < 2; i++)
-    //    {
-    //        GameObjectsPlayers[i] = GameObject.Find("Player" + (i + 1));
-    //        Debug.Log("Player" + (i + 1));
-    //    }
-    //}
-	
     void InitPlayers()
     {
         for (int i = 0; i < 2; i++)
         {
-            //GameObjectsPlayers[i].name = BattleChoose.namePlayer[i];
             Debug.Log("Player " + i + " " + BattleChoose.charactersChoice[i]);
-
-             //Instantiate(GameObjectsPlayers[BattleChoose.charactersChoice[i]]);
-
+            //GameObjectsPlayers[i].name = BattleChoose.namePlayer[i];
+            //Instantiate(GameObjectsPlayers[BattleChoose.charactersChoice[i]]);
             //GameObjectsPlayers[i].name = BattleChoose.namePlayer[i];
 
             switch (BattleChoose.charactersChoice[i])
@@ -75,10 +51,8 @@ public class Game : MonoBehaviour {
             }
             playerStats[i].name = BattleChoose.namePlayer[i];
 
-            //playerStats[i].name = BattleChoose.namePlayer[i];
-
-            /* --- Asignamos valores enum(Player) para vada Script --- */
             #region Assign Num Player
+
             playerStats[i].whichIsThisPlayer = i;
 
             if (playerStats[i].whichIsThisPlayer == 0)
@@ -100,6 +74,7 @@ public class Game : MonoBehaviour {
 
             // Class Input Movement
             GameObject.Find(BattleChoose.namePlayer[i]).GetComponent<PlayerInput>().enumPlayer = (PlayerInput.EnumPlayer)i;
+
             #endregion
         }
     }

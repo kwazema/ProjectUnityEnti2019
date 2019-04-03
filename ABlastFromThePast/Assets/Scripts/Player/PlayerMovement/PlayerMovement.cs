@@ -20,24 +20,22 @@ public class PlayerMovement : MonoBehaviour {
 
     private Vector2[] v2Position;
     public Rigidbody2D rb;
-    PlayerInput playerInput;
-    Stats stats;
+    private PlayerInput playerInput;
 
-    //private StatsBlock[,] blocks;
     private Map map;
-
     public GameObject blockPrefab;
+
+    #region Functions Gets
+
+    public bool GetIsMoving() { return isMoving; }
+
+    #endregion
 
     private void Awake()
     {
         //map = GameObject.Find("Map").GetComponent<Map>();
         map = FindObjectOfType<Map>();
     }
-
-    // <-- Funciones Get --> //
-    #region Functions
-    public bool GetIsMoving() { return isMoving; }
-    #endregion
 
     // Use this for initialization
     void Start ()
@@ -54,20 +52,7 @@ public class PlayerMovement : MonoBehaviour {
         columnLenth = map.columnLenth / 2;
         rowLenth = map.rowLenth;
 
-        if (PlayerInput.EnumPlayer.Player1 == playerInput.enumPlayer)
-        {
-            playerColumn = 0; playerRow = 0;
-
-            v2Position[0] = map.blocks[playerColumn, playerRow].transform.position;
-            transform.position = v2Position[0];
-        }
-        else if (PlayerInput.EnumPlayer.Player2 == playerInput.enumPlayer)
-        {
-            playerColumn = map.columnLenth - 1; playerRow = 0;
-
-            v2Position[0] = map.blocks[playerColumn, playerRow].transform.position;
-            transform.position = v2Position[0];
-        }
+        InitPlayerPosition();
     }
 
     // Update is called once per frame
@@ -81,11 +66,7 @@ public class PlayerMovement : MonoBehaviour {
     void MovementCharacter()
     {
         float step = speed * Time.deltaTime;
-        //Debug.Log("Position Player: " + transform.position);
-        //Debug.Log("Position GO: " + v2Position[numPositionMove]);
         transform.position = Vector2.MoveTowards(transform.position, v2Position[numPositionMove], step);
-
-
 
         // Cambiar el num de guardado y guardar la siguiente posicion del v2.
         if (isMoving && playerInput.IsInput())
@@ -203,5 +184,18 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         MovementAction(dirHorizontal, dirVertical);
+    }
+
+    void InitPlayerPosition()
+    {
+        if (PlayerInput.EnumPlayer.Player1 == playerInput.enumPlayer)
+            playerColumn = 0;
+        else if (PlayerInput.EnumPlayer.Player2 == playerInput.enumPlayer)
+            playerColumn = map.columnLenth - 1;
+
+        v2Position[0] = map.blocks[playerColumn, playerRow].transform.position;
+        transform.position = v2Position[0];
+
+        playerRow = 0;
     }
 }
