@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class Game : MonoBehaviour {
 
-    public int[] numPlayer; //int para de la sección de los personajes
     public Stats[] playerStats;
     public GameObject[] GameObjectsPlayers;
 
     private void Awake()
     {
-        numPlayer = new int[2];
-        numPlayer[0] = 1;
-        numPlayer[1] = 2;
-
         playerStats = new Stats[2]; 
 
         InitPlayers();
@@ -23,14 +18,12 @@ public class Game : MonoBehaviour {
 
     //void Update() { }
 
-    void InitPlayers()
+    public void InitPlayers()
     {
         for (int i = 0; i < 2; i++)
         {
             Debug.Log("Player " + i + " " + BattleChoose.charactersChoice[i]);
-            //GameObjectsPlayers[i].name = BattleChoose.namePlayer[i];
             //Instantiate(GameObjectsPlayers[BattleChoose.charactersChoice[i]]);
-            //GameObjectsPlayers[i].name = BattleChoose.namePlayer[i];
 
             switch (BattleChoose.charactersChoice[i])
             {
