@@ -10,28 +10,27 @@ public class StatsBlock : MonoBehaviour {
     private int columnPosition;
     private int rowPosition;
 
+    #region Function Set
+
     public void SetColumn(int value) { columnPosition = value; }
     public void SetRow(int value) { rowPosition = value; }
 
-    //public StatsBlock blocks;
+    #endregion
+
     public Stats statsPlayer;
 
-    PlayerMovement[] playerMovement;
+    private PlayerMovement[] playerMovement;
     public SpriteRenderer spriteBlock;
 
-    private void Awake()
-    {
-    }
+    //private void Awake() { }
 
-    void Start () {
+    private void Start () {
         InitPlayerMovement();
-        //blocks = new Block;
 
-        //blocks = GetComponent<Block>();
         spriteBlock = GetComponent<SpriteRenderer>();
     }
-	
-	void Update () {
+
+    private void Update () {
 
         if (comprobarPosition)
         {
