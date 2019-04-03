@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Main/SceneAI.unity
     guid: 7781e0babebfbfd48a6070e2e1df6f7c
   - enabled: 1
-    path: Assets/Scenes/Main/MovementSoncan.unity
+    path: Assets/Scenes/Main/BattleScene.unity
     guid: b7699f9e05d2e6741bdc5bc74c9ac548
   m_configObjects: {}

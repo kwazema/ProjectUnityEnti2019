@@ -7,44 +7,37 @@ public class StatsBlock : MonoBehaviour {
     public bool disableBlock = false;
     public bool comprobarPosition = false;
 
+    private int columnPosition;
+    private int rowPosition;
 
-    public int thisColumn;
-    public int thisRow;
+    public void SetColumn(int value) { columnPosition = value; }
+    public void SetRow(int value) { rowPosition = value; }
 
-    public StatsBlock blocks;
+    //public StatsBlock blocks;
     public Stats statsPlayer;
 
     PlayerMovement[] playerMovement;
-
-    SpriteRenderer m_SpriteRenderer;
+    public SpriteRenderer spriteBlock;
 
     private void Awake()
     {
-        //blockPosition = new int[2];
     }
 
-    // Use this for initialization
     void Start () {
         InitPlayerMovement();
         //blocks = new Block;
-        //m_SpriteRenderer = new SpriteRenderer;
 
         //blocks = GetComponent<Block>();
-        //m_SpriteRenderer = GetComponent<SpriteRenderer>();
-
-        //Debug.Log("asd");
+        spriteBlock = GetComponent<SpriteRenderer>();
     }
 	
-	// Update is called once per frame
 	void Update () {
-
-        //PlayerInThisBlock();
 
         if (comprobarPosition)
         {
-            Debug.Log("Player: " + GetPlayerStats());
-            Debug.Log("Player Skill " + GetPlayerStats().GetDamageSkill());
-            Debug.Log("Get Player: " + GetPlayerStats().GetHealth());
+            Debug.Log("Player: " + GetPlayerStatsBlock());
+            Debug.Log("Player Skill " + GetPlayerStatsBlock().GetDamageSkill());
+            Debug.Log("Get Player: " + GetPlayerStatsBlock().GetHealth());
         }
         //GetStatsPlayer().SetDamageBasicAttack(20);
         //Map.blocks[1, 2].PlayerInThisBlock();
@@ -64,14 +57,14 @@ public class StatsBlock : MonoBehaviour {
         }
     }
 
-    public bool PlayerInThisBlock()
+    public bool IsPlayerInThisBlock()
     {
         bool value = false;
 
         for (int i = 0; i < 2; i++)
         {
-            bool test0 = playerMovement[i].playerColumn == thisColumn; // Column
-            bool test1 = playerMovement[i].playerRow == thisRow; // Row
+            bool test0 = playerMovement[i].playerColumn == columnPosition; // Column
+            bool test1 = playerMovement[i].playerRow == rowPosition; // Row
 
             if (test0 && test1)
             {
@@ -82,14 +75,14 @@ public class StatsBlock : MonoBehaviour {
         return value;
     }
 
-    public Stats GetPlayerStats()
+    public Stats GetPlayerStatsBlock()
     {
         Stats playerStats = new Stats();
 
         for (int i = 0; i < 2; i++)
         {
-            bool playerColumn = playerMovement[i].playerColumn == thisColumn; // Column
-            bool playerRow = playerMovement[i].playerRow == thisRow; // Row
+            bool playerColumn = playerMovement[i].playerColumn == columnPosition; // Column
+            bool playerRow = playerMovement[i].playerRow == rowPosition; // Row
 
             if ((playerColumn && playerRow) && playerStats == null)
             {

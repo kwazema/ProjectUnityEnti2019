@@ -53,7 +53,7 @@ public class BattleChoose : MonoBehaviour {
         
         if (selectedPLayers == 1)
         {
-            SceneManager.LoadScene("MovementSoncan");
+            SceneManager.LoadScene("BattleScene");
         }
         selectedPLayers++;
     }
