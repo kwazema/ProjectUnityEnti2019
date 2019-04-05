@@ -67,6 +67,7 @@ public class PlayerAttackInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.B))
             SkillAttack();
+            
 
         if (Input.GetKeyDown(KeyCode.N))
             UltimateAttack();

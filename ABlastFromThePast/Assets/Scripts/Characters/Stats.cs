@@ -10,15 +10,18 @@ public class Stats : MonoBehaviour {
 
     protected Map map;
     protected PlayerMovement playerMovement;
-    protected Transform playerGraphic;
+    protected Collider2D bodyCollider;
     protected PlayerInput playerInput;
+
+    protected GameObject player;
+    protected Vector2 oldPos;
 
     #region Variables Private
 
-    private bool isShieldActive = false;
-    private bool moveToPosition = false;
-    private bool returnOldPosition = false;
-    private bool noHaAtacado = true;
+    protected bool isShieldActive = false;
+    protected bool moveToPosition = false;
+    protected bool returnOldPosition = false;
+    protected bool noHaAtacado = true;
 
     #endregion
 
@@ -103,20 +106,16 @@ public class Stats : MonoBehaviour {
         playerMovement = GetComponent<PlayerMovement>();
         playerInput = GetComponent<PlayerInput>();
 
-        playerGraphic = GameObject.Find(BattleChoose.namePlayer[whichIsThisPlayer] + "/GraficCharacter").GetComponent<Transform>();
+        bodyCollider = GameObject.Find(BattleChoose.namePlayer[whichIsThisPlayer] + "/BodyCollider").GetComponent<Collider2D>();
 
-        SelectedZonaPlayer();
+        //SelectedZonaPlayer();
     }
 
     protected virtual void Update () {
 
-        //Debug.Log("Shield: " + shield);
-        //Debug.Log(playerGraphic.transform.position);
-        //Debug.Log(playerGraphic.transform.position);
-
         if (moveToPosition)
         {
-            MovingToPosition(60f);
+            //MovingToPosition(60f);
         }
     }
 
@@ -171,32 +170,24 @@ public class Stats : MonoBehaviour {
         }
     }
 
-    #region Hability Skills
+    //#region Hability Skills
 
-    public void SkillMoveTo(float cooldown, float timeToRetorn)
-    {
-        moveToBlock = new Vector2(map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position.x, playerGraphic.transform.position.y);
-        //Debug.Log(moveTo);
+    protected virtual void SkillMoveTo(float cooldown = 0, float timeToRetorn = 0) { }
+    protected virtual void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0) { }
 
-        if (!playerMovement.GetIsMoving())
-        {
-            playerInput.enabled = false;
-            moveToPosition = true;
-        }
-    }
-
-    private void MovingToPosition(float velocity)
+    protected void MovingToPosition(float velocity, int blocks_width = 0, int blocks_height = 0)
     {
         float step = velocity * Time.deltaTime;
 
-        if ((Vector2)playerGraphic.transform.position == moveToBlock)
+        if ((Vector2)transform.position == moveToBlock)
         {
+            // Collider
+            bodyCollider.enabled = true;
             returnOldPosition = true;
-            
+
             if (noHaAtacado)
             {
-                Debug.Log("Ya atacado");
-                LookForwardBlocks(3/*EnumPlayer player*/);
+                LookForwardBlocks(blocks_width);
 
                 noHaAtacado = false;
             }
@@ -204,75 +195,43 @@ public class Stats : MonoBehaviour {
 
         if (returnOldPosition)
         {
-            if (Time.time > timeInPosition) // Time to Retorn
+            if (Time.time > timeInPosition)
             {
-                playerGraphic.transform.position = Vector2.MoveTowards(playerGraphic.transform.position, transform.position, step);
+                transform.position = Vector2.MoveTowards(transform.position, oldPos, step);
+                // Collider 
+                bodyCollider.enabled = false;
 
-                if (playerGraphic.transform.position == transform.position)
+                if ((Vector2)transform.position == oldPos)
                 {
                     moveToPosition = false;
                     returnOldPosition = false;
                     noHaAtacado = true;
                     playerInput.enabled = true;
+                    playerMovement.enabled = true;
+
+                    // Collider 
+                    bodyCollider.enabled = true;
+
+                    // Block Color
+                    for (int i = 0; i < blocks_width; i++)
+                    {
+                        map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].spriteBlock.color = Color.green;
+                    }
                 }
             }
         }
         else
         {
-            playerGraphic.transform.position = Vector2.MoveTowards(playerGraphic.transform.position, moveToBlock, step);
+            transform.position = Vector2.MoveTowards(transform.position, moveToBlock, step);
+            //Collider 
+            bodyCollider.enabled = false;
+
+            playerMovement.enabled = false;
 
             timeInPosition = Time.time;
             timeInPosition += 0.3f;
         }
     }
 
-    private void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0) {
-        for (int i = 0; i < rangeEffectColumn; i++)
-        {
-            //Debug.Log("Column: " + map.columnLenth + 3);
-            //Debug.Log("Column: " + ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone)));
-
-            if (
-                ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone))  < map.columnLenth &&
-                ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone))  >= 0
-                )
-            {
-                map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].spriteBlock.color = Color.red;
-                //Debug.Log("000000");
-                if (map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].IsPlayerInThisBlock())
-                {
-                    //Debug.Log("Bloque --> Column: " + ((playerMovement.playerColumn + graphicMove) + i) + " Row: " + playerMovement.playerRow);
-                    map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].GetPlayerStatsBlock().TakeDamage(GetDamageSkill());
-
-                }
-            }
-        }
-    }
-
-    #endregion
-
-    #region Hability Ultimate
-
-    #endregion
-
-    private void SelectedZonaPlayer()
-    {
-        if (ThisPlayerIs.Player1 == thisPlayerIs)
-        {
-            graphicMove = 4;
-            dirSkillZone = 1;
-        }
-        else
-        {
-            graphicMove = -4;
-            dirSkillZone = -1;
-        }
-        Debug.Log("Grafic: " + graphicMove);
-
-        //if (whichIsThisPlayer == 0)
-        //{
-        //    graphicMove = 4;
-        //    dirSkillZone = 1;
-        //}
-    }
+    
 }
