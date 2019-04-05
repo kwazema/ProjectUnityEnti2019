@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Stats : MonoBehaviour {
 
-    [SerializeField] public enum EnumPlayer { Player1, Player2 }
-    [SerializeField] public EnumPlayer enumPlayer;
+    [SerializeField] public enum ThisPlayerIs { Player1, Player2 }
+    [SerializeField] public ThisPlayerIs thisPlayerIs;
 
     protected Map map;
     protected PlayerMovement playerMovement;
