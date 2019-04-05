@@ -10,8 +10,6 @@ public class Stats : MonoBehaviour {
 
     protected Map map;
     protected PlayerMovement playerMovement;
-    protected Transform playerGraphic;
-    protected Transform playerCollider;
     protected Collider2D bodyCollider;
     protected PlayerInput playerInput;
 
@@ -108,18 +106,12 @@ public class Stats : MonoBehaviour {
         playerMovement = GetComponent<PlayerMovement>();
         playerInput = GetComponent<PlayerInput>();
 
-        playerGraphic = GameObject.Find(BattleChoose.namePlayer[whichIsThisPlayer] + "/GraficCharacter").GetComponent<Transform>();
-        playerCollider = GameObject.Find(BattleChoose.namePlayer[whichIsThisPlayer] + "/BodyCollider").GetComponent<Transform>();
         bodyCollider = GameObject.Find(BattleChoose.namePlayer[whichIsThisPlayer] + "/BodyCollider").GetComponent<Collider2D>();
 
         SelectedZonaPlayer();
     }
 
     protected virtual void Update () {
-
-        //Debug.Log("Shield: " + shield);
-        //Debug.Log(playerGraphic.transform.position);
-        //Debug.Log(playerGraphic.transform.position);
 
         if (moveToPosition)
         {
@@ -183,9 +175,7 @@ public class Stats : MonoBehaviour {
     public void SkillMoveTo(float cooldown = 0, float timeToRetorn = 0)
     {
         oldPos = (Vector2)transform.position;
-        //moveToBlock = new Vector2(map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position.x, playerGraphic.transform.position.y);
         moveToBlock = new Vector2(map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position.x, transform.position.y);
-       // Debug.Log(moveTo);
       
         if (!playerMovement.GetIsMoving())
         {
@@ -197,36 +187,49 @@ public class Stats : MonoBehaviour {
     private void MovingToPosition(float velocity)
     {
         float step = velocity * Time.deltaTime;
-        //SkillMoveTo();
-
-        //if ((Vector2)playerGraphic.transform.position == moveToBlock)
-
-        Debug.Log("HERE -- POSITION - MOVE TO: " + transform.position + " " + moveToBlock);
-
 
         if ((Vector2)transform.position == moveToBlock)
         {
+            // Collider
             bodyCollider.enabled = true;
             returnOldPosition = true;
-            Debug.Log("HEREEEEEEEEEEEEEEEEEEEEEEEEEE -- CHANGE ORDER: " + returnOldPosition);
 
             if (noHaAtacado)
             {
-                Debug.Log("Ya atacado");
-                LookForwardBlocks(3/*EnumPlayer player*/);
+                LookForwardBlocks(3);
 
                 noHaAtacado = false;
             }
         }
+
+        if (returnOldPosition)
+        {
+            if (Time.time > timeInPosition)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, oldPos, step);
+                //Collider 
+                bodyCollider.enabled = false;
+
+                if ((Vector2)transform.position == oldPos)
+                {
+                    moveToPosition = false;
+                    returnOldPosition = false;
+                    noHaAtacado = true;
+                    playerInput.enabled = true;
+                    playerMovement.enabled = true;
+
+                    //Collider 
+                    bodyCollider.enabled = true;
+                }
+            }
+        }
         else
         {
-            // Graphic
-            //playerGraphic.transform.position = Vector2.MoveTowards(playerGraphic.transform.position, moveToBlock, step);
             transform.position = Vector2.MoveTowards(transform.position, moveToBlock, step);
-
-            // Collider
+            //Collider 
             bodyCollider.enabled = false;            
-            //playerCollider.transform.position = Vector2.MoveTowards(playerCollider.transform.position, moveToBlock, step); 
+
+            playerMovement.enabled = false;
 
             timeInPosition = Time.time;
             timeInPosition += 0.3f;
