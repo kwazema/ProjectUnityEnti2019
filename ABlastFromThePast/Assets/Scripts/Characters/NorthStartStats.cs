@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrayanStats : Stats {
-
+public class NorthStartStats : Stats {
 
     // Use this for initialization
     protected override void Start () {
@@ -12,10 +11,10 @@ public class BrayanStats : Stats {
         #region Basic Stats
 
         health = 100;
-        shield = 10;
+        shield = 0;
 
-        damageBasicAttack = 8;
-        damageSkill = 12;
+        damageBasicAttack = 2;
+        damageSkill = 25;
         damageUltimate = 50;
 
         #endregion
@@ -34,13 +33,14 @@ public class BrayanStats : Stats {
 
         if (moveToPosition)
         {
-            MovingToPosition(75f, 2);
+            MovingToPosition(75f, 3);
         }
+
     }
 
-     protected override void SkillMoveTo(float cooldown = 0, float timeToRetorn = 0)
+    public override void SkillMoveTo(float cooldown = 0, float timeToRetorn = 0) 
     {
-        oldPos = (Vector2)transform.position;
+        oldPos = (Vector2) transform.position;
         moveToBlock = new Vector2(map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position.x, transform.position.y);
 
         if (!playerMovement.GetIsMoving())
@@ -50,7 +50,59 @@ public class BrayanStats : Stats {
         }
     }
 
-    protected override void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0)
+    //private void MovingToPosition(float velocity)
+    //{
+    //    float step = velocity * Time.deltaTime;
+
+    //    if ((Vector2)transform.position == moveToBlock)
+    //    {
+    //        // Collider
+    //        bodyCollider.enabled = true;
+    //        returnOldPosition = true;
+
+    //        if (noHaAtacado)
+    //        {
+    //            LookForwardBlocks(3);
+
+    //            noHaAtacado = false;
+    //        }
+    //    }
+
+    //    if (returnOldPosition)
+    //    {
+    //        if (Time.time > timeInPosition)
+    //        {
+    //            transform.position = Vector2.MoveTowards(transform.position, oldPos, step);
+    //            //Collider 
+    //            bodyCollider.enabled = false;
+
+    //            if ((Vector2)transform.position == oldPos)
+    //            {
+    //                moveToPosition = false;
+    //                returnOldPosition = false;
+    //                noHaAtacado = true;
+    //                playerInput.enabled = true;
+    //                playerMovement.enabled = true;
+
+    //                //Collider 
+    //                bodyCollider.enabled = true;
+    //            }
+    //        }
+    //    }
+    //    else
+    //    {
+    //        transform.position = Vector2.MoveTowards(transform.position, moveToBlock, step);
+    //        //Collider 
+    //        bodyCollider.enabled = false;
+
+    //        playerMovement.enabled = false;
+
+    //        timeInPosition = Time.time;
+    //        timeInPosition += 0.3f;
+    //    }
+    //}
+
+    public override void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0)
     {
         for (int i = 0; i < rangeEffectColumn; i++)
         {
@@ -85,6 +137,5 @@ public class BrayanStats : Stats {
         }
         Debug.Log("Grafic: " + graphicMove);
     }
-
 
 }
