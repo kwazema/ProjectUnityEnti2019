@@ -38,7 +38,7 @@ public class BrayanStats : Stats {
         }
     }
 
-     protected override void SkillMoveTo(float cooldown = 0, float timeToRetorn = 0)
+     public override void SkillMoveTo(float cooldown = 0, float timeToRetorn = 0)
     {
         oldPos = (Vector2)transform.position;
         moveToBlock = new Vector2(map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position.x, transform.position.y);
@@ -71,7 +71,7 @@ public class BrayanStats : Stats {
         }
     }
 
-    private void SelectedZonaPlayer()
+    protected override void SelectedZonaPlayer()
     {
         if (whichIsThisPlayer == 0)
         {

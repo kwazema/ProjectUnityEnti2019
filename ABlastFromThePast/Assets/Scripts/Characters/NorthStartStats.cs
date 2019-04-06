@@ -50,59 +50,7 @@ public class NorthStartStats : Stats {
         }
     }
 
-    //private void MovingToPosition(float velocity)
-    //{
-    //    float step = velocity * Time.deltaTime;
-
-    //    if ((Vector2)transform.position == moveToBlock)
-    //    {
-    //        // Collider
-    //        bodyCollider.enabled = true;
-    //        returnOldPosition = true;
-
-    //        if (noHaAtacado)
-    //        {
-    //            LookForwardBlocks(3);
-
-    //            noHaAtacado = false;
-    //        }
-    //    }
-
-    //    if (returnOldPosition)
-    //    {
-    //        if (Time.time > timeInPosition)
-    //        {
-    //            transform.position = Vector2.MoveTowards(transform.position, oldPos, step);
-    //            //Collider 
-    //            bodyCollider.enabled = false;
-
-    //            if ((Vector2)transform.position == oldPos)
-    //            {
-    //                moveToPosition = false;
-    //                returnOldPosition = false;
-    //                noHaAtacado = true;
-    //                playerInput.enabled = true;
-    //                playerMovement.enabled = true;
-
-    //                //Collider 
-    //                bodyCollider.enabled = true;
-    //            }
-    //        }
-    //    }
-    //    else
-    //    {
-    //        transform.position = Vector2.MoveTowards(transform.position, moveToBlock, step);
-    //        //Collider 
-    //        bodyCollider.enabled = false;
-
-    //        playerMovement.enabled = false;
-
-    //        timeInPosition = Time.time;
-    //        timeInPosition += 0.3f;
-    //    }
-    //}
-
-    public override void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0)
+    protected override void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0)
     {
         for (int i = 0; i < rangeEffectColumn; i++)
         {
@@ -115,15 +63,13 @@ public class NorthStartStats : Stats {
 
                 if (map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].IsPlayerInThisBlock())
                 {
-
                     map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].GetPlayerStatsBlock().TakeDamage(GetDamageSkill());
-
                 }
             }
         }
     }
 
-    private void SelectedZonaPlayer()
+    protected override void SelectedZonaPlayer()
     {
         if (whichIsThisPlayer == 0)
         {

@@ -18,10 +18,7 @@ public class Stats : MonoBehaviour {
 
     #region Variables Private
 
-    protected bool isShieldActive = false;
-    protected bool moveToPosition = false;
-    protected bool returnOldPosition = false;
-    protected bool noHaAtacado = true;
+    // SORPRESA 
 
     #endregion
 
@@ -56,6 +53,11 @@ public class Stats : MonoBehaviour {
     public int whichIsThisPlayer;
     protected int graphicMove;
     protected int dirSkillZone;
+
+    protected bool isShieldActive = false;
+    protected bool moveToPosition = false;
+    protected bool returnOldPosition = false;
+    protected bool noHaAtacado = true;
 
     #endregion
 
@@ -172,10 +174,14 @@ public class Stats : MonoBehaviour {
 
     //#region Hability Skills
 
-    protected virtual void SkillMoveTo(float cooldown = 0, float timeToRetorn = 0) { }
+    public virtual void SkillMoveTo(float cooldown = 0, float timeToRetorn = 0) { }
+
     protected virtual void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0) { }
 
-    protected void MovingToPosition(float velocity, int blocks_width = 0, int blocks_height = 0)
+    protected virtual void SelectedZonaPlayer() { }
+
+
+    protected void MovingToPosition(float velocity, int blocks_width = 0)
     {
         float step = velocity * Time.deltaTime;
 
@@ -232,6 +238,4 @@ public class Stats : MonoBehaviour {
             timeInPosition += 0.3f;
         }
     }
-
-    
 }
