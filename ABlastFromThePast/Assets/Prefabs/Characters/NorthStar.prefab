@@ -103,7 +103,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1807604450801538}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -13.3, y: 4, z: 0}
+  m_LocalPosition: {x: -17.774445, y: 0.21669817, z: 0}
   m_LocalScale: {x: 19.63645, y: 19.636488, z: 19.636488}
   m_Children:
   - {fileID: 4855744913868998}
@@ -133,8 +133,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1346312148397196}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7288843, y: 0.7647595, z: 0.72888476}
+  m_LocalPosition: {x: 0, y: 0.06, z: 0}
+  m_LocalScale: {x: 0.68, y: 0.714, z: 0.72888476}
   m_Children: []
   m_Father: {fileID: 4069683241726592}
   m_RootOrder: 2
@@ -244,8 +244,6 @@ MonoBehaviour:
   whichIs: 0
   speed: 0
   rb: {fileID: 50540885842247612}
-  blockPrefab: {fileID: 1924483091404750, guid: 374dfb99d53c03046b087fde64c8d45f,
-    type: 2}
 --- !u!114 &114389154778371430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -286,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce00994201ecb614cbdc18722c119926, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enumPlayer: 0
+  thisPlayerIs: 0
   damageBasicAttack: 0
   damageSkill: 0
   health: 0

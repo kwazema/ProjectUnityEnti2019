@@ -25,21 +25,24 @@ public class Game : MonoBehaviour {
             Debug.Log("Player " + i + " " + BattleChoose.charactersChoice[i]);
             //Instantiate(GameObjectsPlayers[BattleChoose.charactersChoice[i]]);
 
+
             switch (BattleChoose.charactersChoice[i])
             {
                 case 0:
                     playerStats[i] = Instantiate(GameObjectsPlayers[BattleChoose.charactersChoice[i]]).GetComponent<BrayanStats>();
                     break;
-
                 case 1:
                     playerStats[i] = Instantiate(GameObjectsPlayers[BattleChoose.charactersChoice[i]]).GetComponent<SwipperStats>();
                     break;
-
                 case 2:
                     playerStats[i] = Instantiate(GameObjectsPlayers[BattleChoose.charactersChoice[i]]).GetComponent<NorthStartStats>();
                     break;
                 case 3:
+                   // playerStats[i] = Instantiate(GameObjectsPlayers[BattleChoose.charactersChoice[i]]).GetComponent<ScepterStats>();
                     playerStats[i] = Instantiate(GameObjectsPlayers[BattleChoose.charactersChoice[i]]).GetComponent<BrayanStats>();
+                    break;
+                case 4:
+                    playerStats[i] = Instantiate(GameObjectsPlayers[BattleChoose.charactersChoice[i]]).GetComponent<ScepterStats>();
                     break;
             }
             playerStats[i].name = BattleChoose.namePlayer[i];

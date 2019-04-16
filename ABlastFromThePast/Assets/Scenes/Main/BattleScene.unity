@@ -3597,12 +3597,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b7d58c6bd2bd54daa2d3391a7b08b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numPlayer: 
   playerStats: []
   GameObjectsPlayers:
   - {fileID: 1325922399976486, guid: 1d97efdb30886fc489b04a2de17a9cdc, type: 2}
   - {fileID: 1854191426678060, guid: ec1b71da2f5feac4dbd8847f45f236cb, type: 2}
   - {fileID: 1807604450801538, guid: 01fe0bf86040a5e4d996c27bb73318b6, type: 2}
+  - {fileID: 1983954572820804, guid: 6ebcbfe0f1f6af444b168055c227dc1f, type: 2}
+  - {fileID: 1983954572820804, guid: 6ebcbfe0f1f6af444b168055c227dc1f, type: 2}
 --- !u!1 &1702413540
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BrayanStats : Stats {
 
+    public Transform distance_attack;
 
     // Use this for initialization
     protected override void Start () {
@@ -25,6 +26,8 @@ public class BrayanStats : Stats {
         StartCoroutine(ShieldRecovery());
 
         SelectedZonaPlayer();
+
+        distance_attack.position = map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position;
     }
 
     // Update is called once per frame
