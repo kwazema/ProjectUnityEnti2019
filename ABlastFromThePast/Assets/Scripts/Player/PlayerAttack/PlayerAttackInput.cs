@@ -53,7 +53,7 @@ public class PlayerAttackInput : MonoBehaviour
     private void GetInputPlayer1()
     {
         if (
-          Input.GetKey(KeyCode.V) &&
+          Input.GetButton("Attack0") &&
           !playerMove.GetIsMoving() &&
           Time.time > nextFire
           )
@@ -65,20 +65,21 @@ public class PlayerAttackInput : MonoBehaviour
             isShooting = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetButton("Skill0"))
             SkillAttack();
             
 
-        if (Input.GetKeyDown(KeyCode.N))
+        if (Input.GetButton("Ultimate0"))
             UltimateAttack();
 
-        if (Input.GetKey(KeyCode.M))
+        if (Input.GetButton("Shield0"))
         {
             if (player[0].GetShield() > 2 && !isShooting)
                 ActiveShield();
         }
-
-        if (Input.GetKeyUp(KeyCode.M) || (player[0].GetShield() <= 0))
+        
+        // Input.GetButtonUp("Shield1") no funciona correctamente.
+        if ((Input.GetKeyUp(KeyCode.M) || Input.GetKeyUp(KeyCode.Joystick1Button3)) || (player[0].GetShield() <= 0))
         {
             DeactivateShield();
         }
@@ -87,7 +88,7 @@ public class PlayerAttackInput : MonoBehaviour
     private void GetInputPlayer2()
     {
         if (
-          Input.GetKey(KeyCode.Keypad1) &&
+          Input.GetButton("Attack1") &&
           !playerMove.GetIsMoving() &&
           Time.time > nextFire
           )
@@ -99,19 +100,20 @@ public class PlayerAttackInput : MonoBehaviour
             isShooting = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Keypad2))
+        if (Input.GetButtonDown("Skill1"))
             SkillAttack();
 
-        if (Input.GetKeyDown(KeyCode.Keypad3))
+        if (Input.GetButtonDown("Ultimate1"))
             UltimateAttack();
 
-        if (Input.GetKey(KeyCode.Keypad0))
+        if (Input.GetButton("Shield1"))
         {
             if (player[1].GetShield() > 2 && !isShooting)
                 ActiveShield();
         }
 
-        if (Input.GetKeyUp(KeyCode.Keypad0) || (player[1].GetShield() <= 0))
+        // Input.GetButtonUp("Shield1") no funciona correctamente.
+        if ((Input.GetKeyUp(KeyCode.Keypad0) || Input.GetKeyUp(KeyCode.Joystick2Button3)) || (player[1].GetShield() <= 0))
         {
             DeactivateShield();
         }
