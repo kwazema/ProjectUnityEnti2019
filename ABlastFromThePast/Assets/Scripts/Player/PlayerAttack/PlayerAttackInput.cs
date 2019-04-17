@@ -52,71 +52,52 @@ public class PlayerAttackInput : MonoBehaviour
 
     private void GetInputPlayer1()
     {
-        if (
-          Input.GetButton("Attack0") &&
-          !playerMove.GetIsMoving() &&
-          Time.time > nextFire
-          )
-        {
+        if (Input.GetButton("Attack0") && !playerMove.GetIsMoving() && Time.time > nextFire)
             BasicAttack();
-        }
         else
-        {
             isShooting = false;
-        }
+
+        // ----------------------- //
 
         if (Input.GetButton("Skill0"))
             SkillAttack();
-            
+
+        // ----------------------- //
 
         if (Input.GetButton("Ultimate0"))
             UltimateAttack();
 
-        if (Input.GetButton("Shield0"))
-        {
-            if (player[0].GetShield() > 2 && !isShooting)
-                ActiveShield();
-        }
-        
-        // Input.GetButtonUp("Shield1") no funciona correctamente.
-        if ((Input.GetKeyUp(KeyCode.M) || Input.GetKeyUp(KeyCode.Joystick1Button3)) || (player[0].GetShield() <= 0))
-        {
+        // ----------------------- //
+
+        if (Input.GetButton("Shield0") && player[0].GetShield() > 0 && !isShooting)
+            ActiveShield();
+        else
             DeactivateShield();
-        }
     }
 
     private void GetInputPlayer2()
     {
-        if (
-          Input.GetButton("Attack1") &&
-          !playerMove.GetIsMoving() &&
-          Time.time > nextFire
-          )
-        {
+        if (Input.GetButton("Attack1") && !playerMove.GetIsMoving() && Time.time > nextFire)
             BasicAttack();
-        }
         else
-        {
             isShooting = false;
-        }
+
+        // ----------------------- //
 
         if (Input.GetButtonDown("Skill1"))
             SkillAttack();
 
+        // ----------------------- //
+
         if (Input.GetButtonDown("Ultimate1"))
             UltimateAttack();
 
-        if (Input.GetButton("Shield1"))
-        {
-            if (player[1].GetShield() > 2 && !isShooting)
-                ActiveShield();
-        }
+        // ----------------------- //
 
-        // Input.GetButtonUp("Shield1") no funciona correctamente.
-        if ((Input.GetKeyUp(KeyCode.Keypad0) || Input.GetKeyUp(KeyCode.Joystick2Button3)) || (player[1].GetShield() <= 0))
-        {
+        if (Input.GetButton("Shield1") && player[1].GetShield() > 0 && !isShooting)
+            ActiveShield();
+        else
             DeactivateShield();
-        }
     }
 
     void BasicAttack()
