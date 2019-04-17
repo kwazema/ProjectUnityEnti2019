@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BrayanStats : Stats {
 
+    public Transform distance_attack;
 
     // Use this for initialization
     protected override void Start () {
@@ -25,6 +26,8 @@ public class BrayanStats : Stats {
         StartCoroutine(ShieldRecovery());
 
         SelectedZonaPlayer();
+
+        distance_attack.position = map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position;
     }
 
     // Update is called once per frame
@@ -38,7 +41,7 @@ public class BrayanStats : Stats {
         }
     }
 
-     protected override void SkillMoveTo(float cooldown = 0, float timeToRetorn = 0)
+     public override void SkillMoveTo(float cooldown = 0, float timeToRetorn = 0)
     {
         oldPos = (Vector2)transform.position;
         moveToBlock = new Vector2(map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position.x, transform.position.y);
@@ -71,7 +74,7 @@ public class BrayanStats : Stats {
         }
     }
 
-    private void SelectedZonaPlayer()
+    protected override void SelectedZonaPlayer()
     {
         if (whichIsThisPlayer == 0)
         {

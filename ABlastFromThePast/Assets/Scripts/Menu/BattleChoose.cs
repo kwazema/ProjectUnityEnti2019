@@ -11,6 +11,8 @@ public class BattleChoose : MonoBehaviour {
     bool skull;
     bool mage;
 
+    bool scepter;
+
     public static int[] charactersChoice;
     public static string[] namePlayer = new string[2];
 
@@ -28,15 +30,11 @@ public class BattleChoose : MonoBehaviour {
         skull= false;
         mage = false;
 
+        scepter = false;
+
         textPlayer.text = "Choose for Player " + (selectedPLayers+1);
 
     }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
-
     int selectedPLayers = 0;
 
     public void Play()
@@ -69,16 +67,6 @@ public class BattleChoose : MonoBehaviour {
         SceneManager.LoadScene("Menu");
     }
 
-    public void setFoxy()
-    {
-        foxy = true;
-        Debug.Log("Swiper no robes");
-        charactersChoice[selectedPLayers] = 1;
-        namePlayer[selectedPLayers] = "Swipper";
-
-        Debug.Log(charactersChoice[selectedPLayers]);
-    }
-
     public void setSkull()
     {
         skull = true;
@@ -89,12 +77,32 @@ public class BattleChoose : MonoBehaviour {
         Debug.Log(charactersChoice[selectedPLayers]);
     }
 
+    public void setFoxy()
+    {
+        foxy = true;
+        Debug.Log("Swiper no robes");
+        charactersChoice[selectedPLayers] = 1;
+        namePlayer[selectedPLayers] = "Swipper";
+
+        Debug.Log(charactersChoice[selectedPLayers]);
+    }
+
     public void setMage()
     {
         mage = true;
         Debug.Log("Freeze you fool");
         charactersChoice[selectedPLayers] = 2;
         namePlayer[selectedPLayers] = "NorthStart";
+
+        Debug.Log(charactersChoice[selectedPLayers]);
+    }
+
+    public void setScepter()
+    {
+        scepter = true;
+        Debug.Log("La prueba va OK");
+        charactersChoice[selectedPLayers] = 4;
+        namePlayer[selectedPLayers] = "Scepter";
 
         Debug.Log(charactersChoice[selectedPLayers]);
     }
