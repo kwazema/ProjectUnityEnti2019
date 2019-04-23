@@ -25,9 +25,9 @@ public class Map : MonoBehaviour {
     {
         StatsBlock[,] blocks = new StatsBlock[column, row];
 
-        for (int i = 0; i < column; i++)
+        for (int i = 0; i < column; i++) // Horizontal
         {
-            for (int j = 0; j < row; j++)
+            for (int j = 0; j < row; j++) // Vertical
             {
                 blocks[i, j] = Instantiate(blockPrefab).GetComponent<StatsBlock>();
                 blocks[i, j].transform.SetParent(map.transform);
@@ -38,5 +38,11 @@ public class Map : MonoBehaviour {
         }
 
         return blocks;
+    }
+
+
+    public void ColorBlocks(int pos_x, int pos_y, Color color)
+    {
+        blocks[pos_x, pos_y].spriteBlock.color = color;
     }
 }

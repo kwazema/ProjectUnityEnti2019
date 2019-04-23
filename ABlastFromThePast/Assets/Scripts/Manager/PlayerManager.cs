@@ -9,7 +9,9 @@ public class PlayerManager : MonoBehaviour {
     [SerializeField] public ThisPlayerIs thisPlayerIs;
 
     protected Map map;
-    protected PlayerMovement playerMovement;
+    //protected PlayerMovement playerMovement;
+    public PlayerMovement playerMovement;
+    //
     protected Collider2D bodyCollider;
     protected PlayerInput playerInput;
 
@@ -228,7 +230,9 @@ public class PlayerManager : MonoBehaviour {
                     // Block Color
                     for (int i = 0; i < blocks_width; i++)
                     {
-                        //map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].spriteBlock.color = Color.green;
+                        if ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) < map.columnLenth &&
+                            (playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) >= 0)
+                            map.ColorBlocks((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow, Color.green);
                     }
                 }
             }
