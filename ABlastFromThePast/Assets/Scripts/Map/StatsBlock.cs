@@ -49,8 +49,9 @@ public class StatsBlock : MonoBehaviour {
     {
         playerMovement = new PlayerMovement[2];
 
-        for (int i = 0; i < playerMovement.Length; i++)
+        for (int i = 0; i < playerMovement.Length; i++) {
             playerMovement[i] = gameManager.objectPlayer[gameManager.playerChoise[i]].GetComponent<PlayerMovement>();
+        }
     }
 
     public bool IsPlayerInThisBlock()
@@ -85,9 +86,10 @@ public class StatsBlock : MonoBehaviour {
                 playerStats = /*GameObject.Find("Map").*/GetComponentInParent<GameManager>().playerStats[i]; 
             }
         }
-
         return playerStats;
     }
+
+
 }
 
 
