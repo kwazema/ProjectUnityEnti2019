@@ -190,7 +190,7 @@ public class PlayerManager : MonoBehaviour {
 
     protected virtual void SelectedZonaPlayer() { }
 
-    protected void MovingToPosition(float velocity, int blocks_width = 0)
+    protected void MovingToPosition(float velocity, int blocks_width = 0, int blocks_height = 0)
     {
         float step = velocity * Time.deltaTime;
 
@@ -230,9 +230,11 @@ public class PlayerManager : MonoBehaviour {
                     // Block Color
                     for (int i = 0; i < blocks_width; i++)
                     {
-                        if ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) < map.columnLenth &&
-                            (playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) >= 0)
-                            map.ColorBlocks((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow, Color.green);
+                        for (int j = 0; j < blocks_height; j++) {
+                            if ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) < map.columnLenth &&
+                                (playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) >= 0)
+                                map.ColorBlocks((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow, Color.green);
+                        }
                     }
                 }
             }

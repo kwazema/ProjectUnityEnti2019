@@ -5,7 +5,7 @@ using UnityEngine;
 public class ScepterStats : PlayerManager {
 
     public Transform distance_attack;
-    int pos_x;
+    int pos_column;
 
 
 
@@ -61,8 +61,8 @@ public class ScepterStats : PlayerManager {
         
         oldPos = (Vector2)transform.position;
 
-        pos_x = game_manager.playerStats[player_to_attack].playerMovement.playerColumn;
-        moveToBlock = new Vector2(map.blocks[pos_x, playerMovement.playerRow].transform.position.x, transform.position.y);
+        pos_column = game_manager.playerStats[player_to_attack].playerMovement.playerColumn;
+        moveToBlock = new Vector2(map.blocks[pos_column, playerMovement.playerRow].transform.position.x, transform.position.y);
 
         if (!playerMovement.GetIsMoving())
         {
@@ -73,16 +73,22 @@ public class ScepterStats : PlayerManager {
 
     protected override void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0)
     {
-        for (int i = -1; i <= 1; i++) {
-            for (int j = -1; j <= 1; j++) {
+        for (int i = -1; i < 2; i++) { // horizontal
+            for (int j = -1; j < 2; j++) { // vertical
+
                 if (
-                    (playerMovement.playerColumn + i) >= 0 &&
-                    (playerMovement.playerColumn + i) < map.columnLenth &&
+                    (pos_column + i) >= 0 &&
+                    (pos_column + i) < map.columnLenth &&
                     (playerMovement.playerRow + j) >= 0 &&
-                    (playerMovement.playerRow + j) < map.rowLenth
+                    (playerMovement.playerRow + j) < map.rowLenth 
                   )
                 {
-                    map.ColorBlocks((pos_x + i), (playerMovement.playerRow + j), Color.red);
+                    map.ColorBlocks((pos_column + i), (playerMovement.playerRow + j), Color.red);
+
+                    if (map.blocks[(pos_column + i), (playerMovement.playerRow + j)].GetPlayerStatsBlock((int)thisPlayerIs) != null)
+                    {
+                        map.blocks[(pos_column + i), (playerMovement.playerRow + j)].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
+                    }
                 }
             }
         }

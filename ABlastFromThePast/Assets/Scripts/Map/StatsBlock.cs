@@ -53,34 +53,42 @@ public class StatsBlock : MonoBehaviour {
     //        playerMovement[i] = gameManager.objectPlayer[gameManager.playerChoise[i]].GetComponent<PlayerMovement>();
     //}
 
-    public bool IsPlayerInThisBlock(int whatIsThisPlayer)
-    {
-        bool value = false;
+    #region void IsPlayerInThisBlock()
+    //public bool IsPlayerInThisBlock(int whatIsThisPlayer)
+    //{
+    //    bool value = false;
 
-        Collider2D playerBlock = Physics2D.OverlapBox(transform.position, size, whatIsPlayer);
-        PlayerManager playerManager = playerBlock.GetComponent<PlayerManager>();
+    //    Collider2D[] playerBlock = Physics2D.OverlapBoxAll(transform.position, size, whatIsPlayer);
 
-        if (playerManager != null)
-            if (playerManager.whichIsThisPlayer == whatIsThisPlayer)
-                value = true;
-        else
-            value = false;
-        
-        return value;
-    }
+    //    for (int i = 0; i < playerBlock.Length; i++) {
+    //        PlayerManager player = playerBlock[i].GetComponent<PlayerManager>();
+
+    //        if (player != null)
+    //         if (player.whichIsThisPlayer != whatIsThisPlayer)
+    //             return  true;
+    //        else
+    //         return  false;
+    //    }
+
+    //    return false;
+    //}
+    #endregion
 
     public PlayerManager GetPlayerStatsBlock(int whatIsThisPlayer)
     {
         Collider2D[] playerBlock = Physics2D.OverlapBoxAll(transform.position, size, whatIsPlayer);
         PlayerManager playerManager = null;
-
+        
         for (int i = 0; i < playerBlock.Length; i++)
         {
             PlayerManager player = playerBlock[i].GetComponent<PlayerManager>();
 
             if (player != null)
-                if (player.whichIsThisPlayer == whatIsThisPlayer)
+                if (player.whichIsThisPlayer != whatIsThisPlayer) {
                     playerManager = playerBlock[i].GetComponent<PlayerManager>();
+                    Debug.Log("HEREEEEEEE ");
+
+                }
         }
 
         return playerManager;
