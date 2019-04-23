@@ -15,7 +15,7 @@ public class Map : MonoBehaviour {
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
-        blocks = InstantiateBlocks(columnLenth, rowLenth, new Vector2Int(-14, 4), 3, 3, 1);
+        blocks = InstantiateBlocks(columnLenth, rowLenth, new Vector2Int(-14, 5), 3.15f, 2.15f, 1f);
         gameManager.InitPlayers();
     }
 
@@ -36,10 +36,8 @@ public class Map : MonoBehaviour {
                 blocks[i, j].SetRow(j);
             }
         }
-
         return blocks;
     }
-
 
     public void ColorBlocks(int pos_x, int pos_y, Color color)
     {
