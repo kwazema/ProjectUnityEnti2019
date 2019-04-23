@@ -70,11 +70,9 @@ public class BrayanStats : PlayerManager {
             {
                 map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].spriteBlock.color = Color.red;
 
-                if (map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].IsPlayerInThisBlock())
+                if (map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].IsPlayerInThisBlock(1))
                 {
-
-                    map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].GetPlayerStatsBlock().TakeDamage(GetDamageSkill());
-
+                    map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].GetPlayerStatsBlock(1).TakeDamage(GetDamageSkill());
                 }
             }
         }
@@ -94,6 +92,4 @@ public class BrayanStats : PlayerManager {
         }
         Debug.Log("Grafic: " + graphicMove);
     }
-
-
 }

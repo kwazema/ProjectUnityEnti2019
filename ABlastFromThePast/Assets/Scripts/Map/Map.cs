@@ -19,9 +19,7 @@ public class Map : MonoBehaviour {
         gameManager.InitPlayers();
     }
 
-    private void Start()
-    {
-    }
+    private void Start() { }
 
     StatsBlock[,] InstantiateBlocks(int column, int row, Vector2Int offset, float width, float height, float margin)
     {

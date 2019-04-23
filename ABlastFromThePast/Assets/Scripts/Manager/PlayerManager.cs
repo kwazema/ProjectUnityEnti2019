@@ -228,7 +228,7 @@ public class PlayerManager : MonoBehaviour {
                     // Block Color
                     for (int i = 0; i < blocks_width; i++)
                     {
-                        map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].spriteBlock.color = Color.green;
+                        //map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].spriteBlock.color = Color.green;
                     }
                 }
             }
