@@ -17,43 +17,40 @@ public class StatsBlock : MonoBehaviour {
 
     #endregion
 
-    public Stats statsPlayer;
+    public PlayerManager statsPlayer;
 
     private PlayerMovement[] playerMovement;
     public SpriteRenderer spriteBlock;
+    private GameManager gameManager;
 
-    //private void Awake() { }
-
-    private void Start () {
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+        spriteBlock = GetComponent<SpriteRenderer>();
         InitPlayerMovement();
 
-        spriteBlock = GetComponent<SpriteRenderer>();
     }
 
-    private void Update () {
+    private void Start()
+    {
+    }
 
+    private void Update()
+    {
         if (comprobarPosition)
         {
             Debug.Log("Player: " + GetPlayerStatsBlock());
             Debug.Log("Player Skill " + GetPlayerStatsBlock().GetDamageSkill());
             Debug.Log("Get Player: " + GetPlayerStatsBlock().GetHealth());
         }
-        //GetStatsPlayer().SetDamageBasicAttack(20);
-        //Map.blocks[1, 2].PlayerInThisBlock();
-        //Map.blocks[1, 2].GetStatsPlayer().TakeDamage();
     }
 
-    void InitPlayerMovement()
+    public void InitPlayerMovement()
     {
         playerMovement = new PlayerMovement[2];
 
-        for (int i = 0; i < 2; i++)
-        {
-            playerMovement[i] = GameObject.Find(BattleChoose.namePlayer[i]).GetComponent<PlayerMovement>();
-            //playerMovement[i] = GameObject.Find("Player" + (i + 1)).GetComponent<PlayerMovement>();
-            //playerMovement[i] = GameObject.Find("GAME.ARRAY STRING NAME)).GetComponent<PlayerMovement>();
-            //Debug.Log(playerMovement[i].name);
-        }
+        for (int i = 0; i < playerMovement.Length; i++)
+            playerMovement[i] = gameManager.objectPlayer[gameManager.playerChoise[i]].GetComponent<PlayerMovement>();
     }
 
     public bool IsPlayerInThisBlock()
@@ -74,9 +71,9 @@ public class StatsBlock : MonoBehaviour {
         return value;
     }
 
-    public Stats GetPlayerStatsBlock()
+    public PlayerManager GetPlayerStatsBlock()
     {
-        Stats playerStats = new Stats();
+        PlayerManager playerStats = new PlayerManager();
 
         for (int i = 0; i < 2; i++)
         {
@@ -85,7 +82,7 @@ public class StatsBlock : MonoBehaviour {
 
             if ((playerColumn && playerRow) && playerStats == null)
             {
-                playerStats = /*GameObject.Find("Map").*/GetComponentInParent<Game>().playerStats[i]; 
+                playerStats = /*GameObject.Find("Map").*/GetComponentInParent<GameManager>().playerStats[i]; 
             }
         }
 

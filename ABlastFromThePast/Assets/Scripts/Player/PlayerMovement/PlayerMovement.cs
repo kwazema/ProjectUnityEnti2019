@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour {
     private Vector2[] v2Position;
     public Rigidbody2D rb;
     private PlayerInput playerInput;
-    private Stats playerStats;
+    private PlayerManager playerStats;
 
     private Map map;
 
@@ -35,19 +35,20 @@ public class PlayerMovement : MonoBehaviour {
     {
         //map = GameObject.Find("Map").GetComponent<Map>();
         map = FindObjectOfType<Map>();
-    }
 
-    // Use this for initialization
-    void Start ()
-    {
-        //player1Input = gameObject.GetComponent<Player1Input>(); // Diferencia?
         playerInput = GetComponent<PlayerInput>();
-        playerStats = GetComponent<Stats>();
+        playerStats = GetComponent<PlayerManager>();
 
-        Debug.Log("This player is: " + playerStats.whichIsThisPlayer);
 
         //---------- Init RB ----------- //
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    // Use this for initialization
+    void Start()
+    {
+        //player1Input = gameObject.GetComponent<Player1Input>(); // Diferencia?
+        Debug.Log("This player is: " + playerStats.whichIsThisPlayer);
 
         //------- Init Movemen --------- //
         v2Position = new Vector2[2];
@@ -119,7 +120,7 @@ public class PlayerMovement : MonoBehaviour {
         if (playerInput != null)
         {
 
-            if (Stats.ThisPlayerIs.Player1 == playerStats.thisPlayerIs)
+            if (PlayerManager.ThisPlayerIs.Player1 == playerStats.thisPlayerIs)
             {
                 //if (Can i move?)
                 //-------------- Move Right -------------- //
@@ -138,7 +139,7 @@ public class PlayerMovement : MonoBehaviour {
                 if (dirVertical > 0 && playerRow > 0)
                     playerRow -= dirVertical;
             }
-            else if (Stats.ThisPlayerIs.Player2 == playerStats.thisPlayerIs)
+            else if (PlayerManager.ThisPlayerIs.Player2 == playerStats.thisPlayerIs)
             {
                 //if (Can i move?)
                 //-------------- Move Right -------------- //

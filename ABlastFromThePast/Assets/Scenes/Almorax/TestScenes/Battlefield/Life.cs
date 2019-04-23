@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class Life : MonoBehaviour {
 
-    Game game;
+    private GameManager gameManager;
 
     public Slider player1;
     public Slider player2;
 
     private void Awake()
     {
-        game = GameObject.Find("Map").GetComponent<Game>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
 
@@ -28,8 +28,8 @@ public class Life : MonoBehaviour {
 
     void AssociateLifeWithSlide()
     {
-        float life1 = game.playerStats[0].GetHealth() / 20f * 100f; 
-        float life2 = game.playerStats[1].GetHealth() / 20f * 100f;
+        float life1 = gameManager.playerStats[0].GetHealth() / 20f * 100f; 
+        float life2 = gameManager.playerStats[1].GetHealth() / 20f * 100f;
 
         player1.value = life1;
         player2.value = life2;
@@ -37,8 +37,8 @@ public class Life : MonoBehaviour {
 
     void SliderHealth()
     {
-        float life1 = game.playerStats[0].GetHealth() / 100f * 100f; 
-        float life2 = game.playerStats[1].GetHealth() / 100f * 100f;
+        float life1 = gameManager.playerStats[0].GetHealth() / 100f * 100f; 
+        float life2 = gameManager.playerStats[1].GetHealth() / 100f * 100f;
 
         player1.value = life1;
         player2.value = life2;
@@ -46,8 +46,8 @@ public class Life : MonoBehaviour {
 
     void ReduceLife()
     {
-        int damage1 = game.playerStats[0].GetDamageBasicAttack();
-        int damage2 = game.playerStats[1].GetDamageBasicAttack();
+        int damage1 = gameManager.playerStats[0].GetDamageBasicAttack();
+        int damage2 = gameManager.playerStats[1].GetDamageBasicAttack();
 
 
         player1.value -= damage1;

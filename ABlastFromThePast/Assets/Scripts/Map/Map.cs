@@ -10,10 +10,17 @@ public class Map : MonoBehaviour {
     public GameObject map;
     public StatsBlock[,] blocks;
 
+    private GameManager gameManager;
+
     private void Awake()
     {
-        columnLenth = 8; rowLenth = 3;
+        gameManager = FindObjectOfType<GameManager>();
         blocks = InstantiateBlocks(columnLenth, rowLenth, new Vector2Int(-14, 4), 3, 3, 1);
+        gameManager.InitPlayers();
+    }
+
+    private void Start()
+    {
     }
 
     StatsBlock[,] InstantiateBlocks(int column, int row, Vector2Int offset, float width, float height, float margin)

@@ -21,7 +21,7 @@ public class PlayerMovementAI : MonoBehaviour {
     private Vector2[] v2Position;
     public Rigidbody2D rb;
     PlayerInput playerInput;
-    Stats stats;
+    PlayerManager stats;
 
     //private StatsBlock[,] blocks;
     private Map map;

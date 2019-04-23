@@ -7,8 +7,8 @@ public class PlayerAttackInput : MonoBehaviour
     public enum EnumPlayer { Player1, Player2 }
     public EnumPlayer enumPlayer;
 
-    public Game game;
-    Stats[] player;
+    public GameManager gameManager;
+    PlayerManager[] playerManager;
 
     PlayerMovement playerMove;
 
@@ -28,11 +28,11 @@ public class PlayerAttackInput : MonoBehaviour
     void Start()
     {
         playerMove = GetComponent<PlayerMovement>();
-        game = GameObject.Find("Map").GetComponent<Game>();
+        gameManager = FindObjectOfType<GameManager>();
 
-        player = new Stats[2];
-        player[0] = game.playerStats[0];
-        player[1] = game.playerStats[1];
+        playerManager = new PlayerManager[2];
+        playerManager[0] = gameManager.playerStats[0];
+        playerManager[1] = gameManager.playerStats[1];
 
         numPlayer = (int)enumPlayer;
     }
@@ -69,7 +69,7 @@ public class PlayerAttackInput : MonoBehaviour
 
         // ----------------------- //
 
-        if (Input.GetButton("Shield0") && player[0].GetShield() > 0 && !isShooting)
+        if (Input.GetButton("Shield0") && playerManager[0].GetShield() > 0 && !isShooting)
             ActiveShield();
         else
             DeactivateShield();
@@ -94,7 +94,7 @@ public class PlayerAttackInput : MonoBehaviour
 
         // ----------------------- //
 
-        if (Input.GetButton("Shield1") && player[1].GetShield() > 0 && !isShooting)
+        if (Input.GetButton("Shield1") && playerManager[1].GetShield() > 0 && !isShooting)
             ActiveShield();
         else
             DeactivateShield();
@@ -107,7 +107,7 @@ public class PlayerAttackInput : MonoBehaviour
         nextFire = Time.time;
         for (int i = 0; i < 2; i++)
         {
-            nextFire += Time.deltaTime + player[i].GetFireRate();
+            nextFire += Time.deltaTime + playerManager[i].GetFireRate();
         }
 
         GameObject basicAttackClone = (GameObject)Instantiate(basicAttack, basicShotSpawn.position, basicShotSpawn.rotation);
@@ -118,19 +118,19 @@ public class PlayerAttackInput : MonoBehaviour
 
     private void ActiveShield()
     {
-        player[numPlayer].SetIsShieldActive(true);
+        playerManager[numPlayer].SetIsShieldActive(true);
         shieldRender.enabled = true;
     }
 
     private void DeactivateShield()
     {
-        player[numPlayer].SetIsShieldActive(false);
+        playerManager[numPlayer].SetIsShieldActive(false);
         shieldRender.enabled = false;
     }
 
     private void SkillAttack()
     {
-        player[numPlayer].SkillMoveTo(0f, 0f);
+        playerManager[numPlayer].SkillMoveTo(0f, 0f);
     }
 
     private void UltimateAttack()
@@ -142,11 +142,11 @@ public class PlayerAttackInput : MonoBehaviour
 
         if (EnumPlayer.Player1 == enumPlayer)
         {
-            player[0].TakeDamage(player[1].GetDamageBasicAttack());
+            playerManager[0].TakeDamage(playerManager[1].GetDamageBasicAttack());
         }
         else
         {
-            player[1].TakeDamage(player[0].GetDamageBasicAttack());
+            playerManager[1].TakeDamage(playerManager[0].GetDamageBasicAttack());
         }
     }
 }

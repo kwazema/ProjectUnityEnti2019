@@ -15,14 +15,14 @@ public class AIBraindMove : MonoBehaviour {
     int numPlayer;
 
     private PlayerMovement playerMovement;
-    public Game game;
+    public GameManager game;
     private Map map;
 
     private void Awake()
     {
         //map = GameObject.Find("Map").GetComponent<Map>();
         map = FindObjectOfType<Map>();
-        game = GameObject.Find("Map").GetComponent<Game>();
+        game = GameObject.Find("Map").GetComponent<GameManager>();
     }
 
     // Use this for initialization

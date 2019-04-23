@@ -13,14 +13,17 @@ public class PlayerInput : MonoBehaviour {
     private bool displacedHorizontal = false;
     private bool displacedVertical = false;
 
-
     private PlayerMovement playerMovement;
+
+    private void Awake()
+    {
+        playerMovement = GetComponent<PlayerMovement>();
+    }
 
     // Use this for initialization
     void Start ()
     {
         //playerMovement = gameObject.GetComponent<Player1Movement>(); // Diferencia?
-        playerMovement = GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame

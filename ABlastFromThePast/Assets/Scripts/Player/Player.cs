@@ -5,16 +5,21 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     //public BrayanStats playerStats;
-    public Game game;
+    public GameManager game;
     PlayerMovement playerMove;
 
     [SerializeField] public enum EnumPlayer { Player1, Player2 }
     [SerializeField] public EnumPlayer player;
 
+    private void Awake()
+    {
+        playerMove = GetComponent<PlayerMovement>();
+        game = GameObject.Find("Map").GetComponent<GameManager>();
+    }
+
     // Use this for initialization
     void Start () {
-        playerMove = GetComponent<PlayerMovement>();
-        game = GameObject.Find("Map").GetComponent<Game>();
+
         //playerStats = GetComponent<BrayanStats>();
     }
 	

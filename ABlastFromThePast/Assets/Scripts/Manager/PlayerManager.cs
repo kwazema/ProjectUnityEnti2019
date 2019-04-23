@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Stats : MonoBehaviour {
+public class PlayerManager : MonoBehaviour {
 
     [SerializeField] public enum ThisPlayerIs { Player1, Player2 }
     [SerializeField] public ThisPlayerIs thisPlayerIs;
@@ -16,13 +16,13 @@ public class Stats : MonoBehaviour {
     protected GameObject player;
     protected Vector2 oldPos;
 
-    #region Variables Private
+    #region Private Variables
 
     // SORPRESA 
 
     #endregion
 
-    #region Variables Protected
+    #region Protected Variables
 
     protected Vector2 moveToBlock;
     protected float timeInPosition;
@@ -58,6 +58,11 @@ public class Stats : MonoBehaviour {
     protected bool moveToPosition = false;
     protected bool returnOldPosition = false;
     protected bool noHaAtacado = true;
+
+    #endregion
+
+    #region Public Variables
+    public string namePlayer;
 
     #endregion
 
@@ -103,17 +108,20 @@ public class Stats : MonoBehaviour {
     virtual public void SetThisPlayer(int value) { whichIsThisPlayer = value; }
     #endregion
 
-    protected virtual void Start () {
+    protected virtual void Awake() {
         map = GameObject.Find("Map").GetComponent<Map>();
+
         playerMovement = GetComponent<PlayerMovement>();
         playerInput = GetComponent<PlayerInput>();
 
-        bodyCollider = GameObject.Find(BattleChoose.namePlayer[whichIsThisPlayer] + "/BodyCollider").GetComponent<Collider2D>();
+        bodyCollider = GameObject.Find(name + "/BodyCollider").GetComponent<Collider2D>();
+    }
 
+    protected virtual void Start() {
         //SelectedZonaPlayer();
     }
 
-    protected virtual void Update () {
+    protected virtual void Update() {
 
         if (moveToPosition)
         {
@@ -179,7 +187,6 @@ public class Stats : MonoBehaviour {
     protected virtual void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0) { }
 
     protected virtual void SelectedZonaPlayer() { }
-
 
     protected void MovingToPosition(float velocity, int blocks_width = 0)
     {

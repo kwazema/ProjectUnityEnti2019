@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enumPlayer: 1
-  game: {fileID: 0}
+  gameManager: {fileID: 0}
   basicShotSpawn: {fileID: 4154742751632750}
   basicAttack: {fileID: 1514169183847182, guid: 7db860830f97884468a7d5bf3dda3e62,
     type: 2}
@@ -332,6 +332,7 @@ MonoBehaviour:
   health: 0
   shield: 0
   whichIsThisPlayer: 0
+  namePlayer: Scepter
   distance_attack: {fileID: 4654876691078714}
 --- !u!212 &212076490058607512
 SpriteRenderer:

@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enumPlayer: 1
-  game: {fileID: 0}
+  gameManager: {fileID: 0}
   basicShotSpawn: {fileID: 4771765798576682}
   basicAttack: {fileID: 1570851383404196, guid: 3da3e31f41822e946be115aab0b9ae31,
     type: 2}
@@ -332,6 +332,7 @@ MonoBehaviour:
   health: 0
   shield: 0
   whichIsThisPlayer: 0
+  namePlayer: Brayan
   distance_attack: {fileID: 4401199832456136}
 --- !u!212 &212159867648045562
 SpriteRenderer:

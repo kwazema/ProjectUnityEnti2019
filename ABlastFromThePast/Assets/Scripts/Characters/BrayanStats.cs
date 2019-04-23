@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrayanStats : Stats {
+public class BrayanStats : PlayerManager {
 
     public Transform distance_attack;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        //namePlayer = "Brayan"; // Nombre añadido desde el inspector
+    }
+
     // Use this for initialization
-    protected override void Start () {
+    protected override void Start ()
+    {
         base.Start();
 
         #region Basic Stats
@@ -26,7 +33,6 @@ public class BrayanStats : Stats {
         StartCoroutine(ShieldRecovery());
 
         SelectedZonaPlayer();
-
         distance_attack.position = map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position;
     }
 

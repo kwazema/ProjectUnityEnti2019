@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class Shield : MonoBehaviour {
 
-    Game game;
+    private GameManager gameManager;
 
     public Slider player1;
     public Slider player2;
 
     private void Awake()
     {
-        game = GameObject.Find("Map").GetComponent<Game>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
 
@@ -28,8 +28,8 @@ public class Shield : MonoBehaviour {
 
     void SliderShield()
     {
-        float shield1 = game.playerStats[0].GetShield() / 20f * 100f;
-        float shield2 = game.playerStats[1].GetShield() / 20f * 100f;
+        float shield1 = gameManager.playerStats[0].GetShield() / 20f * 100f;
+        float shield2 = gameManager.playerStats[1].GetShield() / 20f * 100f;
 
         player1.value = shield1;
         player2.value = shield2;
@@ -37,8 +37,8 @@ public class Shield : MonoBehaviour {
 
     void AssociateShieldWithSlide()
     {
-        int shield1 = game.playerStats[0].GetShield();
-        int shield2 = game.playerStats[1].GetShield();
+        int shield1 = gameManager.playerStats[0].GetShield();
+        int shield2 = gameManager.playerStats[1].GetShield();
 
         player1.value = shield1;
         player2.value = shield2;
