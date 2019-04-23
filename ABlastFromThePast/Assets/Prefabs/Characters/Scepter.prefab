@@ -133,7 +133,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1800652416325458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.194, y: 0.085, z: 0}
+  m_LocalPosition: {x: 0.179, y: 0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4765537440761146}
@@ -185,7 +185,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1983954572820804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.331479, y: -2.4417448, z: 0}
+  m_LocalPosition: {x: -7.108965, y: 2.133224, z: 0}
   m_LocalScale: {x: 19.636452, y: 19.636488, z: 19.636488}
   m_Children:
   - {fileID: 4653378086700342}
@@ -353,6 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisPlayerIs: 0
+  playerMovement: {fileID: 0}
   damageBasicAttack: 0
   damageSkill: 0
   health: 0

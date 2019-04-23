@@ -28,7 +28,7 @@ public class BrayanStats : PlayerManager {
 
         #endregion
 
-        fireRate = 0.2f;
+        fireRate = 0.1f;
         recoveryShieldTime = 2;
         StartCoroutine(ShieldRecovery());
 
@@ -41,8 +41,27 @@ public class BrayanStats : PlayerManager {
     {
         base.Update();
 
+        int blocks_width = 3;
+
         if (moveToPosition)
-            MovingToPosition(75f, 2);
+            MovingToPosition(95f, blocks_width);
+
+        if (!returnOldPosition)
+        {
+            for (int i = 0; i < blocks_width; i++)
+            {
+                if (
+                    (playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) < map.columnLenth &&
+                    (playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) >= 0
+                   )
+                {
+                    map.ColorBlocks((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow, Color.white);
+                }
+            }
+        }
+
+
+
     }
 
     public override void SkillMoveTo(float cooldown = 0, float timeToRetorn = 0)

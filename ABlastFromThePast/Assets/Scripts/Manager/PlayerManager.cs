@@ -213,8 +213,6 @@ public class PlayerManager : MonoBehaviour {
             if (Time.time > timeInPosition)
             {
                 transform.position = Vector2.MoveTowards(transform.position, oldPos, step);
-                // Collider 
-                bodyCollider.enabled = false;
 
                 if ((Vector2)transform.position == oldPos)
                 {
@@ -224,18 +222,13 @@ public class PlayerManager : MonoBehaviour {
                     playerInput.enabled = true;
                     playerMovement.enabled = true;
 
-                    // Collider 
-                    bodyCollider.enabled = true;
-
                     // Block Color
-                    for (int i = 0; i < blocks_width; i++)
-                    {
-                        for (int j = 0; j < blocks_height; j++) {
-                            if ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) < map.columnLenth &&
-                                (playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) >= 0)
-                                map.ColorBlocks((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow, Color.green);
-                        }
-                    }
+                    //for (int i = 0; i < blocks_width; i++)
+                    //{
+                    //    if ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) < map.columnLenth &&
+                    //        (playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) >= 0)
+                    //        map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].spriteBlock.color = Color.white;
+                    //}
                 }
             }
         }

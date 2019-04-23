@@ -33,7 +33,7 @@ public class ScepterStats : PlayerManager {
 
         #endregion
 
-        fireRate = 0.2f;
+        fireRate = 0.1f;
         recoveryShieldTime = 2;
         StartCoroutine(ShieldRecovery());
 
@@ -46,7 +46,29 @@ public class ScepterStats : PlayerManager {
     {
         base.Update();
         if (moveToPosition)
-            MovingToPosition(95f, 2);
+            MovingToPosition(65f);
+
+
+        if (!returnOldPosition) {
+            for (int i = -1; i < 2; i++)
+            { // horizontal
+                for (int j = -1; j < 2; j++)
+                { // vertical
+
+                    if (
+                        (pos_column + i) >= 0 &&
+                        (pos_column + i) < map.columnLenth &&
+                        (playerMovement.playerRow + j) >= 0 &&
+                        (playerMovement.playerRow + j) < map.rowLenth
+                      )
+                    {
+                        map.ColorBlocks((pos_column + i), (playerMovement.playerRow + j), Color.white);
+                    }
+                }
+            }
+        }
+
+
     }
 
     public override void SkillMoveTo(float cooldown = 0, float timeToRetorn = 0)
