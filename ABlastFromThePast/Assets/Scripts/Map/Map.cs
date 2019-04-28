@@ -9,6 +9,15 @@ public class Map : MonoBehaviour {
     public GameObject blockPrefab;
     public GameObject map;
     public StatsBlock[,] blocks;
+    public Sprite  blockSprite;
+
+    enum Tipe
+    {
+        blueNormal,
+        redNormal,
+        blueActive,
+        redActive
+    } Tipe tipe;
 
     private GameManager gameManager;
 
@@ -34,6 +43,11 @@ public class Map : MonoBehaviour {
                 blocks[i, j].transform.position = offset + new Vector2(i * (width + margin), j * -(height + margin));
                 blocks[i, j].SetColumn(i);
                 blocks[i, j].SetRow(j);
+
+                if (i >= column / 2)
+                {
+                    blocks[i, j].spriteBlock.sprite = blockSprite;
+                }
             }
         }
         return blocks;

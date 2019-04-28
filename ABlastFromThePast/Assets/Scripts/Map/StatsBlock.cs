@@ -34,18 +34,8 @@ public class StatsBlock : MonoBehaviour {
     }
 
     private void Start() { }
+    private void Update() { }
 
-    private void Update()
-    {
-        //if (comprobarPosition)
-        //{
-        //    Debug.Log("Player: " + GetPlayerStatsBlock());
-        //    Debug.Log("Player Skill " + GetPlayerStatsBlock().GetDamageSkill());
-        //    Debug.Log("Get Player: " + GetPlayerStatsBlock().GetHealth());
-        //}
-    }
-
-    //public void InitPlayerMovement()
     //{
     //    playerMovement = new PlayerMovement[2];
 
@@ -84,11 +74,8 @@ public class StatsBlock : MonoBehaviour {
             PlayerManager player = playerBlock[i].GetComponent<PlayerManager>();
 
             if (player != null)
-                if (player.whichIsThisPlayer != whatIsThisPlayer) {
+                if (player.whichIsThisPlayer != whatIsThisPlayer)
                     playerManager = playerBlock[i].GetComponent<PlayerManager>();
-                    Debug.Log("HEREEEEEEE ");
-
-                }
         }
 
         return playerManager;

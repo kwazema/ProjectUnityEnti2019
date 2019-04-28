@@ -3572,6 +3572,7 @@ MonoBehaviour:
   blockPrefab: {fileID: 1924483091404750, guid: 374dfb99d53c03046b087fde64c8d45f,
     type: 2}
   map: {fileID: 1626575744}
+  blockSprite: {fileID: 21300000, guid: bbf3eca44d25605439fd0e6e60645eb6, type: 3}
 --- !u!4 &1626575746
 Transform:
   m_ObjectHideFlags: 0

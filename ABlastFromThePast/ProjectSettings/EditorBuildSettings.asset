@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Almorax/TestScenes/TestSceneAlex.unity
     guid: 6f6c6baf94990954a956d4c65abf2762
   - enabled: 1
+    path: Assets/Scenes/Main/Intro.unity
+    guid: 3842071a423690643adb4d71a0cdb3e3
+  - enabled: 1
     path: Assets/Scenes/Main/Menu.unity
     guid: d334bde6977945649850baddc2f8e2b4
   - enabled: 1
