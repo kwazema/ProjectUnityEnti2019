@@ -24,12 +24,12 @@ public class ScepterStats : PlayerManager {
 
         #region Basic Stats
 
-        health = 100;
-        shield = 10;
+        health = health_max;
+        shield = shield_max;
 
-        damageBasicAttack = 8;
-        damageSkill = 12;
-        damageUltimate = 50;
+        damageBasicAttack = 2;
+        damageSkill = 15;
+        damageUltimate = 20;
 
         #endregion
 
@@ -68,10 +68,9 @@ public class ScepterStats : PlayerManager {
             }
         }
 
-
     }
 
-    public override void SkillMoveTo(float cooldown = 0, float timeToRetorn = 0)
+    public override void Skill(float cooldown = 0, float timeToRetorn = 0)
     {
         int player_to_attack;
         GameManager game_manager = FindObjectOfType<GameManager>();

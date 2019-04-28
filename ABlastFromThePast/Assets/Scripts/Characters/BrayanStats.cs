@@ -19,18 +19,23 @@ public class BrayanStats : PlayerManager {
 
         #region Basic Stats
 
-        health = 100;
-        shield = 10;
+        //health = health_max;
+        health = 20;
+        shield = shield_max;
 
-        damageBasicAttack = 8;
-        damageSkill = 12;
-        damageUltimate = 50;
+        damageBasicAttack = 2;
+        damageSkill = 10;
+        damageUltimate = 20;
+
+        ultimateCD = 5;
+        cur_ultimateCD = 0;
 
         #endregion
 
         fireRate = 0.1f;
         recoveryShieldTime = 2;
         StartCoroutine(ShieldRecovery());
+        StartCoroutine(UltimateRecovery());
 
         SelectedZonaPlayer();
         distance_attack.position = map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position;
@@ -40,7 +45,6 @@ public class BrayanStats : PlayerManager {
     protected override void Update()
     {
         base.Update();
-
         int blocks_width = 3;
 
         if (moveToPosition)
@@ -61,10 +65,12 @@ public class BrayanStats : PlayerManager {
         }
 
 
+        if (is_ultimateOn && cast_ended)
+            StartCoroutine(Leech(3));
 
     }
 
-    public override void SkillMoveTo(float cooldown = 0, float timeToRetorn = 0)
+    public override void Skill(float cooldown = 0, float timeToRetorn = 0)
     {
         oldPos = (Vector2)transform.position;
         moveToBlock = new Vector2(map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position.x, transform.position.y);
@@ -93,6 +99,48 @@ public class BrayanStats : PlayerManager {
                 }
             }
         }
+    }
+
+    public override void Ultimate()
+    {
+        if (cur_ultimateCD >= ultimateCD) {
+            Debug.Log("HEREEEE:");
+            is_ultimateOn = true;
+            StartCoroutine(CastingTime(2));
+        }
+        
+    }
+
+    // NO FUNCIONA EL INPUT DEL TECLADO DEL SEGUNDO PLAYER
+    // TECLADO NUMERICO NO FUNCIONA CON ESTA HABILIDAD
+    IEnumerator Leech(float use_time)
+    {
+        
+        is_ultimateOn = false;
+        cast_ended = false;
+
+        int player_to_attack;
+        GameManager game_manager = FindObjectOfType<GameManager>();
+
+        if (thisPlayerIs == ThisPlayerIs.Player1)
+            player_to_attack = 1;
+        else
+            player_to_attack = 0;
+
+        float time = 0;
+
+        while (time < use_time)
+        {
+            game_manager.playerStats[player_to_attack].TakeDamage(GetDamageUltimate());
+            health += (GetDamageUltimate() / 2);
+
+            if (health > health_max)
+                health = health_max;
+
+            yield return new WaitForSeconds(1);
+            time++;
+        }
+        cur_ultimateCD = 0;
     }
 
     protected override void SelectedZonaPlayer()
