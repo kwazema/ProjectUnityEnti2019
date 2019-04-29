@@ -36,9 +36,11 @@ public class PlayerManager : MonoBehaviour {
     protected int damageUltimate;
 
     [SerializeField]
+    protected const int health_max = 200;
     protected int health;
 
     [SerializeField]
+    protected const int shield_max = 50;
     protected int shield;
     protected int recoveryShieldTime;
 
@@ -47,10 +49,10 @@ public class PlayerManager : MonoBehaviour {
 
     protected float skillCD;
     protected float ultimateCD;
+    protected float cur_ultimateCD;
 
     protected int skillDistance;
     protected int ultimateDistance;
-
 
     public int whichIsThisPlayer;
     protected int graphicMove;
@@ -60,7 +62,8 @@ public class PlayerManager : MonoBehaviour {
     protected bool moveToPosition = false;
     protected bool returnOldPosition = false;
     protected bool noHaAtacado = true;
-
+    protected bool cast_ended = false;
+    protected bool is_ultimateOn = false;
     #endregion
 
     #region Public Variables
@@ -74,6 +77,7 @@ public class PlayerManager : MonoBehaviour {
     virtual public int GetDamageUltimate() { return damageUltimate; }
 
     virtual public int GetHealth() { return health; }
+    virtual public int GetHealthMax() { return health_max;  }
     virtual public int GetShield() { return shield; }
     virtual public float GetFireRate() { return fireRate; }
     virtual public bool GetIsShieldActive() { return isShieldActive; }
@@ -136,13 +140,13 @@ public class PlayerManager : MonoBehaviour {
         while (true)
         { // loops forever...
             if (
-                shield < 20 &&
+                shield < shield_max &&
                 !isShieldActive
                 )
             {
                 shield += recoveryShieldTime;
-                if (shield > 20)
-                    shield = 20;
+                if (shield > shield_max)
+                    shield = shield_max;
                 //playerStats.SetShield(RecoveryShield()); 
                 // increase health and wait the specified time
                 yield return new WaitForSeconds(1);
@@ -152,6 +156,41 @@ public class PlayerManager : MonoBehaviour {
                 yield return null;
             }
         }
+    }
+
+    protected IEnumerator UltimateRecovery()
+    {
+        while (true)
+        { 
+            if (cur_ultimateCD < ultimateCD)
+            {
+                Debug.Log("Ultimate Time: " + cur_ultimateCD);
+                cur_ultimateCD++;
+                yield return new WaitForSeconds(1);
+            }
+            else
+            {
+                cur_ultimateCD = ultimateCD;
+                yield return null;
+            }
+        }
+    }
+
+    public IEnumerator CastingTime(float time_cast)
+    {
+        playerInput.enabled = false;
+        playerMovement.enabled = false;
+        float cast = 0;
+
+        while (cast < time_cast)
+        {
+            cast++;
+            yield return new WaitForSeconds(1);
+        }
+
+        cast_ended = true;
+        playerMovement.enabled = true;
+        playerInput.enabled = true;
     }
 
     void Die()
@@ -184,11 +223,13 @@ public class PlayerManager : MonoBehaviour {
 
     //#region Hability Skills
 
-    public virtual void SkillMoveTo(float cooldown = 0, float timeToRetorn = 0) { }
+    public virtual void Skill(float cooldown = 0, float timeToRetorn = 0) { }
 
     protected virtual void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0) { }
 
     protected virtual void SelectedZonaPlayer() { }
+
+    public virtual void Ultimate() { }
 
     protected void MovingToPosition(float velocity, int blocks_width = 0, int blocks_height = 0)
     {

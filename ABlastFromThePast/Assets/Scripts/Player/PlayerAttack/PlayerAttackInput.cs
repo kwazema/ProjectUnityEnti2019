@@ -52,8 +52,14 @@ public class PlayerAttackInput : MonoBehaviour
 
     private void GetInputPlayer1()
     {
-        if (Input.GetButton("Attack0") && !playerMove.GetIsMoving() && Time.time > nextFire)
+        if (
+            Input.GetButton("Attack0") &&
+            !playerMove.GetIsMoving() &&
+            Time.time > nextFire
+            )
+        {
             BasicAttack();
+        }
         else
             isShooting = false;
 
@@ -130,11 +136,12 @@ public class PlayerAttackInput : MonoBehaviour
 
     private void SkillAttack()
     {
-        playerManager[numPlayer].SkillMoveTo(0f, 0f);
+        playerManager[numPlayer].Skill(0f, 0f);
     }
 
     private void UltimateAttack()
     {
+        playerManager[numPlayer].Ultimate();
     }
 
     private void OnCollisionEnter2D(Collision2D col)
