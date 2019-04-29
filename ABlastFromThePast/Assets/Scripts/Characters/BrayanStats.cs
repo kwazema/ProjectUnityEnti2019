@@ -34,7 +34,7 @@ public class BrayanStats : PlayerManager {
 
         fireRate = 0.1f;
         recoveryShieldTime = 2;
-        StartCoroutine(ShieldRecovery());
+        //StartCoroutine(ShieldRecovery());
         StartCoroutine(UltimateRecovery());
 
         SelectedZonaPlayer();

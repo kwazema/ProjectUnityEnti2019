@@ -35,7 +35,7 @@ public class ScepterStats : PlayerManager {
 
         fireRate = 0.1f;
         recoveryShieldTime = 2;
-        StartCoroutine(ShieldRecovery());
+       // StartCoroutine(ShieldRecovery());
 
         SelectedZonaPlayer();
         
@@ -49,7 +49,7 @@ public class ScepterStats : PlayerManager {
             MovingToPosition(65f);
 
 
-        if (!returnOldPosition) {
+        if (!returnOldPosition ) {
             for (int i = -1; i < 2; i++)
             { // horizontal
                 for (int j = -1; j < 2; j++)
