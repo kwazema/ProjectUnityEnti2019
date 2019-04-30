@@ -35,7 +35,6 @@ public class ScepterStats : PlayerManager {
 
         fireRate = 0.1f;
         recoveryShieldTime = 2;
-       // StartCoroutine(ShieldRecovery());
 
         SelectedZonaPlayer();
         
@@ -45,10 +44,14 @@ public class ScepterStats : PlayerManager {
     protected override void Update()
     {
         base.Update();
+        Debug.Log("Scepter: " + health);
+
         if (moveToPosition)
             MovingToPosition(65f);
 
+        // -------------------------------------------------- //
 
+        // Color block = green 
         if (!returnOldPosition ) {
             for (int i = -1; i < 2; i++)
             { // horizontal
@@ -67,6 +70,8 @@ public class ScepterStats : PlayerManager {
                 }
             }
         }
+
+        // -------------------------------------------------- //
 
     }
 

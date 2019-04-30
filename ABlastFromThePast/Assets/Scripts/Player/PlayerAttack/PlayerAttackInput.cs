@@ -52,14 +52,8 @@ public class PlayerAttackInput : MonoBehaviour
 
     private void GetInputPlayer1()
     {
-        if (
-            Input.GetButton("Attack0") &&
-            !playerMove.GetIsMoving() &&
-            Time.time > nextFire
-            )
-        {
+        if (Input.GetButton("Attack0") && !playerMove.GetIsMoving() && Time.time > nextFire)
             BasicAttack();
-        }
         else
             isShooting = false;
 
@@ -70,12 +64,12 @@ public class PlayerAttackInput : MonoBehaviour
 
         // ----------------------- //
 
-        if (Input.GetButtonDown("Ultimate0"))
+        if (Input.GetButton("Ultimate0")) {
             UltimateAttack();
+        }
 
         // ----------------------- //
 
-        //if (Input.GetButton("Shield0") && playerManager[0].GetShield() > 0 && !isShooting)
         if (Input.GetButton("Shield0") && !playerManager[0].GetShieldState() && !isShooting)
             ActiveShield();
         else
@@ -96,12 +90,11 @@ public class PlayerAttackInput : MonoBehaviour
 
         // ----------------------- //
 
-        if (Input.GetButtonDown("Ultimate1"))
+        if (Input.GetButton("Ultimate1"))
             UltimateAttack();
 
         // ----------------------- //
 
-        //if (Input.GetButton("Shield1") && playerManager[1].GetShield() > 0 && !isShooting)
         if (Input.GetButton("Shield1") && !playerManager[1].GetShieldState() && !isShooting)
             ActiveShield();
         else
@@ -159,17 +152,3 @@ public class PlayerAttackInput : MonoBehaviour
         }
     }
 }
-
-/*
- Asi es como se hace un timer y pienso que puede estar 
- curioso apuntarselo para el tema del cd de las skills y tal
- 
-    float timer = 0.0f;
-
-    void Update()
-    {
-        timer += Time.deltaTime;
-        int seconds = timer % 60;
-    }
-
- */

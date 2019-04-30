@@ -15,6 +15,8 @@ public class PlayerManager : MonoBehaviour {
     protected Collider2D bodyCollider;
     protected PlayerInput playerInput;
 
+    PlayerAttackInput player_att_input;
+
     protected GameObject player;
     protected Vector2 oldPos;
 
@@ -121,6 +123,7 @@ public class PlayerManager : MonoBehaviour {
 
         playerMovement = GetComponent<PlayerMovement>();
         playerInput = GetComponent<PlayerInput>();
+        player_att_input = GetComponent<PlayerAttackInput>();
 
         bodyCollider = GameObject.Find(name + "/BodyCollider").GetComponent<Collider2D>();
     }
@@ -140,8 +143,6 @@ public class PlayerManager : MonoBehaviour {
             StartCoroutine(ShieldRecovery());
             is_shield_broken = true;
         }
-
-        Debug.Log("SHIELD: " + shield);
     }
 
     virtual public IEnumerator ShieldRecovery()
@@ -162,7 +163,6 @@ public class PlayerManager : MonoBehaviour {
         { 
             if (cur_ultimateCD < ultimateCD)
             {
-                Debug.Log("Ultimate Time: " + cur_ultimateCD);
                 cur_ultimateCD++;
                 yield return new WaitForSeconds(1);
             }
@@ -176,6 +176,8 @@ public class PlayerManager : MonoBehaviour {
 
     public IEnumerator CastingTime(float time_cast)
     {
+        
+        player_att_input.enabled = false;
         playerInput.enabled = false;
         playerMovement.enabled = false;
         float cast = 0;
@@ -189,6 +191,7 @@ public class PlayerManager : MonoBehaviour {
         cast_ended = true;
         playerMovement.enabled = true;
         playerInput.enabled = true;
+        player_att_input.enabled = true;
     }
 
     void Die()
@@ -260,14 +263,6 @@ public class PlayerManager : MonoBehaviour {
                     noHaAtacado = true;
                     playerInput.enabled = true;
                     playerMovement.enabled = true;
-
-                    // Block Color
-                    //for (int i = 0; i < blocks_width; i++)
-                    //{
-                    //    if ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) < map.columnLenth &&
-                    //        (playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) >= 0)
-                    //        map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].spriteBlock.color = Color.white;
-                    //}
                 }
             }
         }
