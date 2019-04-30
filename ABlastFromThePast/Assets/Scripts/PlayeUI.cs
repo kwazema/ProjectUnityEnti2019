@@ -26,10 +26,10 @@ public class PlayeUI : MonoBehaviour {
 
     private void Update()
     {
-        float test = gameManager.playerStats[0].GetHealth() * 1f / gameManager.playerStats[0].GetHealthMax();
-        Debug.Log("Vida: " + test);
-        Debug.Log("Vida Total: " + gameManager.playerStats[0].GetHealth());
-        Debug.Log("Vida Maxima: " + gameManager.playerStats[0].GetHealthMax());
-        sliderHealth[0].fillAmount = test;
+        for (int i = 0; i < sliderHealth.Length; i++)
+        {
+            float value = (float)gameManager.playerStats[i].GetHealth() / (float)gameManager.playerStats[i].GetHealthMax();
+            sliderHealth[i].fillAmount = value;
+        }
 	}
 }

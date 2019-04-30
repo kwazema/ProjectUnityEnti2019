@@ -13,6 +13,38 @@ public class GameManager : MonoBehaviour {
 
     public int[] playerChoise;
 
+    public int roundCur, roundMax = 5;
+    public struct Round
+    {
+        public float timeToStartMax;
+        public float timeToStartCur;
+
+        public float timeMax;
+        public float timeCur;
+
+        public int roundMax;
+        public int roundCur;
+
+        public int roundsWinPlayer1;
+        public int roundsWinPlayer2;
+
+        public Round (float timeToStart, float timeRoundMax)
+        {
+            timeToStartMax = timeToStart;
+            timeToStartCur = 0;
+
+            timeMax = timeRoundMax;
+            timeCur = 0;
+
+            roundMax = 0;
+            roundCur = 0;
+
+            roundsWinPlayer1 = 0;
+            roundsWinPlayer2 = 0;
+    }
+
+    } Round[] round;
+
     private void Awake()
     {
         if (instance == null)
@@ -61,6 +93,50 @@ public class GameManager : MonoBehaviour {
             // Class Input Movement
             GameObject.Find(playerStats[i].name).GetComponent<PlayerInput>().enumPlayer = (PlayerInput.EnumPlayer)i;
 
+        }
+    }
+
+    public void StartBattle()
+    {
+        round = new Round[roundMax];
+
+        //StartCoroutine(TimeRound(roundCur));
+        StartCoroutine(StartRound(roundCur));
+    }
+
+    protected IEnumerator TimeRound(int num)
+    {
+        while (true)
+        {
+            if (round[num].timeCur <= round[num].timeMax)
+            {
+               // Imprimit tiempo pantalla
+                yield return new WaitForSeconds(1);
+            }
+            else
+            {
+                // imprimir habilidades y empezar con el StartRound si es necesario
+                yield return null;
+            }
+        }
+    }
+
+    protected IEnumerator StartRound(int num)
+    {
+        while (true)
+        {
+            if (round[num].timeToStartCur <= round[num].timeToStartCur)
+            {
+                // Imprimit tiempo pantalla
+                yield return new WaitForSeconds(1);
+            }
+            else
+            {
+                // TimeBattle
+                // Siguiente ronda
+                roundCur++;
+                yield return null;
+            }
         }
     }
 }
