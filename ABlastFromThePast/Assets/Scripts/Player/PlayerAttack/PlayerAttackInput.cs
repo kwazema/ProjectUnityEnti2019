@@ -65,17 +65,18 @@ public class PlayerAttackInput : MonoBehaviour
 
         // ----------------------- //
 
-        if (Input.GetButton("Skill0"))
+        if (Input.GetButtonDown("Skill0"))
             SkillAttack();
 
         // ----------------------- //
 
-        if (Input.GetButton("Ultimate0"))
+        if (Input.GetButtonDown("Ultimate0"))
             UltimateAttack();
 
         // ----------------------- //
 
-        if (Input.GetButton("Shield0") && playerManager[0].GetShield() > 0 && !isShooting)
+        //if (Input.GetButton("Shield0") && playerManager[0].GetShield() > 0 && !isShooting)
+        if (Input.GetButton("Shield0") && !playerManager[0].GetShieldState() && !isShooting)
             ActiveShield();
         else
             DeactivateShield();
@@ -100,7 +101,8 @@ public class PlayerAttackInput : MonoBehaviour
 
         // ----------------------- //
 
-        if (Input.GetButton("Shield1") && playerManager[1].GetShield() > 0 && !isShooting)
+        //if (Input.GetButton("Shield1") && playerManager[1].GetShield() > 0 && !isShooting)
+        if (Input.GetButton("Shield1") && !playerManager[1].GetShieldState() && !isShooting)
             ActiveShield();
         else
             DeactivateShield();

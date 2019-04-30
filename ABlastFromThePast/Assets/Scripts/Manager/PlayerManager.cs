@@ -64,6 +64,7 @@ public class PlayerManager : MonoBehaviour {
     protected bool noHaAtacado = true;
     protected bool cast_ended = false;
     protected bool is_ultimateOn = false;
+    protected bool is_shield_broken = false;
     #endregion
 
     #region Public Variables
@@ -79,6 +80,7 @@ public class PlayerManager : MonoBehaviour {
     virtual public int GetHealth() { return health; }
     virtual public int GetHealthMax() { return health_max;  }
     virtual public int GetShield() { return shield; }
+    virtual public bool GetShieldState() { return is_shield_broken; }
     virtual public float GetFireRate() { return fireRate; }
     virtual public bool GetIsShieldActive() { return isShieldActive; }
 
@@ -133,29 +135,25 @@ public class PlayerManager : MonoBehaviour {
         {
             //MovingToPosition(60f);
         }
+
+        if (shield <= 0) {
+            StartCoroutine(ShieldRecovery());
+            is_shield_broken = true;
+        }
+
+        Debug.Log("SHIELD: " + shield);
     }
 
     virtual public IEnumerator ShieldRecovery()
     {
-        while (true)
-        { // loops forever...
-            if (
-                shield < shield_max &&
-                !isShieldActive
-                )
-            {
-                shield += recoveryShieldTime;
-                if (shield > shield_max)
-                    shield = shield_max;
-                //playerStats.SetShield(RecoveryShield()); 
-                // increase health and wait the specified time
-                yield return new WaitForSeconds(1);
-            }
-            else
-            { // if shieldHealth >= 100, just yield 
-                yield return null;
-            }
+        while (shield < shield_max)
+        {
+            shield += recoveryShieldTime;
+            if (shield > shield_max)
+                shield = shield_max;
+            yield return new WaitForSeconds(1);
         }
+        is_shield_broken = false;
     }
 
     protected IEnumerator UltimateRecovery()
