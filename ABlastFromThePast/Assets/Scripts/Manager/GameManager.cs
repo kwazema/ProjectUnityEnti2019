@@ -10,10 +10,12 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField]
     public PlayerManager[] playerManager;
+    public PlayeUI playeUI;
 
     public int[] playerChoise;
 
-    public int roundCur, roundMax = 5;
+    public int roundCur = 0, roundMax = 3;
+    public float timeToStartDefault, timeRoundMaxDefault;
     public struct Round
     {
         public float timeToStartMax;
@@ -28,22 +30,22 @@ public class GameManager : MonoBehaviour {
         public int roundsWinPlayer1;
         public int roundsWinPlayer2;
 
-        public Round (float timeToStart, float timeRoundMax)
-        {
-            timeToStartMax = timeToStart;
-            timeToStartCur = 0;
+        //public Round (float timeToStart, float timeRoundMax)
+        //{
+        //    timeToStartMax = timeToStart;
+        //    timeToStartCur = 0;
 
-            timeMax = timeRoundMax;
-            timeCur = 0;
+        //    timeMax = timeRoundMax;
+        //    timeCur = 0;
 
-            roundMax = 0;
-            roundCur = 0;
+        //    roundMax = 0;
+        //    roundCur = 0;
 
-            roundsWinPlayer1 = 0;
-            roundsWinPlayer2 = 0;
-    }
+        //    roundsWinPlayer1 = 0;
+        //    roundsWinPlayer2 = 0;
+        //}
 
-    } Round[] round;
+    } public Round[] round;
 
     private void Awake()
     {
@@ -99,16 +101,18 @@ public class GameManager : MonoBehaviour {
     public void StartBattle()
     {
         round = new Round[roundMax];
+        round[0].timeCur = 5;
+        round[1].timeCur = 10;
 
-        //StartCoroutine(TimeRound(roundCur));
-        StartCoroutine(StartRound(roundCur));
+        //StartCoroutine(StartRound(roundCur));
+        StartCoroutine(TimeRound(roundCur));
     }
 
-    protected IEnumerator TimeRound(int num)
+    IEnumerator StartRound(int num)
     {
         while (true)
         {
-            if (round[num].timeCur <= round[num].timeMax)
+            if (round[num].timeToStartCur <= round[num].timeToStartCur)
             {
                // Imprimit tiempo pantalla
                 yield return new WaitForSeconds(1);
@@ -121,22 +125,48 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    protected IEnumerator StartRound(int num)
+    IEnumerator TimeRound(int num)
     {
-        while (true)
+        while (round[num].timeCur >= 0)
         {
-            if (round[num].timeToStartCur <= round[num].timeToStartCur)
-            {
-                // Imprimit tiempo pantalla
-                yield return new WaitForSeconds(1);
-            }
-            else
-            {
-                // TimeBattle
-                // Siguiente ronda
-                roundCur++;
-                yield return null;
-            }
+            // Imprimit tiempo pantalla
+            round[num].timeCur -= Time.deltaTime;
+            //yield return new WaitForFixedUpdate();
+            yield return null;
         }
+
+        roundCur++;
+        StartCoroutine(ChoiseSkills(0));
+        yield return null;
+    }
+
+    IEnumerator ChoiseSkills(int num)
+    {
+        playeUI.skills.SetActive(true);
+        bool choised = false;
+
+        while (!choised)
+        {
+            // Imprimit tiempo pantalla
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                choised = true;
+                Debug.Log("Espacio");
+            }
+
+            yield return null;
+        }
+
+        playeUI.skills.SetActive(false);
+        StartCoroutine(TimeRound(1));
+        yield return null;
+    }
+
+    void SetSkills()
+    {
+        // skills 1 / 2 / 3
+
+
+
     }
 }

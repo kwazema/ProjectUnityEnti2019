@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayeUI : MonoBehaviour {
 
+    public Text roundTime;
+    public Text roundCur;
     public Image[] icon;
     public Image[] sliderHealth;
     public Image[] sliderSkill;
@@ -12,16 +14,19 @@ public class PlayeUI : MonoBehaviour {
     public Image[] sliderShield;
     public string[] namePlayer;
 
+    public GameObject skills;
+
     private GameManager gameManager;
 
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
+        gameManager.playeUI = this;
     }
 
     private void Start()
     {
-		
+        gameManager.StartBattle();
 	}
 
     private void Update()
@@ -31,5 +36,8 @@ public class PlayeUI : MonoBehaviour {
             float value = (float)gameManager.playerStats[i].GetHealth() / (float)gameManager.playerStats[i].GetHealthMax();
             sliderHealth[i].fillAmount = value;
         }
-	}
+
+        roundTime.text = gameManager.round[gameManager.roundCur].timeCur.ToString("0.00");
+        roundCur.text = (gameManager.roundCur + 1).ToString();
+    }
 }
