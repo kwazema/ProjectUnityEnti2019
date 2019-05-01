@@ -10,8 +10,6 @@ public class ScepterStats : PlayerManager {
     Vector2Int[] blocks_affected;
     int max_blocks;
 
-
-
     protected override void Awake()
     {
         base.Awake();
@@ -213,9 +211,7 @@ public class ScepterStats : PlayerManager {
             i++;
         }
 
-        Debug.Log("HERE 1 : " + i);
         if (i == max_blocks) {
-            Debug.Log("HERE FINAL1 : " + i);
             cur_ultimateCD = 0;
         }
         
