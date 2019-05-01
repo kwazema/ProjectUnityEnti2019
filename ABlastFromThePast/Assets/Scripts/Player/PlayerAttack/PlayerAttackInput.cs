@@ -52,7 +52,7 @@ public class PlayerAttackInput : MonoBehaviour
 
     private void GetInputPlayer1()
     {
-        if (Input.GetButton("Attack0") && !playerMove.GetIsMoving() && Time.time > nextFire)
+        if (Input.GetButton("Attack0") && !playerMove.GetIsMoving() && Time.time > nextFire && !playerManager[0].GetIsShieldActive())
             BasicAttack();
         else
             isShooting = false;
@@ -78,7 +78,7 @@ public class PlayerAttackInput : MonoBehaviour
 
     private void GetInputPlayer2()
     {
-        if (Input.GetButton("Attack1") && !playerMove.GetIsMoving() && Time.time > nextFire)
+        if (Input.GetButton("Attack1") && !playerMove.GetIsMoving() && Time.time > nextFire && !playerManager[1].GetIsShieldActive())
             BasicAttack();
         else
             isShooting = false;
@@ -113,6 +113,22 @@ public class PlayerAttackInput : MonoBehaviour
 
         GameObject basicAttackClone = (GameObject)Instantiate(basicAttack, basicShotSpawn.position, basicShotSpawn.rotation);
         basicAttackClone.transform.rotation = transform.rotation;
+
+        // ----------------------------------------- //
+
+        if (EnumPlayer.Player1 == enumPlayer)
+        {
+            // layer player 2
+            basicAttackClone.layer = 12;
+        }
+        else
+        {
+            // layer player 1
+            basicAttackClone.layer = 11;
+        }
+
+        // ----------------------------------------- //
+
 
         isShooting = true;
     }
