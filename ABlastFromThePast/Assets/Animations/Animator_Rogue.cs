@@ -14,23 +14,27 @@ public class Animator_Rogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(KeyCode.B) ||Input.GetKeyDown(KeyCode.Alpha2))
         {
-            int attack = Random.Range(0, 1);
+            //int attack = Random.Range(0, 1);
 
-            if (attack == 0)
-            {
-                animator.SetFloat("attack", 0.1f);
-            } else
-            {
-                animator.SetFloat("attack", 1.1f);
-            }
-            animator.SetBool("isAttacking", true);
+            //if (attack == 0)
+            //{
+            //    animator.SetFloat("attack", 0.1f);
+            //} else
+            //{
+            //    animator.SetFloat("attack", 1.1f);
+            //}
+            animator.SetBool("dash", true);
+
+            //yield  return new WaitForSeconds(3);
+
+
         }
-        else if (Input.GetButtonUp("Fire1"))
-        {
-            animator.SetBool("isAttacking", false);
-        }
+        //else if (Input.GetKeyUp(KeyCode.B) || Input.GetKeyUp(KeyCode.Alpha2))
+        //{
+        //    animator.SetBool("dash", false);
+        //}
 
         //if (Input.GetButtonDown("Horizontal"))
         //{
