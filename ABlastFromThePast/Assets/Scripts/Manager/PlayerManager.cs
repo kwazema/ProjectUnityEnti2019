@@ -138,6 +138,10 @@ public class PlayerManager : MonoBehaviour {
 
     protected virtual void Start() {
         cur_ultimateCD = 0;
+
+        if (thisPlayerIs == ThisPlayerIs.Player2)
+            GameObject.Find(name + "/BodyCollider").layer = 12;
+
     }
 
     protected virtual void Update()
