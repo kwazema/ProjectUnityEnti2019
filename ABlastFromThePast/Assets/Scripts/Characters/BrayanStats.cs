@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class BrayanStats : PlayerManager {
 
-    public Transform distance_attack;
+    #region Internal Variables
+        public Transform distance_attack;
+        int blocks_width;
+    #endregion
 
     protected override void Awake()
     {
@@ -17,6 +20,8 @@ public class BrayanStats : PlayerManager {
     {
         base.Start();
 
+        // -------------------------------------------------- //
+
         #region Basic Stats
 
         health = health_max;
@@ -26,34 +31,41 @@ public class BrayanStats : PlayerManager {
         damageSkill = 15;
         damageUltimate = 20;
 
+        skillCD = 2;
         ultimateCD = 5;
-        #endregion
 
         fireRate = 0.1f;
         recoveryShieldTime = 2;
+        #endregion
+
+        // -------------------------------------------------- //
 
         SelectedZonaPlayer();
 
+        // -------------------------------------------------- //
+
         distance_attack.position = map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position;
+
+        // -------------------------------------------------- //
 
         if (thisPlayerIs == ThisPlayerIs.Player1)
             player_to_attack = 1;
         else
             player_to_attack = 0;
+
+        // -------------------------------------------------- //
+
+        blocks_width = 3;
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-        Debug.Log("Brayan: " + health);
-
         base.Update();
-        int blocks_width = 3;
+        
 
-        if (moveToPosition) {
+        if (moveToPosition) 
             MovingToPosition(95f, blocks_width);
-            anim.SetTrigger("skill");
-        }
 
         // -------------------------------------------------- //
         // Color block = green 
@@ -75,26 +87,30 @@ public class BrayanStats : PlayerManager {
         // Comprueba si se ha activado el ultimate para empezar la coroutine.
         if (is_ultimateOn && cast_ended)
             StartCoroutine(Leech(3));
-
-        // -------------------------------------------------- //
-
-        if (is_shootting)
-        {
-            Debug.Log("SHOOOOOOTING");
-            anim.SetTrigger("shootting");
-        }
-
     }
 
     public override void Skill(float cooldown = 0, float timeToRetorn = 0)
     {
-        oldPos = (Vector2)transform.position;
-        moveToBlock = new Vector2(map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position.x, transform.position.y);
-
-        if (!playerMovement.GetIsMoving())
+        if (cur_skillCD == skillCD)
         {
-            playerInput.enabled = false;
-            moveToPosition = true;
+            anim.SetTrigger("skill");
+
+            // -------------------------------------------------- //
+
+            is_skill_ready = false;
+
+            // -------------------------------------------------- //
+
+            oldPos = (Vector2)transform.position;
+            moveToBlock = new Vector2(map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position.x, transform.position.y);
+
+            // -------------------------------------------------- //
+
+            if (!playerMovement.GetIsMoving())
+            {
+                playerInput.enabled = false;
+                moveToPosition = true;
+            }
         }
     }
 
@@ -115,20 +131,17 @@ public class BrayanStats : PlayerManager {
                 }
             }
         }
+        cur_skillCD = 0;
     }
 
     public override void Ultimate()
     {
-        if (cur_ultimateCD == ultimateCD) {
+        if (cur_ultimateCD == ultimateCD) 
             StartCoroutine(CastingTime(2));
-        }
     }
-
-    // NO FUNCIONA EL INPUT DEL TECLADO DEL SEGUNDO PLAYER
-    // TECLADO NUMERICO NO FUNCIONA CON ESTA HABILIDAD
+    
     IEnumerator Leech(float use_time)
     {
-        
         is_ultimateOn = false;
         cast_ended = false;
         float time = 0;

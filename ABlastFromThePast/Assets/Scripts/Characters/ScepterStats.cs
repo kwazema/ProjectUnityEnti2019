@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ScepterStats : PlayerManager {
 
-    public Transform distance_attack;
-    int pos_column;
-
-    Vector2Int[] blocks_affected;
-    int max_blocks;
+    #region Internal Variables
+        public Transform distance_attack;
+        int pos_column;
+        Vector2Int[] blocks_affected;
+        int max_blocks;
+    #endregion
 
     protected override void Awake()
     {
@@ -22,6 +23,8 @@ public class ScepterStats : PlayerManager {
     {
         base.Start();
 
+        // -------------------------------------------------- //
+
         #region Basic Stats
 
         health = health_max;
@@ -31,34 +34,44 @@ public class ScepterStats : PlayerManager {
         damageSkill = 15;
         damageUltimate = 20;
 
+        skillCD = 2;
         ultimateCD = 5;
-        #endregion
 
         fireRate = 0.1f;
         recoveryShieldTime = 2;
+        #endregion
+
+        // -------------------------------------------------- //
 
         SelectedZonaPlayer();
 
+        // -------------------------------------------------- //
+
         distance_attack.position = map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position;
+
+        // -------------------------------------------------- //
 
         if (thisPlayerIs == ThisPlayerIs.Player1)
             player_to_attack = 1;
         else
             player_to_attack = 0;
 
-        max_blocks = 8;
+        // -------------------------------------------------- //
 
+        max_blocks = 8;
     }
 
     protected override void Update()
     {
         base.Update();
 
-        if (moveToPosition)
-            MovingToPosition(65f);
-
         // -------------------------------------------------- //
-        // Color block = green 
+
+        if (moveToPosition) 
+            MovingToPosition(65f);
+       
+        // -------------------------------------------------- //
+         // Color block = green 
         if (!returnOldPosition ) {
             for (int i = -1; i < 2; i++)
             { // horizontal
@@ -87,23 +100,28 @@ public class ScepterStats : PlayerManager {
 
     public override void Skill(float cooldown = 0, float timeToRetorn = 0)
     {
-        int player_to_attack;
-        GameManager game_manager = FindObjectOfType<GameManager>();
-
-        if (thisPlayerIs == ThisPlayerIs.Player1)
-            player_to_attack = 1;
-        else
-            player_to_attack = 0;
-        
-        oldPos = (Vector2)transform.position;
-
-        pos_column = game_manager.playerStats[player_to_attack].playerMovement.playerColumn;
-        moveToBlock = new Vector2(map.blocks[pos_column, playerMovement.playerRow].transform.position.x, transform.position.y);
-
-        if (!playerMovement.GetIsMoving())
+        if (cur_skillCD == skillCD)
         {
-            playerInput.enabled = false;
-            moveToPosition = true;
+            anim.SetTrigger("skill");
+
+            // -------------------------------------------------- //
+
+            is_skill_ready = false;
+
+            // -------------------------------------------------- //
+
+            oldPos = (Vector2)transform.position;
+
+            pos_column = game_manager.playerStats[player_to_attack].playerMovement.playerColumn;
+            moveToBlock = new Vector2(map.blocks[pos_column, playerMovement.playerRow].transform.position.x, transform.position.y);
+
+            // -------------------------------------------------- //
+
+            if (!playerMovement.GetIsMoving())
+            {
+                playerInput.enabled = false;
+                moveToPosition = true;
+            }
         }
     }
 
@@ -127,6 +145,7 @@ public class ScepterStats : PlayerManager {
                     }
                 }
             }
+            cur_skillCD = 0;
         }
     }
 

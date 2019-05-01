@@ -25,7 +25,7 @@ public class Animator_Rogue : MonoBehaviour
             //{
             //    animator.SetFloat("attack", 1.1f);
             //}
-            animator.SetBool("dash", true);
+            //animator.SetBool("dash", true);
 
             //yield  return new WaitForSeconds(3);
 

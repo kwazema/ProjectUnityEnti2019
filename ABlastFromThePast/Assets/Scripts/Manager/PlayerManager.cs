@@ -59,8 +59,11 @@ public class PlayerManager : MonoBehaviour {
     //protectedected float nextFire;
 
     protected float skillCD;
+    protected float cur_skillCD;
+    public bool is_skill_ready = false;
     protected float ultimateCD;
     protected float cur_ultimateCD;
+    public bool is_ultimate_ready = false;
 
     protected int skillDistance;
     protected int ultimateDistance;
@@ -76,7 +79,7 @@ public class PlayerManager : MonoBehaviour {
     protected bool cast_ended = false;
     protected bool is_ultimateOn = false;
     protected bool is_shield_broken = false;
-    public bool is_ultimate_ready = false;
+    
     protected bool is_shootting = false;
 
     protected int player_to_attack;
@@ -110,6 +113,9 @@ public class PlayerManager : MonoBehaviour {
 
     virtual public bool GetIsUltimateReady() { return is_ultimate_ready; }
     virtual public float GetCurUltimateCD() { return cur_ultimateCD; }
+
+    virtual public bool GetIsSkillReady() { return is_skill_ready; }
+    virtual public float GetCurSkillCD() { return cur_skillCD; }
 
     virtual public bool GetIsShootting() { return is_shootting; }
 
@@ -149,14 +155,14 @@ public class PlayerManager : MonoBehaviour {
 
         game_manager = FindObjectOfType<GameManager>();
         anim = GameObject.Find(name + "/GraficCharacter").GetComponent<Animator>();
-    }
-
-    protected virtual void Start() {
-        cur_ultimateCD = 0;
 
         if (thisPlayerIs == ThisPlayerIs.Player2)
             GameObject.Find(name + "/BodyCollider").layer = 12;
+    }
 
+    protected virtual void Start() {
+        cur_skillCD = 0;
+        cur_ultimateCD = 0;
     }
 
     protected virtual void Update()
@@ -170,8 +176,22 @@ public class PlayerManager : MonoBehaviour {
 
         // ----------------------------- //
 
+        if (cur_skillCD == 0) {
+            Debug.Log("cur_skillCD 1: " + cur_skillCD);
+            StartCoroutine(SkillRecovery());
+        }
+
+        // ----------------------------- //
+
         if (cur_ultimateCD == 0)
             StartCoroutine(UltimateRecovery());
+
+        // ----------------------------- //
+
+        if (is_shootting)
+            anim.SetBool("is_shooting", true);
+        else
+            anim.SetBool("is_shooting", false);
     }
 
     virtual public IEnumerator ShieldRecovery()
@@ -184,6 +204,16 @@ public class PlayerManager : MonoBehaviour {
             yield return new WaitForSeconds(1);
         }
         is_shield_broken = false;
+    }
+
+    protected IEnumerator SkillRecovery()
+    {
+        while (cur_skillCD < skillCD)
+        {
+            cur_skillCD++;
+            yield return new WaitForSeconds(1);
+        }
+        is_skill_ready = true;
     }
 
     protected IEnumerator UltimateRecovery()
@@ -259,7 +289,6 @@ public class PlayerManager : MonoBehaviour {
     protected void MovingToPosition(float velocity, int blocks_width = 0, int blocks_height = 0)
     {
         float step = velocity * Time.deltaTime;
-
         if ((Vector2)transform.position == moveToBlock)
         {
             // Collider
