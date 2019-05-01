@@ -55,7 +55,7 @@ public class PlayerAttackInput : MonoBehaviour
         if (Input.GetButton("Attack0") && !playerMove.GetIsMoving() && Time.time > nextFire && !playerManager[0].GetIsShieldActive())
             BasicAttack();
         else
-            isShooting = false;
+            playerManager[0].SetIsShootting(false);
 
         // ----------------------- //
 
@@ -70,7 +70,7 @@ public class PlayerAttackInput : MonoBehaviour
 
         // ----------------------- //
 
-        if (Input.GetButton("Shield0") && !playerManager[0].GetShieldState() && !isShooting)
+        if (Input.GetButton("Shield0") && !playerManager[0].GetShieldState() && !playerManager[0].GetIsShootting())
             ActiveShield();
         else
             DeactivateShield();
@@ -81,7 +81,7 @@ public class PlayerAttackInput : MonoBehaviour
         if (Input.GetButton("Attack1") && !playerMove.GetIsMoving() && Time.time > nextFire && !playerManager[1].GetIsShieldActive())
             BasicAttack();
         else
-            isShooting = false;
+            playerManager[1].SetIsShootting(false);
 
         // ----------------------- //
 
@@ -95,7 +95,7 @@ public class PlayerAttackInput : MonoBehaviour
 
         // ----------------------- //
 
-        if (Input.GetButton("Shield1") && !playerManager[1].GetShieldState() && !isShooting)
+        if (Input.GetButton("Shield1") && !playerManager[1].GetShieldState() && !playerManager[1].GetIsShootting())
             ActiveShield();
         else
             DeactivateShield();
@@ -120,17 +120,14 @@ public class PlayerAttackInput : MonoBehaviour
         {
             // layer attack 1
             basicAttackClone.layer = 15;
+            playerManager[0].SetIsShootting(true);
         }
         else
         {
             // layer attack 2
             basicAttackClone.layer = 16;
+            playerManager[1].SetIsShootting(true);
         }
-
-        // ----------------------------------------- //
-
-
-        isShooting = true;
     }
 
     private void ActiveShield()
