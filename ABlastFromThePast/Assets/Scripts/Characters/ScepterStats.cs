@@ -33,13 +33,14 @@ public class ScepterStats : PlayerManager {
         damageSkill = 15;
         damageUltimate = 20;
 
+        ultimateCD = 5;
         #endregion
 
         fireRate = 0.1f;
         recoveryShieldTime = 2;
 
         SelectedZonaPlayer();
-        
+
         distance_attack.position = map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position;
 
         if (thisPlayerIs == ThisPlayerIs.Player1)
@@ -223,25 +224,11 @@ public class ScepterStats : PlayerManager {
     protected override IEnumerator CastingTime(float time_cast)
     {
         GetRandomBlocks();
-
-        for (int i = 0; i < max_blocks; i++) {
+        for (int i = 0; i < max_blocks; i++)
+        {
             map.ColorBlocks(blocks_affected[i].x, blocks_affected[i].y, Color.yellow);
         }
 
-        player_att_input.enabled = false;
-        playerInput.enabled = false;
-        playerMovement.enabled = false;
-        float cast = 0;
-
-        while (cast < time_cast)
-        {
-            cast++;
-            yield return new WaitForSeconds(1);
-        }
-
-        cast_ended = true;
-        playerMovement.enabled = true;
-        playerInput.enabled = true;
-        player_att_input.enabled = true;
+        return base.CastingTime(time_cast);
     }
 }

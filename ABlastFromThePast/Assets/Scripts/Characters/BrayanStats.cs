@@ -23,19 +23,17 @@ public class BrayanStats : PlayerManager {
         shield = shield_max;
 
         damageBasicAttack = 2;
-        damageSkill = 10;
+        damageSkill = 15;
         damageUltimate = 20;
 
         ultimateCD = 5;
-        cur_ultimateCD = 0;
-
         #endregion
 
         fireRate = 0.1f;
         recoveryShieldTime = 2;
-        StartCoroutine(UltimateRecovery());
 
         SelectedZonaPlayer();
+
         distance_attack.position = map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position;
 
         if (thisPlayerIs == ThisPlayerIs.Player1)
@@ -114,8 +112,7 @@ public class BrayanStats : PlayerManager {
 
     public override void Ultimate()
     {
-        if (cur_ultimateCD >= ultimateCD) {
-            is_ultimateOn = true;
+        if (cur_ultimateCD == ultimateCD) {
             StartCoroutine(CastingTime(2));
         }
     }

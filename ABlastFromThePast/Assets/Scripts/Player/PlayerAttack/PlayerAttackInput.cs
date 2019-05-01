@@ -64,7 +64,7 @@ public class PlayerAttackInput : MonoBehaviour
 
         // ----------------------- //
 
-        if (Input.GetButton("Ultimate0")) {
+        if (Input.GetButton("Ultimate0") && playerManager[0].is_ultimate_ready) {
             UltimateAttack();
         }
 
@@ -90,7 +90,7 @@ public class PlayerAttackInput : MonoBehaviour
 
         // ----------------------- //
 
-        if (Input.GetButton("Ultimate1") && playerManager[1].GetCurUltimateCD() == playerManager[1].GetUltimateCD())
+        if (Input.GetButton("Ultimate1") && playerManager[1].GetIsUltimateReady())
             UltimateAttack();
 
         // ----------------------- //
@@ -104,7 +104,7 @@ public class PlayerAttackInput : MonoBehaviour
     void BasicAttack()
     {
         // Cada vez que disparas te iguala el time.time y despues le sumas el fireRate 
-        // sino hasta el nextFire no sea mayor a Time.Time actual no dejara de disparar
+        // sino hasta que el nextFire no sea mayor a Time.Time actual no dejara de disparar
         nextFire = Time.time;
         for (int i = 0; i < 2; i++)
         {
