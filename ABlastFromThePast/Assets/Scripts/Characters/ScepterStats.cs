@@ -7,6 +7,8 @@ public class ScepterStats : PlayerManager {
     public Transform distance_attack;
     int pos_column;
 
+    Vector2Int[] blocks_affected;
+    int max_blocks;
 
 
 
@@ -35,20 +37,29 @@ public class ScepterStats : PlayerManager {
 
         fireRate = 0.1f;
         recoveryShieldTime = 2;
-       // StartCoroutine(ShieldRecovery());
 
         SelectedZonaPlayer();
         
         distance_attack.position = map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position;
+
+        if (thisPlayerIs == ThisPlayerIs.Player1)
+            player_to_attack = 1;
+        else
+            player_to_attack = 0;
+
+        max_blocks = 8;
+
     }
 
     protected override void Update()
     {
         base.Update();
+
         if (moveToPosition)
             MovingToPosition(65f);
 
-
+        // -------------------------------------------------- //
+        // Color block = green 
         if (!returnOldPosition ) {
             for (int i = -1; i < 2; i++)
             { // horizontal
@@ -68,6 +79,11 @@ public class ScepterStats : PlayerManager {
             }
         }
 
+        // -------------------------------------------------- //
+
+        if (is_ultimateOn && cast_ended)
+            StartCoroutine(StellarRain());
+        
     }
 
     public override void Skill(float cooldown = 0, float timeToRetorn = 0)
@@ -115,6 +131,14 @@ public class ScepterStats : PlayerManager {
         }
     }
 
+    public override void Ultimate()
+    {
+        if (cur_ultimateCD >= ultimateCD)
+        {
+            is_ultimateOn = true;
+            StartCoroutine(CastingTime(3));
+        }
+    }
 
     protected override void SelectedZonaPlayer()
     {
@@ -128,5 +152,96 @@ public class ScepterStats : PlayerManager {
             graphicMove = -1;
             dirSkillZone = -1;
         }
+    }
+
+    void GetRandomBlocks()
+    {
+        int i = 0;
+        int blocks_created = 0;
+        blocks_affected = new Vector2Int[max_blocks];
+
+        int init_pos_x;
+        int max_pos_x;
+        if (player_to_attack == 0)
+        {
+            init_pos_x = 0;
+            max_pos_x = init_pos_x + (map.columnLenth) / 2;
+        }
+        else
+        {
+            init_pos_x = map.columnLenth - 1;
+            max_pos_x = init_pos_x - (map.columnLenth) / 2;
+        }
+
+        while (i < max_blocks)
+        {
+            Vector2Int cpy = new Vector2Int(Random.Range(init_pos_x, max_pos_x), Random.Range(0, map.rowLenth));
+
+            bool is_finded = false;
+            for (int j = 0; j < blocks_created && !is_finded; j++)
+            {
+                if (blocks_affected[j] == cpy)
+                {
+                    is_finded = true;
+                }
+            }
+
+            if (!is_finded) {
+                blocks_affected[i] = cpy;
+                i++;
+                blocks_created++;
+            }
+        }
+    }
+
+    private IEnumerator StellarRain() {
+        cast_ended = false;
+        is_ultimateOn = false;
+
+        int i = 0;
+        float time_waiting = 0.5f;
+
+        while (i < max_blocks) {
+            map.ColorBlocks(blocks_affected[i].x, blocks_affected[i].y, Color.red);
+            if (map.blocks[blocks_affected[i].x, blocks_affected[i].y].GetPlayerStatsBlock((int)thisPlayerIs) != null)
+            {
+                map.blocks[blocks_affected[i].x, blocks_affected[i].y].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
+            }
+            yield return new WaitForSeconds(time_waiting);
+            map.ColorBlocks(blocks_affected[i].x, blocks_affected[i].y, Color.white);
+            i++;
+        }
+
+        Debug.Log("HERE 1 : " + i);
+        if (i == max_blocks) {
+            Debug.Log("HERE FINAL1 : " + i);
+            cur_ultimateCD = 0;
+        }
+        
+    }
+
+    protected override IEnumerator CastingTime(float time_cast)
+    {
+        GetRandomBlocks();
+
+        for (int i = 0; i < max_blocks; i++) {
+            map.ColorBlocks(blocks_affected[i].x, blocks_affected[i].y, Color.yellow);
+        }
+
+        player_att_input.enabled = false;
+        playerInput.enabled = false;
+        playerMovement.enabled = false;
+        float cast = 0;
+
+        while (cast < time_cast)
+        {
+            cast++;
+            yield return new WaitForSeconds(1);
+        }
+
+        cast_ended = true;
+        playerMovement.enabled = true;
+        playerInput.enabled = true;
+        player_att_input.enabled = true;
     }
 }

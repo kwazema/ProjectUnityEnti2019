@@ -15,8 +15,12 @@ public class PlayerManager : MonoBehaviour {
     protected Collider2D bodyCollider;
     protected PlayerInput playerInput;
 
+    protected PlayerAttackInput player_att_input;
+
     protected GameObject player;
     protected Vector2 oldPos;
+
+    protected GameManager game_manager;
 
     #region Private Variables
 
@@ -67,11 +71,12 @@ public class PlayerManager : MonoBehaviour {
     protected bool cast_ended = false;
     protected bool is_ultimateOn = false;
     protected bool is_shield_broken = false;
+
+    protected int player_to_attack;
     #endregion
 
     #region Public Variables
     public string namePlayer;
-
     #endregion
 
     #region Get Functions
@@ -95,6 +100,9 @@ public class PlayerManager : MonoBehaviour {
     virtual public int GetRecoveryShieldTime() { return recoveryShieldTime; }
 
     virtual public int WhichIs() { return whichIsThisPlayer; }
+
+    virtual public bool GetIsUltimateOn() { return is_ultimateOn; }
+    virtual public float GetCurUltimateCD() { return cur_ultimateCD; }
     #endregion
 
     #region Set Functions
@@ -123,8 +131,11 @@ public class PlayerManager : MonoBehaviour {
 
         playerMovement = GetComponent<PlayerMovement>();
         playerInput = GetComponent<PlayerInput>();
+        player_att_input = GetComponent<PlayerAttackInput>();
 
         bodyCollider = GameObject.Find(name + "/BodyCollider").GetComponent<Collider2D>();
+
+        game_manager = FindObjectOfType<GameManager>();
     }
 
     protected virtual void Start() {
@@ -142,8 +153,6 @@ public class PlayerManager : MonoBehaviour {
             StartCoroutine(ShieldRecovery());
             is_shield_broken = true;
         }
-
-        Debug.Log("SHIELD: " + shield);
     }
 
     virtual public IEnumerator ShieldRecovery()
@@ -164,7 +173,6 @@ public class PlayerManager : MonoBehaviour {
         { 
             if (cur_ultimateCD < ultimateCD)
             {
-                Debug.Log("Ultimate Time: " + cur_ultimateCD);
                 cur_ultimateCD++;
                 yield return new WaitForSeconds(1);
             }
@@ -176,8 +184,10 @@ public class PlayerManager : MonoBehaviour {
         }
     }
 
-    public IEnumerator CastingTime(float time_cast)
+    protected virtual IEnumerator CastingTime(float time_cast)
     {
+        
+        player_att_input.enabled = false;
         playerInput.enabled = false;
         playerMovement.enabled = false;
         float cast = 0;
@@ -191,6 +201,7 @@ public class PlayerManager : MonoBehaviour {
         cast_ended = true;
         playerMovement.enabled = true;
         playerInput.enabled = true;
+        player_att_input.enabled = true;
     }
 
     void Die()
@@ -262,14 +273,6 @@ public class PlayerManager : MonoBehaviour {
                     noHaAtacado = true;
                     playerInput.enabled = true;
                     playerMovement.enabled = true;
-
-                    // Block Color
-                    //for (int i = 0; i < blocks_width; i++)
-                    //{
-                    //    if ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) < map.columnLenth &&
-                    //        (playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) >= 0)
-                    //        map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].spriteBlock.color = Color.white;
-                    //}
                 }
             }
         }

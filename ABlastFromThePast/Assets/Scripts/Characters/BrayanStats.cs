@@ -19,8 +19,7 @@ public class BrayanStats : PlayerManager {
 
         #region Basic Stats
 
-        //health = health_max;
-        health = 20;
+        health = health_max;
         shield = shield_max;
 
         damageBasicAttack = 2;
@@ -34,22 +33,31 @@ public class BrayanStats : PlayerManager {
 
         fireRate = 0.1f;
         recoveryShieldTime = 2;
-        //StartCoroutine(ShieldRecovery());
         StartCoroutine(UltimateRecovery());
 
         SelectedZonaPlayer();
         distance_attack.position = map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position;
+
+        if (thisPlayerIs == ThisPlayerIs.Player1)
+            player_to_attack = 1;
+        else
+            player_to_attack = 0;
     }
 
     // Update is called once per frame
     protected override void Update()
     {
+        Debug.Log("Brayan: " + health);
+
         base.Update();
         int blocks_width = 3;
 
         if (moveToPosition)
             MovingToPosition(95f, blocks_width);
 
+        // -------------------------------------------------- //
+
+        // Color block = green 
         if (!returnOldPosition)
         {
             for (int i = 0; i < blocks_width; i++)
@@ -64,7 +72,10 @@ public class BrayanStats : PlayerManager {
             }
         }
 
+        // -------------------------------------------------- //
 
+        // Ultimate 
+        // Comprueba si se ha activado el ultimate para empezar la coroutine.
         if (is_ultimateOn && cast_ended)
             StartCoroutine(Leech(3));
 
@@ -104,11 +115,9 @@ public class BrayanStats : PlayerManager {
     public override void Ultimate()
     {
         if (cur_ultimateCD >= ultimateCD) {
-            Debug.Log("HEREEEE:");
             is_ultimateOn = true;
             StartCoroutine(CastingTime(2));
         }
-        
     }
 
     // NO FUNCIONA EL INPUT DEL TECLADO DEL SEGUNDO PLAYER
@@ -118,15 +127,6 @@ public class BrayanStats : PlayerManager {
         
         is_ultimateOn = false;
         cast_ended = false;
-
-        int player_to_attack;
-        GameManager game_manager = FindObjectOfType<GameManager>();
-
-        if (thisPlayerIs == ThisPlayerIs.Player1)
-            player_to_attack = 1;
-        else
-            player_to_attack = 0;
-
         float time = 0;
 
         while (time < use_time)
