@@ -8,19 +8,16 @@ public class PlayerManager : MonoBehaviour {
     [SerializeField] public enum ThisPlayerIs { Player1, Player2 }
     [SerializeField] public ThisPlayerIs thisPlayerIs;
 
+    #region Classes
     protected Map map;
-    //protected PlayerMovement playerMovement;
     public PlayerMovement playerMovement;
-    //
     protected Collider2D bodyCollider;
     protected PlayerInput playerInput;
-
     protected PlayerAttackInput player_att_input;
-
     protected GameObject player;
     protected Vector2 oldPos;
-
     protected GameManager game_manager;
+    #endregion
 
     #region Private Variables
 
@@ -71,6 +68,7 @@ public class PlayerManager : MonoBehaviour {
     protected bool cast_ended = false;
     protected bool is_ultimateOn = false;
     protected bool is_shield_broken = false;
+    public bool is_ultimate_ready = false;
 
     protected int player_to_attack;
     #endregion
@@ -101,7 +99,7 @@ public class PlayerManager : MonoBehaviour {
 
     virtual public int WhichIs() { return whichIsThisPlayer; }
 
-    virtual public bool GetIsUltimateOn() { return is_ultimateOn; }
+    virtual public bool GetIsUltimateReady() { return is_ultimate_ready; }
     virtual public float GetCurUltimateCD() { return cur_ultimateCD; }
     #endregion
 
@@ -139,20 +137,22 @@ public class PlayerManager : MonoBehaviour {
     }
 
     protected virtual void Start() {
-        //SelectedZonaPlayer();
+        cur_ultimateCD = 0;
     }
 
-    protected virtual void Update() {
-
-        if (moveToPosition)
-        {
-            //MovingToPosition(60f);
-        }
+    protected virtual void Update()
+    {
+        // ----------------------------- //
 
         if (shield <= 0) {
             StartCoroutine(ShieldRecovery());
             is_shield_broken = true;
         }
+
+        // ----------------------------- //
+
+        if (cur_ultimateCD == 0)
+            StartCoroutine(UltimateRecovery());
     }
 
     virtual public IEnumerator ShieldRecovery()
@@ -169,29 +169,23 @@ public class PlayerManager : MonoBehaviour {
 
     protected IEnumerator UltimateRecovery()
     {
-        while (true)
-        { 
-            if (cur_ultimateCD < ultimateCD)
-            {
-                cur_ultimateCD++;
-                yield return new WaitForSeconds(1);
-            }
-            else
-            {
-                cur_ultimateCD = ultimateCD;
-                yield return null;
-            }
+        while (cur_ultimateCD < ultimateCD)
+        {
+            cur_ultimateCD++;
+            yield return new WaitForSeconds(1);
         }
+        is_ultimate_ready = true;
     }
 
     protected virtual IEnumerator CastingTime(float time_cast)
     {
-        
+        is_ultimate_ready = false;
+
         player_att_input.enabled = false;
         playerInput.enabled = false;
         playerMovement.enabled = false;
-        float cast = 0;
 
+        float cast = 0;
         while (cast < time_cast)
         {
             cast++;
@@ -199,6 +193,7 @@ public class PlayerManager : MonoBehaviour {
         }
 
         cast_ended = true;
+        is_ultimateOn = true;
         playerMovement.enabled = true;
         playerInput.enabled = true;
         player_att_input.enabled = true;
