@@ -159,7 +159,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1325922399976486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.9385505, y: 1.5326736, z: 0}
+  m_LocalPosition: {x: -21.8717, y: 3.477621, z: 0}
   m_LocalScale: {x: 19.636452, y: 19.636488, z: 19.636488}
   m_Children:
   - {fileID: 4454288735688916}
@@ -357,6 +357,7 @@ MonoBehaviour:
   damageBasicAttack: 0
   damageSkill: 0
   whichIsThisPlayer: 0
+  is_ultimate_ready: 0
   namePlayer: Brayan
   distance_attack: {fileID: 4401199832456136}
 --- !u!212 &212159867648045562

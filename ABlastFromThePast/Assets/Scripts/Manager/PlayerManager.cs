@@ -24,6 +24,7 @@ public class PlayerManager : MonoBehaviour {
     protected GameObject player;
     protected Vector2 oldPos;
     protected GameManager game_manager;
+    protected Animator anim;
     #endregion
 
     #region Private Variables
@@ -53,7 +54,7 @@ public class PlayerManager : MonoBehaviour {
     protected const int shield_max = 50;
     protected int shield;
     protected int recoveryShieldTime;
-
+    
     protected float fireRate;
     //protectedected float nextFire;
 
@@ -76,6 +77,7 @@ public class PlayerManager : MonoBehaviour {
     protected bool is_ultimateOn = false;
     protected bool is_shield_broken = false;
     public bool is_ultimate_ready = false;
+    protected bool is_shootting = false;
 
     protected int player_to_attack;
     #endregion
@@ -108,6 +110,9 @@ public class PlayerManager : MonoBehaviour {
 
     virtual public bool GetIsUltimateReady() { return is_ultimate_ready; }
     virtual public float GetCurUltimateCD() { return cur_ultimateCD; }
+
+    virtual public bool GetIsShootting() { return is_shootting; }
+
     #endregion
 
     #region Set Functions
@@ -129,6 +134,8 @@ public class PlayerManager : MonoBehaviour {
     virtual public void SetRecoveryShieldTime(int value) {  recoveryShieldTime = value; }
 
     virtual public void SetThisPlayer(int value) { whichIsThisPlayer = value; }
+
+    virtual public void SetIsShootting(bool value) { is_shootting = value; }
     #endregion
 
     protected virtual void Awake() {
@@ -141,6 +148,7 @@ public class PlayerManager : MonoBehaviour {
         bodyCollider = GameObject.Find(name + "/BodyCollider").GetComponent<Collider2D>();
 
         game_manager = FindObjectOfType<GameManager>();
+        anim = GameObject.Find(name + "/GraficCharacter").GetComponent<Animator>();
     }
 
     protected virtual void Start() {

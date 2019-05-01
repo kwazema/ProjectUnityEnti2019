@@ -50,11 +50,12 @@ public class BrayanStats : PlayerManager {
         base.Update();
         int blocks_width = 3;
 
-        if (moveToPosition)
+        if (moveToPosition) {
             MovingToPosition(95f, blocks_width);
+            anim.SetTrigger("skill");
+        }
 
         // -------------------------------------------------- //
-
         // Color block = green 
         if (!returnOldPosition)
         {
@@ -71,11 +72,17 @@ public class BrayanStats : PlayerManager {
         }
 
         // -------------------------------------------------- //
-
-        // Ultimate 
         // Comprueba si se ha activado el ultimate para empezar la coroutine.
         if (is_ultimateOn && cast_ended)
             StartCoroutine(Leech(3));
+
+        // -------------------------------------------------- //
+
+        if (is_shootting)
+        {
+            Debug.Log("SHOOOOOOTING");
+            anim.SetTrigger("shootting");
+        }
 
     }
 
