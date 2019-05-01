@@ -90,7 +90,7 @@ public class PlayerAttackInput : MonoBehaviour
 
         // ----------------------- //
 
-        if (Input.GetButton("Ultimate1"))
+        if (Input.GetButton("Ultimate1") && playerManager[1].GetCurUltimateCD() == playerManager[1].GetUltimateCD())
             UltimateAttack();
 
         // ----------------------- //

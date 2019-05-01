@@ -37,12 +37,18 @@ public class BrayanStats : PlayerManager {
 
         SelectedZonaPlayer();
         distance_attack.position = map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position;
+
+        if (thisPlayerIs == ThisPlayerIs.Player1)
+            player_to_attack = 1;
+        else
+            player_to_attack = 0;
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-        Debug.Log("BRAYAN: " + health);
+        Debug.Log("Brayan: " + health);
+
         base.Update();
         int blocks_width = 3;
 
@@ -121,15 +127,6 @@ public class BrayanStats : PlayerManager {
         
         is_ultimateOn = false;
         cast_ended = false;
-
-        int player_to_attack;
-        GameManager game_manager = FindObjectOfType<GameManager>();
-
-        if (thisPlayerIs == ThisPlayerIs.Player1)
-            player_to_attack = 1;
-        else
-            player_to_attack = 0;
-
         float time = 0;
 
         while (time < use_time)

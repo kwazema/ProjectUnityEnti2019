@@ -356,8 +356,6 @@ MonoBehaviour:
   playerMovement: {fileID: 0}
   damageBasicAttack: 0
   damageSkill: 0
-  health: 0
-  shield: 0
   whichIsThisPlayer: 0
   namePlayer: Brayan
   distance_attack: {fileID: 4401199832456136}
