@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 52911906}
   - component: {fileID: 52911905}
   m_Layer: 0
-  m_Name: Spell Icon
+  m_Name: Selected Icon 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1072,7 +1072,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.754717, g: 0.45923817, b: 0.45923817, a: 0.5882353}
     m_PressedColor: {r: 0.8773585, g: 0.120016046, b: 0.120016046, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.15294118}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1106,7 +1106,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1648,6 +1648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roundTime: {fileID: 1766663662}
   roundCur: {fileID: 499479829}
+  namePlayer: []
   icon: []
   sliderHealth:
   - {fileID: 703586750}
@@ -1656,7 +1657,33 @@ MonoBehaviour:
   - {fileID: 0}
   sliderUltimate: []
   sliderShield: []
-  namePlayer: []
+  iconUpgrade:
+  - spell:
+    - {fileID: 1724268416}
+    - {fileID: 1776051109}
+    - {fileID: 1461641332}
+    selected:
+    - {fileID: 1597389712}
+    - {fileID: 1311241285}
+    - {fileID: 52911905}
+    button:
+    - {fileID: 892371610}
+    - {fileID: 783770650}
+    - {fileID: 1547535069}
+    num: 0
+  - spell:
+    - {fileID: 1395465821}
+    - {fileID: 858838094}
+    - {fileID: 1446651124}
+    selected:
+    - {fileID: 2126630103}
+    - {fileID: 982892184}
+    - {fileID: 881958242}
+    button:
+    - {fileID: 2047506439}
+    - {fileID: 279209607}
+    - {fileID: 1891660965}
+    num: 0
   skills: {fileID: 62979597}
 --- !u!1 &392390600
 GameObject:
@@ -3942,7 +3969,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.37126204, g: 0.44858512, b: 0.764151, a: 0.5882353}
     m_PressedColor: {r: 0.09251513, g: 0.16252372, b: 0.9339623, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.15294118}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -3976,7 +4003,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4413,7 +4440,7 @@ GameObject:
   - component: {fileID: 881958243}
   - component: {fileID: 881958242}
   m_Layer: 0
-  m_Name: Spell Icon
+  m_Name: Selected Icon 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4530,7 +4557,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.37126204, g: 0.44858512, b: 0.764151, a: 0.5882353}
     m_PressedColor: {r: 0.09251513, g: 0.16252372, b: 0.9339623, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.15294118}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -4564,7 +4591,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4753,7 +4780,7 @@ GameObject:
   - component: {fileID: 982892185}
   - component: {fileID: 982892184}
   m_Layer: 0
-  m_Name: Spell Icon
+  m_Name: Selected Icon 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6011,7 +6038,7 @@ GameObject:
   - component: {fileID: 1311241286}
   - component: {fileID: 1311241285}
   m_Layer: 0
-  m_Name: Spell Icon
+  m_Name: Selected Icon 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7463,7 +7490,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.37126204, g: 0.44858512, b: 0.764151, a: 0.5882353}
     m_PressedColor: {r: 0.09251513, g: 0.16252372, b: 0.9339623, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.15294118}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -7497,7 +7524,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7548,7 +7575,7 @@ GameObject:
   - component: {fileID: 1597389713}
   - component: {fileID: 1597389712}
   m_Layer: 0
-  m_Name: Spell Icon
+  m_Name: Selected Icon 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9404,7 +9431,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.754717, g: 0.45923817, b: 0.45923817, a: 0.5882353}
     m_PressedColor: {r: 0.8773585, g: 0.120016046, b: 0.120016046, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.15294118}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -9438,7 +9465,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10163,7 +10190,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.754717, g: 0.45923817, b: 0.45923817, a: 0.5882353}
     m_PressedColor: {r: 0.8773585, g: 0.120016046, b: 0.120016046, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.15294118}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -10197,7 +10224,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -10461,7 +10488,7 @@ GameObject:
   - component: {fileID: 2126630104}
   - component: {fileID: 2126630103}
   m_Layer: 0
-  m_Name: Spell Icon
+  m_Name: Selected Icon 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -353,12 +353,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisPlayerIs: 0
+  icon: {fileID: 0}
+  upgrade:
+  - {fileID: 21300000, guid: b692cd971b3d12e4a849330a7913aca4, type: 3}
+  - {fileID: 21300000, guid: 4f9df37e2a573a64cbc944fe068893cb, type: 3}
+  - {fileID: 21300000, guid: dbc021c87f35c8d45bf98ac669d91952, type: 3}
+  numUpgrade: 0
   playerMovement: {fileID: 0}
   damageBasicAttack: 0
   damageSkill: 0
-  health: 0
-  shield: 0
   whichIsThisPlayer: 0
+  is_ultimate_ready: 0
   namePlayer: Scepter
   distance_attack: {fileID: 4654876691078714}
 --- !u!212 &212076490058607512

@@ -3,16 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class IconUpgrade
+{
+    public Image[] spell;
+    public Image[] selected;
+    public Button[] button; 
+
+    public int num = 0;
+}
+
 public class PlayeUI : MonoBehaviour {
 
     public Text roundTime;
     public Text roundCur;
+    public string[] namePlayer;
     public Image[] icon;
     public Image[] sliderHealth;
     public Image[] sliderSkill;
     public Image[] sliderUltimate;
     public Image[] sliderShield;
-    public string[] namePlayer;
+    public IconUpgrade[] iconUpgrade;
+    //public Image[] button;
+
+    //public Image[] iconUpgradePlayer2;
+    //public int numUpgradePlayer1;
+    //public int numUpgradePlayer2;
+
 
     public GameObject skills;
 
@@ -22,12 +39,18 @@ public class PlayeUI : MonoBehaviour {
     {
         gameManager = FindObjectOfType<GameManager>();
         gameManager.playeUI = this;
+
+
     }
 
     private void Start()
     {
         gameManager.StartBattle();
-	}
+
+        for (int i = 0; i < iconUpgrade.Length; i++)
+            for (int j = 0; j < iconUpgrade[i].spell.Length; j++)
+                iconUpgrade[i].spell[j].sprite = gameManager.playerStats[i].upgrade[j];
+    }
 
     private void Update()
     {
@@ -49,6 +72,13 @@ public class PlayeUI : MonoBehaviour {
 
     public void ActiveHability(int hability)
     {
-        //gameManager.playerStats[numPlayer].;
+        if (gameManager.round.roundCur - 1 < 3)
+        {
+            iconUpgrade[numPlayer].selected[gameManager.round.roundCur - 1].sprite = iconUpgrade[numPlayer].spell[hability].sprite;
+            iconUpgrade[numPlayer].button[hability].interactable = false;
+            
+        }
+        //gameManager.playerStats[numPlayer].numUpgrade++;
+        //iconUpgrade[numPlayer].num++;
     }
 }

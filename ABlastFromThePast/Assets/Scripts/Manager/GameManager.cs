@@ -8,7 +8,7 @@ public class Round
     public float timeToStartMax = 5;
     public float timeToStartCur;
 
-    public float timeSet = 15;
+    public float timeSet = 5;
     public float timeCur;
 
     //public int roundMax;
@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour {
         while (!choised)
         {
             // Imprimit tiempo pantalla
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space)) // un intento
             {
                 choised = true;
                 Debug.Log("Espacio");

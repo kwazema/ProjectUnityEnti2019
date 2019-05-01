@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour {
@@ -8,9 +9,15 @@ public class PlayerManager : MonoBehaviour {
     [SerializeField] public enum ThisPlayerIs { Player1, Player2 }
     [SerializeField] public ThisPlayerIs thisPlayerIs;
 
+    // Añadir las imagenes en el prefab
+    public Sprite icon;
+    public Sprite[] upgrade;
+    public int numUpgrade;
+
+
     #region Classes
-    protected Map map;
     public PlayerMovement playerMovement;
+    protected Map map;
     protected Collider2D bodyCollider;
     protected PlayerInput playerInput;
     protected PlayerAttackInput player_att_input;
