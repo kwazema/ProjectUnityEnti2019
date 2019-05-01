@@ -118,13 +118,13 @@ public class PlayerAttackInput : MonoBehaviour
 
         if (EnumPlayer.Player1 == enumPlayer)
         {
-            // layer player 2
-            basicAttackClone.layer = 12;
+            // layer attack 1
+            basicAttackClone.layer = 15;
         }
         else
         {
-            // layer player 1
-            basicAttackClone.layer = 11;
+            // layer attack 2
+            basicAttackClone.layer = 16;
         }
 
         // ----------------------------------------- //
