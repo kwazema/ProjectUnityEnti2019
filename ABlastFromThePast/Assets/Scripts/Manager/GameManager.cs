@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour {
     public GameObject[] objectPlayer;
     public static GameManager instance = null;
 
-    public PlayerManager[] playerManager;
+    //public PlayerManager[] playerManager;
     public PlayeUI playeUI;
 
     public int[] playerChoise;
