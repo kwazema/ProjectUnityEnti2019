@@ -2,61 +2,78 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class SettingMenu : MonoBehaviour {
 
-    public GameObject gameObject;
+    public Slider volumeBar;
+    //public GameObject gameObject;
 
-    enum language
-    {
-        catalan,
-        spanish, 
-        english
-    };
+    //enum language
+    //{
+    //    catalan,
+    //    spanish, 
+    //    english
+    //};
 
-    language idiom;
+    //language idiom;
 
     public AudioMixer audioMixer;
   
-    public void Volume ( float volume)
+    public void MasterVolume ( float volume)
     {
         audioMixer.SetFloat("volume", volume);
     }
 
-    public void SetLanguageCatalan()
-    {        
-        idiom = language.catalan;
+    public void Music(float volume)
+    {
+        audioMixer.SetFloat("volumeMusic", volume);
     }
 
-    public void SetLanguageSpanish()
+    public void Effects(float volume)
     {
-        idiom = language.spanish;
+        audioMixer.SetFloat("volumeEffects", volume);
     }
 
-    public void SetLanguageEnglish()
+    public void Quality(int index)
     {
-        idiom = language.english;
+        QualitySettings.SetQualityLevel(index);
     }
 
-    public void ShowContent()
-    {
-        GameObject.Find("OptionsMenuCat").SetActive(false);
-        GameObject.Find("OptionsMenuEsp").SetActive(false);
-        GameObject.Find("OptionsMenuEng").SetActive(false);
-        switch (idiom)
-        {
-            case language.catalan:
-                GameObject.Find("OptionsMenuCat").SetActive(true);
-                Debug.Log("catalan");
-                break;
-            case language.spanish:
-                GameObject.Find("OptionsMenuEsp").SetActive(true);
-                Debug.Log("spanish");
-                break;     
-            case language.english:
-                GameObject.Find("OptionsMenuEng").SetActive(true);
-                Debug.Log("english");
-                break;
-        }
-    }
+    //public void SetLanguageCatalan()
+    //{        
+    //    idiom = language.catalan;
+    //}
+
+    //public void SetLanguageSpanish()
+    //{
+    //    idiom = language.spanish;
+    //}
+
+    //public void SetLanguageEnglish()
+    //{
+    //    idiom = language.english;
+    //}
+
+    //public void ShowContent()
+    //{
+    //    GameObject.Find("OptionsMenuCat").SetActive(false);
+    //    GameObject.Find("OptionsMenuEsp").SetActive(false);
+    //    GameObject.Find("OptionsMenuEng").SetActive(false);
+    //    switch (idiom)
+    //    {
+    //        case language.catalan:
+    //            GameObject.Find("OptionsMenuCat").SetActive(true);
+    //            Debug.Log("catalan");
+    //            break;
+    //        case language.spanish:
+    //            GameObject.Find("OptionsMenuEsp").SetActive(true);
+    //            Debug.Log("spanish");
+    //            break;     
+    //        case language.english:
+    //            GameObject.Find("OptionsMenuEng").SetActive(true);
+    //            Debug.Log("english");
+    //            break;
+    //    }
+    //}
 }
