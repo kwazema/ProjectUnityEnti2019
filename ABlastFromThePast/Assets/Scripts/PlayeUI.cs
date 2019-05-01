@@ -38,6 +38,6 @@ public class PlayeUI : MonoBehaviour {
         }
 
         roundTime.text = gameManager.round[gameManager.roundCur].timeCur.ToString("0.00");
-        roundCur.text = (gameManager.roundCur + 1).ToString();
+        roundCur.text = (gameManager.roundCur + 1).ToString("Round ");
     }
 }
