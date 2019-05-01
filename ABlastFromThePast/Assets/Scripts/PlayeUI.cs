@@ -37,7 +37,7 @@ public class PlayeUI : MonoBehaviour {
             sliderHealth[i].fillAmount = value;
         }
 
-        roundTime.text = gameManager.round[gameManager.roundCur].timeCur.ToString("0.00");
-        roundCur.text = (gameManager.roundCur + 1).ToString("Round ");
+        roundTime.text = gameManager.round.timeCur.ToString("0.00");
+        roundCur.text = (gameManager.round.roundCur + 1).ToString("Round 0");
     }
 }
