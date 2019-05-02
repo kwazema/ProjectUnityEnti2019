@@ -22,7 +22,7 @@ public class GoToMenu : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             
-            // if (Time.timeScale == 1)
+             if (Time.timeScale == 0)
                 ClosePauseMenu();
 
             //if (Time.timeScale == 0)

@@ -15730,6 +15730,7 @@ MonoBehaviour:
     roundsWinPlayer2: 0
     roundCur: 0
     roundMax: 3
+  pause_menu: {fileID: 0}
 --- !u!4 &1389265489
 Transform:
   m_ObjectHideFlags: 0

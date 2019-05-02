@@ -174,4 +174,19 @@ public class BrayanStats : PlayerManager {
             dirSkillZone = -1;
         }
     }
+
+    public override void Upgrade1(int value1, int value2)
+    {
+
+    }
+
+    public override void Upgrade2(int value1, int value2)
+    {
+
+    }
+
+    public override void Upgrade3(int value1)
+    {
+
+    }
 }
