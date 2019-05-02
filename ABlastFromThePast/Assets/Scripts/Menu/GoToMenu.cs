@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GoToMenu : MonoBehaviour {
 
+    public GameObject GO_Canvas;
     public Canvas myCanvas;
     bool active = false;
 
@@ -17,14 +18,36 @@ public class GoToMenu : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Escape) && active == false)
+        
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            myCanvas.enabled = true;
-            active = true;
-        } else if (Input.GetKey(KeyCode.Escape) && active == true)
-        {
-            myCanvas.enabled = false;
-            active = false;
+            
+            // if (Time.timeScale == 1)
+                ClosePauseMenu();
+
+            //if (Time.timeScale == 0)
+            //    OpenPauseMenu();
         }
+
+
+        //// Desactivar el menu de pause 
+        //if (Input.GetKeyDown(KeyCode.Escape) && myCanvas.enabled)
+        //{
+        //    //myCanvas.enabled = false;
+        //    Time.timeScale = 1;
+        //    GO_Canvas.SetActive(false);
+        //    //active = false;
+        //}
     }
+
+    private void OpenPauseMenu() {
+        Time.timeScale = 0;
+        GO_Canvas.SetActive(true);
+    }
+
+    private void ClosePauseMenu() {
+        Time.timeScale = 1;
+        GO_Canvas.SetActive(false);
+    }
+
 }

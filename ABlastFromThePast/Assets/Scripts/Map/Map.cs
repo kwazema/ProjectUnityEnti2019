@@ -11,6 +11,9 @@ public class Map : MonoBehaviour {
     public StatsBlock[,] blocks;
     public Sprite  blockSprite;
 
+    public GameObject pause_menu;
+
+
     enum Tipe
     {
         blueNormal,
@@ -29,6 +32,19 @@ public class Map : MonoBehaviour {
     }
 
     private void Start() { }
+
+
+    // Activa el menu de pause
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 0;
+            pause_menu.SetActive(true);
+
+
+        }
+    }
 
     StatsBlock[,] InstantiateBlocks(int column, int row, Vector2Int offset, float width, float height, float margin)
     {

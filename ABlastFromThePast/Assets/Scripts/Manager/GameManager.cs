@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour {
     public int[] playerChoise;
     public Round round;
 
+    public GameObject pause_menu;
+
+
     private void Awake()
     {
         if (instance == null)

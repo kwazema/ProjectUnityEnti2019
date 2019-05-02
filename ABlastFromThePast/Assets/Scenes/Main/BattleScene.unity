@@ -2824,7 +2824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &501605951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2916,6 +2916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ec73f41df72854d8793f9b788c916a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GO_Canvas: {fileID: 501605950}
   myCanvas: {fileID: 501605953}
 --- !u!1 &501934583
 GameObject:
@@ -8898,6 +8899,7 @@ MonoBehaviour:
     type: 2}
   map: {fileID: 1626575744}
   blockSprite: {fileID: 21300000, guid: bbf3eca44d25605439fd0e6e60645eb6, type: 3}
+  pause_menu: {fileID: 501605950}
 --- !u!4 &1626575746
 Transform:
   m_ObjectHideFlags: 0

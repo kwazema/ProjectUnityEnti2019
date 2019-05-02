@@ -45,8 +45,6 @@ public class BrayanStats : PlayerManager {
     // Update is called once per frame
     protected override void Update()
     {
-        Debug.Log("Brayan: " + health);
-
         base.Update();
         int blocks_width = 3;
 
