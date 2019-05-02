@@ -353,6 +353,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisPlayerIs: 0
+  icon: {fileID: 0}
+  upgrade: []
+  numUpgrade: 0
   playerMovement: {fileID: 0}
   damageBasicAttack: 0
   damageSkill: 0

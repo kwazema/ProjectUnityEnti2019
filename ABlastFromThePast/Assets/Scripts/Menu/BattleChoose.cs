@@ -9,6 +9,11 @@ public class BattleChoose : MonoBehaviour {
     public GameManager gameManager;
     public int players;
 
+    public GameObject p1Skull;
+    public GameObject p2Skull;
+    public GameObject p1Scepter;
+    public GameObject p2Scepter;
+
     private int numSelected = 0;
 
     private void Awake()
@@ -51,11 +56,29 @@ public class BattleChoose : MonoBehaviour {
     {
         gameManager.playerChoise[numSelected] = 0;
         Debug.Log("Eres el portador de la muerte");
+        if (numSelected == 0)
+        {
+            p1Skull.SetActive(true);
+        }
+
+        if (numSelected == 1)
+        {
+            p2Skull.SetActive(true);
+        }
     }
 
     public void setScepter()
     {
         gameManager.playerChoise[numSelected] = 1;
         Debug.Log("La prueba va OK");
+        if (numSelected == 0)
+        {
+            p1Scepter.SetActive(true);
+        }
+
+        if (numSelected == 1)
+        {
+            p2Scepter.SetActive(true);
+        }
     }
 }
