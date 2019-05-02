@@ -59,7 +59,7 @@ public class PlayerAttackInput : MonoBehaviour
 
         // ----------------------- //
 
-        if (Input.GetButtonDown("Skill0"))
+        if (Input.GetButtonDown("Skill0") && playerManager[0].GetIsSkillReady() && !playerManager[0].GetIsShootting())
             SkillAttack();
 
         // ----------------------- //
@@ -85,7 +85,7 @@ public class PlayerAttackInput : MonoBehaviour
 
         // ----------------------- //
 
-        if (Input.GetButtonDown("Skill1"))
+        if (Input.GetButtonDown("Skill1") && playerManager[1].GetIsSkillReady() && !playerManager[1].GetIsShootting())
             SkillAttack();
 
         // ----------------------- //
@@ -111,6 +111,7 @@ public class PlayerAttackInput : MonoBehaviour
             nextFire += Time.deltaTime + playerManager[i].GetFireRate();
         }
 
+        playerManager[(int)enumPlayer].SetIsShootting(true);
         GameObject basicAttackClone = (GameObject)Instantiate(basicAttack, basicShotSpawn.position, basicShotSpawn.rotation);
         basicAttackClone.transform.rotation = transform.rotation;
 
@@ -120,13 +121,11 @@ public class PlayerAttackInput : MonoBehaviour
         {
             // layer attack 1
             basicAttackClone.layer = 15;
-            playerManager[0].SetIsShootting(true);
         }
         else
         {
             // layer attack 2
             basicAttackClone.layer = 16;
-            playerManager[1].SetIsShootting(true);
         }
     }
 
