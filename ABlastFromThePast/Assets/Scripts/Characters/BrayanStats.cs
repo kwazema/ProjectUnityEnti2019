@@ -68,8 +68,8 @@ public class BrayanStats : PlayerManager {
             MovingToPosition(95f, blocks_width);
 
         // -------------------------------------------------- //
-        // Color block = green 
-        if (!returnOldPosition)
+        // Color block = white 
+        if (can_color_white)
         {
             for (int i = 0; i < blocks_width; i++)
             {
@@ -81,6 +81,7 @@ public class BrayanStats : PlayerManager {
                     map.ColorBlocks((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow, Color.white);
                 }
             }
+            can_color_white = false;
         }
 
         // -------------------------------------------------- //

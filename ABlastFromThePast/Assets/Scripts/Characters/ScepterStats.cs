@@ -71,8 +71,8 @@ public class ScepterStats : PlayerManager {
             MovingToPosition(65f);
        
         // -------------------------------------------------- //
-         // Color block = green 
-        if (!returnOldPosition ) {
+         // Color block = white 
+        if (can_color_white) {
             for (int i = -1; i < 2; i++)
             { // horizontal
                 for (int j = -1; j < 2; j++)
@@ -89,6 +89,8 @@ public class ScepterStats : PlayerManager {
                     }
                 }
             }
+
+            can_color_white = false;
         }
 
         // -------------------------------------------------- //

@@ -81,8 +81,11 @@ public class PlayerManager : MonoBehaviour {
     protected bool is_shield_broken = false;
     
     protected bool is_shootting = false;
+    protected bool can_color_white = false;
 
     protected int player_to_attack;
+
+
     #endregion
 
     #region Public Variables
@@ -288,6 +291,7 @@ public class PlayerManager : MonoBehaviour {
 
     protected void MovingToPosition(float velocity, int blocks_width = 0, int blocks_height = 0)
     {
+        
         float step = velocity * Time.deltaTime;
         if ((Vector2)transform.position == moveToBlock)
         {
@@ -307,6 +311,7 @@ public class PlayerManager : MonoBehaviour {
         {
             if (Time.time > timeInPosition)
             {
+                can_color_white = true;
                 transform.position = Vector2.MoveTowards(transform.position, oldPos, step);
 
                 if ((Vector2)transform.position == oldPos)
