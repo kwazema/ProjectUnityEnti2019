@@ -14,6 +14,10 @@ public class BrayanStats : PlayerManager {
     protected override void Awake()
     {
         base.Awake();
+
+        upgrade_text[0] = "You gain " + 30 + " more of maximum health and " + 15 + " of maximum shield.";
+        upgrade_text[1] = "You gain " + 2 + " more of basic damage and " + 5 + " of skill damage.";
+        upgrade_text[2] = "You gain " + 15 + " more of ultimate damage.";
         //namePlayer = "Brayan"; // Nombre añadido desde el inspector
     }
 
@@ -182,18 +186,23 @@ public class BrayanStats : PlayerManager {
         }
     }
 
-    public override void Upgrade1(int value1, int value2)
+    public override void Upgrade1()
     {
+        health_max += 30;
+        shield_max += 20;
 
+        health = health_max;
+        shield = shield_max;
     }
 
-    public override void Upgrade2(int value1, int value2)
+    public override void Upgrade2()
     {
-
+        damageBasicAttack += 2;
+        damageSkill += 5;
     }
 
-    public override void Upgrade3(int value1)
+    public override void Upgrade3()
     {
-
+        damageUltimate += 15;
     }
 }

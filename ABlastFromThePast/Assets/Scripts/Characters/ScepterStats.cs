@@ -14,7 +14,10 @@ public class ScepterStats : PlayerManager {
     protected override void Awake()
     {
         base.Awake();
-        
+
+        upgrade_text[0] = "You gain " + 50 + " more of maximum health and " + 15 + " of maximum shield.";
+        upgrade_text[1] = "You gain " + 4 + " more of basic damage and " + 10 + " of skill damage.";
+        upgrade_text[2] = "You gain " + 35 + " more of ultimate damage.";
         //namePlayer = "Scepter"; // Nombre añadido desde el inspector
     }
 
@@ -257,18 +260,23 @@ public class ScepterStats : PlayerManager {
         return base.CastingTime(time_cast);
     }
 
-    public override void Upgrade1(int value1, int value2)
+    public override void Upgrade1()
     {
-        
+        health_max += 50;
+        shield_max += 15;
+
+        health = health_max;
+        shield = shield_max;
     }
 
-    public override void Upgrade2(int value1, int value2)
+    public override void Upgrade2()
     {
-        
+        damageBasicAttack += 4;
+        damageSkill += 10;
     }
 
-    public override void Upgrade3(int value1)
+    public override void Upgrade3()
     {
-        
+        damageUltimate += 35;
     }
 }

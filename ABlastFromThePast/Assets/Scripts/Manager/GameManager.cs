@@ -157,8 +157,9 @@ public class GameManager : MonoBehaviour {
                 //Mostrar boton para continuar
                 //volver menu
             }
-            Invoke("Fade", 3);
-            Invoke("GoToMenu", 5);
+            Invoke("WinPlayer", 1);
+            Invoke("Fade", 4);
+            Invoke("GoToMenu", 6);
 
         }
         else
@@ -170,6 +171,11 @@ public class GameManager : MonoBehaviour {
         //yield return null;
     }
 
+    void WinPlayer()
+    {
+        playeUI.WinPlayer();
+    }
+
     void Fade()
     {
         FindObjectOfType<FadeImage>().FadeToBlack();
@@ -179,7 +185,7 @@ public class GameManager : MonoBehaviour {
     {
         round.roundsWinPlayer1 = 0;
         round.roundsWinPlayer2 = 0;
-        round.roundCur = 0;
+        round.roundCur = -1;
         SceneManager.LoadScene("Menu");
     }
 

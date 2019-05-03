@@ -19,6 +19,8 @@ public class PlayeUI : MonoBehaviour {
     public Text winPlayerRound;
     public Text roundCur;
     public Text[] namePlayer;
+    public Text[] descriptionPlayer1;
+    public Text[] descriptionPlayer2;
     public Text[] roundsWin;
     public Image[] icon;
     public Image[] sliderHealth;
@@ -34,8 +36,6 @@ public class PlayeUI : MonoBehaviour {
     //public Image[] iconUpgradePlayer2;
     //public int numUpgradePlayer1;
     //public int numUpgradePlayer2;
-
-
 
     public GameObject skills;
 
@@ -57,6 +57,12 @@ public class PlayeUI : MonoBehaviour {
 
         for (int i = 0; i < namePlayer.Length; i++)
             namePlayer[i].text = gameManager.playerStats[i].namePlayer;
+
+        for (int i = 0; i < descriptionPlayer1.Length; i++)
+                descriptionPlayer1[i].text = gameManager.playerStats[0].upgrade_text[i];
+
+        for (int i = 0; i < descriptionPlayer2.Length; i++)
+                descriptionPlayer2[i].text = gameManager.playerStats[1].upgrade_text[i];
     }
 
     private void Update()
@@ -124,8 +130,36 @@ public class PlayeUI : MonoBehaviour {
         {
             iconUpgrade[numPlayer].selected[gameManager.round.roundCur - 1].sprite = iconUpgrade[numPlayer].spell[hability].sprite;
             iconUpgrade[numPlayer].button[hability].interactable = false;
+
+                switch (hability)
+                {
+                    case 0: gameManager.playerStats[numPlayer].Upgrade1(); break;
+
+                    case 1: gameManager.playerStats[numPlayer].Upgrade2(); break;
+
+                    case 2: gameManager.playerStats[numPlayer].Upgrade3(); break;
+                }
+
         }
+
+
         //gameManager.playerStats[numPlayer].numUpgrade++;
         //iconUpgrade[numPlayer].num++;
+    }
+
+    public GameObject winPlayer1;
+    public GameObject winPlayer2;
+    public void WinPlayer()
+    {
+        if (gameManager.round.roundsWinPlayer1 > gameManager.round.roundsWinPlayer2)
+        {
+            //win1 
+            winPlayer2.SetActive(true);
+        }
+        else
+        {
+            winPlayer1.SetActive(true);
+            //win 2
+        }
     }
 }
