@@ -63,7 +63,7 @@ public class PlayeUI : MonoBehaviour {
 
         for (int i = 0; i < sliderShield.Length; i++)
         {
-            float value = (float)gameManager.playerStats[i].GetShield() / (float)gameManager.playerStats[i].GetHealthMax(); //Cambiar Get Shield Max
+            float value = (float)gameManager.playerStats[i].GetShield() / (float)gameManager.playerStats[i].GetShieldMax(); 
             sliderShield[i].fillAmount = value;
         }
 
@@ -71,7 +71,7 @@ public class PlayeUI : MonoBehaviour {
         {
             float value = (float)gameManager.playerStats[i].GetCurSkillCD() / (float)gameManager.playerStats[i].GetSkillCD();
 
-            if (value == 1)
+            if (value >= 1)
                 transparency.a = 1f;
             else
                 transparency.a = .3f;
@@ -85,7 +85,7 @@ public class PlayeUI : MonoBehaviour {
         {
             float value = (float)gameManager.playerStats[i].GetCurUltimateCD() / (float)gameManager.playerStats[i].GetUltimateCD();
 
-            if (value == 1)
+            if (value >= 1)
                 transparency.a = 1f;
             else
                 transparency.a = .3f;

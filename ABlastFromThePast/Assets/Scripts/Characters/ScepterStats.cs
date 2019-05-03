@@ -102,7 +102,7 @@ public class ScepterStats : PlayerManager {
 
     public override void Skill(float cooldown = 0, float timeToRetorn = 0)
     {
-        if (cur_skillCD == skillCD)
+        if (cur_skillCD >= skillCD)
         {
             anim.SetTrigger("skill");
 

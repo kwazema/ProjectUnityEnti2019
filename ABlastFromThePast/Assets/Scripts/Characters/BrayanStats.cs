@@ -97,7 +97,7 @@ public class BrayanStats : PlayerManager {
 
     public override void Skill(float cooldown = 0, float timeToRetorn = 0)
     {
-        if (cur_skillCD == skillCD)
+        if (cur_skillCD >= skillCD)
         {
             anim.SetTrigger("skill");
 
@@ -142,7 +142,7 @@ public class BrayanStats : PlayerManager {
 
     public override void Ultimate()
     {
-        if (cur_ultimateCD == ultimateCD) {
+        if (cur_ultimateCD >= ultimateCD) {
             DeployParticles(Particles.Ultimate);
             StartCoroutine(CastingTime(2));
         }
