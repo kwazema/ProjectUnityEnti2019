@@ -248,4 +248,19 @@ public class ScepterStats : PlayerManager {
 
         return base.CastingTime(time_cast);
     }
+
+    public override void Upgrade1(int value1, int value2)
+    {
+        
+    }
+
+    public override void Upgrade2(int value1, int value2)
+    {
+        
+    }
+
+    public override void Upgrade3(int value1)
+    {
+        
+    }
 }

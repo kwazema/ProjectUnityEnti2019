@@ -25,6 +25,7 @@ public class BrayanStats : PlayerManager {
         #region Basic Stats
 
         health = health_max;
+        health = 1;
         shield = shield_max;
 
         damageBasicAttack = 2;
@@ -88,6 +89,12 @@ public class BrayanStats : PlayerManager {
         // Comprueba si se ha activado el ultimate para empezar la coroutine.
         if (is_ultimateOn && cast_ended)
             StartCoroutine(Leech(3));
+
+        // -------------------------------------------------- //
+
+        if (health <= 0) {
+            DiyingParticle();
+        }
     }
 
     public override void Skill(float cooldown = 0, float timeToRetorn = 0)
@@ -173,5 +180,31 @@ public class BrayanStats : PlayerManager {
             graphicMove = -4;
             dirSkillZone = -1;
         }
+    }
+
+    public override void Upgrade1(int value1, int value2)
+    {
+
+    }
+
+    public override void Upgrade2(int value1, int value2)
+    {
+
+    }
+
+    public override void Upgrade3(int value1)
+    {
+
+    }
+
+    private void DiyingParticle()
+    {
+        Color transparency = Color.white;
+        transparency.a = 0f;
+
+        //sprite.color = transparency;
+        Instantiate(particles_GO, transform.position, Quaternion.identity);
+
+        //particle.Play();
     }
 }

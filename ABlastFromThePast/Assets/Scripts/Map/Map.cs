@@ -37,12 +37,10 @@ public class Map : MonoBehaviour {
     // Activa el menu de pause
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && Time.timeScale == 1)
         {
             Time.timeScale = 0;
             pause_menu.SetActive(true);
-
-
         }
     }
 

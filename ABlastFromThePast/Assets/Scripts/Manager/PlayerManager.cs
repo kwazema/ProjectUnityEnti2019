@@ -25,6 +25,11 @@ public class PlayerManager : MonoBehaviour {
     protected Vector2 oldPos;
     protected GameManager game_manager;
     protected Animator anim;
+
+    protected SpriteRenderer sprite;
+    protected ParticleSystem particle;
+
+    protected GameObject particles_GO;
     #endregion
 
     #region Private Variables
@@ -47,11 +52,11 @@ public class PlayerManager : MonoBehaviour {
     protected int damageUltimate;
 
     [SerializeField]
-    protected const int health_max = 200;
+    protected int health_max = 200;
     protected int health;
 
     [SerializeField]
-    protected const int shield_max = 50;
+    protected int shield_max = 50;
     protected int shield;
     protected int recoveryShieldTime;
     
@@ -159,17 +164,26 @@ public class PlayerManager : MonoBehaviour {
         game_manager = FindObjectOfType<GameManager>();
         anim = GameObject.Find(name + "/GraficCharacter").GetComponent<Animator>();
 
-        if (thisPlayerIs == ThisPlayerIs.Player2)
-            GameObject.Find(name + "/BodyCollider").layer = 12;
+        sprite = GameObject.Find(name + "/GraficCharacter").GetComponent<SpriteRenderer>();
+
+        particles_GO = GameObject.Find(name + "/DieParticle");
+
+        //particle = GameObject.Find(name + "/DieParticle").GetComponent<ParticleSystem>();
     }
 
     protected virtual void Start() {
         cur_skillCD = 0;
         cur_ultimateCD = 0;
+
+        if (thisPlayerIs == ThisPlayerIs.Player1)
+            GameObject.Find(name + "/BodyCollider").layer = 11;
+        else
+            GameObject.Find(name + "/BodyCollider").layer = 12;
     }
 
     protected virtual void Update()
     {
+        Debug.Log("name: " + name);
         // ----------------------------- //
 
         if (shield <= 0) {
@@ -251,6 +265,16 @@ public class PlayerManager : MonoBehaviour {
         player_att_input.enabled = true;
     }
 
+    virtual public IEnumerator Die2() {
+        GameObject.Find(name + "/BodyCollider").SetActive(false);
+
+        anim.SetTrigger("dead");
+
+        yield return new WaitForSeconds(5f);
+
+        SceneManager.LoadScene("Menu");
+    }
+
     void Die()
     {
         SceneManager.LoadScene("Modojuego");
@@ -275,7 +299,8 @@ public class PlayerManager : MonoBehaviour {
         if (health <= 0)
         {
             health = 0;
-            Die();
+            StartCoroutine(Die2());
+            //Die();
         }
     }
 
@@ -288,6 +313,19 @@ public class PlayerManager : MonoBehaviour {
     protected virtual void SelectedZonaPlayer() { }
 
     public virtual void Ultimate() { }
+
+    public virtual void Upgrade1(int value1, int value2) {
+        health_max += value1;
+        shield_max += value2;
+    }
+
+    public virtual void Upgrade2(int value1, int value2) {
+        damageBasicAttack += value1;
+        damageSkill += value2;
+    }
+
+    public virtual void Upgrade3(int value1) { damageUltimate += value1; }
+
 
     protected void MovingToPosition(float velocity, int blocks_width = 0, int blocks_height = 0)
     {
