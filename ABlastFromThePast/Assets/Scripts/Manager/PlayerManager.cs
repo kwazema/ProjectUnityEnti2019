@@ -27,9 +27,10 @@ public class PlayerManager : MonoBehaviour {
     protected Animator anim;
 
     protected SpriteRenderer sprite;
-    protected ParticleSystem particle;
 
-    protected GameObject particles_GO;
+    //public ParticleSystem particle;
+    public GameObject particles_GO;
+    public Transform particles;
     #endregion
 
     #region Private Variables
@@ -166,7 +167,7 @@ public class PlayerManager : MonoBehaviour {
 
         sprite = GameObject.Find(name + "/GraficCharacter").GetComponent<SpriteRenderer>();
 
-        particles_GO = GameObject.Find(name + "/DieParticle");
+        //particles_GO = GameObject.Find(name + "/DieParticle");
 
         //particle = GameObject.Find(name + "/DieParticle").GetComponent<ParticleSystem>();
     }
@@ -269,11 +270,14 @@ public class PlayerManager : MonoBehaviour {
         GameObject.Find(name + "/BodyCollider").SetActive(false);
 
         anim.SetTrigger("dead");
+        DiyingParticle();
 
-        yield return new WaitForSeconds(5f);
-
+        yield return new WaitForSeconds(3.5f);
         SceneManager.LoadScene("Menu");
+        //fadeimage y cambio de ronda
     }
+
+    virtual protected void DiyingParticle() { /*Sobrescriura*/ }
 
     void Die()
     {

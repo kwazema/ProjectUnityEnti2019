@@ -91,10 +91,6 @@ public class BrayanStats : PlayerManager {
             StartCoroutine(Leech(3));
 
         // -------------------------------------------------- //
-
-        if (health <= 0) {
-            DiyingParticle();
-        }
     }
 
     public override void Skill(float cooldown = 0, float timeToRetorn = 0)
@@ -197,14 +193,14 @@ public class BrayanStats : PlayerManager {
 
     }
 
-    private void DiyingParticle()
+    protected override void DiyingParticle()
     {
         Color transparency = Color.white;
-        transparency.a = 0f;
+        transparency.a = .5f;
 
-        //sprite.color = transparency;
-        Instantiate(particles_GO, transform.position, Quaternion.identity);
-
+        sprite.color = transparency;
+        Instantiate(particles_GO, particles.transform.position, Quaternion.identity);
+        //particle.Emit(1);
         //particle.Play();
     }
 }
