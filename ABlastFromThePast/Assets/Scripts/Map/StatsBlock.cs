@@ -22,6 +22,7 @@ public class StatsBlock : MonoBehaviour {
     private PlayerMovement[] playerMovement;
     public SpriteRenderer spriteBlock;
     private GameManager gameManager;
+    public Animator anim;
 
     public LayerMask whatIsPlayer;
     public Vector2 size;

@@ -14,13 +14,20 @@ public class GoToMenu : MonoBehaviour {
 
     private void Awake()
     {
-        fade = FindObjectOfType<FadeImage>();
+       // fade = FindObjectOfType<FadeImage>();
+    }
+
+    private void Start()
+    {
     }
 
     public void GoBack()
     {
+        Time.timeScale = 1;
+
+        fade = FindObjectOfType<FadeImage>();
         fade.FadeToBlack();
-        Invoke("LoadSceneMenu", 4);
+        Invoke("LoadSceneMenu", 2);
     }
 
     private void LoadSceneMenu()

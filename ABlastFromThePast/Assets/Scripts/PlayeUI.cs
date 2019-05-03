@@ -21,14 +21,17 @@ public class PlayeUI : MonoBehaviour {
     public Image[] icon;
     public Image[] sliderHealth;
     public Image[] sliderSkill;
+    public Image[] iconSkill;
     public Image[] sliderUltimate;
     public Image[] sliderShield;
     public IconUpgrade[] iconUpgrade;
     //public Image[] button;
+    Color transparency = Color.white;
 
     //public Image[] iconUpgradePlayer2;
     //public int numUpgradePlayer1;
     //public int numUpgradePlayer2;
+
 
 
     public GameObject skills;
@@ -39,8 +42,6 @@ public class PlayeUI : MonoBehaviour {
     {
         gameManager = FindObjectOfType<GameManager>();
         gameManager.playeUI = this;
-
-
     }
 
     private void Start()
@@ -58,6 +59,39 @@ public class PlayeUI : MonoBehaviour {
         {
             float value = (float)gameManager.playerStats[i].GetHealth() / (float)gameManager.playerStats[i].GetHealthMax();
             sliderHealth[i].fillAmount = value;
+        }
+
+        for (int i = 0; i < sliderShield.Length; i++)
+        {
+            float value = (float)gameManager.playerStats[i].GetShield() / (float)gameManager.playerStats[i].GetHealthMax(); //Cambiar Get Shield Max
+            sliderShield[i].fillAmount = value;
+        }
+
+        for (int i = 0; i < sliderSkill.Length; i++)
+        {
+            float value = (float)gameManager.playerStats[i].GetCurSkillCD() / (float)gameManager.playerStats[i].GetSkillCD();
+
+            if (value == 1)
+                transparency.a = 1f;
+            else
+                transparency.a = .3f;
+
+            iconSkill[i].color = transparency;
+
+            sliderSkill[i].fillAmount = value;
+        }
+
+        for (int i = 0; i < sliderUltimate.Length; i++)
+        {
+            float value = (float)gameManager.playerStats[i].GetCurUltimateCD() / (float)gameManager.playerStats[i].GetUltimateCD();
+
+            if (value == 1)
+                transparency.a = 1f;
+            else
+                transparency.a = .3f;
+
+            sliderUltimate[i].color = transparency;
+            sliderUltimate[i].fillAmount = value;
         }
 
         roundTime.text = gameManager.round.timeCur.ToString("0.00");
