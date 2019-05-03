@@ -13,7 +13,6 @@ public class Map : MonoBehaviour {
 
     public GameObject pause_menu;
 
-
     enum Tipe
     {
         blueNormal,
@@ -28,6 +27,7 @@ public class Map : MonoBehaviour {
     {
         gameManager = FindObjectOfType<GameManager>();
         blocks = InstantiateBlocks(columnLenth, rowLenth, new Vector2Int(-14, 5), 3.15f, 2.15f, 1f);
+
         gameManager.InitPlayers();
     }
 

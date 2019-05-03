@@ -8,6 +8,7 @@ public class BattleChoose : MonoBehaviour {
     public Text textPlayer;
     public GameManager gameManager;
     public int players;
+    private FadeImage fade;
 
     public GameObject p1Skull;
     public GameObject p2Skull;
@@ -19,11 +20,11 @@ public class BattleChoose : MonoBehaviour {
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
+        fade = FindObjectOfType<FadeImage>();
     }
-    // Use this for initialization
+
     void Start () {
         gameManager.playerChoise = new int[players];
-
         textPlayer.text = "Choose for Player " + (numSelected+1);
     }
 
@@ -36,16 +37,26 @@ public class BattleChoose : MonoBehaviour {
         
         if (numSelected == 1)
         {
-            SceneManager.LoadScene("BattleScene");
+            Invoke("FadeToImage", 1);
+            Invoke("LoadSceneBattleScene", 3);
         }
         numSelected++;
+    }
+
+    void FadeToImage()
+    {
+        fade.FadeToBlack();
+    }
+
+    void LoadSceneBattleScene()
+    {
+        SceneManager.LoadScene("BattleScene");
     }
 
     public void PlayAI()
     {
         SceneManager.LoadScene("SceneAI");
     }
-
 
     public void Return()
     {

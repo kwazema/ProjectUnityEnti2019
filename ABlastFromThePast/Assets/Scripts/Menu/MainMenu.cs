@@ -5,10 +5,32 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
-	public void Play() 
+   // private FadeImage fade;
+
+    private void Awake()
     {
-        SceneManager.LoadScene("Modojuego");
+        //fade = FindObjectOfType<FadeImage>();
     }
+
+    public void Play() 
+    {
+        //fade.FadeToBlack();
+        //Invoke("LoadSceneModoJuego", 4); // Tambien se puede usar un star corountine si se hicieran muchas llamanadas
+        //StartCoroutine(Test());
+    }
+
+    //private void LoadSceneModoJuego()
+    //{
+    //    SceneManager.LoadScene("Modojuego");
+    //}
+
+    //IEnumerator Test()
+    //{
+
+    //    yield return new WaitForSeconds(3f);
+    //    SceneManager.LoadScene("Modojuego");
+
+    //}
 
     public void Practice()
     {

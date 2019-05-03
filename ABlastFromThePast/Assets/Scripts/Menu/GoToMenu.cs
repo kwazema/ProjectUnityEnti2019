@@ -10,8 +10,20 @@ public class GoToMenu : MonoBehaviour {
     public GameObject GO_Canvas;
     public Canvas myCanvas;
     bool active = false;
+    private FadeImage fade;
 
-	public void GoBack()
+    private void Awake()
+    {
+        fade = FindObjectOfType<FadeImage>();
+    }
+
+    public void GoBack()
+    {
+        fade.FadeToBlack();
+        Invoke("LoadSceneMenu", 4);
+    }
+
+    private void LoadSceneMenu()
     {
         SceneManager.LoadScene("Menu");
     }

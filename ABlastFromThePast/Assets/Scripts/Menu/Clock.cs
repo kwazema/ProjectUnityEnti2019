@@ -13,7 +13,7 @@ public class Clock : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        clockManecilla1.transform.Rotate(Vector3.forward * -1);
+        clockManecilla1.transform.Rotate(Vector3.forward * -.9f);
         clockManecilla2.transform.Rotate(Vector3.forward * -0.075f);
     }
 }
