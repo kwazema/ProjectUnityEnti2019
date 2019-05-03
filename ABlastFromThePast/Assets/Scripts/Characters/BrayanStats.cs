@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BrayanStats : PlayerManager {
 
+    
+
     #region Internal Variables
         public Transform distance_attack;
         int blocks_width;
@@ -140,12 +142,15 @@ public class BrayanStats : PlayerManager {
 
     public override void Ultimate()
     {
-        if (cur_ultimateCD == ultimateCD) 
+        if (cur_ultimateCD == ultimateCD) {
+            DeployParticles(Particles.Ultimate);
             StartCoroutine(CastingTime(2));
+        }
     }
     
     IEnumerator Leech(float use_time)
     {
+     
         is_ultimateOn = false;
         cast_ended = false;
         float time = 0;
@@ -191,16 +196,5 @@ public class BrayanStats : PlayerManager {
     public override void Upgrade3(int value1)
     {
 
-    }
-
-    protected override void DiyingParticle()
-    {
-        Color transparency = Color.white;
-        transparency.a = .5f;
-
-        sprite.color = transparency;
-        Instantiate(particles_GO, particles.transform.position, Quaternion.identity);
-        //particle.Emit(1);
-        //particle.Play();
     }
 }

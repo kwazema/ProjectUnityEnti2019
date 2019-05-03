@@ -240,12 +240,15 @@ public class ScepterStats : PlayerManager {
 
     protected override IEnumerator CastingTime(float time_cast)
     {
+        DeployParticles(Particles.Ultimate);
         GetRandomBlocks();
+
+        // Aqui se pintan antes/durante el casteo
         for (int i = 0; i < max_blocks; i++)
         {
             map.ColorBlocks(blocks_affected[i].x, blocks_affected[i].y, Color.yellow);
         }
-
+        // ------------------------------------------------------------------------- //
         return base.CastingTime(time_cast);
     }
 
