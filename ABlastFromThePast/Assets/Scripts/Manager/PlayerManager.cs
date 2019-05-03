@@ -9,11 +9,20 @@ public class PlayerManager : MonoBehaviour {
     [SerializeField] public enum ThisPlayerIs { Player1, Player2 }
     [SerializeField] public ThisPlayerIs thisPlayerIs;
 
+    [SerializeField] public enum Particles {
+        Die,
+        Attack,
+        Skill,
+        Ultimate
+    }
+
     // Añadir las imagenes en el prefab
     public Sprite icon;
     public Sprite[] upgrade;
     public int numUpgrade;
 
+    public GameObject[] particles_list;
+    public Transform[] particles_pos;
 
     #region Classes
     public PlayerMovement playerMovement;
@@ -29,8 +38,7 @@ public class PlayerManager : MonoBehaviour {
     protected SpriteRenderer sprite;
 
     //public ParticleSystem particle;
-    public GameObject particles_GO;
-    public Transform particles;
+    //public Transform particles;
     #endregion
 
     #region Private Variables
@@ -206,10 +214,10 @@ public class PlayerManager : MonoBehaviour {
 
         // ----------------------------- //
 
-        if (is_shootting)
-            anim.SetBool("is_shooting", true);
-        else
-            anim.SetBool("is_shooting", false);
+        if (is_shootting) {
+            DeployParticles(Particles.Attack);       
+            anim.SetTrigger("is_shooting");
+        }
     }
 
     virtual public IEnumerator ShieldRecovery()
@@ -268,6 +276,12 @@ public class PlayerManager : MonoBehaviour {
 
     virtual public IEnumerator Die2() {
         GameObject.Find(name + "/BodyCollider").SetActive(false);
+
+        Color transparency = Color.white;
+        transparency.a = .5f;
+
+        sprite.color = transparency;
+        DeployParticles(Particles.Die);
 
         anim.SetTrigger("dead");
         DiyingParticle();
@@ -377,5 +391,17 @@ public class PlayerManager : MonoBehaviour {
             timeInPosition = Time.time;
             timeInPosition += 0.3f;
         }
+    }
+
+    protected virtual void DeployParticles(Particles value) {
+        Instantiate(particles_list[(int)value], particles_pos[(int)value].position, Quaternion.identity);
+    }
+
+    protected void ResetCharacter()
+    {
+        health = health_max;
+        shield = shield_max;
+        cur_skillCD = 0;
+        cur_ultimateCD = 0;
     }
 }
