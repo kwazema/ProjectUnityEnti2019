@@ -18,7 +18,7 @@ public class Round
     public int roundsWinPlayer1 = 0;
     public int roundsWinPlayer2 = 0;
 
-    public int roundCur = 0;
+    public int roundCur = -1;
     public int roundMax = 3;
 }
 
@@ -136,12 +136,12 @@ public class GameManager : MonoBehaviour {
 
         if (playerStats[0].GetHealth() > playerStats[1].GetHealth())
         {
-            round.roundsWinPlayer1++;
+            round.roundsWinPlayer2++;
             //playeUI
         }
         else if (playerStats[0].GetHealth() < playerStats[1].GetHealth())
         {
-            round.roundsWinPlayer2++;
+            round.roundsWinPlayer1++;
         }
         else
         {
@@ -156,20 +156,30 @@ public class GameManager : MonoBehaviour {
                 //Mostrar Ganador y puntuacion
                 //Mostrar boton para continuar
                 //volver menu
-                Invoke("GoToMenu", 3);
             }
+            Invoke("Fade", 3);
+            Invoke("GoToMenu", 5);
+
         }
         else
         {
             round.roundCur++;
-        }
             StartCoroutine(ChoiseSkills());
+        }
 
         //yield return null;
     }
 
+    void Fade()
+    {
+        FindObjectOfType<FadeImage>().FadeToBlack();
+    }
+
     void GoToMenu()
     {
+        round.roundsWinPlayer1 = 0;
+        round.roundsWinPlayer2 = 0;
+        round.roundCur = 0;
         SceneManager.LoadScene("Menu");
     }
 

@@ -109,7 +109,7 @@ public class PlayeUI : MonoBehaviour {
         }
 
         roundTime.text = gameManager.round.timeCur.ToString("0.00");
-        roundCur.text = (gameManager.round.roundCur + 1).ToString("Round 0");
+        roundCur.text = (gameManager.round.roundCur).ToString("Round 0");
     }
 
     int numPlayer;

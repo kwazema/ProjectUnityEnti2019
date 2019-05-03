@@ -456,6 +456,7 @@ MonoBehaviour:
   - {fileID: 4385557732026770}
   - {fileID: 4385557732026770}
   - {fileID: 4071714438611684}
+  boxReset: {fileID: 61197002837615626}
   playerMovement: {fileID: 0}
   damageBasicAttack: 0
   damageSkill: 0
@@ -465,6 +466,7 @@ MonoBehaviour:
   is_ultimate_ready: 0
   whichIsThisPlayer: 0
   namePlayer: Scepter
+  upgrade_text: []
   distance_attack: {fileID: 4654876691078714}
 --- !u!212 &212076490058607512
 SpriteRenderer:

@@ -485,6 +485,7 @@ MonoBehaviour:
   - {fileID: 4689095201326764}
   - {fileID: 4689095201326764}
   - {fileID: 4818466549228852}
+  boxReset: {fileID: 61022697527698138}
   playerMovement: {fileID: 0}
   damageBasicAttack: 0
   damageSkill: 0
@@ -494,6 +495,7 @@ MonoBehaviour:
   is_ultimate_ready: 0
   whichIsThisPlayer: 0
   namePlayer: Brayan
+  upgrade_text: []
   distance_attack: {fileID: 4401199832456136}
 --- !u!212 &212159867648045562
 SpriteRenderer:

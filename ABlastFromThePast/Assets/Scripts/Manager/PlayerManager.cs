@@ -24,6 +24,8 @@ public class PlayerManager : MonoBehaviour {
     public GameObject[] particles_list;
     public Transform[] particles_pos;
 
+    public BoxCollider2D boxReset;
+
     #region Classes
     public PlayerMovement playerMovement;
     protected Map map;
@@ -285,8 +287,8 @@ public class PlayerManager : MonoBehaviour {
     }
 
     virtual public IEnumerator Die2() {
-        GameObject.Find(name + "/BodyCollider").SetActive(false);
-
+        //GameObject.Find(name + "/BodyCollider").SetActive(false);
+        boxReset.enabled = false;
         // ----------------------- //
 
         playerInput.enabled = false;
@@ -432,5 +434,16 @@ public class PlayerManager : MonoBehaviour {
         shield = shield_max;
         cur_skillCD = 0;
         cur_ultimateCD = 0;
+
+        Color transparency = Color.white;
+        transparency.a = 1f;
+
+        sprite.color = transparency;
+        boxReset.enabled = true;
+
+
+
+        // ----------------------- //
+
     }
 }
