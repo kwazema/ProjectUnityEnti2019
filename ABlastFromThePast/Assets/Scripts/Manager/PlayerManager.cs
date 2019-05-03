@@ -104,6 +104,7 @@ public class PlayerManager : MonoBehaviour {
 
     #region Public Variables
     public string namePlayer;
+    public string[] upgrade_text;
     #endregion
 
     #region Get Functions
@@ -180,6 +181,8 @@ public class PlayerManager : MonoBehaviour {
         //particles_GO = GameObject.Find(name + "/DieParticle");
 
         //particle = GameObject.Find(name + "/DieParticle").GetComponent<ParticleSystem>();
+        upgrade_text = new string[3];
+
     }
 
     protected virtual void Start() {
@@ -353,16 +356,21 @@ public class PlayerManager : MonoBehaviour {
     public virtual void Ultimate() { }
 
     public virtual void Upgrade1(int value1, int value2) {
+        upgrade_text[0] = "You gain " + value1 + " more of maximum health and " + value2 + " of maximum shield.";
         health_max += value1;
         shield_max += value2;
     }
 
     public virtual void Upgrade2(int value1, int value2) {
+        upgrade_text[1] = "You gain " + value1 + " more of basic damage and " + value2 + " of skill damage.";
         damageBasicAttack += value1;
         damageSkill += value2;
     }
 
-    public virtual void Upgrade3(int value1) { damageUltimate += value1; }
+    public virtual void Upgrade3(int value1) {
+        upgrade_text[2] = "You gain " + value1 + " more of ultimate damage.";
+        damageUltimate += value1;
+    }
 
     protected void MovingToPosition(float velocity, int blocks_width = 0, int blocks_height = 0)
     {
