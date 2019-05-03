@@ -310,8 +310,8 @@ public class PlayerManager : MonoBehaviour {
         // ----------------------- //
 
         yield return new WaitForSeconds(3.5f);
-        SceneManager.LoadScene("Menu");
-        //fadeimage y cambio de ronda
+        //SceneManager.LoadScene("Menu");
+        //FindObjectOfType<FadeImage>()
     }
 
     virtual protected void DiyingParticle() { /*Sobrescriura*/ }
@@ -424,7 +424,7 @@ public class PlayerManager : MonoBehaviour {
         Instantiate(particles_list[(int)value], particles_pos[(int)value].position, Quaternion.identity);
     }
 
-    protected void ResetCharacter()
+    public void ResetCharacter()
     {
         playerInput.enabled = true;
         player_att_input.enabled = true;

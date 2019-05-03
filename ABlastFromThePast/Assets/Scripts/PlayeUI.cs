@@ -19,6 +19,7 @@ public class PlayeUI : MonoBehaviour {
     public Text winPlayerRound;
     public Text roundCur;
     public Text[] namePlayer;
+    public Text[] roundsWin;
     public Image[] icon;
     public Image[] sliderHealth;
     public Text[] textHealth;
@@ -74,6 +75,12 @@ public class PlayeUI : MonoBehaviour {
             sliderShield[i].fillAmount = value;
         }
 
+        //for (int i = 0; i < roundsWin.Length; i++)
+        {
+            roundsWin[0].text = gameManager.round.roundsWinPlayer1.ToString();
+            roundsWin[1].text = gameManager.round.roundsWinPlayer2.ToString();
+        }
+
         for (int i = 0; i < sliderSkill.Length; i++)
         {
             float value = (float)gameManager.playerStats[i].GetCurSkillCD() / (float)gameManager.playerStats[i].GetSkillCD();
@@ -117,7 +124,6 @@ public class PlayeUI : MonoBehaviour {
         {
             iconUpgrade[numPlayer].selected[gameManager.round.roundCur - 1].sprite = iconUpgrade[numPlayer].spell[hability].sprite;
             iconUpgrade[numPlayer].button[hability].interactable = false;
-            
         }
         //gameManager.playerStats[numPlayer].numUpgrade++;
         //iconUpgrade[numPlayer].num++;

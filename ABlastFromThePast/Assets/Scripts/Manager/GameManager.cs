@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class Round
@@ -8,14 +9,14 @@ public class Round
     public float timeToStartMax = 5;
     public float timeToStartCur;
 
-    public float timeSet = 5;
+    public float timeSet = 60;
     public float timeCur;
 
     //public int roundMax;
     //public int roundCur;
 
-    public int roundsWinPlayer1;
-    public int roundsWinPlayer2;
+    public int roundsWinPlayer1 = 0;
+    public int roundsWinPlayer2 = 0;
 
     public int roundCur = 0;
     public int roundMax = 3;
@@ -48,7 +49,9 @@ public class GameManager : MonoBehaviour {
 
     //void Start () { }
 
-    //void Update() { }
+    void Update() {
+            Debug.Log("round.roundCur " + round.roundCur);
+    }
 
     public void InitPlayers()
     {
@@ -90,7 +93,6 @@ public class GameManager : MonoBehaviour {
 
             // Class Input Movement
             GameObject.Find(playerStats[i].name).GetComponent<PlayerInput>().enumPlayer = (PlayerInput.EnumPlayer)i;
-
         }
     }
 
@@ -119,9 +121,9 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator TimeRound()
     {
-        round.timeCur = round.timeSet;
+        round.timeCur = 60;
 
-        while (round.timeCur >= 0)
+        while (round.timeCur >= 0 && playerStats[0].GetHealth() > 0 && playerStats[1].GetHealth() > 0)
         {
             //Comprobar si algun persnaje muere si el que gane se lleva round win
             // 
@@ -130,11 +132,12 @@ public class GameManager : MonoBehaviour {
             yield return null;
         }
 
-        round.timeCur = round.timeSet;
+        round.timeCur = 60;
 
         if (playerStats[0].GetHealth() > playerStats[1].GetHealth())
         {
             round.roundsWinPlayer1++;
+            //playeUI
         }
         else if (playerStats[0].GetHealth() < playerStats[1].GetHealth())
         {
@@ -152,15 +155,22 @@ public class GameManager : MonoBehaviour {
             {
                 //Mostrar Ganador y puntuacion
                 //Mostrar boton para continuar
+                //volver menu
+                Invoke("GoToMenu", 3);
             }
         }
         else
         {
             round.roundCur++;
-            StartCoroutine(ChoiseSkills());
         }
+            StartCoroutine(ChoiseSkills());
 
         //yield return null;
+    }
+
+    void GoToMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     IEnumerator ChoiseSkills()
@@ -174,6 +184,8 @@ public class GameManager : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Space)) // un intento
             {
                 choised = true;
+                playerStats[0].ResetCharacter();
+                playerStats[1].ResetCharacter();
                 Debug.Log("Espacio");
             }
 
