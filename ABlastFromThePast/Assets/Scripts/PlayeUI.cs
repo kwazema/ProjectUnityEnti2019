@@ -16,10 +16,12 @@ public class IconUpgrade
 public class PlayeUI : MonoBehaviour {
 
     public Text roundTime;
+    public Text winPlayerRound;
     public Text roundCur;
     public Text[] namePlayer;
     public Image[] icon;
     public Image[] sliderHealth;
+    public Text[] textHealth;
     public Image[] sliderSkill;
     public Image[] iconSkill;
     public Image[] sliderUltimate;
@@ -53,9 +55,7 @@ public class PlayeUI : MonoBehaviour {
                 iconUpgrade[i].spell[j].sprite = gameManager.playerStats[i].upgrade[j];
 
         for (int i = 0; i < namePlayer.Length; i++)
-        {
             namePlayer[i].text = gameManager.playerStats[i].namePlayer;
-        }
     }
 
     private void Update()
@@ -64,6 +64,8 @@ public class PlayeUI : MonoBehaviour {
         {
             float value = (float)gameManager.playerStats[i].GetHealth() / (float)gameManager.playerStats[i].GetHealthMax();
             sliderHealth[i].fillAmount = value;
+
+            textHealth[i].text = gameManager.playerStats[i].GetHealth().ToString();
         }
 
         for (int i = 0; i < sliderShield.Length; i++)
