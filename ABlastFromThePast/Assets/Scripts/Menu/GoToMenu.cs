@@ -13,6 +13,7 @@ public class GoToMenu : MonoBehaviour {
 
 	public void GoBack()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Menu");
     }
 

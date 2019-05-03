@@ -25,6 +25,11 @@ public class PlayerManager : MonoBehaviour {
     protected Vector2 oldPos;
     protected GameManager game_manager;
     protected Animator anim;
+
+    protected SpriteRenderer sprite;
+    protected ParticleSystem particle;
+
+    protected GameObject particles_GO;
     #endregion
 
     #region Private Variables
@@ -158,6 +163,12 @@ public class PlayerManager : MonoBehaviour {
 
         game_manager = FindObjectOfType<GameManager>();
         anim = GameObject.Find(name + "/GraficCharacter").GetComponent<Animator>();
+
+        sprite = GameObject.Find(name + "/GraficCharacter").GetComponent<SpriteRenderer>();
+
+        particles_GO = GameObject.Find(name + "/DieParticle");
+
+        //particle = GameObject.Find(name + "/DieParticle").GetComponent<ParticleSystem>();
     }
 
     protected virtual void Start() {
@@ -254,10 +265,13 @@ public class PlayerManager : MonoBehaviour {
         player_att_input.enabled = true;
     }
 
-    IEnumerator Die2() {
+    virtual public IEnumerator Die2() {
         GameObject.Find(name + "/BodyCollider").SetActive(false);
+
         anim.SetTrigger("dead");
-        yield return new WaitForSeconds(3f);
+
+        yield return new WaitForSeconds(5f);
+
         SceneManager.LoadScene("Menu");
     }
 
