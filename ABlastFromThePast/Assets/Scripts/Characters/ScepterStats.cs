@@ -139,6 +139,7 @@ public class ScepterStats : PlayerManager {
                     (playerMovement.playerRow + j) < map.rowLenth 
                   )
                 {
+                    
                     map.ColorBlocks((pos_column + i), (playerMovement.playerRow + j), Color.red);
 
                     if (map.blocks[(pos_column + i), (playerMovement.playerRow + j)].GetPlayerStatsBlock((int)thisPlayerIs) != null)
@@ -223,6 +224,8 @@ public class ScepterStats : PlayerManager {
 
         while (i < max_blocks) {
             map.ColorBlocks(blocks_affected[i].x, blocks_affected[i].y, Color.red);
+            map.SetAlert(blocks_affected[i].x, blocks_affected[i].y, false);
+
             if (map.blocks[blocks_affected[i].x, blocks_affected[i].y].GetPlayerStatsBlock((int)thisPlayerIs) != null)
             {
                 map.blocks[blocks_affected[i].x, blocks_affected[i].y].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
@@ -244,9 +247,11 @@ public class ScepterStats : PlayerManager {
         GetRandomBlocks();
 
         // Aqui se pintan antes/durante el casteo
+        //
         for (int i = 0; i < max_blocks; i++)
         {
-            map.ColorBlocks(blocks_affected[i].x, blocks_affected[i].y, Color.yellow);
+            //map.ColorBlocks(blocks_affected[i].x, blocks_affected[i].y, Color.yellow);
+            map.SetAlert(blocks_affected[i].x, blocks_affected[i].y, true);
         }
         // ------------------------------------------------------------------------- //
         return base.CastingTime(time_cast);

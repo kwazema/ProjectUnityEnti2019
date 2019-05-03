@@ -71,4 +71,9 @@ public class Map : MonoBehaviour {
     {
         blocks[pos_x, pos_y].spriteBlock.color = color;
     }
+
+    public void SetAlert(int pos_x, int pos_y, bool setBool)
+    {
+        blocks[pos_x, pos_y].anim.SetBool("alert", setBool);
+    }
 }
