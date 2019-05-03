@@ -61,7 +61,7 @@ public class PlayerManager : MonoBehaviour {
     protected int damageUltimate;
 
     [SerializeField]
-    protected int health_max = 200;
+    protected int health_max = 350;
     protected int health;
 
     [SerializeField]

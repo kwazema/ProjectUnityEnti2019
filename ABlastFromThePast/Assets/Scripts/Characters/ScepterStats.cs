@@ -31,11 +31,11 @@ public class ScepterStats : PlayerManager {
         shield = shield_max;
 
         damageBasicAttack = 2;
-        damageSkill = 15;
+        damageSkill = 10;
         damageUltimate = 20;
 
         skillCD = 2;
-        ultimateCD = 5;
+        ultimateCD = 6;
 
         fireRate = 0.1f;
         recoveryShieldTime = 2;

@@ -27,15 +27,14 @@ public class BrayanStats : PlayerManager {
         #region Basic Stats
 
         health = health_max;
-        health = 1;
         shield = shield_max;
 
         damageBasicAttack = 2;
         damageSkill = 15;
-        damageUltimate = 20;
+        damageUltimate = 12;
 
         skillCD = 2;
-        ultimateCD = 5;
+        ultimateCD = 7;
 
         fireRate = 0.1f;
         recoveryShieldTime = 2;
