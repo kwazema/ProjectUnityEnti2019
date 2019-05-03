@@ -17,7 +17,7 @@ public class PlayeUI : MonoBehaviour {
 
     public Text roundTime;
     public Text roundCur;
-    public string[] namePlayer;
+    public Text[] namePlayer;
     public Image[] icon;
     public Image[] sliderHealth;
     public Image[] sliderSkill;
@@ -51,6 +51,11 @@ public class PlayeUI : MonoBehaviour {
         for (int i = 0; i < iconUpgrade.Length; i++)
             for (int j = 0; j < iconUpgrade[i].spell.Length; j++)
                 iconUpgrade[i].spell[j].sprite = gameManager.playerStats[i].upgrade[j];
+
+        for (int i = 0; i < namePlayer.Length; i++)
+        {
+            namePlayer[i].text = gameManager.playerStats[i].namePlayer;
+        }
     }
 
     private void Update()

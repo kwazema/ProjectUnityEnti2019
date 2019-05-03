@@ -45,6 +45,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1305235580645890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4689095201326764}
+  m_Layer: 10
+  m_Name: PointRafactorization
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1325922399976486
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,8 +269,22 @@ Transform:
   - {fileID: 4274588062729322}
   - {fileID: 4401706691043622}
   - {fileID: 4252704370206776}
+  - {fileID: 4689095201326764}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4689095201326764
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1305235580645890}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -22850, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4607682654719020}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4771765798576682
 Transform:
@@ -448,13 +477,13 @@ MonoBehaviour:
   numUpgrade: 0
   particles_list:
   - {fileID: 1946664763775438, guid: 3e2b79eadedb0284788584a6dbe481da, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1675814885617852, guid: c30c61670cffe3a4fb135b351dabdfed, type: 2}
+  - {fileID: 1675814885617852, guid: c30c61670cffe3a4fb135b351dabdfed, type: 2}
   - {fileID: 1993167151364050, guid: f2f2d4412df33e74db4b1d5b6287bb2b, type: 2}
   particles_pos:
   - {fileID: 4274588062729322}
-  - {fileID: 4401706691043622}
-  - {fileID: 4252704370206776}
+  - {fileID: 4689095201326764}
+  - {fileID: 4689095201326764}
   - {fileID: 4818466549228852}
   playerMovement: {fileID: 0}
   damageBasicAttack: 0

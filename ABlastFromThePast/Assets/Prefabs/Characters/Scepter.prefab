@@ -122,6 +122,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1893344693782796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4385557732026770}
+  m_Layer: 10
+  m_Name: PointRefactoriacion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1983954572820804
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,6 +197,19 @@ Transform:
   m_Father: {fileID: 4765537440761146}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4385557732026770
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893344693782796}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17235, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4765537440761146}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4653378086700342
 Transform:
   m_ObjectHideFlags: 1
@@ -228,7 +256,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1983954572820804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -101.77397, y: 79.03437, z: 0}
+  m_LocalPosition: {x: -7.727785, y: -11.230945, z: 0}
   m_LocalScale: {x: 19.636452, y: 19.636488, z: 19.636488}
   m_Children:
   - {fileID: 4653378086700342}
@@ -238,6 +266,7 @@ Transform:
   - {fileID: 4654876691078714}
   - {fileID: 4849021015621642}
   - {fileID: 4727598314769496}
+  - {fileID: 4385557732026770}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -419,13 +448,13 @@ MonoBehaviour:
   numUpgrade: 0
   particles_list:
   - {fileID: 1679335503328374, guid: 9988dc486fc5b90428fe4bb0d58bab6c, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1675814885617852, guid: c30c61670cffe3a4fb135b351dabdfed, type: 2}
+  - {fileID: 1675814885617852, guid: c30c61670cffe3a4fb135b351dabdfed, type: 2}
   - {fileID: 1397736879109224, guid: e3bc6feba6f246948ac54717abb295ea, type: 2}
   particles_pos:
   - {fileID: 4849021015621642}
-  - {fileID: 4727598314769496}
-  - {fileID: 0}
+  - {fileID: 4385557732026770}
+  - {fileID: 4385557732026770}
   - {fileID: 4071714438611684}
   playerMovement: {fileID: 0}
   damageBasicAttack: 0

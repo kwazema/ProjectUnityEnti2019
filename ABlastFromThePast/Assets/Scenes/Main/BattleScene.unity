@@ -1196,7 +1196,7 @@ GameObject:
   - component: {fileID: 183663314}
   - component: {fileID: 183663313}
   m_Layer: 0
-  m_Name: Name
+  m_Name: Name 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1255,8 +1255,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
-    m_FontStyle: 0
+    m_FontSize: 30
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
@@ -1266,7 +1266,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Beholder
+  m_Text: 'Name
+
+'
 --- !u!222 &183663315
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2059,7 +2061,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roundTime: {fileID: 1766663662}
   roundCur: {fileID: 499479829}
-  namePlayer: []
+  namePlayer:
+  - {fileID: 852767833}
+  - {fileID: 183663314}
   icon: []
   sliderHealth:
   - {fileID: 703586750}
@@ -4943,7 +4947,7 @@ GameObject:
   - component: {fileID: 852767833}
   - component: {fileID: 852767832}
   m_Layer: 0
-  m_Name: Name
+  m_Name: Name 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5002,8 +5006,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
-    m_FontStyle: 0
+    m_FontSize: 30
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
@@ -5013,7 +5017,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Mimic
+  m_Text: Name
 --- !u!222 &852767834
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11300,7 +11304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2014799930
 MonoBehaviour:
   m_ObjectHideFlags: 0
