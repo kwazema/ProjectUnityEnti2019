@@ -114,6 +114,8 @@ public class PlayerManager : MonoBehaviour {
     virtual public int GetHealth() { return health; }
     virtual public int GetHealthMax() { return health_max;  }
     virtual public int GetShield() { return shield; }
+    virtual public int GetShieldMax() { return shield_max; }
+
     virtual public bool GetShieldState() { return is_shield_broken; }
     virtual public float GetFireRate() { return fireRate; }
     virtual public bool GetIsShieldActive() { return isShieldActive; }
@@ -236,8 +238,11 @@ public class PlayerManager : MonoBehaviour {
     {
         while (cur_skillCD < skillCD)
         {
-            cur_skillCD++;
-            yield return new WaitForSeconds(1);
+            //cur_skillCD++;
+            //yield return new WaitForSeconds(1);
+            cur_skillCD += Time.deltaTime;
+            yield return null;
+
         }
         is_skill_ready = true;
     }
@@ -246,8 +251,10 @@ public class PlayerManager : MonoBehaviour {
     {
         while (cur_ultimateCD < ultimateCD)
         {
-            cur_ultimateCD++;
-            yield return new WaitForSeconds(1);
+            //cur_ultimateCD++;
+            //yield return new WaitForSeconds(1);
+            cur_ultimateCD += Time.deltaTime;
+            yield return null;
         }
         is_ultimate_ready = true;
     }
@@ -277,14 +284,27 @@ public class PlayerManager : MonoBehaviour {
     virtual public IEnumerator Die2() {
         GameObject.Find(name + "/BodyCollider").SetActive(false);
 
+        // ----------------------- //
+
+        playerInput.enabled = false;
+        player_att_input.enabled = false;
+
+        // ----------------------- //
+
         Color transparency = Color.white;
         transparency.a = .5f;
+
+        // ----------------------- //
 
         sprite.color = transparency;
         DeployParticles(Particles.Die);
 
+        // ----------------------- //
+
         anim.SetTrigger("dead");
         DiyingParticle();
+
+        // ----------------------- //
 
         yield return new WaitForSeconds(3.5f);
         SceneManager.LoadScene("Menu");
@@ -344,7 +364,6 @@ public class PlayerManager : MonoBehaviour {
 
     public virtual void Upgrade3(int value1) { damageUltimate += value1; }
 
-
     protected void MovingToPosition(float velocity, int blocks_width = 0, int blocks_height = 0)
     {
         
@@ -399,6 +418,8 @@ public class PlayerManager : MonoBehaviour {
 
     protected void ResetCharacter()
     {
+        playerInput.enabled = true;
+        player_att_input.enabled = true;
         health = health_max;
         shield = shield_max;
         cur_skillCD = 0;
