@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class BattleChoose : MonoBehaviour {
+public class BattleChoose : MonoBehaviour
+{
     public Text textPlayer;
     public GameManager gameManager;
     public int players;
@@ -17,10 +18,14 @@ public class BattleChoose : MonoBehaviour {
 
     private int numSelected = 0;
 
+    public GameObject[] test;
+    public GameObject prefab;
+
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
         fade = FindObjectOfType<FadeImage>();
+        test = InstantiateBlocks(5, new Vector2Int(-2, -2), 2, 1, 1);
     }
 
     void Start () {
@@ -53,43 +58,55 @@ public class BattleChoose : MonoBehaviour {
         SceneManager.LoadScene("BattleScene");
     }
 
-    public void PlayAI()
-    {
-        SceneManager.LoadScene("SceneAI");
-    }
+    //public void PlayAI()
+    //{
+    //    SceneManager.LoadScene("SceneAI");
+    //}
 
-    public void Return()
-    {
-        SceneManager.LoadScene("Menu");
-    }
+    //public void Return()
+    //{
+    //    SceneManager.LoadScene("Menu");
+    //}
 
     public void setSkull()
     {
         gameManager.playerChoise[numSelected] = 0;
-        Debug.Log("Eres el portador de la muerte");
-        if (numSelected == 0)
-        {
-            p1Skull.SetActive(true);
-        }
+        //if (numSelected == 0)
+        //{
+        //    p1Skull.SetActive(true);
+        //}
 
-        if (numSelected == 1)
-        {
-            p2Skull.SetActive(true);
-        }
+        //if (numSelected == 1)
+        //{
+        //    p2Skull.SetActive(true);
+        //}
     }
 
     public void setScepter()
     {
         gameManager.playerChoise[numSelected] = 1;
-        Debug.Log("La prueba va OK");
-        if (numSelected == 0)
-        {
-            p1Scepter.SetActive(true);
-        }
+        //if (numSelected == 0)
+        //{
+        //    p1Scepter.SetActive(true);
+        //}
 
-        if (numSelected == 1)
-        {
-            p2Scepter.SetActive(true);
-        }
+        //if (numSelected == 1)
+        //{
+        //    p2Scepter.SetActive(true);
+        //}
     }
+
+    GameObject[] InstantiateBlocks(int column, Vector2Int offset, float width, float height, float margin)
+    {
+        GameObject[] test = new GameObject[5];
+
+        for (int i = 0; i < column; i++) // Horizontal
+        {
+            test[i] = Instantiate(prefab);
+            test[i].transform.SetParent(GameObject.Find("Canvas_16_9").transform);
+            test[i].transform.position = offset + new Vector2(i * (width + margin), 0 * -(height + margin));
+        }
+        return test;
+    }
+
 }

@@ -30,8 +30,6 @@ public class MainMenu : MonoBehaviour {
         eventSystem.SetSelectedGameObject(GameObject.Find("ChoosePlayerCat/Brayan")); // Selecciona un nuevo boton
     }
 
-
-
     public void Quit()
     {
         Debug.Log("Quit!");
