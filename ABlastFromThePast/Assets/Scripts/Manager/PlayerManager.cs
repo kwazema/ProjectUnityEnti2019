@@ -186,8 +186,6 @@ public class PlayerManager : MonoBehaviour {
 
         //particle = GameObject.Find(name + "/DieParticle").GetComponent<ParticleSystem>();
         upgrade_text = new string[3];
-
-
     }
 
     protected virtual void Start() {
@@ -198,14 +196,10 @@ public class PlayerManager : MonoBehaviour {
             GameObject.Find(name + "/BodyCollider").layer = 11;
         else
             GameObject.Find(name + "/BodyCollider").layer = 12;
-
     }
 
     protected virtual void Update()
     {
-        Debug.Log("name: " + name);
-        // ----------------------------- //
-
         if (shield <= 0) {
             StartCoroutine(ShieldRecovery());
             is_shield_broken = true;
@@ -225,8 +219,9 @@ public class PlayerManager : MonoBehaviour {
 
         // ----------------------------- //
 
-        if (is_shootting) {
-            DeployParticles(Particles.Attack);       
+        if (is_shootting)
+        {
+            //DeployParticles(Particles.Attack);       
             anim.SetTrigger("is_shooting");
         }
     }
@@ -291,6 +286,14 @@ public class PlayerManager : MonoBehaviour {
     }
 
     virtual public IEnumerator Die2() {
+        anim.SetTrigger("die");
+
+        // ----------------------- //
+
+        DeployParticles(Particles.Die);
+
+        // ----------------------- //
+
         //GameObject.Find(name + "/BodyCollider").SetActive(false);
         boxReset.enabled = false;
         // ----------------------- //
@@ -306,13 +309,7 @@ public class PlayerManager : MonoBehaviour {
         // ----------------------- //
 
         sprite.color = transparency;
-        DeployParticles(Particles.Die);
-
-        // ----------------------- //
-
-        anim.SetTrigger("dead");
-        DiyingParticle();
-
+        
         // ----------------------- //
 
         yield return new WaitForSeconds(3.5f);
@@ -373,7 +370,7 @@ public class PlayerManager : MonoBehaviour {
 
     protected void MovingToPosition(float velocity, int blocks_width = 0, int blocks_height = 0)
     {
-        
+        //anim.SetTrigger("skill");
         float step = velocity * Time.deltaTime;
         if ((Vector2)transform.position == moveToBlock)
         {
@@ -420,10 +417,8 @@ public class PlayerManager : MonoBehaviour {
     }
 
     protected virtual void DeployParticles(Particles value) {
-        //Instantiate(particles_list[(int)value], particles_pos[(int)value].position, Quaternion.identity);
-        Debug.Log("VALUE PARTICLE ARRAY: " + (int)value);
         //particleSystem[(int)value].Play();
-        particleSystem[(int)value].gameObject.SetActive(true);
+        particleSystem[(int)value].gameObject.SetActive(true); //<-- Esta es la valida
     }
 
     public void ResetCharacter()
@@ -440,10 +435,5 @@ public class PlayerManager : MonoBehaviour {
 
         sprite.color = transparency;
         boxReset.enabled = true;
-
-
-
-        // ----------------------- //
-
     }
 }
