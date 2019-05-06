@@ -21,8 +21,11 @@ public class PlayerManager : MonoBehaviour {
     public Sprite[] upgrade;
     public int numUpgrade;
 
-    public GameObject[] particles_list;
-    public Transform[] particles_pos;
+    //public GameObject[] particles_list;
+    //public Transform[] particles_pos;
+
+    public ParticleSystem[] particleSystem;
+    //public Transform particles;
 
     public BoxCollider2D boxReset;
 
@@ -39,8 +42,7 @@ public class PlayerManager : MonoBehaviour {
 
     protected SpriteRenderer sprite;
 
-    //public ParticleSystem particle;
-    //public Transform particles;
+    
     #endregion
 
     #region Private Variables
@@ -418,7 +420,10 @@ public class PlayerManager : MonoBehaviour {
     }
 
     protected virtual void DeployParticles(Particles value) {
-        Instantiate(particles_list[(int)value], particles_pos[(int)value].position, Quaternion.identity);
+        //Instantiate(particles_list[(int)value], particles_pos[(int)value].position, Quaternion.identity);
+        Debug.Log("VALUE PARTICLE ARRAY: " + (int)value);
+        //particleSystem[(int)value].Play();
+        particleSystem[(int)value].gameObject.SetActive(true);
     }
 
     public void ResetCharacter()
