@@ -2,47 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+
 
 public class MainMenu : MonoBehaviour {
 
-   // private FadeImage fade;
+    private EventSystem eventSystem;
 
     private void Awake()
     {
-        //fade = FindObjectOfType<FadeImage>();
+        eventSystem = FindObjectOfType<EventSystem>();
     }
 
-    public void Play() 
+    public void PlayEng() 
     {
-        //fade.FadeToBlack();
-        //Invoke("LoadSceneModoJuego", 4); // Tambien se puede usar un star corountine si se hicieran muchas llamanadas
-        //StartCoroutine(Test());
+        //eventSystem.firstSelectedGameObject = GameObject.Find("ChoosePlayerEng/Brayan");
+        eventSystem.SetSelectedGameObject(GameObject.Find("ChoosePlayerEng/Brayan")); // Selecciona un nuevo boton
     }
 
-    //private void LoadSceneModoJuego()
-    //{
-    //    SceneManager.LoadScene("Modojuego");
-    //}
-
-    //IEnumerator Test()
-    //{
-
-    //    yield return new WaitForSeconds(3f);
-    //    SceneManager.LoadScene("Modojuego");
-
-    //}
-
-    public void Practice()
+    public void PlayEsp() 
     {
-        Debug.Log("Practica moffo!");
-        //SceneManager.LoadScene("SampleScene");
+        eventSystem.SetSelectedGameObject(GameObject.Find("ChoosePlayerEsp/Brayan")); // Selecciona un nuevo boton
     }
 
-    public void Online()
+    public void PlayCat()
     {
-        Debug.Log("About to get rekt");
-        //SceneManager.LoadScene("SampleScene");
+        eventSystem.SetSelectedGameObject(GameObject.Find("ChoosePlayerCat/Brayan")); // Selecciona un nuevo boton
     }
+
+
 
     public void Quit()
     {

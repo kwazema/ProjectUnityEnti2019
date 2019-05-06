@@ -280,7 +280,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 23958439}
-  - component: {fileID: 23958440}
   m_Layer: 5
   m_Name: MainMenuEng
   m_TagString: Untagged
@@ -313,17 +312,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &23958440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 23958438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b4f6fe5bf13f04d8a9df3b48514ef4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &25396744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,7 +1556,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6039216, g: 0.5176471, b: 0.34117648, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -2215,7 +2203,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1148958876}
+      - m_Target: {fileID: 0}
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -5337,7 +5325,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1148958876}
+      - m_Target: {fileID: 0}
         m_MethodName: Practice
         m_Mode: 1
         m_Arguments:
@@ -6948,7 +6936,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.5000011, y: -50.52014}
+  m_AnchoredPosition: {x: -0.5000011, y: -50.520264}
   m_SizeDelta: {x: 1000, y: 197}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &594076698
@@ -8610,8 +8598,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 733507378}
+    m_SelectOnDown: {fileID: 2068968020}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -8650,6 +8638,17 @@ MonoBehaviour:
       - m_Target: {fileID: 2109041646}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 957830186}
+        m_MethodName: PlayEng
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10606,7 +10605,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1417395495}
+      - m_Target: {fileID: 0}
         m_MethodName: Practice
         m_Mode: 1
         m_Arguments:
@@ -10664,6 +10663,7 @@ GameObject:
   - component: {fileID: 957830182}
   - component: {fileID: 957830181}
   - component: {fileID: 957830185}
+  - component: {fileID: 957830186}
   m_Layer: 5
   m_Name: Canvas_16_9
   m_TagString: Untagged
@@ -10770,6 +10770,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volumeBar: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+--- !u!114 &957830186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 957830180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b4f6fe5bf13f04d8a9df3b48514ef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &962272583
 GameObject:
   m_ObjectHideFlags: 0
@@ -12117,7 +12128,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1148958876}
+      - m_Target: {fileID: 0}
         m_MethodName: Online
         m_Mode: 1
         m_Arguments:
@@ -12728,7 +12739,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.6039216, g: 0.5176471, b: 0.34117648, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -13097,7 +13108,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1148958875}
-  - component: {fileID: 1148958876}
   m_Layer: 5
   m_Name: MainMenuEsp
   m_TagString: Untagged
@@ -13130,17 +13140,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1148958876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1148958874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b4f6fe5bf13f04d8a9df3b48514ef4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1158896821
 GameObject:
   m_ObjectHideFlags: 0
@@ -13424,7 +13423,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1417395495}
+      - m_Target: {fileID: 0}
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -16166,7 +16165,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1417395494}
-  - component: {fileID: 1417395495}
   m_Layer: 5
   m_Name: MainMenuCat
   m_TagString: Untagged
@@ -16199,17 +16197,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1417395495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1417395493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3b4f6fe5bf13f04d8a9df3b48514ef4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1428165597
 GameObject:
   m_ObjectHideFlags: 0
@@ -16447,7 +16434,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 23958440}
+      - m_Target: {fileID: 0}
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -17926,7 +17913,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1417395495}
+      - m_Target: {fileID: 0}
         m_MethodName: Online
         m_Mode: 1
         m_Arguments:
@@ -18395,7 +18382,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 733507376}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1626214546
@@ -19942,7 +19929,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 23958440}
+      - m_Target: {fileID: 0}
         m_MethodName: Online
         m_Mode: 1
         m_Arguments:
@@ -21285,7 +21272,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1837899612016144, guid: 83e7e3e46f2ee0944a2faf333b230f19, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 83e7e3e46f2ee0944a2faf333b230f19, type: 2}
@@ -22890,7 +22877,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.5000011, y: -50.52014}
+  m_AnchoredPosition: {x: -0.5000011, y: -50.520264}
   m_SizeDelta: {x: 1000, y: 197}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1934943353
@@ -24288,7 +24275,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 23958440}
+      - m_Target: {fileID: 0}
         m_MethodName: Practice
         m_Mode: 1
         m_Arguments:
