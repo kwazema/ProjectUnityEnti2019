@@ -26,7 +26,7 @@ public class Map : MonoBehaviour {
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
-        blocks = InstantiateBlocks(columnLenth, rowLenth, new Vector2Int(-14, 5), 3.15f, 2.15f, 1f);
+        blocks = InstantiateBlocks(columnLenth, rowLenth, new Vector2(-14.5f, 3.3f), 3.15f, 2.15f, 1f);
 
         gameManager.InitPlayers();
     }
@@ -44,7 +44,7 @@ public class Map : MonoBehaviour {
         }
     }
 
-    StatsBlock[,] InstantiateBlocks(int column, int row, Vector2Int offset, float width, float height, float margin)
+    StatsBlock[,] InstantiateBlocks(int column, int row, Vector2 offset, float width, float height, float margin)
     {
         StatsBlock[,] blocks = new StatsBlock[column, row];
 

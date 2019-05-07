@@ -20,7 +20,7 @@ public class BattleChoose : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         fade = FindObjectOfType<FadeImage>();
-        button = InstantiateButtons(5, new Vector2Int(-6, 1), 2, 1, 1);
+        button = InstantiateButtons(12, 6, new Vector2(-6.5f, 1), 1.5f, 1.2f, 1);
     }
 
     void Start () {
@@ -70,16 +70,31 @@ public class BattleChoose : MonoBehaviour
         SceneManager.LoadScene("BattleScene");
     }
 
-    ButtonSelector[] InstantiateButtons(int numCharacters, Vector2Int offset, float width, float height, float margin)
+    ButtonSelector[] InstantiateButtons(int numCharacters, int buttonInRow, Vector2 offset, float width, float height, float margin)
     {
         ButtonSelector[] button = new ButtonSelector[numCharacters];
+        int h = 0;
+        int w = 0;
 
-        for (int i = 0; i < numCharacters; i++) // Horizontal
+        for (int i = 0; i < numCharacters ; i++) // Horizontal
         {
-            button[i] = Instantiate(prefabButton).GetComponent<ButtonSelector>();
-            button[i].transform.SetParent(transform);
-            button[i].numButton = i;
-            button[i].transform.position = offset + new Vector2(i * (width + margin), 0 * -(height + margin));
+            //numCharacters / buttonInRow
+           button[i] = Instantiate(prefabButton).GetComponent<ButtonSelector>();
+           button[i].transform.SetParent(transform);
+           button[i].numButton = i;
+           button[i].transform.position = offset + new Vector2(w * (width + margin), h * -(height + margin));
+
+            w++;
+
+            if (w == buttonInRow)
+            {
+                h++;
+                w = 0;
+                // Se podria calcular si por algun casual no fuera pa, la fila que le falten botones que esten en medio
+            }
+
+            if (i >= gameManager.objectPlayer.Length)
+                button[i].SetInterectable(false);
         }
 
         for (int i = 0; i < gameManager.logoPlayer.Length; i++)

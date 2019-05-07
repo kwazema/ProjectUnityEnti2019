@@ -30,26 +30,22 @@ public class PlayeUI : MonoBehaviour {
     public Image[] sliderUltimate;
     public Image[] sliderShield;
     public IconUpgrade[] iconUpgrade;
-    //public Image[] button;
+
     Color transparency = Color.white;
 
-    //public Image[] iconUpgradePlayer2;
-    //public int numUpgradePlayer1;
-    //public int numUpgradePlayer2;
-
+    public BattleSystem battleSystem;
     public GameObject skills;
-
     private GameManager gameManager;
 
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
-        gameManager.playeUI = this;
+        //gameManager.playeUI = this;
     }
 
     private void Start()
     {
-        gameManager.StartBattle();
+        battleSystem.StartBattle();
 
         for (int i = 0; i < iconUpgrade.Length; i++)
             for (int j = 0; j < iconUpgrade[i].spell.Length; j++)
@@ -81,10 +77,10 @@ public class PlayeUI : MonoBehaviour {
             sliderShield[i].fillAmount = value;
         }
 
-        //for (int i = 0; i < roundsWin.Length; i++)
+        ////for (int i = 0; i < roundsWin.Length; i++)
         {
-            roundsWin[0].text = gameManager.round.roundsWinPlayer1.ToString();
-            roundsWin[1].text = gameManager.round.roundsWinPlayer2.ToString();
+            roundsWin[0].text = battleSystem.round.roundsWinPlayer1.ToString();
+            roundsWin[1].text = battleSystem.round.roundsWinPlayer2.ToString();
         }
 
         for (int i = 0; i < sliderSkill.Length; i++)
@@ -114,8 +110,8 @@ public class PlayeUI : MonoBehaviour {
             sliderUltimate[i].fillAmount = value;
         }
 
-        roundTime.text = gameManager.round.timeCur.ToString("0.00");
-        roundCur.text = (gameManager.round.roundCur).ToString("Round 0");
+        roundTime.text = battleSystem.round.timeCur.ToString("0.00");
+        roundCur.text = (battleSystem.round.roundCur).ToString("Round 0");
     }
 
     int numPlayer;
@@ -126,9 +122,9 @@ public class PlayeUI : MonoBehaviour {
 
     public void ActiveHability(int hability)
     {
-        if (gameManager.round.roundCur - 1 < 3)
+        if (battleSystem.round.roundCur - 1 < 3)
         {
-            iconUpgrade[numPlayer].selected[gameManager.round.roundCur - 1].sprite = iconUpgrade[numPlayer].spell[hability].sprite;
+            iconUpgrade[numPlayer].selected[battleSystem.round.roundCur - 1].sprite = iconUpgrade[numPlayer].spell[hability].sprite;
             iconUpgrade[numPlayer].button[hability].interactable = false;
 
                 switch (hability)
@@ -139,10 +135,7 @@ public class PlayeUI : MonoBehaviour {
 
                     case 2: gameManager.playerStats[numPlayer].Upgrade3(); break;
                 }
-
         }
-
-
         //gameManager.playerStats[numPlayer].numUpgrade++;
         //iconUpgrade[numPlayer].num++;
     }
@@ -151,7 +144,7 @@ public class PlayeUI : MonoBehaviour {
     public GameObject winPlayer2;
     public void WinPlayer()
     {
-        if (gameManager.round.roundsWinPlayer1 > gameManager.round.roundsWinPlayer2)
+        if (battleSystem.round.roundsWinPlayer1 > battleSystem.round.roundsWinPlayer2)
         {
             //win1 
             winPlayer2.SetActive(true);

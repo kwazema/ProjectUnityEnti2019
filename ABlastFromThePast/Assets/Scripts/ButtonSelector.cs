@@ -9,6 +9,7 @@ public class ButtonSelector : MonoBehaviour {
     public Animator animSelector;
     public EventTrigger eventTrigger;
     public SpriteRenderer sp;
+    private Button button;
 
     private BattleChoose battleChoose;
     private bool buttonSelected;
@@ -18,6 +19,7 @@ public class ButtonSelector : MonoBehaviour {
     private void Awake()
     {
         eventTrigger = GetComponent<EventTrigger>();
+        button = GetComponent<Button>();
         battleChoose = FindObjectOfType<BattleChoose>();
     }
 
@@ -109,5 +111,10 @@ public class ButtonSelector : MonoBehaviour {
         numButton = 0;
         buttonSelected = false; //hacer ResetTrigger
         animSelector.SetTrigger("None");
+    }
+
+    public void SetInterectable(bool value)
+    {
+        button.interactable = value;
     }
 }
