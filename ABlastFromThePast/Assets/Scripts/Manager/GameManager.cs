@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour {
 
     public PlayerManager[] playerStats;
     public GameObject[] objectPlayer;
+    public Sprite[] logoPlayer;
+
     public static GameManager instance = null;
 
     //public PlayerManager[] playerManager;

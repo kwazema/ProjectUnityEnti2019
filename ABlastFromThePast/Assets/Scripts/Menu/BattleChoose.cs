@@ -11,26 +11,36 @@ public class BattleChoose : MonoBehaviour
     public int players;
     private FadeImage fade;
 
-    public GameObject p1Skull;
-    public GameObject p2Skull;
-    public GameObject p1Scepter;
-    public GameObject p2Scepter;
+    public int numSelected = 0;
 
-    private int numSelected = 0;
-
-    public GameObject[] test;
-    public GameObject prefab;
+    public ButtonSelector[] button;
+    public GameObject prefabButton;
 
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
         fade = FindObjectOfType<FadeImage>();
-        test = InstantiateBlocks(5, new Vector2Int(-2, -2), 2, 1, 1);
+        button = InstantiateButtons(5, new Vector2Int(-6, 1), 2, 1, 1);
     }
 
     void Start () {
         gameManager.playerChoise = new int[players];
         textPlayer.text = "Choose for Player " + (numSelected+1);
+    }
+
+    bool loadScene = false;
+    private void Update()
+    {
+        if (numSelected >= 2 && !loadScene)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Invoke("FadeToImage", 1);
+                Invoke("LoadSceneBattleScene", 3);
+
+                loadScene = true;
+            }
+        }
     }
 
     public void Play()
@@ -39,12 +49,14 @@ public class BattleChoose : MonoBehaviour
         {
             textPlayer.text = "Choose for Player " + (numSelected + 2);
         }
-        
-        if (numSelected == 1)
+        else if (numSelected == 1)
         {
-            Invoke("FadeToImage", 1);
-            Invoke("LoadSceneBattleScene", 3);
+            textPlayer.text = "¿Ready?";
+
+            // Desliza de abajo a arriba "Ready"
+            // en pequeño "Press Select/Space for Start"
         }
+
         numSelected++;
     }
 
@@ -58,55 +70,23 @@ public class BattleChoose : MonoBehaviour
         SceneManager.LoadScene("BattleScene");
     }
 
-    //public void PlayAI()
-    //{
-    //    SceneManager.LoadScene("SceneAI");
-    //}
-
-    //public void Return()
-    //{
-    //    SceneManager.LoadScene("Menu");
-    //}
-
-    public void setSkull()
+    ButtonSelector[] InstantiateButtons(int numCharacters, Vector2Int offset, float width, float height, float margin)
     {
-        gameManager.playerChoise[numSelected] = 0;
-        //if (numSelected == 0)
-        //{
-        //    p1Skull.SetActive(true);
-        //}
+        ButtonSelector[] button = new ButtonSelector[numCharacters];
 
-        //if (numSelected == 1)
-        //{
-        //    p2Skull.SetActive(true);
-        //}
-    }
-
-    public void setScepter()
-    {
-        gameManager.playerChoise[numSelected] = 1;
-        //if (numSelected == 0)
-        //{
-        //    p1Scepter.SetActive(true);
-        //}
-
-        //if (numSelected == 1)
-        //{
-        //    p2Scepter.SetActive(true);
-        //}
-    }
-
-    GameObject[] InstantiateBlocks(int column, Vector2Int offset, float width, float height, float margin)
-    {
-        GameObject[] test = new GameObject[5];
-
-        for (int i = 0; i < column; i++) // Horizontal
+        for (int i = 0; i < numCharacters; i++) // Horizontal
         {
-            test[i] = Instantiate(prefab);
-            test[i].transform.SetParent(GameObject.Find("Canvas_16_9").transform);
-            test[i].transform.position = offset + new Vector2(i * (width + margin), 0 * -(height + margin));
+            button[i] = Instantiate(prefabButton).GetComponent<ButtonSelector>();
+            button[i].transform.SetParent(transform);
+            button[i].numButton = i;
+            button[i].transform.position = offset + new Vector2(i * (width + margin), 0 * -(height + margin));
         }
-        return test;
-    }
 
+        for (int i = 0; i < gameManager.logoPlayer.Length; i++)
+        {
+            button[i].sp.sprite = gameManager.logoPlayer[i];
+        }
+
+        return button;
+    }
 }
