@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 61719721073220606}
   - component: {fileID: 95448385721787732}
   m_Layer: 10
-  m_Name: Brayan
+  m_Name: Santa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -631,7 +631,7 @@ MonoBehaviour:
   is_skill_ready: 0
   is_ultimate_ready: 0
   whichIsThisPlayer: 0
-  namePlayer: Brayan
+  namePlayer: Santa
   upgrade_text: []
   distance_attack: {fileID: 4401199832456136}
 --- !u!198 &198190809673731008

@@ -103,4 +103,11 @@ public class ButtonSelector : MonoBehaviour {
             }       
         }
     }
+
+    public void ResetButton()
+    {
+        numButton = 0;
+        buttonSelected = false; //hacer ResetTrigger
+        animSelector.SetTrigger("None");
+    }
 }

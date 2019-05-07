@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour {
 
             switch (playerChoise[i])
             {
-                case 0: playerStats[i] = Instantiate(objectPlayer[playerChoise[i]]).GetComponent<BrayanStats>();  break;
+                case 0: playerStats[i] = Instantiate(objectPlayer[playerChoise[i]]).GetComponent<SantaStats>();  break;
                 case 1: playerStats[i] = Instantiate(objectPlayer[playerChoise[i]]).GetComponent<ScepterStats>(); break;
             }
             playerStats[i].name = (playerStats[i].namePlayer + (i + 1));

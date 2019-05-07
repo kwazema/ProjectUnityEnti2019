@@ -89,4 +89,13 @@ public class BattleChoose : MonoBehaviour
 
         return button;
     }
+
+    public void ResetChoised()
+    {
+        for (int i = 0; i < button.Length; i++)
+        {
+            button[i].ResetButton();
+        }
+        numSelected = 0;
+    }
 }
