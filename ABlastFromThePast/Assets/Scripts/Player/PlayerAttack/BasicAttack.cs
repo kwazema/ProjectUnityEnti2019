@@ -25,6 +25,12 @@ public class BasicAttack : MonoBehaviour {
         Destroy(gameObject);
     }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.name != "block(Clone)")
+        Destroy(gameObject);
+    }
+
     private void CheckField()
     {
         if (shot.position.x > 20 || shot.position.x < -20)    

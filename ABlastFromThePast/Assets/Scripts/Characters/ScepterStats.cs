@@ -163,7 +163,7 @@ public class ScepterStats : PlayerManager {
         if (cur_ultimateCD >= ultimateCD)
         {
             is_ultimateOn = true;
-            StartCoroutine(CastingTime(3));
+            StartCoroutine(CastingTime(1));
         }
     }
 
@@ -226,7 +226,7 @@ public class ScepterStats : PlayerManager {
         is_ultimateOn = false;
 
         int i = 0;
-        float time_waiting = 0.5f;
+        float time_waiting = 0.35f;
 
         while (i < max_blocks) {
             map.ColorBlocks(blocks_affected[i].x, blocks_affected[i].y, Color.red);

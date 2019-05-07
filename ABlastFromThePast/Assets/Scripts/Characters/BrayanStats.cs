@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BrayanStats : PlayerManager {
-
-    
-
     #region Internal Variables
         public Transform distance_attack;
         int blocks_width;
@@ -29,9 +26,9 @@ public class BrayanStats : PlayerManager {
         // -------------------------------------------------- //
 
         #region Basic Stats
-
+        //health_max = 1;
         health = health_max;
-        shield = shield_max;
+            shield = shield_max;
 
         damageBasicAttack = 2;
         damageSkill = 15;
@@ -146,7 +143,8 @@ public class BrayanStats : PlayerManager {
     public override void Ultimate()
     {
         if (cur_ultimateCD >= ultimateCD) {
-            DeployParticles(Particles.Ultimate);
+            anim.SetTrigger("ultimate");
+            //DeployParticles(Particles.Ultimate);
             StartCoroutine(CastingTime(2));
         }
     }
