@@ -26,10 +26,9 @@ public class BrayanStats : PlayerManager {
         // -------------------------------------------------- //
 
         #region Basic Stats
-        health_max = 1;
+        //health_max = 1;
         health = health_max;
-        
-        shield = shield_max;
+            shield = shield_max;
 
         damageBasicAttack = 2;
         damageSkill = 15;

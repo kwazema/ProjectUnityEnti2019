@@ -13,7 +13,9 @@ public class PlayerManager : MonoBehaviour {
         Die,
         Attack,
         Skill,
-        Ultimate
+        Ultimate,
+        Hit,
+        Move
     }
 
     // Añadir las imagenes en el prefab
@@ -38,7 +40,8 @@ public class PlayerManager : MonoBehaviour {
     protected GameObject player;
     protected Vector2 oldPos;
     protected GameManager game_manager;
-    protected Animator anim;
+    //protected Animator anim;
+    public Animator anim;
 
     protected SpriteRenderer sprite;
 
@@ -216,14 +219,6 @@ public class PlayerManager : MonoBehaviour {
 
         if (cur_ultimateCD == 0)
             StartCoroutine(UltimateRecovery());
-
-        // ----------------------------- //
-
-        if (is_shootting)
-        {
-            //DeployParticles(Particles.Attack);       
-            anim.SetTrigger("is_shooting");
-        }
     }
 
     virtual public IEnumerator ShieldRecovery()
@@ -296,6 +291,7 @@ public class PlayerManager : MonoBehaviour {
 
         //GameObject.Find(name + "/BodyCollider").SetActive(false);
         boxReset.enabled = false;
+        
         // ----------------------- //
 
         playerInput.enabled = false;
@@ -317,12 +313,10 @@ public class PlayerManager : MonoBehaviour {
         //FindObjectOfType<FadeImage>()
     }
 
-    virtual protected void DiyingParticle() { /*Sobrescriura*/ }
-
-    void Die()
-    {
-        SceneManager.LoadScene("Modojuego");
-    }
+    //void Die()
+    //{
+    //    SceneManager.LoadScene("Modojuego");
+    //}
 
     virtual public void TakeDamage(int enemyDamage)
     {
@@ -370,7 +364,6 @@ public class PlayerManager : MonoBehaviour {
 
     protected void MovingToPosition(float velocity, int blocks_width = 0, int blocks_height = 0)
     {
-        //anim.SetTrigger("skill");
         float step = velocity * Time.deltaTime;
         if ((Vector2)transform.position == moveToBlock)
         {
@@ -436,4 +429,19 @@ public class PlayerManager : MonoBehaviour {
         sprite.color = transparency;
         boxReset.enabled = true;
     }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        DeployParticles(Particles.Hit);
+
+        if (thisPlayerIs == ThisPlayerIs.Player1)
+        {
+            game_manager.playerStats[0].TakeDamage(GetDamageBasicAttack());
+        }
+        else
+        {
+            game_manager.playerStats[1].TakeDamage(GetDamageBasicAttack());
+        }
+    }
+
 }

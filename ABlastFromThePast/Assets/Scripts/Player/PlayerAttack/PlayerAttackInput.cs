@@ -52,10 +52,20 @@ public class PlayerAttackInput : MonoBehaviour
 
     private void GetInputPlayer1()
     {
+        if (Input.GetButton("Attack0"))
+            playerManager[0].anim.SetBool("attack", true);
+        else
+            playerManager[0].anim.SetBool("attack", false);
+
+        // ----------------------- // 
+
         if (Input.GetButton("Attack0") && !playerMove.GetIsMoving() && Time.time > nextFire && !playerManager[0].GetIsShieldActive())
+        {
             BasicAttack();
-        else 
+        }
+        else {
             playerManager[0].SetIsShootting(false);
+        }
 
         // ----------------------- //
 
@@ -73,16 +83,23 @@ public class PlayerAttackInput : MonoBehaviour
         if (Input.GetButton("Shield0") && !playerManager[0].GetShieldState() && !playerManager[0].GetIsShootting())
             ActiveShield();
         else
-            DeactivateShield(); 
+            DeactivateShield();
     }
 
     private void GetInputPlayer2()
     {
+        if (Input.GetButton("Attack1"))
+            playerManager[1].anim.SetBool("attack", true);
+        else
+            playerManager[1].anim.SetBool("attack", false);
+
+        // ----------------------- // 
+
         if (Input.GetButton("Attack1") && !playerMove.GetIsMoving() && Time.time > nextFire && !playerManager[1].GetIsShieldActive())
             BasicAttack();
         else
             playerManager[1].SetIsShootting(false);
-
+        
         // ----------------------- //
 
         if (Input.GetButtonDown("Skill1") && playerManager[1].GetIsSkillReady() && !playerManager[1].GetIsShootting() && !playerMove.GetIsMoving())
@@ -103,6 +120,7 @@ public class PlayerAttackInput : MonoBehaviour
 
     void BasicAttack()
     {
+        
         playerManager[(int)enumPlayer].SetIsShootting(true);
         
         // Cada vez que disparas te iguala el time.time y despues le sumas el fireRate 
@@ -152,16 +170,16 @@ public class PlayerAttackInput : MonoBehaviour
         playerManager[numPlayer].Ultimate();
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
-    {
+    //private void OnCollisionEnter2D(Collision2D col)
+    //{
 
-        if (EnumPlayer.Player1 == enumPlayer)
-        {
-            playerManager[0].TakeDamage(playerManager[1].GetDamageBasicAttack());
-        }
-        else
-        {
-            playerManager[1].TakeDamage(playerManager[0].GetDamageBasicAttack());
-        }
-    }
+    //    if (EnumPlayer.Player1 == enumPlayer)
+    //    {
+    //        playerManager[0].TakeDamage(playerManager[1].GetDamageBasicAttack());
+    //    }
+    //    else
+    //    {
+    //        playerManager[1].TakeDamage(playerManager[0].GetDamageBasicAttack());
+    //    }
+    //}
 }
