@@ -26,9 +26,9 @@ public class SantaStats : PlayerManager {
         // -------------------------------------------------- //
 
         #region Basic Stats
-        //health_max = 1;
+        health_max = 1;
         health = health_max;
-            shield = shield_max;
+        shield = shield_max;
 
         damageBasicAttack = 2;
         damageSkill = 15;
@@ -134,6 +134,11 @@ public class SantaStats : PlayerManager {
                 if (map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].GetPlayerStatsBlock((int)thisPlayerIs) != null)
                 {
                     map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
+
+                    GameObject GravityHitParticle;
+                    Vector2 particles_spot = map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].transform.position;
+                    GravityHitParticle = Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.GravityHit], particles_spot, Quaternion.identity);
+                    GravityHitParticle.SetActive(true);
                 }
             }
         }
@@ -144,23 +149,29 @@ public class SantaStats : PlayerManager {
     {
         if (cur_ultimateCD >= ultimateCD) {
             anim.SetTrigger("ultimate");
-            //DeployParticles(Particles.Ultimate);
+            DeployParticles(Particles.UltimateCast);
             StartCoroutine(CastingTime(2));
         }
     }
     
     IEnumerator Leech(float use_time)
     {
-     
         is_ultimateOn = false;
         cast_ended = false;
         float time = 0;
+        Vector2 enemy_position = game_manager.playerStats[player_to_attack].transform.position;
+        enemy_position = new Vector2(enemy_position.x, enemy_position.y + 1);
+
+        GameObject LeechEffect;
 
         while (time < use_time)
         {
             game_manager.playerStats[player_to_attack].TakeDamage(GetDamageUltimate());
-            health += (GetDamageUltimate() / 2);
 
+            LeechEffect = Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.Leech], enemy_position, Quaternion.identity);
+            LeechEffect.SetActive(true);
+
+            health += (GetDamageUltimate() / 3);
             if (health > health_max)
                 health = health_max;
 

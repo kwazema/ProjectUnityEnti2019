@@ -15,7 +15,14 @@ public class PlayerManager : MonoBehaviour {
         Skill,
         Ultimate,
         Hit,
-        Move
+        Move,
+        UltimateCast,
+        UltimateEffect
+    }
+
+    [SerializeField] public enum ParticlesSkills{
+        Leech,
+        GravityHit
     }
 
     // Añadir las imagenes en el prefab
@@ -26,7 +33,13 @@ public class PlayerManager : MonoBehaviour {
     //public GameObject[] particles_list;
     //public Transform[] particles_pos;
 
+    [Header("<-- Array Particles -->")]
     public ParticleSystem[] particleSystem;
+    
+    [Header("<-- Exclusive Particles -->")]
+    public GameObject[] ParticlesToInstantiate;
+
+
     //public Transform particles;
 
     public BoxCollider2D boxReset;
@@ -217,7 +230,7 @@ public class PlayerManager : MonoBehaviour {
 
         // ----------------------------- //
 
-        if (cur_ultimateCD == 0)
+        if (cur_ultimateCD == 0 && !is_ultimate_ready)
             StartCoroutine(UltimateRecovery());
     }
 
@@ -338,11 +351,8 @@ public class PlayerManager : MonoBehaviour {
         {
             health = 0;
             StartCoroutine(Die2());
-            //Die();
         }
     }
-
-    //#region Hability Skills
 
     public virtual void Skill(float cooldown = 0, float timeToRetorn = 0) { }
 
@@ -409,7 +419,7 @@ public class PlayerManager : MonoBehaviour {
         }
     }
 
-    protected virtual void DeployParticles(Particles value) {
+    public virtual void DeployParticles(Particles value) {
         //particleSystem[(int)value].Play();
         particleSystem[(int)value].gameObject.SetActive(true); //<-- Esta es la valida
     }
