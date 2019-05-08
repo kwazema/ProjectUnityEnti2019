@@ -26,7 +26,7 @@ public class SantaStats : PlayerManager {
         // -------------------------------------------------- //
 
         #region Basic Stats
-        health_max = 1;
+        //health_max = 1;
         health = health_max;
         shield = shield_max;
 
@@ -134,11 +134,6 @@ public class SantaStats : PlayerManager {
                 if (map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].GetPlayerStatsBlock((int)thisPlayerIs) != null)
                 {
                     map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
-
-                    GameObject GravityHitParticle;
-                    Vector2 particles_spot = map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].transform.position;
-                    GravityHitParticle = Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.GravityHit], particles_spot, Quaternion.identity);
-                    GravityHitParticle.SetActive(true);
                 }
             }
         }

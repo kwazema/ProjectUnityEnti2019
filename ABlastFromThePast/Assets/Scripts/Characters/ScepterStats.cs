@@ -162,6 +162,7 @@ public class ScepterStats : PlayerManager {
     {
         if (cur_ultimateCD >= ultimateCD)
         {
+            anim.SetTrigger("ultimate");
             is_ultimateOn = true;
             StartCoroutine(CastingTime(1));
         }
