@@ -13,31 +13,51 @@ public class IconUpgrade
     public int num = 0;
 }
 
-public class PlayeUI : MonoBehaviour {
-
+public class PlayerReferences
+{
     public Image[] healthImage;
     public Image[] damagedHealthImage;
+
     private float damageFadeTimerCur;
     private float damageFadeTimerMax = 2f;
+
+    public Text namePlayer;
+    public Text descriptionPlayer1;
+    public Text descriptionPlayer2;
+    public Text roundsWin;
+    public Image icon;
+    public Text textHealth;
+    public Image sliderSkill;
+    public Image iconSkill;
+    public Image sliderUltimate;
+    public Image sliderShield;
+    public IconUpgrade iconUpgrade;
+
+    public void UpdateSprite(Sprite sprite)
+    {
+    }
+
+    public void InitName(Text name)
+    {
+        name.text = GameManager.instance.playerStats[0].namePlayer;
+    }
+
+    //  Hacer funciones para cada uso
+    // Si no puedo acceder a gameManager porque esta fuera de esta clase cual es la mejor forma?
+    // En que casos una clase hay que crearla en un scripts a Parte.
+
+}
+
+public class PlayeUI : MonoBehaviour {
+
     //https://www.youtube.com/watch?v=oLEEPL2WmAk //min 25
     // hacer que la barra verde haga un flash blanco cuando te hacen daño
-    //------------------------//
 
     private Text roundTime;
     private Text winPlayerRound;
     private Text roundCur;
-    private Text[] namePlayer;
-    private Text[] descriptionPlayer1;
-    private Text[] descriptionPlayer2;
-    private Text[] roundsWin;
-    private Image[] icon;
-    private Text[] textHealth;
-    private Image[] sliderSkill;
-    private Image[] iconSkill;
-    private Image[] sliderUltimate;
-    private Image[] sliderShield;
-    private IconUpgrade[] iconUpgrade;
 
+    public PlayerReferences leftPlayer, rightPlayer;
     Color transparency = Color.white;
 
     public BattleSystem battleSystem;
@@ -48,15 +68,15 @@ public class PlayeUI : MonoBehaviour {
     {
         //healthImage[i] = transform.Find("player_1/health").Find("bar").GetComponent<Image>(); // Busca los hijos
 
-        healthImage = new Image[2];
-        damagedHealthImage = new Image[2];
+        //healthImage = new Image[2];
+        //damagedHealthImage = new Image[2];
         
-        for (int i = 0; i < 2; i++)
-        {
-            string player = "player_" + (i + 1);
-            healthImage[i] = GameObject.Find(player + "/health/bar").GetComponent<Image>();
-            damagedHealthImage[i] = GameObject.Find(player + "/health/damaged").GetComponent<Image>();
-        }
+        //for (int i = 0; i < 2; i++)
+        //{
+        //    string player = "player_" + (i + 1);
+        //    healthImage[i] = GameObject.Find(player + "/health/bar").GetComponent<Image>();
+        //    damagedHealthImage[i] = GameObject.Find(player + "/health/damaged").GetComponent<Image>();
+        //}
 
 
         //---------------------------------//
@@ -70,18 +90,18 @@ public class PlayeUI : MonoBehaviour {
     {
         battleSystem.StartBattle();
 
-        for (int i = 0; i < iconUpgrade.Length; i++)
-            for (int j = 0; j < iconUpgrade[i].spell.Length; j++)
-                iconUpgrade[i].spell[j].sprite = gameManager.playerStats[i].upgrade[j];
+        //leftPlayer.UpdateSprite()
+        //for (int i = 0; i < iconUpgrade.Length; i++)
+        //    for (int j = 0; j < iconUpgrade[i].spell.Length; j++)
+        //        iconUpgrade[i].spell[j].sprite = gameManager.playerStats[i].upgrade[j];
 
-        for (int i = 0; i < namePlayer.Length; i++)
-            namePlayer[i].text = gameManager.playerStats[i].namePlayer;
 
-        for (int i = 0; i < descriptionPlayer1.Length; i++)
-                descriptionPlayer1[i].text = gameManager.playerStats[0].upgrade_text[i];
 
-        for (int i = 0; i < descriptionPlayer2.Length; i++)
-                descriptionPlayer2[i].text = gameManager.playerStats[1].upgrade_text[i];
+        //for (int i = 0; i < descriptionPlayer1.Length; i++)
+        //        descriptionPlayer1[i].text = gameManager.playerStats[0].upgrade_text[i];
+
+        //for (int i = 0; i < descriptionPlayer2.Length; i++)
+        //        descriptionPlayer2[i].text = gameManager.playerStats[1].upgrade_text[i];
     }
 
     private void Update()
