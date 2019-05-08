@@ -26,12 +26,12 @@ public class BattleSystem : MonoBehaviour
 {
     public Round round;
     private GameManager gameManager;
-    private PlayeUI playeUI;
+    //private PlayeUI playeUI;
 
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
-        playeUI = FindObjectOfType<PlayeUI>();
+       // playeUI = FindObjectOfType<PlayeUI>();
     }
 
     //private void Start () { }
@@ -114,7 +114,7 @@ public class BattleSystem : MonoBehaviour
 
     void WinPlayer()
     {
-        playeUI.WinPlayer();
+        //playeUI.WinPlayer();
     }
 
     //void GoToMenu()
@@ -127,7 +127,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator ChoiseSkills()
     {
-        playeUI.skills.SetActive(true);
+        //playeUI.skills.SetActive(true);
         bool choised = false;
 
         while (!choised)
@@ -144,7 +144,7 @@ public class BattleSystem : MonoBehaviour
             yield return null;
         }
 
-        playeUI.skills.SetActive(false);
+        //playeUI.skills.SetActive(false);
         StartCoroutine(TimeRound());
         //yield return null;
     }

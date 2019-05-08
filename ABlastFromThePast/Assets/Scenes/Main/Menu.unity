@@ -14928,7 +14928,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1377217818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15107,17 +15107,7 @@ MonoBehaviour:
   logoPlayer:
   - {fileID: 21300000, guid: 745c9bd7902e7bb4cb239812751788c4, type: 3}
   - {fileID: 21300000, guid: a6733c843c33d5c42a031feb424d00c9, type: 3}
-  playeUI: {fileID: 0}
   playerChoise: 
-  round:
-    timeToStartMax: 5
-    timeToStartCur: 0
-    timeSet: 15
-    timeCur: 0
-    roundsWinPlayer1: 0
-    roundsWinPlayer2: 0
-    roundCur: 0
-    roundMax: 3
   pause_menu: {fileID: 0}
 --- !u!4 &1389265489
 Transform:
