@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514169183847182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.5, y: -9.24, z: 0}
+  m_LocalPosition: {x: 26.426048, y: 4.5731354, z: 0}
   m_LocalScale: {x: 4.410402, y: 4.410406, z: 4.410406}
   m_Children:
   - {fileID: 4378510988861282}
@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1180549500563624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.52, z: 0}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4092242388100626}
@@ -128,7 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c5b33389cb1424292582c41267dc30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 1486699990386548, guid: 85d6b2936c7e6894fb8cb22e4b12351c,
+    type: 2}
   shotSpeed: 0
 --- !u!212 &212630156789528918
 SpriteRenderer:

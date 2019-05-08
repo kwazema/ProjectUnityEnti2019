@@ -203,21 +203,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1777236438735504
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4252704370206776}
-  m_Layer: 10
-  m_Name: SkillPointParticle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1898614350970982
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,8 +239,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1898614350970982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05586167, y: 0.0727501, z: 0.103928685}
+  m_LocalPosition: {x: 0.009, y: 0.045, z: 0}
+  m_LocalScale: {x: 0.049376186, y: 0.042869255, z: 0.061241776}
   m_Children: []
   m_Father: {fileID: 4607682654719020}
   m_RootOrder: 3
@@ -274,19 +259,6 @@ Transform:
   - {fileID: 4748118945977580}
   m_Father: {fileID: 4607682654719020}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4252704370206776
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1777236438735504}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4607682654719020}
-  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4401199832456136
 Transform:
@@ -333,7 +305,6 @@ Transform:
   - {fileID: 4625597016517664}
   - {fileID: 4940492680618608}
   - {fileID: 4133958936805022}
-  - {fileID: 4252704370206776}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -383,7 +354,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1723675169350610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.132, y: 0, z: 0}
+  m_LocalPosition: {x: 0.132, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4607682654719020}
@@ -5109,7 +5080,7 @@ ParticleSystem:
   serializedVersion: 5
   lengthInSec: 1
   simulationSpeed: 1
-  stopAction: 2
+  stopAction: 1
   looping: 0
   prewarm: 0
   playOnAwake: 1
@@ -9638,7 +9609,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1531502084387468}
   serializedVersion: 5
-  lengthInSec: 1
+  lengthInSec: 0.0001
   simulationSpeed: 1
   stopAction: 0
   looping: 1
@@ -13926,7 +13897,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1025623550638854}
   serializedVersion: 5
-  lengthInSec: 1
+  lengthInSec: 4
   simulationSpeed: 1
   stopAction: 0
   looping: 1
@@ -18349,7 +18320,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1407601034484112}
   serializedVersion: 5
-  lengthInSec: 7
+  lengthInSec: 4
   simulationSpeed: 1
   stopAction: 1
   looping: 0
@@ -27579,9 +27550,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 9c13aa1ceae0fa544b79ef82ccdc141f, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8117647}
+  m_Color: {r: 0.9339623, g: 0.18617041, b: 0.066082224, a: 0.40392157}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

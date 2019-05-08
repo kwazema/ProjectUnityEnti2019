@@ -21,10 +21,10 @@ public class BasicAttack : MonoBehaviour {
         CheckField();
 	}
 
-    private void OnCollisionEnter2D (Collision2D col)
-    {
-        Destroy(gameObject);
-    }
+    //private void OnCollisionEnter2D (Collision2D col)
+    //{
+    //    Destroy(gameObject);
+    //}
 
     private void OnTriggerEnter2D(Collider2D col)
     {

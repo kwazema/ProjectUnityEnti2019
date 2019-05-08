@@ -163,7 +163,7 @@ public class SantaStats : PlayerManager {
         {
             game_manager.playerStats[player_to_attack].TakeDamage(GetDamageUltimate());
 
-            LeechEffect = Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.Leech], enemy_position, Quaternion.identity);
+            LeechEffect = Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.Ultimate], enemy_position, Quaternion.identity);
             LeechEffect.SetActive(true);
 
             health += (GetDamageUltimate() / 3);

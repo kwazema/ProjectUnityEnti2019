@@ -16,13 +16,12 @@ public class PlayerManager : MonoBehaviour {
         Ultimate,
         Hit,
         Move,
-        UltimateCast,
-        UltimateEffect
+        UltimateCast
     }
 
     [SerializeField] public enum ParticlesSkills{
-        Leech,
-        GravityHit
+        Ultimate,
+        Skill
     }
 
     // Añadir las imagenes en el prefab
@@ -207,6 +206,22 @@ public class PlayerManager : MonoBehaviour {
     protected virtual void Start() {
         cur_skillCD = 0;
         cur_ultimateCD = 0;
+
+        is_skill_ready = false;
+        is_ultimate_ready = false;
+
+        isShieldActive = false;
+        moveToPosition = false;
+        returnOldPosition = false;
+        noHaAtacado = true;
+        cast_ended = false;
+        is_ultimateOn = false;
+        is_shield_broken = false;
+
+        is_shootting = false;
+        can_color_white = false;
+
+        anim.SetTrigger("iddle");
 
         if (thisPlayerIs == ThisPlayerIs.Player1)
             GameObject.Find(name + "/BodyCollider").layer = 11;
@@ -426,18 +441,21 @@ public class PlayerManager : MonoBehaviour {
 
     public void ResetCharacter()
     {
-        playerInput.enabled = true;
-        player_att_input.enabled = true;
-        health = health_max;
-        shield = shield_max;
-        cur_skillCD = 0;
-        cur_ultimateCD = 0;
+        Start();
 
         Color transparency = Color.white;
         transparency.a = 1f;
 
         sprite.color = transparency;
-        boxReset.enabled = true;
+
+        playerInput.enabled = true;
+        player_att_input.enabled = true;
+        
+        //health = health_max;
+        //shield = shield_max;
+        //cur_skillCD = 0;
+        //cur_ultimateCD = 0;
+        //boxReset.enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
