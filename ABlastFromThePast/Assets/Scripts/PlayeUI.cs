@@ -15,21 +15,28 @@ public class IconUpgrade
 
 public class PlayeUI : MonoBehaviour {
 
-    public Text roundTime;
-    public Text winPlayerRound;
-    public Text roundCur;
-    public Text[] namePlayer;
-    public Text[] descriptionPlayer1;
-    public Text[] descriptionPlayer2;
-    public Text[] roundsWin;
-    public Image[] icon;
-    public Image[] sliderHealth;
-    public Text[] textHealth;
-    public Image[] sliderSkill;
-    public Image[] iconSkill;
-    public Image[] sliderUltimate;
-    public Image[] sliderShield;
-    public IconUpgrade[] iconUpgrade;
+    public Image[] healthImage;
+    public Image[] damagedHealthImage;
+    private float damageFadeTimerCur;
+    private float damageFadeTimerMax = 2f;
+    //https://www.youtube.com/watch?v=oLEEPL2WmAk //min 25
+    // hacer que la barra verde haga un flash blanco cuando te hacen daño
+    //------------------------//
+
+    private Text roundTime;
+    private Text winPlayerRound;
+    private Text roundCur;
+    private Text[] namePlayer;
+    private Text[] descriptionPlayer1;
+    private Text[] descriptionPlayer2;
+    private Text[] roundsWin;
+    private Image[] icon;
+    private Text[] textHealth;
+    private Image[] sliderSkill;
+    private Image[] iconSkill;
+    private Image[] sliderUltimate;
+    private Image[] sliderShield;
+    private IconUpgrade[] iconUpgrade;
 
     Color transparency = Color.white;
 
@@ -39,6 +46,22 @@ public class PlayeUI : MonoBehaviour {
 
     private void Awake()
     {
+        //healthImage[i] = transform.Find("player_1/health").Find("bar").GetComponent<Image>(); // Busca los hijos
+
+        healthImage = new Image[2];
+        damagedHealthImage = new Image[2];
+        
+        for (int i = 0; i < 2; i++)
+        {
+            string player = "player_" + (i + 1);
+            healthImage[i] = GameObject.Find(player + "/health/bar").GetComponent<Image>();
+            damagedHealthImage[i] = GameObject.Find(player + "/health/damaged").GetComponent<Image>();
+        }
+
+
+        //---------------------------------//
+
+
         gameManager = FindObjectOfType<GameManager>();
         //gameManager.playeUI = this;
     }
@@ -63,10 +86,10 @@ public class PlayeUI : MonoBehaviour {
 
     private void Update()
     {
-        for (int i = 0; i < sliderHealth.Length; i++)
+        for (int i = 0; i < healthImage.Length; i++)
         {
             float value = (float)gameManager.playerStats[i].GetHealth() / (float)gameManager.playerStats[i].GetHealthMax();
-            sliderHealth[i].fillAmount = value;
+            healthImage[i].fillAmount = value;
 
             textHealth[i].text = gameManager.playerStats[i].GetHealth().ToString();
         }
