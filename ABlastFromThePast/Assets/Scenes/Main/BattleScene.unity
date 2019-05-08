@@ -970,7 +970,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -977, y: 0}
   m_SizeDelta: {x: 791.93, y: 135}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &175562780
@@ -2801,7 +2801,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1586, y: -0.000022888184}
+  m_AnchoredPosition: {x: 2543, y: -0.000022888184}
   m_SizeDelta: {x: 791.93, y: 135}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &702910714
@@ -3186,6 +3186,39 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 759282294}
+--- !u!1 &766028840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 766028841}
+  m_Layer: 0
+  m_Name: Right Player Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &766028841
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 766028840}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.00008, y: 1.00008, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 1155303384}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1586, y: -0.000022888184}
+  m_SizeDelta: {x: 791.93, y: 135}
+  m_Pivot: {x: 0, y: 1}
 --- !u!1 &783770648
 GameObject:
   m_ObjectHideFlags: 0
@@ -3423,7 +3456,6 @@ MonoBehaviour:
     shielBar: {fileID: 0}
     skillBar: {fileID: 0}
     ultimateBar: {fileID: 0}
-    damageHealthPreviusHealthAmount: 0
   rightPlayer:
     name: {fileID: 64800918}
     damagedHealthBar: {fileID: 1032736875}
@@ -3431,9 +3463,14 @@ MonoBehaviour:
     shielBar: {fileID: 0}
     skillBar: {fileID: 0}
     ultimateBar: {fileID: 0}
-    damageHealthPreviusHealthAmount: 0
-  battleSystem: {fileID: 0}
+  battleSystem: {fileID: 1527961417}
   skills: {fileID: 0}
+  clockPos: {fileID: 1188382085}
+  leftPlayerPos: {fileID: 175562779}
+  rightPlayerPos: {fileID: 702910713}
+  clockPosPoint: {fileID: 2033983695}
+  leftPlayerPosPoint: {fileID: 1295124154}
+  rightPlayerPosPoint: {fileID: 766028841}
 --- !u!224 &834384782
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4611,6 +4648,37 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1127378762}
+--- !u!1 &1155303383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1155303384}
+  m_Layer: 0
+  m_Name: < --- Position Points --- >
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1155303384
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1155303383}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2033983695}
+  - {fileID: 1295124154}
+  - {fileID: 766028841}
+  m_Father: {fileID: 1998031077}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1172858249
 GameObject:
   m_ObjectHideFlags: 0
@@ -4713,7 +4781,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 254}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1188382086
@@ -4985,6 +5053,39 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1290542721}
+--- !u!1 &1295124153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1295124154}
+  m_Layer: 0
+  m_Name: Left Player Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1295124154
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1295124153}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1155303384}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 791.93, y: 135}
+  m_Pivot: {x: 0, y: 1}
 --- !u!1 &1395465819
 GameObject:
   m_ObjectHideFlags: 0
@@ -5930,7 +6031,9 @@ MonoBehaviour:
   round:
     timeToStartMax: 5
     timeToStartCur: 0
-    timeSet: 60
+    timeToStartFightMax: 2
+    timeToStartFightCur: 0
+    timeMax: 60
     timeCur: 0
     roundsWinPlayer1: 0
     roundsWinPlayer2: 0
@@ -8159,6 +8262,7 @@ Transform:
   - {fileID: 834384782}
   - {fileID: 1527961416}
   - {fileID: 1626575746}
+  - {fileID: 1155303384}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8470,6 +8574,39 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2025574375}
+--- !u!1 &2033983694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2033983695}
+  m_Layer: 0
+  m_Name: Clock Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2033983695
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2033983694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1155303384}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2041795714
 GameObject:
   m_ObjectHideFlags: 0

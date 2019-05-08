@@ -94,7 +94,7 @@ public class PlayerReferences
 
         if (lastResivedDamage != valueCur && damagedHealthBar.color.a == 1)
         {
-            damageFadeTimerCur = damageFadeTimerMax;
+            damageFadeTimerCur = damageFadeTimerMax; // Working: Hacer que la o las barras hagan un flash al recibir un golpe
         }
 
         lastResivedDamage = valueCur;
@@ -142,8 +142,6 @@ public class PlayerReferences
 
 public class PlayeUI : MonoBehaviour
 {
-    //https://www.youtube.com/watch?v=oLEEPL2WmAk //min 25
-    // hacer que la barra verde haga un flash blanco cuando te hacen daño
 
     public Text roundTime;
     private Text winPlayerRound;
@@ -155,6 +153,9 @@ public class PlayeUI : MonoBehaviour
     public BattleSystem battleSystem;
     public GameObject skills;
     private GameManager gameManager;
+
+    public RectTransform clockPos, leftPlayerPos, rightPlayerPos;
+    public RectTransform clockPosPoint, leftPlayerPosPoint, rightPlayerPosPoint;
 
     private void Awake()
     {
@@ -214,10 +215,33 @@ public class PlayeUI : MonoBehaviour
         //leftPlayer.UpdateUltimateBar(GameManager.instance.playerStats[0].GetCurUltimateCD(), GameManager.instance.playerStats[0].GetUltimateCD());
         //rightPlayer.UpdateUltimateBar(GameManager.instance.playerStats[1].GetCurUltimateCD(), GameManager.instance.playerStats[1].GetUltimateCD());
 
-        //roundTime.text = battleSystem.round.timeCur.ToString("0.00");
-        rightPlayer.DebugLog();
+        roundTime.text = battleSystem.round.timeCur.ToString("#");
+        //rightPlayer.DebugLog();
         //roundCur.text = (battleSystem.round.roundCur).ToString("Round 0");
     }
+
+
+    // Cuando empieza la partida hacer una animacion de las barras que vayan al centro
+    // Y al relok que venga de afuera
+
+
+    public int speedUI = 500;
+    public void AnimationUI()
+    {
+        clockPos.anchoredPosition = Vector2.MoveTowards(clockPos.anchoredPosition, clockPosPoint.anchoredPosition, speedUI * Time.deltaTime);
+        leftPlayerPos.anchoredPosition = Vector2.MoveTowards(leftPlayerPos.anchoredPosition, leftPlayerPosPoint.anchoredPosition, speedUI * Time.deltaTime);
+        rightPlayerPos.anchoredPosition = Vector2.MoveTowards(rightPlayerPos.anchoredPosition, rightPlayerPosPoint.anchoredPosition, speedUI * Time.deltaTime);
+    }
+
+
+
+
+
+
+
+
+
+
 
     //int numPlayer;
     //public void PlayerHability(int value)
