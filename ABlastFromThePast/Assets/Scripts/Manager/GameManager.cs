@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour {
     public int[] playerChoise;
     public GameObject pause_menu;
 
+    string filePath;
+    string jsonString;
+
     private void Awake()
     {
         if (instance == null)
@@ -21,6 +24,8 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
 
         DontDestroyOnLoad(this);
+
+        filePath = Application.dataPath + "/GameData/FileCharactersData.json";
     }
 
     public void InitPlayers()
@@ -70,4 +75,6 @@ public class GameManager : MonoBehaviour {
     {
         FindObjectOfType<FadeImage>().FadeToBlack();
     }
+
+
 }
