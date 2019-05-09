@@ -84,7 +84,7 @@ public class CyclopsStats : PlayerManager
 
     public override void Skill(float cooldown = 0, float timeToRetorn = 0)
     {
-        if (cur_skillCD >= skillCD)
+        if (cur_skillCD >= skillCD && !playerMovement.GetIsMoving())
         {
             anim.SetTrigger("skill");
 
@@ -93,29 +93,59 @@ public class CyclopsStats : PlayerManager
             is_skill_ready = false;
 
             // -------------------------------------------------- //
+
+            playerInput.enabled = false;
+
+            // -------------------------------------------------- //
+
+            StartCoroutine(Rage(3.5f, 4));
         }
+    }
+
+    // Skill que consiste en mejorar durante X tiempo el daño y la velocidad de ataque
+    // Le pasamos por parámetro el timepo que queremos que dure y el nuevo valor de daño
+    private IEnumerator Rage(float time, int dmg) {
+        
+        //Retornamos el control del personaje al jugador.
+        playerInput.enabled = true;
+
+        // Almacenamos el valor base del ataque para que cuando cambie no se pierda su valor y poder volver a asignarlo una vez acabada la skill;
+        int oldDamage = damageBasicAttack;
+
+        // Cambiamos el daño al nuevo valor;
+        damageBasicAttack = dmg;
+
+        float time_cur = 0;
+        while (time_cur < time)
+        {
+            // Activar particulas para que el jugador sepa que tiene un bonus de daño.
+            time_cur += Time.deltaTime;
+            yield return null;
+        }
+
+        damageBasicAttack = oldDamage;
     }
 
             // Revisar !!!
     protected override void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0)
     {
-        for (int i = 0; i < map.columnLenth; i++)
-        { // horizontal
-            if (
-                (pos_column + i) >= 0 &&
-                (pos_column + i) < map.columnLenth
-              )
-            {
+        //for (int i = 0; i < map.columnLenth; i++)
+        //{ // horizontal
+        //    if (
+        //        (pos_column + i) >= 0 &&
+        //        (pos_column + i) < map.columnLenth
+        //      )
+        //    {
 
-                map.ColorBlocks((pos_column + i), (playerMovement.playerRow), Color.red);
+        //        map.ColorBlocks((pos_column + i), (playerMovement.playerRow), Color.red);
 
-                if (map.blocks[(pos_column + i), (playerMovement.playerRow)].GetPlayerStatsBlock((int)thisPlayerIs) != null)
-                {
-                    map.blocks[(pos_column + i), (playerMovement.playerRow)].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
-                }
-            }
-            cur_skillCD = 0;
-        }
+        //        if (map.blocks[(pos_column + i), (playerMovement.playerRow)].GetPlayerStatsBlock((int)thisPlayerIs) != null)
+        //        {
+        //            map.blocks[(pos_column + i), (playerMovement.playerRow)].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
+        //        }
+        //    }
+        //    cur_skillCD = 0;
+        //}
     }
             // Revisar !!!
 
@@ -125,7 +155,7 @@ public class CyclopsStats : PlayerManager
         if (cur_ultimateCD >= ultimateCD)
         {
             is_ultimateOn = true;
-            StartCoroutine(CastingTime(1));
+            StartCoroutine(CastingTime(1.5f));
         }
     }
 

@@ -450,12 +450,6 @@ public class PlayerManager : MonoBehaviour {
 
         playerInput.enabled = true;
         player_att_input.enabled = true;
-        
-        //health = health_max;
-        //shield = shield_max;
-        //cur_skillCD = 0;
-        //cur_ultimateCD = 0;
-        //boxReset.enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
