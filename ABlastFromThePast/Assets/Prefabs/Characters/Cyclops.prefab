@@ -58,7 +58,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1487839565178508
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,8 +104,8 @@ GameObject:
   - component: {fileID: 114673410713811306}
   - component: {fileID: 114365140896107340}
   - component: {fileID: 114524888904208638}
-  - component: {fileID: 114443412090127814}
   - component: {fileID: 61092356119634606}
+  - component: {fileID: 114227726136350610}
   m_Layer: 10
   m_Name: Cyclops
   m_TagString: Untagged
@@ -296,6 +296,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+--- !u!114 &114227726136350610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1755725238453134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfec8ee5f0aba524e9fc982d4353f0a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPlayerIs: 0
+  icon: {fileID: 0}
+  upgrade: []
+  numUpgrade: 0
+  particleSystem: []
+  ParticlesToInstantiate: []
+  boxReset: {fileID: 0}
+  playerMovement: {fileID: 0}
+  anim: {fileID: 0}
+  damageBasicAttack: 0
+  damageSkill: 0
+  health_max: 350
+  shield_max: 50
+  is_skill_ready: 0
+  is_ultimate_ready: 0
+  whichIsThisPlayer: 0
+  namePlayer: 
+  upgrade_text: []
+  distance_attack: {fileID: 0}
+  upgradeHral: 0
 --- !u!114 &114365140896107340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -312,48 +343,6 @@ MonoBehaviour:
   whichIs: 0
   speed: 0
   rb: {fileID: 50934613887272866}
---- !u!114 &114443412090127814
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1755725238453134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2b50c5433f907347b51702dd7e440f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisPlayerIs: 0
-  icon: {fileID: 0}
-  upgrade:
-  - {fileID: 21300000, guid: 3065bfc29454bc447883dc02742b905c, type: 3}
-  - {fileID: 21300000, guid: 7448da602f08b3e4f99e2a88b6af60ac, type: 3}
-  - {fileID: 21300000, guid: 21118b555a61b4a409ec20ba884cbcda, type: 3}
-  numUpgrade: 0
-  particleSystem:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  ParticlesToInstantiate:
-  - {fileID: 0}
-  - {fileID: 0}
-  boxReset: {fileID: 61470531902553038}
-  playerMovement: {fileID: 0}
-  anim: {fileID: 0}
-  damageBasicAttack: 0
-  damageSkill: 0
-  health_max: 200
-  shield_max: 50
-  is_skill_ready: 0
-  is_ultimate_ready: 0
-  whichIsThisPlayer: 0
-  namePlayer: Santa
-  upgrade_text: []
-  distance_attack: {fileID: 4667911299271022}
 --- !u!114 &114524888904208638
 MonoBehaviour:
   m_ObjectHideFlags: 1
