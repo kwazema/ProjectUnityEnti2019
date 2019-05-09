@@ -24227,7 +24227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textPlayer: {fileID: 1557576274}
-  gameManager: {fileID: 1389265488}
+  gameManager: {fileID: 0}
   players: 2
   numSelected: 0
   button: []

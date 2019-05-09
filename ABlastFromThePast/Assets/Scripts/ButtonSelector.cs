@@ -15,6 +15,16 @@ public class ButtonSelector : MonoBehaviour {
     private bool buttonSelected;
 
     public int numButton;
+    bool fadeScale;
+
+
+    private void Update()
+    {
+        if (fadeScale)
+            transform.localScale = Vector2.MoveTowards(transform.localScale, new Vector2(380, 380), 350 * Time.deltaTime);
+        else
+            transform.localScale = Vector2.MoveTowards(transform.localScale, new Vector2(325, 325), 350 * Time.deltaTime);
+    }
 
     private void Awake()
     {
@@ -68,7 +78,7 @@ public class ButtonSelector : MonoBehaviour {
     {
         Debug.Log("Point Enter");
         ResetAnim();
-
+        fadeScale = true;
         if (battleChoose.numSelected < 2)
         {
             if (!buttonSelected)
@@ -76,6 +86,8 @@ public class ButtonSelector : MonoBehaviour {
                 if (battleChoose.numSelected == 0)
                 {
                     SelectedBlue();
+                    // Working: Que se cambie el color del fondo
+                    // Working: Añadir una animacion que el boton se haga un poco mas grande
                 }
                 else if (battleChoose.numSelected == 1)
                 {
@@ -92,6 +104,7 @@ public class ButtonSelector : MonoBehaviour {
     public void PointerExitAnim()
     {
         Debug.Log("Point Exit");
+        fadeScale = false;
 
         if (battleChoose.numSelected < 2)
         {

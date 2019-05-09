@@ -26,7 +26,7 @@ public class PlayerReferences
     public Image ultimateBar;
 
     private float damageFadeTimerCur;
-    private float damageFadeTimerMax = 1.8f;
+    private float damageFadeTimerMax = 1.3f;
     private float lastResivedDamage;
 
     //public Text descriptionPlayer1;
@@ -221,7 +221,7 @@ public class PlayeUI : MonoBehaviour
     }
 
 
-    // Cuando empieza la partida hacer una animacion de las barras que vayan al centro
+    // Working: Cuando empieza la partida hacer una animacion de las barras que vayan al centro
     // Y al relok que venga de afuera
 
 
