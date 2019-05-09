@@ -92,7 +92,7 @@ public class SantaStats : PlayerManager {
         if (is_ultimateOn && cast_ended)
             StartCoroutine(Leech(3));
 
-        // -------------------------------------------------- //
+            // -------------------------------------------------- //
     }
 
     public override void Skill(float cooldown = 0, float timeToRetorn = 0)
@@ -145,7 +145,7 @@ public class SantaStats : PlayerManager {
         if (cur_ultimateCD >= ultimateCD) {
             anim.SetTrigger("ultimate");
             DeployParticles(Particles.UltimateCast);
-            StartCoroutine(CastingTime(2));
+            StartCoroutine(CastingTime(2, false));
         }
     }
     

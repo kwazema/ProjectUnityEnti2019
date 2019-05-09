@@ -164,7 +164,7 @@ public class ScepterStats : PlayerManager {
         {
             anim.SetTrigger("ultimate");
             is_ultimateOn = true;
-            StartCoroutine(CastingTime(1));
+            StartCoroutine(CastingTime(1, true));
             
         }
     }
@@ -256,7 +256,7 @@ public class ScepterStats : PlayerManager {
         
     }
 
-    protected override IEnumerator CastingTime(float time_cast)
+    protected override IEnumerator CastingTime(float time_cast, bool value)
     {
         DeployParticles(Particles.UltimateCast);
         GetRandomBlocks();
@@ -269,7 +269,7 @@ public class ScepterStats : PlayerManager {
             map.SetAlert(blocks_affected[i].x, blocks_affected[i].y, true);
         }
         // ------------------------------------------------------------------------- //
-        return base.CastingTime(time_cast);
+        return base.CastingTime(time_cast, value);
     }
 
     public override void Upgrade1()
