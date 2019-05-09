@@ -63,6 +63,8 @@ public class PlayerMovement : MonoBehaviour {
     void Update ()
     {
         MovementCharacter();
+        if (isMoving)
+            playerStats.DeployParticles(PlayerManager.Particles.Move);
     }
 
 

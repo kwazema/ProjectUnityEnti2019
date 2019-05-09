@@ -135,6 +135,7 @@ public class ScepterStats : PlayerManager {
 
     protected override void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0)
     {
+        DeployParticles(Particles.Skill);
         for (int i = -1; i < 2; i++) { // horizontal
             for (int j = -1; j < 2; j++) { // vertical
 
@@ -145,7 +146,6 @@ public class ScepterStats : PlayerManager {
                     (playerMovement.playerRow + j) < map.rowLenth 
                   )
                 {
-                    
                     map.ColorBlocks((pos_column + i), (playerMovement.playerRow + j), Color.red);
 
                     if (map.blocks[(pos_column + i), (playerMovement.playerRow + j)].GetPlayerStatsBlock((int)thisPlayerIs) != null)
@@ -162,8 +162,10 @@ public class ScepterStats : PlayerManager {
     {
         if (cur_ultimateCD >= ultimateCD)
         {
+            anim.SetTrigger("ultimate");
             is_ultimateOn = true;
             StartCoroutine(CastingTime(1));
+            
         }
     }
 
@@ -183,6 +185,7 @@ public class ScepterStats : PlayerManager {
 
     void GetRandomBlocks()
     {
+     
         int i = 0;
         int blocks_created = 0;
         blocks_affected = new Vector2Int[max_blocks];
@@ -232,10 +235,16 @@ public class ScepterStats : PlayerManager {
             map.ColorBlocks(blocks_affected[i].x, blocks_affected[i].y, Color.red);
             map.SetAlert(blocks_affected[i].x, blocks_affected[i].y, false);
 
+            GameObject HitStellarRain;
+            Vector2 block_pos = map.blocks[blocks_affected[i].x, blocks_affected[i].y].transform.position;
+
+            HitStellarRain = Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.Ultimate], block_pos, Quaternion.identity);
+
             if (map.blocks[blocks_affected[i].x, blocks_affected[i].y].GetPlayerStatsBlock((int)thisPlayerIs) != null)
             {
                 map.blocks[blocks_affected[i].x, blocks_affected[i].y].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
             }
+
             yield return new WaitForSeconds(time_waiting);
             map.ColorBlocks(blocks_affected[i].x, blocks_affected[i].y, Color.white);
             i++;
@@ -249,9 +258,9 @@ public class ScepterStats : PlayerManager {
 
     protected override IEnumerator CastingTime(float time_cast)
     {
-        DeployParticles(Particles.Ultimate);
+        DeployParticles(Particles.UltimateCast);
         GetRandomBlocks();
-
+        
         // Aqui se pintan antes/durante el casteo
         //
         for (int i = 0; i < max_blocks; i++)

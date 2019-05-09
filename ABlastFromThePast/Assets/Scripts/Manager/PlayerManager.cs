@@ -15,7 +15,13 @@ public class PlayerManager : MonoBehaviour {
         Skill,
         Ultimate,
         Hit,
-        Move
+        Move,
+        UltimateCast
+    }
+
+    [SerializeField] public enum ParticlesSkills{
+        Ultimate,
+        Skill
     }
 
     // Añadir las imagenes en el prefab
@@ -26,7 +32,13 @@ public class PlayerManager : MonoBehaviour {
     //public GameObject[] particles_list;
     //public Transform[] particles_pos;
 
+    [Header("<-- Array Particles -->")]
     public ParticleSystem[] particleSystem;
+    
+    [Header("<-- Exclusive Particles -->")]
+    public GameObject[] ParticlesToInstantiate;
+
+
     //public Transform particles;
 
     public BoxCollider2D boxReset;
@@ -195,6 +207,22 @@ public class PlayerManager : MonoBehaviour {
         cur_skillCD = 0;
         cur_ultimateCD = 0;
 
+        is_skill_ready = false;
+        is_ultimate_ready = false;
+
+        isShieldActive = false;
+        moveToPosition = false;
+        returnOldPosition = false;
+        noHaAtacado = true;
+        cast_ended = false;
+        is_ultimateOn = false;
+        is_shield_broken = false;
+
+        is_shootting = false;
+        can_color_white = false;
+
+        anim.SetTrigger("iddle");
+
         if (thisPlayerIs == ThisPlayerIs.Player1)
             GameObject.Find(name + "/BodyCollider").layer = 11;
         else
@@ -217,7 +245,7 @@ public class PlayerManager : MonoBehaviour {
 
         // ----------------------------- //
 
-        if (cur_ultimateCD == 0)
+        if (cur_ultimateCD == 0 && !is_ultimate_ready)
             StartCoroutine(UltimateRecovery());
     }
 
@@ -338,11 +366,8 @@ public class PlayerManager : MonoBehaviour {
         {
             health = 0;
             StartCoroutine(Die2());
-            //Die();
         }
     }
-
-    //#region Hability Skills
 
     public virtual void Skill(float cooldown = 0, float timeToRetorn = 0) { }
 
@@ -409,25 +434,28 @@ public class PlayerManager : MonoBehaviour {
         }
     }
 
-    protected virtual void DeployParticles(Particles value) {
+    public virtual void DeployParticles(Particles value) {
         //particleSystem[(int)value].Play();
         particleSystem[(int)value].gameObject.SetActive(true); //<-- Esta es la valida
     }
 
     public void ResetCharacter()
     {
-        playerInput.enabled = true;
-        player_att_input.enabled = true;
-        health = health_max;
-        shield = shield_max;
-        cur_skillCD = 0;
-        cur_ultimateCD = 0;
+        Start();
 
         Color transparency = Color.white;
         transparency.a = 1f;
 
         sprite.color = transparency;
-        boxReset.enabled = true;
+
+        playerInput.enabled = true;
+        player_att_input.enabled = true;
+        
+        //health = health_max;
+        //shield = shield_max;
+        //cur_skillCD = 0;
+        //cur_ultimateCD = 0;
+        //boxReset.enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D col)

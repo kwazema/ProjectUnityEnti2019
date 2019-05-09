@@ -5,6 +5,7 @@ using UnityEngine;
 public class BasicAttack : MonoBehaviour {
 
     Transform shot;
+    public GameObject particleSystem; 
 
     public float shotSpeed;
 
@@ -20,15 +21,19 @@ public class BasicAttack : MonoBehaviour {
         CheckField();
 	}
 
-    private void OnCollisionEnter2D (Collision2D col)
-    {
-        Destroy(gameObject);
-    }
+    //private void OnCollisionEnter2D (Collision2D col)
+    //{
+    //    Destroy(gameObject);
+    //}
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.name != "block(Clone)")
-        Destroy(gameObject);
+        if (col.gameObject.name != "block(Clone)") {
+
+            Instantiate(particleSystem, transform.position, transform.rotation);
+
+            Destroy(gameObject);
+        }
     }
 
     private void CheckField()
