@@ -8,7 +8,8 @@ public class ButtonSelector : MonoBehaviour {
 
     public Animator animSelector;
     public EventTrigger eventTrigger;
-    public SpriteRenderer sp;
+    //public SpriteRenderer sp;
+    public Image image;
     private Button button;
 
     private BattleChoose battleChoose;
@@ -17,6 +18,13 @@ public class ButtonSelector : MonoBehaviour {
     public int numButton;
     bool fadeScale;
 
+    private void Awake()
+    {
+        eventTrigger = GetComponent<EventTrigger>();
+        button = GetComponent<Button>();
+        battleChoose = FindObjectOfType<BattleChoose>();
+    }
+
 
     private void Update()
     {
@@ -24,13 +32,6 @@ public class ButtonSelector : MonoBehaviour {
             transform.localScale = Vector2.MoveTowards(transform.localScale, new Vector2(380, 380), 350 * Time.deltaTime);
         else
             transform.localScale = Vector2.MoveTowards(transform.localScale, new Vector2(325, 325), 350 * Time.deltaTime);
-    }
-
-    private void Awake()
-    {
-        eventTrigger = GetComponent<EventTrigger>();
-        button = GetComponent<Button>();
-        battleChoose = FindObjectOfType<BattleChoose>();
     }
 
     private void ResetAnim()

@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 114607472220313940}
   - component: {fileID: 61592558783381378}
   m_Layer: 10
-  m_Name: Scepter
+  m_Name: Minos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CyclopsStats : PlayerManager
+public class Polyphemus : PlayerManager
 {
     #region Internal Variables
     public Transform distance_attack;

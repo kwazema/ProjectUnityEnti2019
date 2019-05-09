@@ -43,7 +43,7 @@ public class AIBraindMove : MonoBehaviour {
         //Debug.Log("horizontal: " + dirHorizontal);
 
         //timeToMove = game.playerStats[numPlayer].GetHealth() / 100;
-        float value = game.playerStats[numPlayer].GetHealth() / 100f * 100f;
+        float value = game.playerManager[numPlayer].GetHealth() / 100f * 100f;
 
         Debug.Log("%: " + value);
         Debug.Log("timeToMove: " + value / 100f);
@@ -51,17 +51,17 @@ public class AIBraindMove : MonoBehaviour {
         {
         }
 
-        if (game.playerStats[numPlayer].GetHealth() < 80)
+        if (game.playerManager[numPlayer].GetHealth() < 80)
         {
             timeToMove = 0.5f;
 
-            if (game.playerStats[numPlayer].GetHealth() < 50)
+            if (game.playerManager[numPlayer].GetHealth() < 50)
             {
 
                 timeToMove = 0.2f;
 
 
-                if (game.playerStats[numPlayer].GetHealth() < 50)
+                if (game.playerManager[numPlayer].GetHealth() < 50)
                 {
                     timeToMove = 0.1f;
 

@@ -18,6 +18,7 @@ public class BattleChoose : MonoBehaviour
 
     private void Awake()
     {
+
         gameManager = FindObjectOfType<GameManager>();
         fade = FindObjectOfType<FadeImage>();
         button = InstantiateButtons(12, 6, new Vector2(-6.5f, 1), 1.5f, 1.2f, 1);
@@ -99,7 +100,7 @@ public class BattleChoose : MonoBehaviour
 
         for (int i = 0; i < gameManager.logoPlayer.Length; i++)
         {
-            button[i].sp.sprite = gameManager.logoPlayer[i];
+            button[i].image.sprite = gameManager.logoPlayer[i];
         }
 
         return button;

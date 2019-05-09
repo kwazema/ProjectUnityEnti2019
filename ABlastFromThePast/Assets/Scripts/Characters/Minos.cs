@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScepterStats : PlayerManager {
+public class Minos : PlayerManager {
 
     #region Internal Variables
         public Transform distance_attack;
@@ -120,7 +120,7 @@ public class ScepterStats : PlayerManager {
 
             oldPos = (Vector2)transform.position;
 
-            pos_column = game_manager.playerStats[player_to_attack].playerMovement.playerColumn;
+            pos_column = game_manager.playerManager[player_to_attack].playerMovement.playerColumn;
             moveToBlock = new Vector2(map.blocks[pos_column, playerMovement.playerRow].transform.position.x, transform.position.y);
 
             // -------------------------------------------------- //

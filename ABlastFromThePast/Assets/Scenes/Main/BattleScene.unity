@@ -3471,6 +3471,7 @@ MonoBehaviour:
   clockPosPoint: {fileID: 2033983695}
   leftPlayerPosPoint: {fileID: 1295124154}
   rightPlayerPosPoint: {fileID: 766028841}
+  speedUI: 500
 --- !u!224 &834384782
 RectTransform:
   m_ObjectHideFlags: 0

@@ -28,8 +28,8 @@ public class Shield : MonoBehaviour {
 
     void SliderShield()
     {
-        float shield1 = gameManager.playerStats[0].GetShield() / 20f * 100f;
-        float shield2 = gameManager.playerStats[1].GetShield() / 20f * 100f;
+        float shield1 = gameManager.playerManager[0].GetShield() / 20f * 100f;
+        float shield2 = gameManager.playerManager[1].GetShield() / 20f * 100f;
 
         player1.value = shield1;
         player2.value = shield2;
@@ -37,8 +37,8 @@ public class Shield : MonoBehaviour {
 
     void AssociateShieldWithSlide()
     {
-        int shield1 = gameManager.playerStats[0].GetShield();
-        int shield2 = gameManager.playerStats[1].GetShield();
+        int shield1 = gameManager.playerManager[0].GetShield();
+        int shield2 = gameManager.playerManager[1].GetShield();
 
         player1.value = shield1;
         player2.value = shield2;

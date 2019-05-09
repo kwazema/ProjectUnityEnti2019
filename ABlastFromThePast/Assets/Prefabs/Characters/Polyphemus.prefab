@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 61092356119634606}
   - component: {fileID: 114227726136350610}
   m_Layer: 10
-  m_Name: Cyclops
+  m_Name: Polyphemus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

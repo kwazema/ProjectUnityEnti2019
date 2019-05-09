@@ -86,7 +86,7 @@ public class BattleSystem : MonoBehaviour
         round.timeCur = round.timeMax;
 
         //Comprobar si algun persnaje muere si el que gane se lleva round win
-        while (round.timeCur >= 0 && gameManager.playerStats[0].GetHealth() > 0 && gameManager.playerStats[1].GetHealth() > 0)
+        while (round.timeCur >= 0 && gameManager.playerManager[0].GetHealth() > 0 && gameManager.playerManager[1].GetHealth() > 0)
         {
             round.timeCur -= Time.deltaTime;
             yield return null;
@@ -95,8 +95,8 @@ public class BattleSystem : MonoBehaviour
         round.timeCur = round.timeMax;
 
 
-        float healhPlayer1 = gameManager.playerStats[0].GetHealth() / gameManager.playerStats[0].GetHealthMax() * 100;
-        float healhPlayer2 = gameManager.playerStats[1].GetHealth() / gameManager.playerStats[1].GetHealthMax() * 100;
+        float healhPlayer1 = gameManager.playerManager[0].GetHealth() / gameManager.playerManager[0].GetHealthMax() * 100;
+        float healhPlayer2 = gameManager.playerManager[1].GetHealth() / gameManager.playerManager[1].GetHealthMax() * 100;
 
         if (healhPlayer1 > healhPlayer2)
         {
@@ -155,8 +155,8 @@ public class BattleSystem : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space)) // un intento
             {
                 choised = true;
-                gameManager.playerStats[0].ResetCharacter();
-                gameManager.playerStats[1].ResetCharacter();
+                gameManager.playerManager[0].ResetCharacter();
+                gameManager.playerManager[1].ResetCharacter();
                 Debug.Log("Espacio");
             }
 

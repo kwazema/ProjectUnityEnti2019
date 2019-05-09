@@ -31,8 +31,8 @@ public class PlayerAttackInput : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
 
         playerManager = new PlayerManager[2];
-        playerManager[0] = gameManager.playerStats[0];
-        playerManager[1] = gameManager.playerStats[1];
+        playerManager[0] = gameManager.playerManager[0];
+        playerManager[1] = gameManager.playerManager[1];
 
         numPlayer = (int)enumPlayer;
     }

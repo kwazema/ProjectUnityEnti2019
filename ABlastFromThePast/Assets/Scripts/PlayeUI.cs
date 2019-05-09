@@ -183,8 +183,8 @@ public class PlayeUI : MonoBehaviour
     {
         //battleSystem.StartBattle();
 
-        leftPlayer.UpdateName(GameManager.instance.playerStats[0].namePlayer);
-        rightPlayer.UpdateName(GameManager.instance.playerStats[1].namePlayer);
+        leftPlayer.UpdateName(GameManager.instance.playerManager[0].namePlayer);
+        rightPlayer.UpdateName(GameManager.instance.playerManager[1].namePlayer);
 
         leftPlayer.ResetFadeTimer();
         rightPlayer.ResetFadeTimer();
@@ -203,11 +203,11 @@ public class PlayeUI : MonoBehaviour
 
     private void Update()
     {
-        leftPlayer.UpdateHealthBar(GameManager.instance.playerStats[0].GetHealth(), GameManager.instance.playerStats[0].GetHealthMax());
-        rightPlayer.UpdateHealthBar(GameManager.instance.playerStats[1].GetHealth(), GameManager.instance.playerStats[1].GetHealthMax());
+        leftPlayer.UpdateHealthBar(GameManager.instance.playerManager[0].GetHealth(), GameManager.instance.playerManager[0].GetHealthMax());
+        rightPlayer.UpdateHealthBar(GameManager.instance.playerManager[1].GetHealth(), GameManager.instance.playerManager[1].GetHealthMax());
 
-        leftPlayer.UpdateHealthDamageBar(GameManager.instance.playerStats[0].GetHealth(), GameManager.instance.playerStats[0].GetHealthMax());
-        rightPlayer.UpdateHealthDamageBar(GameManager.instance.playerStats[1].GetHealth(), GameManager.instance.playerStats[1].GetHealthMax());
+        leftPlayer.UpdateHealthDamageBar(GameManager.instance.playerManager[0].GetHealth(), GameManager.instance.playerManager[0].GetHealthMax());
+        rightPlayer.UpdateHealthDamageBar(GameManager.instance.playerManager[1].GetHealth(), GameManager.instance.playerManager[1].GetHealthMax());
 
         //leftPlayer.UpdateSkillBar(GameManager.instance.playerStats[0].GetCurSkillCD(), GameManager.instance.playerStats[0].GetSkillCD());
         //rightPlayer.UpdateSkillBar(GameManager.instance.playerStats[1].GetCurSkillCD(), GameManager.instance.playerStats[1].GetSkillCD());

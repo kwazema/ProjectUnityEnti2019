@@ -462,11 +462,11 @@ public class PlayerManager : MonoBehaviour {
 
         if (thisPlayerIs == ThisPlayerIs.Player1)
         {
-            game_manager.playerStats[0].TakeDamage(GetDamageBasicAttack());
+            game_manager.playerManager[0].TakeDamage(GetDamageBasicAttack());
         }
         else
         {
-            game_manager.playerStats[1].TakeDamage(GetDamageBasicAttack());
+            game_manager.playerManager[1].TakeDamage(GetDamageBasicAttack());
         }
     }
 

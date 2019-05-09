@@ -35,11 +35,11 @@ public class Player : MonoBehaviour {
 
         if (EnumPlayer.Player1 == player)
         {
-            game.playerStats[0].TakeDamage(game.playerStats[1].GetDamageBasicAttack());
+            game.playerManager[0].TakeDamage(game.playerManager[1].GetDamageBasicAttack());
         }
         else
         {
-            game.playerStats[1].TakeDamage(game.playerStats[0].GetDamageBasicAttack());
+            game.playerManager[1].TakeDamage(game.playerManager[0].GetDamageBasicAttack());
         }
         //playerStats.TakeDamage(20);
     }

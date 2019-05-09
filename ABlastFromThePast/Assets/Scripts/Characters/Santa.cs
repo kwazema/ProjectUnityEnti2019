@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SantaStats : PlayerManager {
+public class Santa : PlayerManager {
     #region Internal Variables
         public Transform distance_attack;
         int blocks_width;
@@ -25,7 +25,8 @@ public class SantaStats : PlayerManager {
 
         // -------------------------------------------------- //
 
-        #region Basic Stats
+        #region Basic 
+
         //health_max = 1;
         health = health_max;
         shield = shield_max;
@@ -154,14 +155,14 @@ public class SantaStats : PlayerManager {
         is_ultimateOn = false;
         cast_ended = false;
         float time = 0;
-        Vector2 enemy_position = game_manager.playerStats[player_to_attack].transform.position;
+        Vector2 enemy_position = game_manager.playerManager[player_to_attack].transform.position;
         enemy_position = new Vector2(enemy_position.x, enemy_position.y + 1);
 
         GameObject LeechEffect;
 
         while (time < use_time)
         {
-            game_manager.playerStats[player_to_attack].TakeDamage(GetDamageUltimate());
+            game_manager.playerManager[player_to_attack].TakeDamage(GetDamageUltimate());
 
             LeechEffect = Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.Ultimate], enemy_position, Quaternion.identity);
             LeechEffect.SetActive(true);
