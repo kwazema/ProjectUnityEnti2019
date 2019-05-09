@@ -286,13 +286,14 @@ public class PlayerManager : MonoBehaviour {
         is_ultimate_ready = true;
     }
 
-    protected virtual IEnumerator CastingTime(float time_cast)
+
+    // Le pasas por parametro el tiempo de casteo y si quieres que una vez acabado se reactiven los inputs.
+    protected virtual IEnumerator CastingTime(float time_cast, bool value)
     {
         is_ultimate_ready = false;
 
         player_att_input.enabled = false;
         playerInput.enabled = false;
-        playerMovement.enabled = false;
 
         float cast = 0;
         while (cast < time_cast)
@@ -303,9 +304,12 @@ public class PlayerManager : MonoBehaviour {
 
         cast_ended = true;
         is_ultimateOn = true;
-        playerMovement.enabled = true;
-        playerInput.enabled = true;
-        player_att_input.enabled = true;
+
+        if (value)
+        {
+            playerInput.enabled = true;
+            player_att_input.enabled = true;
+        }
     }
 
     virtual public IEnumerator Die2() {
@@ -464,6 +468,11 @@ public class PlayerManager : MonoBehaviour {
         {
             game_manager.playerStats[1].TakeDamage(GetDamageBasicAttack());
         }
+    }
+
+    public void SetPlayerInputs(bool value) {
+        playerInput.enabled = value;
+        player_att_input.enabled = value;
     }
 
 }

@@ -6,6 +6,12 @@ public class CyclopsStats : PlayerManager
 {
     #region Internal Variables
     public Transform distance_attack;
+    
+    int pos_x;
+    int pos_y;
+
+    int last_block;
+    int direction;
     #endregion
 
     [SerializeField]
@@ -66,20 +72,24 @@ public class CyclopsStats : PlayerManager
     protected override void Update()
     {
         base.Update();
-        
+
         // -------------------------------------------------- //
         // Color block = white 
         if (can_color_white)
         {
+            while (pos_x != last_block)
+            {
+                map.ColorBlocks(pos_x, pos_y, Color.white);
+                pos_x += (1 * direction);
+            }
+
             can_color_white = false;
         }
 
         // -------------------------------------------------- //
 
         if (is_ultimateOn && cast_ended)
-        {
-            // Aqui va la coroutine del ultimate
-        }
+            StartCoroutine(LaserBeam(0.2f));
     }
 
     public override void Skill(float cooldown = 0, float timeToRetorn = 0)
@@ -155,7 +165,7 @@ public class CyclopsStats : PlayerManager
         if (cur_ultimateCD >= ultimateCD)
         {
             is_ultimateOn = true;
-            StartCoroutine(CastingTime(1.5f));
+            StartCoroutine(CastingTime(1.5f, false));
         }
     }
 
@@ -171,6 +181,44 @@ public class CyclopsStats : PlayerManager
             graphicMove = -1;
             dirSkillZone = -1;
         }
+    }
+
+    private IEnumerator LaserBeam(float time)
+    {
+        cast_ended = false;
+
+        // Primero comprobamos los bloques que tendra que recorrer y la dirección en que va el rayo.
+        if (player_to_attack == 1)  // El rayo irá hacia la derecha.
+        {
+            last_block = map.columnLenth;
+            direction = 1;
+        }
+        else // El rayo irá hacia la izquierda.
+        {
+            last_block = -1;
+            direction = -1;
+        }
+
+        // Segundo cogemos la posicion del ciclope
+        pos_x = playerMovement.playerColumn + direction;
+        pos_y = playerMovement.playerRow;
+
+        while (pos_x != last_block)
+        {
+
+            map.ColorBlocks(pos_x, pos_y, Color.red);
+
+            yield return new WaitForSeconds(time);
+            pos_x += (1 * direction);
+        }
+
+        cur_ultimateCD = 0;
+        is_ultimateOn = false;
+
+        can_color_white = true;
+
+        playerInput.enabled = true;
+        player_att_input.enabled = true;
     }
 
     // Funciones para los upgrades al acabar ronda 
