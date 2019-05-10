@@ -79,20 +79,21 @@ public class Santa : PlayerManager {
 
         // -------------------------------------------------- //
         // Color block = white 
-        if (can_color_white)
-        {
-            for (int i = 0; i < blocks_width; i++)
-            {
-                if (
-                    (playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) < map.columnLenth &&
-                    (playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) >= 0
-                   )
-                {
-                    map.ColorBlocks((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow, Color.white);
-                }
-            }
-            can_color_white = false;
-        }
+        
+        //if (can_color_white)
+        //{
+        //    for (int i = 0; i < blocks_width; i++)
+        //    {
+        //        if (
+        //            (playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) < map.columnLenth &&
+        //            (playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) >= 0
+        //           )
+        //        {
+        //            map.ColorBlocks((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow, Color.white);
+        //        }
+        //    }
+        //    can_color_white = false;
+        //}
 
         // -------------------------------------------------- //
         // Comprueba si se ha activado el ultimate para empezar la coroutine.
@@ -127,25 +128,98 @@ public class Santa : PlayerManager {
         }
     }
 
-    protected override void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0)
-    {
-        for (int i = 0; i < rangeEffectColumn; i++)
+    // DEPRECATED METHOD
+    //protected override void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0)
+    //{
+    //    for (int i = 0; i < rangeEffectColumn; i++)
+    //    {
+    //        if (
+    //            ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone)) < map.columnLenth &&
+    //            ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone)) >= 0
+    //            )
+    //        {
+    //            map.ColorBlocks((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow, Color.red);
+
+    //            if (map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].GetPlayerStatsBlock((int)thisPlayerIs) != null)
+    //            {
+    //                map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
+    //            }
+    //        }
+    //    }
+    //    cur_skillCD = 0;
+    //}
+
+
+    // Le pasas por parámetro el numero de bloques que quieres que se desplace    
+    private void PushPlayer(int blocks_pushed) {
+        int enemy_pos = game_manager.playerManager[player_to_attack].playerMovement.playerColumn + (blocks_pushed * dirSkillZone);
+
+        if (enemy_pos < map.columnLenth && enemy_pos >= 0)
         {
+            game_manager.playerManager[player_to_attack].playerMovement.playerColumn += (blocks_pushed * dirSkillZone);
+        }
+        else
+        {
+            if (player_to_attack == 1)
+                game_manager.playerManager[player_to_attack].playerMovement.playerColumn = map.columnLenth - 1;
+            else
+                game_manager.playerManager[player_to_attack].playerMovement.playerColumn = 0;
+        }
+    }
+
+    protected override IEnumerator LookForBlocks(int rangeEffectColumn, float time) {
+
+        base.LookForBlocks(rangeEffectColumn, time);
+
+        int cur_block = 0;
+
+        bool already_hit = false;
+
+        int pos_x;
+        int pos_y = playerMovement.playerRow;
+        Vector2 position;
+
+        while (cur_block < rangeEffectColumn) {
+            // Creamos un gameobject para instanciar las particulas.
+            GameObject skillEffect;
+
+            // Almacenamos la posicion horizontal del ataque.
+            pos_x = ((playerMovement.playerColumn + graphicMove) + (cur_block * dirSkillZone));
+
+            // Comprobamos que la posicion del ataque no se pase del tamaño del array de map.blocks[,].
             if (
-                ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone)) < map.columnLenth &&
-                ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone)) >= 0
+                pos_x < map.columnLenth &&
+                pos_x >= 0
                 )
             {
-                map.ColorBlocks((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow, Color.red);
+                map.ColorBlocks(pos_x, pos_y, Color.red);
 
-                if (map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].GetPlayerStatsBlock((int)thisPlayerIs) != null)
+                // Almacenamos en un vector2 la posicion en que se va instanciar la partícula.
+                position = map.blocks[pos_x, pos_y].transform.position;
+
+                // Instanciamos la partícula
+                Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.Skill], position, Quaternion.identity);
+
+                // Ahora le pedimos al bloque que nos diga si hay alguien  en la posición de bloques afectados. 
+                // En caso afirmativo le pedimos al bloque que haga daño.
+                if (map.blocks[pos_x, pos_y].GetPlayerStatsBlock((int)thisPlayerIs) != null && !already_hit)
                 {
-                    map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
+                    map.blocks[pos_x, pos_y].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
+                    PushPlayer(1);
+
+                    already_hit = true;
                 }
+                
+                yield return new WaitForSeconds(time);
+                
+                // Pintamos de nuevo el color base.
+                map.ColorBlocks(pos_x, pos_y, Color.white);
             }
+            cur_block++;
         }
         cur_skillCD = 0;
     }
+
 
     public override void Ultimate()
     {

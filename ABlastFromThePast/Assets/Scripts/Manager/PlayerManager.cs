@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PlayerManager : MonoBehaviour {
+public class PlayerManager : MonoBehaviour
+{
 
     [SerializeField] public enum ThisPlayerIs { Player1, Player2 }
     [SerializeField] public ThisPlayerIs thisPlayerIs;
 
-    [SerializeField] public enum Particles {
+    [SerializeField]
+    public enum Particles
+    {
         Die,
         Attack,
         Skill,
@@ -19,7 +22,9 @@ public class PlayerManager : MonoBehaviour {
         UltimateCast
     }
 
-    [SerializeField] public enum ParticlesSkills{
+    [SerializeField]
+    public enum ParticlesSkills
+    {
         Ultimate,
         Skill,
         Ultimate2
@@ -35,7 +40,7 @@ public class PlayerManager : MonoBehaviour {
 
     [Header("<-- Array Particles -->")]
     public ParticleSystem[] particleSystem;
-    
+
     [Header("<-- Exclusive Particles -->")]
     public GameObject[] ParticlesToInstantiate;
 
@@ -58,7 +63,7 @@ public class PlayerManager : MonoBehaviour {
 
     protected SpriteRenderer sprite;
 
-    
+
     #endregion
 
     #region Private Variables
@@ -88,7 +93,7 @@ public class PlayerManager : MonoBehaviour {
     protected int shield_max = 50;
     protected int shield;
     protected int recoveryShieldTime;
-    
+
     protected float fireRate;
     //protectedected float nextFire;
 
@@ -113,7 +118,7 @@ public class PlayerManager : MonoBehaviour {
     protected bool cast_ended = false;
     protected bool is_ultimateOn = false;
     protected bool is_shield_broken = false;
-    
+
     protected bool is_shootting = false;
     protected bool can_color_white = false;
 
@@ -133,7 +138,7 @@ public class PlayerManager : MonoBehaviour {
     virtual public int GetDamageUltimate() { return damageUltimate; }
 
     virtual public int GetHealth() { return health; }
-    virtual public int GetHealthMax() { return health_max;  }
+    virtual public int GetHealthMax() { return health_max; }
     virtual public int GetShield() { return shield; }
     virtual public int GetShieldMax() { return shield_max; }
 
@@ -177,14 +182,15 @@ public class PlayerManager : MonoBehaviour {
     virtual public void SetSkillDistance(int value) { skillDistance = value; }
     virtual public void SetUltimateDistance(int value) { ultimateDistance = value; }
 
-    virtual public void SetRecoveryShieldTime(int value) {  recoveryShieldTime = value; }
+    virtual public void SetRecoveryShieldTime(int value) { recoveryShieldTime = value; }
 
     virtual public void SetThisPlayer(int value) { whichIsThisPlayer = value; }
 
     virtual public void SetIsShootting(bool value) { is_shootting = value; }
     #endregion
 
-    protected virtual void Awake() {
+    protected virtual void Awake()
+    {
         map = GameObject.Find("Map").GetComponent<Map>();
 
         playerMovement = GetComponent<PlayerMovement>();
@@ -204,7 +210,8 @@ public class PlayerManager : MonoBehaviour {
         upgrade_text = new string[3];
     }
 
-    protected virtual void Start() {
+    protected virtual void Start()
+    {
         cur_skillCD = 0;
         cur_ultimateCD = 0;
 
@@ -232,14 +239,16 @@ public class PlayerManager : MonoBehaviour {
 
     protected virtual void Update()
     {
-        if (shield <= 0) {
+        if (shield <= 0)
+        {
             StartCoroutine(ShieldRecovery());
             is_shield_broken = true;
         }
 
         // ----------------------------- //
 
-        if (cur_skillCD == 0) {
+        if (cur_skillCD == 0)
+        {
             Debug.Log("cur_skillCD 1: " + cur_skillCD);
             StartCoroutine(SkillRecovery());
         }
@@ -313,7 +322,8 @@ public class PlayerManager : MonoBehaviour {
         }
     }
 
-    virtual public IEnumerator Die2() {
+    virtual public IEnumerator Die2()
+    {
         anim.SetTrigger("die");
 
         // ----------------------- //
@@ -324,7 +334,7 @@ public class PlayerManager : MonoBehaviour {
 
         //GameObject.Find(name + "/BodyCollider").SetActive(false);
         boxReset.enabled = false;
-        
+
         // ----------------------- //
 
         playerInput.enabled = false;
@@ -338,7 +348,7 @@ public class PlayerManager : MonoBehaviour {
         // ----------------------- //
 
         sprite.color = transparency;
-        
+
         // ----------------------- //
 
         yield return new WaitForSeconds(3.5f);
@@ -382,14 +392,17 @@ public class PlayerManager : MonoBehaviour {
 
     public virtual void Ultimate() { }
 
-        
-    public virtual void Upgrade1() {
+
+    public virtual void Upgrade1()
+    {
     }
 
-    public virtual void Upgrade2() {
+    public virtual void Upgrade2()
+    {
     }
 
-    public virtual void Upgrade3() {
+    public virtual void Upgrade3()
+    {
     }
 
     protected void MovingToPosition(float velocity, int blocks_width = 0, int blocks_height = 0)
@@ -403,7 +416,9 @@ public class PlayerManager : MonoBehaviour {
 
             if (noHaAtacado)
             {
-                LookForwardBlocks(blocks_width);
+                //LookForwardBlocks(blocks_width);
+
+                StartCoroutine(LookForBlocks(blocks_width, 0.1f));
 
                 noHaAtacado = false;
             }
@@ -439,7 +454,8 @@ public class PlayerManager : MonoBehaviour {
         }
     }
 
-    public virtual void DeployParticles(Particles value) {
+    public virtual void DeployParticles(Particles value)
+    {
         //particleSystem[(int)value].Play();
         particleSystem[(int)value].gameObject.SetActive(true); //<-- Esta es la valida
     }
@@ -471,9 +487,14 @@ public class PlayerManager : MonoBehaviour {
         }
     }
 
-    public void SetPlayerInputs(bool value) {
+    public void SetPlayerInputs(bool value)
+    {
         playerInput.enabled = value;
         player_att_input.enabled = value;
     }
 
+    protected virtual IEnumerator LookForBlocks(int rangeEffectColumn, float time)
+    {
+        yield return null;
+    }
 }
