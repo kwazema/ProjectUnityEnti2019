@@ -6,7 +6,13 @@ public class Santa : PlayerManager {
     #region Internal Variables
         public Transform distance_attack;
         int blocks_width;
+
+        Vector2 enemy_position;
+        
     #endregion
+
+
+
 
     protected override void Awake()
     {
@@ -96,7 +102,7 @@ public class Santa : PlayerManager {
             // -------------------------------------------------- //
     }
 
-    public override void Skill(float cooldown = 0, float timeToRetorn = 0)
+    public override void Skill()
     {
         if (cur_skillCD >= skillCD)
         {
@@ -146,7 +152,8 @@ public class Santa : PlayerManager {
         if (cur_ultimateCD >= ultimateCD) {
             anim.SetTrigger("ultimate");
             DeployParticles(Particles.UltimateCast);
-            StartCoroutine(CastingTime(2, false));
+
+            StartCoroutine(CastingTime(2, true));
         }
     }
     
@@ -155,10 +162,17 @@ public class Santa : PlayerManager {
         is_ultimateOn = false;
         cast_ended = false;
         float time = 0;
-        Vector2 enemy_position = game_manager.playerManager[player_to_attack].transform.position;
-        enemy_position = new Vector2(enemy_position.x, enemy_position.y + 1);
 
         GameObject LeechEffect;
+
+        GameObject BurnedEffect;
+
+        enemy_position = game_manager.playerManager[player_to_attack].transform.position;
+        enemy_position = new Vector2(enemy_position.x, enemy_position.y + 1);
+
+        BurnedEffect = Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.Ultimate2], enemy_position, Quaternion.identity);
+        BurnedEffect.transform.SetParent(game_manager.playerManager[player_to_attack].transform);
+        BurnedEffect.SetActive(true);
 
         while (time < use_time)
         {
@@ -174,6 +188,8 @@ public class Santa : PlayerManager {
             yield return new WaitForSeconds(1);
             time++;
         }
+
+        Destroy(BurnedEffect);
         cur_ultimateCD = 0;
     }
 

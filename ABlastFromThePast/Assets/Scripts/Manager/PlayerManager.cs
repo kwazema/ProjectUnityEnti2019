@@ -21,7 +21,8 @@ public class PlayerManager : MonoBehaviour {
 
     [SerializeField] public enum ParticlesSkills{
         Ultimate,
-        Skill
+        Skill,
+        Ultimate2
     }
 
     // Añadir las imagenes en el prefab
@@ -373,7 +374,7 @@ public class PlayerManager : MonoBehaviour {
         }
     }
 
-    public virtual void Skill(float cooldown = 0, float timeToRetorn = 0) { }
+    public virtual void Skill() { }
 
     protected virtual void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0) { }
 

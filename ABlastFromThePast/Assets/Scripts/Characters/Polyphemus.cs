@@ -41,7 +41,7 @@ public class Polyphemus : PlayerManager
 
         damageBasicAttack = 2;
         damageSkill = 10;
-        damageUltimate = 20;
+        damageUltimate = 50;
 
         skillCD = 2;
         ultimateCD = 6;
@@ -56,7 +56,7 @@ public class Polyphemus : PlayerManager
 
         // -------------------------------------------------- //
 
-        distance_attack.position = map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position;
+        //distance_attack.position = map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position;
 
         // -------------------------------------------------- //
 
@@ -73,14 +73,14 @@ public class Polyphemus : PlayerManager
     {
         base.Update();
 
+        Debug.Log("DMG: " + damageBasicAttack);
+
         // -------------------------------------------------- //
         // Color block = white 
         if (can_color_white)
         {
-            while (pos_x != last_block)
-            {
-                map.ColorBlocks(pos_x, pos_y, Color.white);
-                pos_x += (1 * direction);
+            for (int i = 0; i < map.columnLenth; i++) {
+                map.ColorBlocks(i, pos_y, Color.white);
             }
 
             can_color_white = false;
@@ -92,12 +92,12 @@ public class Polyphemus : PlayerManager
             StartCoroutine(LaserBeam(0.2f));
     }
 
-    public override void Skill(float cooldown = 0, float timeToRetorn = 0)
+    public override void Skill()
     {
         if (cur_skillCD >= skillCD && !playerMovement.GetIsMoving())
         {
             anim.SetTrigger("skill");
-
+            DeployParticles(Particles.Skill);
             // -------------------------------------------------- //
 
             is_skill_ready = false;
@@ -108,7 +108,7 @@ public class Polyphemus : PlayerManager
 
             // -------------------------------------------------- //
 
-            StartCoroutine(Rage(3.5f, 4));
+            StartCoroutine(Rage(3.5f, damageSkill));
         }
     }
 
@@ -123,7 +123,7 @@ public class Polyphemus : PlayerManager
         int oldDamage = damageBasicAttack;
 
         // Cambiamos el daño al nuevo valor;
-        damageBasicAttack = dmg;
+        damageBasicAttack *= dmg;
 
         float time_cur = 0;
         while (time_cur < time)
@@ -133,6 +133,7 @@ public class Polyphemus : PlayerManager
             yield return null;
         }
 
+        cur_skillCD = 0;
         damageBasicAttack = oldDamage;
     }
 
@@ -164,6 +165,8 @@ public class Polyphemus : PlayerManager
     {
         if (cur_ultimateCD >= ultimateCD)
         {
+            anim.SetTrigger("ultimate");
+
             is_ultimateOn = true;
             StartCoroutine(CastingTime(1.5f, false));
         }
@@ -205,8 +208,10 @@ public class Polyphemus : PlayerManager
 
         while (pos_x != last_block)
         {
-
             map.ColorBlocks(pos_x, pos_y, Color.red);
+
+            if (map.blocks[pos_x, pos_y].GetPlayerStatsBlock((int)thisPlayerIs) != null)
+                map.blocks[pos_x, pos_y].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
 
             yield return new WaitForSeconds(time);
             pos_x += (1 * direction);

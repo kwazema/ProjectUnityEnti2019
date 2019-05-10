@@ -106,7 +106,7 @@ public class Minos : PlayerManager {
         
     }
 
-    public override void Skill(float cooldown = 0, float timeToRetorn = 0)
+    public override void Skill()
     {
         if (cur_skillCD >= skillCD)
         {

@@ -165,7 +165,7 @@ public class PlayerAttackInput : MonoBehaviour
 
     private void SkillAttack()
     {
-        playerManager[numPlayer].Skill(0f, 0f);
+        playerManager[numPlayer].Skill();
     }
 
     private void UltimateAttack()
