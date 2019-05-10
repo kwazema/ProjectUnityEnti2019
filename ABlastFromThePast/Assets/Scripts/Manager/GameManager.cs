@@ -1,3 +1,4 @@
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,6 +28,44 @@ public class GameManager : MonoBehaviour {
 
         filePath = Application.dataPath + "/GameData/FileCharactersData.json";
     }
+
+    public ListCharacters LoadFileToString()
+    {
+        // Parseamos el fichero a un string
+        string jsonString = File.ReadAllText(filePath);
+
+        // Parseamos el string a la clase
+        ListCharacters listCharacters = JsonUtility.FromJson<ListCharacters>(jsonString);
+
+        return listCharacters;
+    }
+
+    public void SaveStringToFile(ListCharacters listCharacters)
+    {
+        // Parseamos la clase a un fichero string
+        string jsonString = JsonUtility.ToJson(listCharacters);
+
+        // Parseamos el string a json
+        File.WriteAllText(filePath, jsonString);
+    }
+
+    #region Como utilizar las funciones FILE
+
+    void ExampleUsingFile()
+    {
+        ListCharacters listCharacters = LoadFileToString();
+
+        // Get varible
+        int damage = listCharacters.characterStats[0].damageBasicAttack;
+
+        // Set varible
+        listCharacters.characterStats[0].damageBasicAttack = damage;
+
+
+    }
+
+
+    #endregion
 
     public void InitPlayers()
     {

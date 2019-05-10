@@ -24,7 +24,6 @@ public class Round
     public int roundMax = 3;
 }
 
-
 public class BattleSystem : MonoBehaviour
 {
     public Round round;
@@ -63,7 +62,7 @@ public class BattleSystem : MonoBehaviour
             {
                 round.timeToStartFightCur -= Time.deltaTime; Debug.Log("Se Muestra Fight");
                 //Cuando se haya terminado fade mostrar Fight que desaparezma y empieze la partida
-                playeUI.AnimationUI();
+                playeUI.SetAnimationPanels(true);
                 if (round.timeToStartFightCur < 0)
                 {
                     // Termina el fade y empieza la partida

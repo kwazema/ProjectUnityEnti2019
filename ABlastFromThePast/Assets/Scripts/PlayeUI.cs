@@ -140,6 +140,18 @@ public class PlayerReferences
 
 }
 
+[System.Serializable]
+public class ObjectPoints
+{
+    public RectTransform clock;
+
+    public RectTransform panelStatsLeft;
+    public RectTransform panelStatsRight;
+
+    public RectTransform panelUpgradeLeft;
+    public RectTransform panelUpgradeRight;
+}
+
 public class PlayeUI : MonoBehaviour
 {
 
@@ -154,8 +166,7 @@ public class PlayeUI : MonoBehaviour
     public GameObject skills;
     private GameManager gameManager;
 
-    public RectTransform clockPos, leftPlayerPos, rightPlayerPos;
-    public RectTransform clockPosPoint, leftPlayerPosPoint, rightPlayerPosPoint;
+    public ObjectPoints objectPointsMain, objectPointsStart, objectPointsFinish;
 
     private void Awake()
     {
@@ -218,6 +229,7 @@ public class PlayeUI : MonoBehaviour
         roundTime.text = battleSystem.round.timeCur.ToString("#");
         //rightPlayer.DebugLog();
         //roundCur.text = (battleSystem.round.roundCur).ToString("Round 0");
+
     }
 
 
@@ -226,13 +238,44 @@ public class PlayeUI : MonoBehaviour
 
 
     public int speedUI = 500;
-    public void AnimationUI()
-    {
-        clockPos.anchoredPosition = Vector2.MoveTowards(clockPos.anchoredPosition, clockPosPoint.anchoredPosition, speedUI * Time.deltaTime);
-        leftPlayerPos.anchoredPosition = Vector2.MoveTowards(leftPlayerPos.anchoredPosition, leftPlayerPosPoint.anchoredPosition, speedUI * Time.deltaTime);
-        rightPlayerPos.anchoredPosition = Vector2.MoveTowards(rightPlayerPos.anchoredPosition, rightPlayerPosPoint.anchoredPosition, speedUI * Time.deltaTime);
-    }
 
+    /* NOW: Separar el panel principal con el panel asdasd
+     asdasd sssss */
+    public void SetAnimationPanels(bool value)
+    {
+        //Si es true se desplaza hacia dentro sino hacia fuera
+
+        RectTransform[] mainPoints = {
+                objectPointsMain.clock,
+                objectPointsMain.panelStatsLeft,
+                objectPointsMain.panelStatsRight,
+                objectPointsMain.panelUpgradeLeft,
+                objectPointsMain.panelUpgradeRight
+        };
+
+        RectTransform[] startPoints = {
+                objectPointsStart.clock,
+                objectPointsStart.panelStatsLeft,
+                objectPointsStart.panelStatsRight,
+                objectPointsStart.panelUpgradeLeft,
+                objectPointsStart.panelUpgradeRight
+        };
+
+        RectTransform[] finishPoints = {
+                objectPointsFinish.clock,
+                objectPointsFinish.panelStatsLeft,
+                objectPointsFinish.panelStatsRight,
+                objectPointsFinish.panelUpgradeLeft,
+                objectPointsFinish.panelUpgradeRight
+        };
+
+        if (value)
+            for (int i = 0; i < mainPoints.Length; i++)
+                mainPoints[i].anchoredPosition = Vector2.MoveTowards(mainPoints[i].anchoredPosition, finishPoints[i].anchoredPosition, speedUI * Time.deltaTime);
+        else
+            for (int i = 0; i < mainPoints.Length; i++)
+                mainPoints[i].anchoredPosition = Vector2.MoveTowards(mainPoints[i].anchoredPosition, startPoints[i].anchoredPosition, speedUI * Time.deltaTime);
+    }
 
 
 
