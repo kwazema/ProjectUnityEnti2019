@@ -171,6 +171,8 @@ public class Polyphemus : PlayerManager
             is_ultimate_ready = false;
             is_ultimateOn = true;
 
+            DeployParticles(Particles.UltimateCast);
+
             StartCoroutine(CastingTime(1.5f, false));
         }
     }
@@ -209,9 +211,15 @@ public class Polyphemus : PlayerManager
         pos_x = playerMovement.playerColumn + direction;
         pos_y = playerMovement.playerRow;
 
+        Vector3 position;
+
         while (pos_x != last_block)
         {
             map.ColorBlocks(pos_x, pos_y, Color.red);
+
+            position = map.blocks[pos_x, pos_y].transform.position;
+            Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.Ultimate], position, Quaternion.identity);
+
 
             if (map.blocks[pos_x, pos_y].GetPlayerStatsBlock((int)thisPlayerIs) != null)
                 map.blocks[pos_x, pos_y].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());

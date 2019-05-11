@@ -1,145 +1,143 @@
 fileFormatVersion: 2
-guid: 745c9bd7902e7bb4cb239812751788c4
+guid: 65597fad06120a045aae42ec22301d8e
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Santa - Sprite Sheet_0
-    21300002: Santa - Sprite Sheet_1
-    21300004: Santa - Sprite Sheet_2
-    21300006: Santa - Sprite Sheet_3
-    21300008: Santa - Sprite Sheet_4
-    21300010: Santa - Sprite Sheet_5
-    21300012: Santa - Sprite Sheet_6
-    21300014: Santa - Sprite Sheet_7
-    21300016: Santa - Sprite Sheet_8
-    21300018: Santa - Sprite Sheet_9
-    21300020: Santa - Sprite Sheet_10
-    21300022: Santa - Sprite Sheet_11
-    21300024: Santa - Sprite Sheet_12
-    21300026: Santa - Sprite Sheet_13
-    21300028: Santa - Sprite Sheet_14
-    21300030: Santa - Sprite Sheet_15
-    21300032: Santa - Sprite Sheet_16
-    21300034: Santa - Sprite Sheet_17
-    21300036: Santa - Sprite Sheet_18
-    21300038: Santa - Sprite Sheet_19
-    21300040: Santa - Sprite Sheet_20
-    21300042: Santa - Sprite Sheet_21
-    21300044: Santa - Sprite Sheet_22
-    21300046: Santa - Sprite Sheet_23
-    21300048: Santa - Sprite Sheet_24
-    21300050: Santa - Sprite Sheet_25
-    21300052: Santa - Sprite Sheet_26
-    21300054: Santa - Sprite Sheet_27
-    21300056: Santa - Sprite Sheet_28
-    21300058: Santa - Sprite Sheet_29
-    21300060: Santa - Sprite Sheet_30
-    21300062: Santa - Sprite Sheet_31
-    21300064: Santa - Sprite Sheet_32
-    21300066: Santa - Sprite Sheet_33
-    21300068: Santa - Sprite Sheet_34
-    21300070: Santa - Sprite Sheet_35
-    21300072: Santa - Sprite Sheet_36
-    21300074: Santa - Sprite Sheet_37
-    21300076: Santa - Sprite Sheet_38
-    21300078: Santa - Sprite Sheet_39
-    21300080: Santa - Sprite Sheet_40
-    21300082: Santa - Sprite Sheet_41
-    21300084: Santa - Sprite Sheet_42
-    21300086: Santa - Sprite Sheet_43
-    21300088: Santa - Sprite Sheet_44
-    21300090: Santa - Sprite Sheet_45
-    21300092: Santa - Sprite Sheet_46
-    21300094: Santa - Sprite Sheet_47
-    21300096: Santa - Sprite Sheet_48
-    21300098: Santa - Sprite Sheet_49
-    21300100: Santa - Sprite Sheet_50
-    21300102: Santa - Sprite Sheet_51
-    21300104: Santa - Sprite Sheet_52
-    21300106: Santa - Sprite Sheet_53
-    21300108: Santa - Sprite Sheet_54
-    21300110: Santa - Sprite Sheet_55
-    21300112: Santa - Sprite Sheet_56
-    21300114: Santa - Sprite Sheet_57
-    21300116: Santa - Sprite Sheet_58
-    21300118: Santa - Sprite Sheet_59
-    21300120: Santa - Sprite Sheet_60
-    21300122: Santa - Sprite Sheet_61
-    21300124: Santa - Sprite Sheet_62
-    21300126: Santa - Sprite Sheet_63
-    21300128: Santa - Sprite Sheet_64
-    21300130: Santa - Sprite Sheet_65
-    21300132: Santa - Sprite Sheet_66
-    21300134: Santa - Sprite Sheet_67
-    21300136: Santa - Sprite Sheet_68
-    21300138: Santa - Sprite Sheet_69
-    21300140: Santa - Sprite Sheet_70
-    21300142: Santa - Sprite Sheet_71
-    21300144: Santa - Sprite Sheet_72
-    21300146: Santa - Sprite Sheet_73
-    21300148: Santa - Sprite Sheet_74
-    21300150: Santa - Sprite Sheet_75
-    21300152: Santa - Sprite Sheet_76
-    21300154: Santa - Sprite Sheet_77
-    21300156: Santa - Sprite Sheet_78
-    21300158: Santa - Sprite Sheet_79
-    21300160: Santa - Sprite Sheet_80
-    21300162: Santa - Sprite Sheet_81
-    21300164: Santa - Sprite Sheet_82
-    21300166: Santa - Sprite Sheet_83
-    21300168: Santa - Sprite Sheet_84
-    21300170: Santa - Sprite Sheet_85
-    21300172: Santa - Sprite Sheet_86
-    21300174: Santa - Sprite Sheet_87
-    21300176: Santa - Sprite Sheet_88
-    21300178: Santa - Sprite Sheet_89
-    21300180: Santa - Sprite Sheet_90
-    21300182: Santa - Sprite Sheet_91
-    21300184: Santa - Sprite Sheet_92
-    21300186: Santa - Sprite Sheet_93
-    21300188: Santa - Sprite Sheet_94
-    21300190: Santa - Sprite Sheet_95
-    21300192: Santa - Sprite Sheet_96
-    21300194: Santa - Sprite Sheet_97
-    21300196: Santa - Sprite Sheet_98
-    21300198: Santa - Sprite Sheet_99
-    21300200: Santa - Sprite Sheet_100
-    21300202: Santa - Sprite Sheet_101
-    21300204: Santa - Sprite Sheet_102
-    21300206: Santa - Sprite Sheet_103
-    21300208: Santa - Sprite Sheet_104
-    21300210: Santa - Sprite Sheet_105
-    21300212: Santa - Sprite Sheet_106
-    21300214: Santa - Sprite Sheet_107
-    21300216: Santa - Sprite Sheet_108
-    21300218: Santa - Sprite Sheet_109
-    21300220: Santa - Sprite Sheet_110
-    21300222: Santa - Sprite Sheet_111
-    21300224: Santa - Sprite Sheet_112
-    21300226: Santa - Sprite Sheet_113
-    21300228: Santa - Sprite Sheet_114
-    21300230: Santa - Sprite Sheet_115
-    21300232: Santa - Sprite Sheet_116
-    21300234: Santa - Sprite Sheet_117
-    21300236: Santa - Sprite Sheet_118
-    21300238: Santa - Sprite Sheet_119
-    21300240: Santa - Sprite Sheet_120
-    21300242: Santa - Sprite Sheet_121
-    21300244: Santa - Sprite Sheet_122
-    21300246: Santa - Sprite Sheet_123
-    21300248: Santa - Sprite Sheet_124
-    21300250: Santa - Sprite Sheet_125
-    21300252: Santa - Sprite Sheet_126
-    21300254: Santa - Sprite Sheet_127
-    21300256: Santa - Sprite Sheet_128
-    21300258: Santa - Sprite Sheet_129
-    21300260: Santa - Sprite Sheet_130
-    21300262: Santa - Sprite Sheet_131
-    21300264: Santa - Sprite Sheet_132
-    21300266: Santa - Sprite Sheet_133
-    21300268: Santa - Sprite Sheet_134
-    21300270: Santa - Sprite Sheet_135
-    21300272: Santa - Sprite Sheet_136
-    21300274: Santa - Sprite Sheet_137
+    21300000: Adventurer Sprite Sheet v1.1_0
+    21300002: Adventurer Sprite Sheet v1.1_1
+    21300004: Adventurer Sprite Sheet v1.1_2
+    21300006: Adventurer Sprite Sheet v1.1_3
+    21300008: Adventurer Sprite Sheet v1.1_4
+    21300010: Adventurer Sprite Sheet v1.1_5
+    21300012: Adventurer Sprite Sheet v1.1_6
+    21300014: Adventurer Sprite Sheet v1.1_7
+    21300016: Adventurer Sprite Sheet v1.1_8
+    21300018: Adventurer Sprite Sheet v1.1_9
+    21300020: Adventurer Sprite Sheet v1.1_10
+    21300022: Adventurer Sprite Sheet v1.1_11
+    21300024: Adventurer Sprite Sheet v1.1_12
+    21300026: Adventurer Sprite Sheet v1.1_13
+    21300028: Adventurer Sprite Sheet v1.1_14
+    21300030: Adventurer Sprite Sheet v1.1_15
+    21300032: Adventurer Sprite Sheet v1.1_16
+    21300034: Adventurer Sprite Sheet v1.1_17
+    21300036: Adventurer Sprite Sheet v1.1_18
+    21300038: Adventurer Sprite Sheet v1.1_19
+    21300040: Adventurer Sprite Sheet v1.1_20
+    21300042: Adventurer Sprite Sheet v1.1_21
+    21300044: Adventurer Sprite Sheet v1.1_22
+    21300046: Adventurer Sprite Sheet v1.1_23
+    21300048: Adventurer Sprite Sheet v1.1_24
+    21300050: Adventurer Sprite Sheet v1.1_25
+    21300052: Adventurer Sprite Sheet v1.1_26
+    21300054: Adventurer Sprite Sheet v1.1_27
+    21300056: Adventurer Sprite Sheet v1.1_28
+    21300058: Adventurer Sprite Sheet v1.1_29
+    21300060: Adventurer Sprite Sheet v1.1_30
+    21300062: Adventurer Sprite Sheet v1.1_31
+    21300064: Adventurer Sprite Sheet v1.1_32
+    21300066: Adventurer Sprite Sheet v1.1_33
+    21300068: Adventurer Sprite Sheet v1.1_34
+    21300070: Adventurer Sprite Sheet v1.1_35
+    21300072: Adventurer Sprite Sheet v1.1_36
+    21300074: Adventurer Sprite Sheet v1.1_37
+    21300076: Adventurer Sprite Sheet v1.1_38
+    21300078: Adventurer Sprite Sheet v1.1_39
+    21300080: Adventurer Sprite Sheet v1.1_40
+    21300082: Adventurer Sprite Sheet v1.1_41
+    21300084: Adventurer Sprite Sheet v1.1_42
+    21300086: Adventurer Sprite Sheet v1.1_43
+    21300088: Adventurer Sprite Sheet v1.1_44
+    21300090: Adventurer Sprite Sheet v1.1_45
+    21300092: Adventurer Sprite Sheet v1.1_46
+    21300094: Adventurer Sprite Sheet v1.1_47
+    21300096: Adventurer Sprite Sheet v1.1_48
+    21300098: Adventurer Sprite Sheet v1.1_49
+    21300100: Adventurer Sprite Sheet v1.1_50
+    21300102: Adventurer Sprite Sheet v1.1_51
+    21300104: Adventurer Sprite Sheet v1.1_52
+    21300106: Adventurer Sprite Sheet v1.1_53
+    21300108: Adventurer Sprite Sheet v1.1_54
+    21300110: Adventurer Sprite Sheet v1.1_55
+    21300112: Adventurer Sprite Sheet v1.1_56
+    21300114: Adventurer Sprite Sheet v1.1_57
+    21300116: Adventurer Sprite Sheet v1.1_58
+    21300118: Adventurer Sprite Sheet v1.1_59
+    21300120: Adventurer Sprite Sheet v1.1_60
+    21300122: Adventurer Sprite Sheet v1.1_61
+    21300124: Adventurer Sprite Sheet v1.1_62
+    21300126: Adventurer Sprite Sheet v1.1_63
+    21300128: Adventurer Sprite Sheet v1.1_64
+    21300130: Adventurer Sprite Sheet v1.1_65
+    21300132: Adventurer Sprite Sheet v1.1_66
+    21300134: Adventurer Sprite Sheet v1.1_67
+    21300136: Adventurer Sprite Sheet v1.1_68
+    21300138: Adventurer Sprite Sheet v1.1_69
+    21300140: Adventurer Sprite Sheet v1.1_70
+    21300142: Adventurer Sprite Sheet v1.1_71
+    21300144: Adventurer Sprite Sheet v1.1_72
+    21300146: Adventurer Sprite Sheet v1.1_73
+    21300148: Adventurer Sprite Sheet v1.1_74
+    21300150: Adventurer Sprite Sheet v1.1_75
+    21300152: Adventurer Sprite Sheet v1.1_76
+    21300154: Adventurer Sprite Sheet v1.1_77
+    21300156: Adventurer Sprite Sheet v1.1_78
+    21300158: Adventurer Sprite Sheet v1.1_79
+    21300160: Adventurer Sprite Sheet v1.1_80
+    21300162: Adventurer Sprite Sheet v1.1_81
+    21300164: Adventurer Sprite Sheet v1.1_82
+    21300166: Adventurer Sprite Sheet v1.1_83
+    21300168: Adventurer Sprite Sheet v1.1_84
+    21300170: Adventurer Sprite Sheet v1.1_85
+    21300172: Adventurer Sprite Sheet v1.1_86
+    21300174: Adventurer Sprite Sheet v1.1_87
+    21300176: Adventurer Sprite Sheet v1.1_88
+    21300178: Adventurer Sprite Sheet v1.1_89
+    21300180: Adventurer Sprite Sheet v1.1_90
+    21300182: Adventurer Sprite Sheet v1.1_91
+    21300184: Adventurer Sprite Sheet v1.1_92
+    21300186: Adventurer Sprite Sheet v1.1_93
+    21300188: Adventurer Sprite Sheet v1.1_94
+    21300190: Adventurer Sprite Sheet v1.1_95
+    21300192: Adventurer Sprite Sheet v1.1_96
+    21300194: Adventurer Sprite Sheet v1.1_97
+    21300196: Adventurer Sprite Sheet v1.1_98
+    21300198: Adventurer Sprite Sheet v1.1_99
+    21300200: Adventurer Sprite Sheet v1.1_100
+    21300202: Adventurer Sprite Sheet v1.1_101
+    21300204: Adventurer Sprite Sheet v1.1_102
+    21300206: Adventurer Sprite Sheet v1.1_103
+    21300208: Adventurer Sprite Sheet v1.1_104
+    21300210: Adventurer Sprite Sheet v1.1_105
+    21300212: Adventurer Sprite Sheet v1.1_106
+    21300214: Adventurer Sprite Sheet v1.1_107
+    21300216: Adventurer Sprite Sheet v1.1_108
+    21300218: Adventurer Sprite Sheet v1.1_109
+    21300220: Adventurer Sprite Sheet v1.1_110
+    21300222: Adventurer Sprite Sheet v1.1_111
+    21300224: Adventurer Sprite Sheet v1.1_112
+    21300226: Adventurer Sprite Sheet v1.1_113
+    21300228: Adventurer Sprite Sheet v1.1_114
+    21300230: Adventurer Sprite Sheet v1.1_115
+    21300232: Adventurer Sprite Sheet v1.1_116
+    21300234: Adventurer Sprite Sheet v1.1_117
+    21300236: Adventurer Sprite Sheet v1.1_118
+    21300238: Adventurer Sprite Sheet v1.1_119
+    21300240: Adventurer Sprite Sheet v1.1_120
+    21300242: Adventurer Sprite Sheet v1.1_121
+    21300244: Adventurer Sprite Sheet v1.1_122
+    21300246: Adventurer Sprite Sheet v1.1_123
+    21300248: Adventurer Sprite Sheet v1.1_124
+    21300250: Adventurer Sprite Sheet v1.1_125
+    21300252: Adventurer Sprite Sheet v1.1_126
+    21300254: Adventurer Sprite Sheet v1.1_127
+    21300256: Adventurer Sprite Sheet v1.1_128
+    21300258: Adventurer Sprite Sheet v1.1_129
+    21300260: Adventurer Sprite Sheet v1.1_130
+    21300262: Adventurer Sprite Sheet v1.1_131
+    21300264: Adventurer Sprite Sheet v1.1_132
+    21300266: Adventurer Sprite Sheet v1.1_133
+    21300268: Adventurer Sprite Sheet v1.1_134
+    21300270: Adventurer Sprite Sheet v1.1_135
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -220,1773 +218,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_0
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 2048
-        width: 26
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c1ca495178021c04e8c7e19ed601b91f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 95
-        y: 2016
-        width: 30
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d5d73c4036da6849b58c18d0d2eabbf
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 2016
-        width: 30
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2399ae44eb37e8c45a1204d70b9d1cf9
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 287
-        y: 2016
-        width: 30
-        height: 60
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad42e236641e5c04b9649d6a96bdb056
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 383
-        y: 2016
-        width: 29
-        height: 60
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b63c2b238a4bdb64d8f1596e0414a9ed
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 586
-        y: 2048
-        width: 11
-        height: 12
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4b9c8ac5153be2240b13928b54feaaf1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 1953
-        width: 27
-        height: 28
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f68108dd5caa7614e90e5806d9e91557
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 95
-        y: 1920
-        width: 30
-        height: 63
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a67914a2f7284324096a72ce25bb7229
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 1920
-        width: 30
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0b92f2beddfe14146afc9db650b43679
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 287
-        y: 1920
-        width: 30
-        height: 59
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4b4dc4b8870f3094a9f2f4a18960be83
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_10
-      rect:
-        serializedVersion: 2
-        x: 383
-        y: 1920
-        width: 30
-        height: 62
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bcd85ef5dfe5c0b4297d5bdcc7584877
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_11
-      rect:
-        serializedVersion: 2
-        x: 479
-        y: 1920
-        width: 30
-        height: 97
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0af4c883358ebeb4b81f82e78d459401
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_12
-      rect:
-        serializedVersion: 2
-        x: 575
-        y: 1920
-        width: 30
-        height: 63
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 391ba4f1e25216240a5d791abee7bea6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_13
-      rect:
-        serializedVersion: 2
-        x: 671
-        y: 1920
-        width: 97
-        height: 59
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 87ca7896b7f904c4eb96b6c05e3017f3
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_14
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 1856
-        width: 26
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a4aa277ef108dc4ca2aa54dfeaa5a9e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_15
-      rect:
-        serializedVersion: 2
-        x: 95
-        y: 1824
-        width: 36
-        height: 60
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c48e67e7940c7a04f8d5749d8556c410
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_16
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 1824
-        width: 36
-        height: 60
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 950cc01477521884fbb14b73f8fcd233
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_17
-      rect:
-        serializedVersion: 2
-        x: 287
-        y: 1824
-        width: 36
-        height: 60
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 35871130ce3deea49ba04bc6ced0de6a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_18
-      rect:
-        serializedVersion: 2
-        x: 383
-        y: 1824
-        width: 97
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5c3726a8b06cb2f4b98f432b00f825c2
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_19
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 1760
-        width: 26
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e9aa27a9874728743aa0f71d1cccf5c1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_20
-      rect:
-        serializedVersion: 2
-        x: 95
-        y: 1728
-        width: 32
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 373f4fc1642a5a44cbfdcb3c1a2307a4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_21
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 1728
-        width: 33
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91446ed7c2131954298a916cf255b8ae
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_22
-      rect:
-        serializedVersion: 2
-        x: 287
-        y: 1728
-        width: 32
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 51258251daf8ba046a4df6a76d6560a8
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_23
-      rect:
-        serializedVersion: 2
-        x: 383
-        y: 1728
-        width: 29
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cab33775706d67545b6773249cda9755
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_24
-      rect:
-        serializedVersion: 2
-        x: 479
-        y: 1632
-        width: 41
-        height: 97
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c85c3d82b027ba40a13080d9efe6e30
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_25
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 1664
-        width: 26
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f3d30fbf13af3064faf7fac5eb318686
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_26
-      rect:
-        serializedVersion: 2
-        x: 95
-        y: 1632
-        width: 30
-        height: 63
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 62737a817b2594f4faf788b367037178
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_27
-      rect:
-        serializedVersion: 2
-        x: 199
-        y: 1667
-        width: 25
-        height: 30
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1ae86bb7bda4a3b4fad8511455cc719f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_28
-      rect:
-        serializedVersion: 2
-        x: 297
-        y: 1665
-        width: 25
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f05f5f3677685d948bef53af6fa99d60
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_29
-      rect:
-        serializedVersion: 2
-        x: 395
-        y: 1664
-        width: 25
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3338904ff66510f4f93c8ce62d445fde
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_30
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 1568
-        width: 26
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5bf86c6aa55e6ea4e91aa0ee89592e18
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_31
-      rect:
-        serializedVersion: 2
-        x: 95
-        y: 1536
-        width: 29
-        height: 60
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 301000585dc1cf24b8a298a27dbda4be
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_32
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 1536
-        width: 29
-        height: 97
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6073151229a27ee49b1673848dad282f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_33
-      rect:
-        serializedVersion: 2
-        x: 287
-        y: 1568
-        width: 31
-        height: 65
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bf6832d00afb5514b9efa38662c52ff9
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_34
-      rect:
-        serializedVersion: 2
-        x: 287
-        y: 1440
-        width: 34
-        height: 97
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea615037315decc4cb21b1e97acaa50c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_35
-      rect:
-        serializedVersion: 2
-        x: 383
-        y: 1506
-        width: 73
-        height: 127
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9eeea46399c65e84a835b3bb168e05cd
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_36
-      rect:
-        serializedVersion: 2
-        x: 479
-        y: 1526
-        width: 40
-        height: 76
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e031a3595d6c9d41880b24631b5467e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_37
-      rect:
-        serializedVersion: 2
-        x: 554
-        y: 1536
-        width: 66
-        height: 97
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e8de63b350cbffd4ea6f62f8aa0876aa
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_38
-      rect:
-        serializedVersion: 2
-        x: 671
-        y: 1440
-        width: 97
-        height: 97
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9d0010821c9ef564babee37758d6dbe4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_39
-      rect:
-        serializedVersion: 2
-        x: 694
-        y: 1572
-        width: 24
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 328744627acc44e4c9dfe4ff80150c5f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_40
-      rect:
-        serializedVersion: 2
-        x: 767
-        y: 1536
-        width: 97
-        height: 59
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f4f88f94d4c447645a0d9bd6d7407fb9
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_41
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 1472
-        width: 26
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0df112af890e73e448714b36141cf58e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_42
-      rect:
-        serializedVersion: 2
-        x: 95
-        y: 1440
-        width: 28
-        height: 58
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 68790ea64e36b9c4db4c61fb66851321
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_43
-      rect:
-        serializedVersion: 2
-        x: 193
-        y: 1477
-        width: 26
-        height: 28
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a341449199e910f48a53777b584d25f5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_44
-      rect:
-        serializedVersion: 2
-        x: 383
-        y: 1440
-        width: 32
-        height: 59
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7e4921e5f3ccec14b8338fa8672a2e62
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_45
-      rect:
-        serializedVersion: 2
-        x: 479
-        y: 1440
-        width: 31
-        height: 53
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 21a65c5780b6d914ca6f46aba8861a44
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_46
-      rect:
-        serializedVersion: 2
-        x: 575
-        y: 1440
-        width: 32
-        height: 58
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c569e1135b182844a5bc7d390cb113a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_47
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 1376
-        width: 26
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05865499565ef8c4cb60d3a27f2dfa26
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_48
-      rect:
-        serializedVersion: 2
-        x: 95
-        y: 1248
-        width: 23
-        height: 97
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f7b756cab5d9ac149a32fb30c3eeae41
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_49
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 1376
-        width: 21
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed689fbd61be30a4bb51559aea58bcdf
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_50
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 1335
-        width: 24
-        height: 106
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7772c43f74acf744c8da5a0abbfeb4fa
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_51
-      rect:
-        serializedVersion: 2
-        x: 287
-        y: 1344
-        width: 33
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5347cfd5929145a49b8dd22520115d6f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_52
-      rect:
-        serializedVersion: 2
-        x: 383
-        y: 1344
-        width: 34
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bccc50549a437d443a712591e39114cb
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_53
-      rect:
-        serializedVersion: 2
-        x: 479
-        y: 1344
-        width: 97
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6cfe1926570adf6428f59b1f1356762d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_54
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 1280
-        width: 29
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 598468a9388f1ef4d85a4259d8bcd48a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_55
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 1248
-        width: 36
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9a704dc66ec48d5498f11b6a0429331c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_56
-      rect:
-        serializedVersion: 2
-        x: 287
-        y: 1248
-        width: 37
-        height: 60
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9e5e2b2bf53ec78488b9bdcb603813ff
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_57
-      rect:
-        serializedVersion: 2
-        x: 383
-        y: 1248
-        width: 97
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 37a0692a0ad53a143b40a135080bb74f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_58
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 1184
-        width: 26
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 944fbe50682b36f4e9d4d8f98ce29060
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_59
-      rect:
-        serializedVersion: 2
-        x: 95
-        y: 1152
-        width: 30
-        height: 58
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c14a8bf58f876744492d51f216887995
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_60
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 1152
-        width: 30
-        height: 59
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 408d038cb7f95c1469804261c8ace9a1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_61
-      rect:
-        serializedVersion: 2
-        x: 287
-        y: 1152
-        width: 30
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fb77fc1ab6c1a98499dcb0e27a19e5c9
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_62
-      rect:
-        serializedVersion: 2
-        x: 383
-        y: 1056
-        width: 31
-        height: 97
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6dfbbb0f4ba2dba4782359ef21a2af33
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_63
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 1088
-        width: 26
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ade7e1fc0a176c9468fc9003b870cb2f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_64
-      rect:
-        serializedVersion: 2
-        x: 95
-        y: 1056
-        width: 30
-        height: 58
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ddd0dea1703139d44b5b5578c6b18b14
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_65
-      rect:
-        serializedVersion: 2
-        x: 191
-        y: 1056
-        width: 28
-        height: 54
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 60e8437599f04994fbccc436f9a69cea
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_66
-      rect:
-        serializedVersion: 2
-        x: 287
-        y: 1056
-        width: 31
-        height: 49
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9487680e1de194b4bab8fffe29e92c35
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_67
-      rect:
-        serializedVersion: 2
-        x: 479
-        y: 1056
-        width: 31
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 58bedcd02f96dc145837b4e456736d1e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_68
-      rect:
-        serializedVersion: 2
-        x: 575
-        y: 1056
-        width: 129
-        height: 47
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3a0843eecd4ad8d46af63231cdaab0fa
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_69
+      name: Adventurer Sprite Sheet v1.1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 960
-        width: 97
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d11cf8213e651384ea4d4926b54a8895
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_70
-      rect:
-        serializedVersion: 2
-        x: 163
-        y: 960
-        width: 30
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 799d3fbd951331f4b841db672292b856
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_71
-      rect:
-        serializedVersion: 2
-        x: 259
-        y: 960
-        width: 30
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e4dbbbb4d9a48ba40a888500c4e57223
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_72
-      rect:
-        serializedVersion: 2
-        x: 355
-        y: 960
-        width: 30
-        height: 60
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b92453861ab56dc47b8ca5d8436783bf
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_73
-      rect:
-        serializedVersion: 2
-        x: 452
-        y: 992
-        width: 25
-        height: 28
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7a2b576f4937af8459a32692afa38c30
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_74
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 864
-        width: 97
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bb315202d67698f4dbae86d82b34e10c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_75
-      rect:
-        serializedVersion: 2
-        x: 163
-        y: 864
-        width: 30
-        height: 63
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b04a9438600cd884ab6e06f1de9df8b2
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_76
-      rect:
-        serializedVersion: 2
-        x: 259
-        y: 864
-        width: 30
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 10344f345471fff4b849324a357a789f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_77
-      rect:
-        serializedVersion: 2
-        x: 355
-        y: 864
-        width: 30
-        height: 59
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c741bd1a68149148a32d083cdc4deab
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_78
-      rect:
-        serializedVersion: 2
-        x: 451
-        y: 864
-        width: 30
-        height: 62
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d3c2f09544611f419a3050e1e6d4ced
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_79
-      rect:
-        serializedVersion: 2
-        x: 547
-        y: 864
-        width: 30
-        height: 65
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cdfc557c45ae15f4e863a730402e40f6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_80
-      rect:
-        serializedVersion: 2
-        x: 643
-        y: 864
-        width: 30
-        height: 63
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f60447159aa1df848a26df3fb909497a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_81
-      rect:
-        serializedVersion: 2
-        x: 739
-        y: 896
-        width: 26
-        height: 27
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e392400dcfdb775418a1a30eb87c5153
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_82
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 768
-        width: 97
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f7fe6ba1de6218244b29b47cf1d1d461
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_83
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 768
-        width: 36
-        height: 60
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d80af24324cdc34d825ffef38f24f80
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_84
-      rect:
-        serializedVersion: 2
-        x: 253
-        y: 768
-        width: 36
-        height: 60
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e2991e705202df741bd5d03384764f56
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_85
-      rect:
-        serializedVersion: 2
-        x: 349
-        y: 768
-        width: 36
-        height: 60
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: adb9242b7bfc2214aa4a406ed4fe70f9
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_86
-      rect:
-        serializedVersion: 2
-        x: 450
-        y: 800
-        width: 27
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0271504d603feb143a92e28cd4e1e3c0
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_87
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 672
-        width: 97
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bd46af43a572dab459d735d1d26d025c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_88
-      rect:
-        serializedVersion: 2
-        x: 161
-        y: 672
+        y: 480
         width: 32
-        height: 61
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1994,39 +232,159 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54cc039ebe0c1734a85991f162d71d75
+      spriteID: 581ad845dbe64c543b525ece6f10deaf
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_89
+      name: Adventurer Sprite Sheet v1.1_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 480
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 469f902a7bc6c614c96d03f78ea1087e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 480
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b475195d23a78a4ab6d4ce36f6bf890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 480
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ec0f68f26b87ed4491faa9500989858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 480
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62a786d4d74605949a94b9f17259566d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 480
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fabbccd2b9ced5f4191aa07a472f2669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 480
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b569399f8b5c684e8eea657a4f455a9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 480
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ce49bb88aa7197438f412469496e0f6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_8
       rect:
         serializedVersion: 2
         x: 256
-        y: 672
-        width: 33
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 033e73a839cb4b54291f775136056f91
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_90
-      rect:
-        serializedVersion: 2
-        x: 353
-        y: 672
+        y: 480
         width: 32
-        height: 61
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2034,19 +392,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f60785af2b2bc6a4c9a400f5b67d252d
+      spriteID: 698af9854bce6804b81da2c733e7afdb
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_91
+      name: Adventurer Sprite Sheet v1.1_9
       rect:
         serializedVersion: 2
-        x: 452
-        y: 704
-        width: 25
-        height: 29
+        x: 288
+        y: 480
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2054,19 +412,79 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7810339a8b871ec4f8a8f954fdc1a123
+      spriteID: 8780adb557f045d4da48c6c4de72737c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_92
+      name: Adventurer Sprite Sheet v1.1_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 480
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8c95d807beb0f6429ee22ec403815bb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 480
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff487a3601314741bc36e8096c416bc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 480
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9a6516350604be47818c47c0e781b38
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_13
       rect:
         serializedVersion: 2
         x: 0
-        y: 576
-        width: 97
-        height: 61
+        y: 448
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2074,19 +492,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 494cf8af76346b84fbe333b0631e927d
+      spriteID: 3f516e665ca9f7e4580bd45abaa8d312
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_93
+      name: Adventurer Sprite Sheet v1.1_14
       rect:
         serializedVersion: 2
-        x: 163
-        y: 576
-        width: 30
-        height: 63
+        x: 32
+        y: 448
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2094,19 +512,299 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e31ca366ebeac446a2be5bcb9c31de0
+      spriteID: ad42f1601ccc600489cb78c7f6116325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_94
+      name: Adventurer Sprite Sheet v1.1_15
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02e70f858c799b647b9b361aefa71577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_16
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 448
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd58c0e0049b98646960b01d3907b3a8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_17
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab47377cf597e314489946e745bca3ed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_18
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 448
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67f87b348fe80f2438b49115802dc51f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_19
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53095227cc51fa8428f9146eedc6bffe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_20
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 448
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c95e6e532f4a97a43841cbc52186d61a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 416
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0230988190a52fe4d87ddb9fe2632b67
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_22
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 416
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b754ed53dafaecf4d9090bfc4288a37a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_23
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 416
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 025c262c6407f904884c399dd1c5b793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_24
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 416
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be36ac3b3f1f6544096338c3abf27b9c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_25
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 416
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db1cfc3cbf88392479b6618307dcfa21
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_26
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 416
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c736fcdc63d5f4db5efa54e6d933c3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_27
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 416
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4505affc9bbbb5347a1c9d9bedb202f2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_28
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 416
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc1920fad4255ac47893350d42a45ca7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_29
       rect:
         serializedVersion: 2
         x: 256
-        y: 611
-        width: 25
-        height: 30
+        y: 416
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2114,19 +812,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a48bc7edb76c054e923f7fc57f55d03
+      spriteID: b57df2c7ae29bf9419a964417c2211fe
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_95
+      name: Adventurer Sprite Sheet v1.1_30
       rect:
         serializedVersion: 2
-        x: 350
-        y: 609
-        width: 25
-        height: 29
+        x: 288
+        y: 416
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2134,239 +832,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: feb0aed736270604c85f82ed80f30df4
+      spriteID: 94d8476b261fb1b44bccf2f7b9c65783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_96
-      rect:
-        serializedVersion: 2
-        x: 444
-        y: 608
-        width: 25
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ab4b5d1facdee9478a7911bb295c1a3
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_97
-      rect:
-        serializedVersion: 2
-        x: 536
-        y: 608
-        width: 26
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d8971d1c621c4e44a96f4c6bde334c15
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_98
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 480
-        width: 97
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fb2f3eb9efb6ba740bd54840c4e6579d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_99
-      rect:
-        serializedVersion: 2
-        x: 164
-        y: 480
-        width: 29
-        height: 60
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a5b3b709b4ecd3428a418e268d74780
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_100
-      rect:
-        serializedVersion: 2
-        x: 260
-        y: 480
-        width: 29
-        height: 97
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41d3136c1f6d6ba43b074ca7d102f021
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_101
-      rect:
-        serializedVersion: 2
-        x: 354
-        y: 480
-        width: 61
-        height: 97
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d5c726f9c22a2a429b0ff2b09adf66e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_102
-      rect:
-        serializedVersion: 2
-        x: 442
-        y: 480
-        width: 39
-        height: 97
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a41d2fbfb436be146a2fa31f7b89adf7
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_103
-      rect:
-        serializedVersion: 2
-        x: 537
-        y: 470
-        width: 40
-        height: 76
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c9a8596fa8e05e342aea6c1bae926404
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_104
-      rect:
-        serializedVersion: 2
-        x: 628
-        y: 517
-        width: 28
-        height: 30
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e210fba199717324fad6c2d7e9ad82a6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_105
-      rect:
-        serializedVersion: 2
-        x: 722
-        y: 516
-        width: 24
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1190a70e734f63a479600c3818fdd913
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_106
-      rect:
-        serializedVersion: 2
-        x: 814
-        y: 512
-        width: 24
-        height: 27
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cb9d6c41144c534468e6605d33eafb55
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_107
+      name: Adventurer Sprite Sheet v1.1_31
       rect:
         serializedVersion: 2
         x: 0
         y: 384
-        width: 97
-        height: 61
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2374,19 +852,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d9d385009e6d1c4e80656448c0a8acd
+      spriteID: 92a81dfc11cd9664fbc53a73d3763bbf
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_108
+      name: Adventurer Sprite Sheet v1.1_32
       rect:
         serializedVersion: 2
-        x: 165
+        x: 32
         y: 384
-        width: 28
-        height: 58
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2394,19 +872,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd248239ca58aa1418e1eb55cd897f97
+      spriteID: 60fe64d9bfb53fa45810aedc9e36b960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_109
+      name: Adventurer Sprite Sheet v1.1_33
       rect:
         serializedVersion: 2
-        x: 261
-        y: 421
-        width: 26
-        height: 28
+        x: 64
+        y: 384
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2414,39 +892,139 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2368f1b73df53e84d82412e4d7d7b513
+      spriteID: 20e8454af58c3ab46b5926c0b4be4c1f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_110
+      name: Adventurer Sprite Sheet v1.1_34
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 384
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92053250d622ad04380330f0ece6d489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_35
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b40d1960190e0c442aa200e1bb84bd7c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_36
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 384
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0734a0dabb887d47ac39fc9fa19974b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_37
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2238a4b01ecfc44b91f779cdb0607c0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_38
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 384
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73d7910e6132e3349bf58328ec4246c1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_39
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 495c91297fc2df54da6946c496ae68b5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_40
       rect:
         serializedVersion: 2
         x: 288
         y: 384
-        width: 97
-        height: 80
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9170e2050eabd6f49a30d4d94904dd2c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_111
-      rect:
-        serializedVersion: 2
-        x: 449
-        y: 384
         width: 32
-        height: 59
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2454,39 +1032,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 001dd0a3612c7f448b1334a143635171
+      spriteID: 6960d9e4061544041abf79e1b4cdd2e4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_112
+      name: Adventurer Sprite Sheet v1.1_41
       rect:
         serializedVersion: 2
-        x: 546
-        y: 384
-        width: 31
-        height: 53
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f4875e1227cd2d4fa0f56c0eddb30e8
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_113
-      rect:
-        serializedVersion: 2
-        x: 641
-        y: 384
+        x: 0
+        y: 352
         width: 32
-        height: 97
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2494,19 +1052,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bfbe952a8a2f094c9e4cc03fdc05d8d
+      spriteID: b84d600676203da469c604568b4b1893
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_114
+      name: Adventurer Sprite Sheet v1.1_42
       rect:
         serializedVersion: 2
-        x: 739
-        y: 416
-        width: 30
-        height: 65
+        x: 32
+        y: 352
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2514,19 +1072,299 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a2697ab8b9402f4d81d7a4336753e11
+      spriteID: a051b017c1d04c44c831b48318cda1be
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_115
+      name: Adventurer Sprite Sheet v1.1_43
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 352
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 110c755a57ebbc54fbd7e5810d490589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_44
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 352
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32285a60c5881404f8f6379e34b81926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_45
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 352
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2352d98e0eaf47e44a2e275b4464c852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_46
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 352
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb434418ad0546b449d7d2b8caf36aed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_47
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 352
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b38ef9536ad52b041a2a6f22ebb25eac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_48
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 352
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59b816cd927fa6f43a2f0fceb3afc4a7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_49
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 352
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c74585baafef8944c84c66ef605b483e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_50
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 352
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c28b64a3908a354a9d4439e848bf56a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_51
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fb70496f3189004396c6b1d30e142a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_52
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 320
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84e0470e3e610b54da97e5d70f65edb9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_53
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 840a5257c2558004cb7a359a429cb3d5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_54
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 320
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5c471e2b834ead4eb8b7a4cd4e0aa79
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_55
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48eca30502bc5547a91c190864432f8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_56
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 320
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f9ff6e3fa26774f97deb71e334518b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_57
       rect:
         serializedVersion: 2
         x: 0
         y: 288
-        width: 97
-        height: 61
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2534,19 +1372,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd7c30a2db4599449b27bf2b1e787ade
+      spriteID: a6c3e4176d5875641bc51928271ea28a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_116
+      name: Adventurer Sprite Sheet v1.1_58
       rect:
         serializedVersion: 2
-        x: 168
-        y: 320
-        width: 21
-        height: 29
+        x: 32
+        y: 288
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2554,19 +1392,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b751173b3d64b34e823f44e07fcdc94
+      spriteID: 1cace49b5d47a634b9770e4b5ca77b64
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_117
+      name: Adventurer Sprite Sheet v1.1_59
       rect:
         serializedVersion: 2
-        x: 265
-        y: 279
-        width: 24
-        height: 70
+        x: 64
+        y: 288
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2574,159 +1412,399 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2734fe8b245aaaf4884a04c5cf6335da
+      spriteID: 539cd590157fdd24a9bd6fed9db44217
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_118
+      name: Adventurer Sprite Sheet v1.1_60
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9d317363696b704a8105d3ca3b14d4c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_61
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5206559c15527b64399338db4f52a5bb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_62
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 256
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6eb8a658c751164d9e5470d45234547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_63
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eb5d5a67f1ae8a419b0caf4046ec5a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_64
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 256
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c7345782f902044699a6985ccd6b433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_65
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d7a4479d26e0d24a83b2f5cdf0e1a81
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_66
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 256
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a49228c88ca12ad42b0712d1097a04af
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_67
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb054a73fd481f347bb713b4bbece7cd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_68
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3db4761b622298c4f85d3fa152971e13
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_69
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02ca31a51cbfd744bb73daa5eb3fd222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_70
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f7a10896fa32ce4e82da42255bfd33a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_71
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53eeaf2aae5580247b7898367cc677ac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_72
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 224
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3f07e53654f12641abf5d826e4aac77
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_73
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 224
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1619e79d147ce5f47bfa91acaa9addb2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_74
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 224
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ece13f0abdb023149ace94cdbce0ea41
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_75
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 224
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc502e3585abb384e9bc44dbefd27678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_76
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 224
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b6ca4b9f2abd524fb0ccc87a9ddebf1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_77
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 224
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99de86f0bfb4a1146bd6b53bab704c25
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_78
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 224
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0122a954de6f51c469c0d30e8b682cd1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_79
       rect:
         serializedVersion: 2
         x: 352
-        y: 288
-        width: 33
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a7754cd073f95c4a8488466d5ef82c6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_119
-      rect:
-        serializedVersion: 2
-        x: 447
-        y: 288
-        width: 34
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f0131dc2c053b6444879477e27b99182
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_120
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 320
-        width: 29
-        height: 29
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 59255ff8a83a2ee46987dd32a9b968fa
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_121
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 192
-        width: 97
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a7af27f2f79ac824faa0b6bf4c56052d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_122
-      rect:
-        serializedVersion: 2
-        x: 170
-        y: 192
-        width: 23
-        height: 97
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4dd4fac95a8cea04084a35ec2217eaa6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_123
-      rect:
-        serializedVersion: 2
-        x: 253
-        y: 192
-        width: 36
-        height: 61
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a92870d39b9b8f84cb834bda5bd29ac7
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_124
-      rect:
-        serializedVersion: 2
-        x: 348
-        y: 192
-        width: 37
-        height: 60
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fef590b4ebe7cdf4e8a38816c354e061
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Santa - Sprite Sheet_125
-      rect:
-        serializedVersion: 2
-        x: 451
         y: 224
-        width: 26
-        height: 29
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2734,19 +1812,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 227d66d45881fa841b6163a1ff9133d0
+      spriteID: 586408f88d8a8934a96453c89be48742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_126
+      name: Adventurer Sprite Sheet v1.1_80
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 224
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2b9f2ae1536656419061c97bfdd82a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_81
       rect:
         serializedVersion: 2
         x: 0
-        y: 96
-        width: 97
-        height: 61
+        y: 192
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2754,19 +1852,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ed0405df900a6c4ea07cbc8dc48bc6e
+      spriteID: 6dd7008809edba84db0675589a36b593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_127
+      name: Adventurer Sprite Sheet v1.1_82
       rect:
         serializedVersion: 2
-        x: 163
-        y: 96
-        width: 30
-        height: 58
+        x: 32
+        y: 192
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2774,19 +1872,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83d85a6866eebb448be1c8cd76bb971f
+      spriteID: 46a2112b89f0e93439e1132efdb22665
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_128
+      name: Adventurer Sprite Sheet v1.1_83
       rect:
         serializedVersion: 2
-        x: 259
-        y: 96
-        width: 30
-        height: 59
+        x: 64
+        y: 192
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2794,19 +1892,319 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4324a082da290e54c92136fd710f69d1
+      spriteID: 743515263eff86247ac1198da734ad84
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_129
+      name: Adventurer Sprite Sheet v1.1_84
       rect:
         serializedVersion: 2
-        x: 355
+        x: 96
+        y: 192
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 852689daf374eeb46b8c1d25d601694b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_85
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afe0f93b0a8b0b44391fcce3ad033424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_86
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 192
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58e39d01171c3b14fad135e4dee88e1b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_87
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4f9e97c4dda70047b8e32ab5a21df9d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_88
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 192
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e602807c1c371f43ac58cd2cf1e4b4f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_89
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9817d33e2793996459ee24bf966a84ae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_90
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91e4d67514d9dee44bfa6a9281dd125f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_91
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bed451eb3c77964fa52eb0bd39ee907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_92
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97884f1c2d154764c8d641f1ffdd7e59
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_93
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66444bcc3631ac14eb0e6394e877cae7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_94
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0529c0257856454d93df46b752ab185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_95
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7793460777251ac4688b5adec64409a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_96
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 561ce14c38eac474182912d07611f3bc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_97
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b15b48ac8a30be42930e3107dfa7a30
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_98
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 160
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1917ac0a3bf46b54f8cd291c5b8e9d5e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_99
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 128
-        width: 26
-        height: 29
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2814,19 +2212,599 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0fc6d43578a5f5459c08c2ef23fb894
+      spriteID: e498a30d640a38540ab51bfe167018ca
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_130
+      name: Adventurer Sprite Sheet v1.1_100
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cba8aa52eb770b4f91079ee47837f09
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_101
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26d69a213708f3142aee86710b45d8a4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_102
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f74d421873689b4a8d9f2365718b95f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_103
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c04a55ce97404646b84904c29c87875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_104
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e204fe32446e1a4195417470f2e1bd2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_105
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97629036aa662fe42a2bbf87a46ba9c7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_106
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 039495947e3b0c74c907f11c9e1756d5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_107
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 316b3181eda82db438d05d2a3ec470b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_108
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 128
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5a230291a0cdae4993d1bc05e843fdf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_109
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ac4029956d2d39458e9e19f3c521707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_110
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75de9a7b288852b448a79cf99f1a6f46
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_111
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc04b2a52a55e0041bea8b8271b66aef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_112
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94457659d064acc4a87bb82c4011520a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_113
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bc7a5850775cc642a8ef1ddb65a1bbd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_114
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26c165fe40a56b24d87fc50a8c27514c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_115
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 439dbe31925562f4cb417e3e69487a8d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_116
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b89f7187ca7e3ba46b9bfd18be5fc5a6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_117
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eea249d7fd290ec4bbf253970741d395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_118
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65e8d0790887860408e5ad04d8238fb6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_119
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ada16bf918daae94db4008f8c3c29b58
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_120
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d450958e04ec7cf40b9fa10a86352d88
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_121
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c04b15b0d6308469e61f5df7dad859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_122
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec469d00407dfdf40847867902ebbbbf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_123
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dd680c5e72c3b64384fa67c8d3b1ff0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_124
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acdf51888a6eb654a805f99ec58adb4a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_125
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ed4f2d0fb0345f48adcc3c400911e07
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_126
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 892f8a6a791b7f541b8c645beaa4c994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_127
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e681d9ed66d009d43b5d68130cdbd495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_128
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4565c063641f034b9f63123878b19b1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adventurer Sprite Sheet v1.1_129
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 97
-        height: 61
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2834,19 +2812,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08b03a3a2ee27a547b6c36b2ac7b0795
+      spriteID: e8c10c17ef7fbcd4185b56d65820c531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_131
+      name: Adventurer Sprite Sheet v1.1_130
       rect:
         serializedVersion: 2
-        x: 163
+        x: 32
         y: 0
-        width: 30
-        height: 58
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2854,19 +2832,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c71ab3dfc1f01e438663e7c3b955db2
+      spriteID: 06156a47c96462e439d1ae510164d55b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_132
+      name: Adventurer Sprite Sheet v1.1_131
       rect:
         serializedVersion: 2
-        x: 261
+        x: 64
         y: 0
-        width: 28
-        height: 54
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2874,19 +2852,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30bf13fd2929150469df39176c79a0bd
+      spriteID: 66a549fca676a8049a78447c9c7b426e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_133
+      name: Adventurer Sprite Sheet v1.1_132
       rect:
         serializedVersion: 2
-        x: 354
+        x: 96
         y: 0
-        width: 31
-        height: 49
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2894,19 +2872,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c646390dceb62946a2e330162602120
+      spriteID: 70cabaae60c482c4ea744c3a24fe5f43
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_134
+      name: Adventurer Sprite Sheet v1.1_133
       rect:
         serializedVersion: 2
-        x: 450
+        x: 128
         y: 0
-        width: 31
-        height: 47
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2914,19 +2892,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 347a6f604b163bf49b3ba7734ce55c96
+      spriteID: 99387bc44e6e68648b1a2f57b6e533d2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_135
+      name: Adventurer Sprite Sheet v1.1_134
       rect:
         serializedVersion: 2
-        x: 546
+        x: 160
         y: 0
-        width: 31
-        height: 48
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2934,19 +2912,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 503c81bcd60e6524aa9d6b6df1b12602
+      spriteID: 34f3252472a26f94da5faf082ea418bc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Santa - Sprite Sheet_136
+      name: Adventurer Sprite Sheet v1.1_135
       rect:
         serializedVersion: 2
-        x: 642
-        y: 32
-        width: 27
-        height: 15
+        x: 192
+        y: 0
+        width: 32
+        height: 32
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2954,7 +2932,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea0ed6569be1a6e4f851406331483430
+      spriteID: 4d0497e2b149cce4fb5c8e6629ea2521
       vertices: []
       indices: 
       edges: []
@@ -2962,7 +2940,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: db60f02c593b5594386c6c7960b51754
+    spriteID: d70c771a6600aa94da24511785360c8b
     vertices: []
     indices: 
     edges: []

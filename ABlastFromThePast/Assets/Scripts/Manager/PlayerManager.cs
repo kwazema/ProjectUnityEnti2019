@@ -213,9 +213,8 @@ public class PlayerManager : MonoBehaviour
 
     protected virtual void Start()
     {
-
-        //cur_skillCD = 0;
-        //cur_ultimateCD = 0;
+        cur_skillCD = 0;
+        cur_ultimateCD = 0;
 
         is_skill_ready = false;
         is_ultimate_ready = false;
@@ -230,8 +229,6 @@ public class PlayerManager : MonoBehaviour
 
         is_shootting = false;
         can_color_white = false;
-
-        anim.SetTrigger("iddle");
 
         if (thisPlayerIs == ThisPlayerIs.Player1)
             GameObject.Find(name + "/BodyCollider").layer = 11;
@@ -526,7 +523,22 @@ public class PlayerManager : MonoBehaviour
 
     public void ResetCharacter()
     {
-        Start();
+        health = health_max;
+        shield = shield_max;
+
+        // ----------------------- //
+
+        cur_skillCD = 0;
+        cur_ultimateCD = 0;
+
+        // ----------------------- //
+
+        if (thisPlayerIs == ThisPlayerIs.Player1)
+            playerMovement.playerColumn = 0;
+        else
+            playerMovement.playerColumn = map.columnLenth - 1;
+
+        playerMovement.playerRow = 0;
 
         // ----------------------- //
 
@@ -543,6 +555,23 @@ public class PlayerManager : MonoBehaviour
 
         playerInput.enabled = true;
         player_att_input.enabled = true;
+
+        // ----------------------- //
+
+        is_skill_ready = false;
+        is_ultimate_ready = false;
+
+        // ----------------------- //
+
+        isShieldActive = false;
+        moveToPosition = false;
+        returnOldPosition = false;
+        noHaAtacado = true;
+        cast_ended = false;
+        is_ultimateOn = false;
+        is_shield_broken = false;
+        is_shootting = false;
+        can_color_white = false;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
