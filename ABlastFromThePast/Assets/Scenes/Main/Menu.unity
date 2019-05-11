@@ -9326,6 +9326,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 957830188}
+        m_MethodName: ShowInfoMinos
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &795951305
@@ -10151,6 +10162,17 @@ MonoBehaviour:
       - m_Target: {fileID: 23958438}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 957830188}
+        m_MethodName: ShowNoInfo
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11112,12 +11134,6 @@ MonoBehaviour:
   rawImageSkill: {fileID: 671070063}
   videoPlayerSkill: {fileID: 2066896496}
   render: {fileID: 8600000, guid: 4f9fea377889277469ef670ea957f44c, type: 2}
-  videoData:
-    general: {fileID: 0}
-    basic: {fileID: 0}
-    skill: {fileID: 32900000, guid: 67561605a224e0a49af02214ed8f417e, type: 3}
-    ultimate: {fileID: 32900000, guid: 9e78c87b8593a7042a15ffaec86256ca, type: 3}
-    shield: {fileID: 0}
 --- !u!114 &957830188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11129,6 +11145,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56afc707085332409db2fa75f98ce5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  info: {fileID: 678957293}
+  characters: {fileID: 1086265691}
+  videoController: {fileID: 957830187}
+  videoData:
+    general: {fileID: 32900000, guid: 9e78c87b8593a7042a15ffaec86256ca, type: 3}
+    basic: {fileID: 0}
+    skill: {fileID: 32900000, guid: 0ceea7815204c9048a762f496346b70e, type: 3}
+    ultimate: {fileID: 32900000, guid: 2070803494781be409fe3e43f302ae5f, type: 3}
+    shield: {fileID: 0}
   lc:
     characterStats: []
   nameC: {fileID: 1277517734}
@@ -24621,6 +24646,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 957830188}
+        m_MethodName: ShowInfoSanta
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2046991829
@@ -26140,8 +26176,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 30, y: -131}
-  m_SizeDelta: {x: 600, y: 300}
+  m_AnchoredPosition: {x: 30, y: -176}
+  m_SizeDelta: {x: 600, y: 500}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2144562789
 MonoBehaviour:
