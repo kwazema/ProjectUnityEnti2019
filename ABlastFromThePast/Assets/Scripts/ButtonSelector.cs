@@ -63,7 +63,7 @@ public class ButtonSelector : MonoBehaviour {
 
     public void SelectAnim()
     {
-        Debug.Log("Select");
+        //Debug.Log("Select");
 
         if (battleChoose.numSelected < 2)
         {
@@ -104,7 +104,7 @@ public class ButtonSelector : MonoBehaviour {
 
     public void PointerExitAnim()
     {
-        Debug.Log("Point Exit");
+        //Debug.Log("Point Exit");
         fadeScale = false;
 
         if (battleChoose.numSelected < 2)

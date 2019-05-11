@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour {
         File.WriteAllText(filePath, jsonString);
     }
 
-    #region Como utilizar las funciones FILE
+    #region Como utilizar funciones FILE GameManager
 
     void ExampleUsingFile()
     {
@@ -63,10 +63,7 @@ public class GameManager : MonoBehaviour {
 
         // Set varible
         listCharacters.characterStats[0].damageBasicAttack = damage;
-
-
     }
-
 
     #endregion
 
@@ -76,7 +73,7 @@ public class GameManager : MonoBehaviour {
 
         for (int i = 0; i < playerManager.Length; i++)
         {
-            Debug.Log("Player " + i + " " + playerChoise[i]);
+           // Debug.Log("Player " + i + " " + playerChoise[i]);
 
             switch (playerChoise[i])
             {
@@ -84,10 +81,9 @@ public class GameManager : MonoBehaviour {
                 case 1: playerManager[i] = Instantiate(objectPlayer[playerChoise[i]]).GetComponent<Minos>(); break;
                 case 2: playerManager[i] = Instantiate(objectPlayer[playerChoise[i]]).GetComponent<Polyphemus>(); break;
             }
+
             playerManager[i].name = (playerManager[i].namePlayer + (i + 1));
-
             playerManager[i].whichIsThisPlayer = i;
-
 
             GameObject.Find(playerManager[i].name).GetComponent<PlayerMovement>().whichIs = i;
             

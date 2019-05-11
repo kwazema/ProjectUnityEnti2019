@@ -85,6 +85,11 @@ public class PlayerAttackInput : MonoBehaviour
             ActiveShield();
         else
             DeactivateShield();
+
+        if (Input.GetButtonDown("Shield0") && !playerManager[0].GetShieldState() && !playerManager[0].GetIsShootting())
+        {
+            playerManager[numPlayer].AnimReflectShield();
+        }
     }
 
     private void GetInputPlayer2()
@@ -119,6 +124,10 @@ public class PlayerAttackInput : MonoBehaviour
             ActiveShield();
         else
             DeactivateShield();
+
+        if (Input.GetButtonDown("Shield1") && !playerManager[1].GetShieldState() && !playerManager[1].GetIsShootting())
+        {
+        }
     }
 
     void BasicAttack()
@@ -155,6 +164,8 @@ public class PlayerAttackInput : MonoBehaviour
     {
         playerManager[numPlayer].SetIsShieldActive(true);
         shieldRender.enabled = true;
+        playerManager[numPlayer].AnimReflectShield();
+
     }
 
     private void DeactivateShield()
