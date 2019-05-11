@@ -32,7 +32,6 @@ public class BattleSystem : MonoBehaviour
     public Round round;
     private GameManager gameManager;
     private PlayeUI playeUI;
-
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -57,6 +56,10 @@ public class BattleSystem : MonoBehaviour
 
         gameManager.playerManager[0].ResetCharacter();
         gameManager.playerManager[1].ResetCharacter();
+
+        gameManager.playerManager[0].SetPlayerInputs(false);
+        gameManager.playerManager[1].SetPlayerInputs(false);
+
         round.timeToFadeUpgradeOutCur = round.timeToFadeUpgradeOutMax;
 
         while (!stop)
@@ -65,6 +68,7 @@ public class BattleSystem : MonoBehaviour
             playeUI.SetLateralPanelsAnimation(true, 500);
             playeUI.SetTopPanelsAnimation(false, 600);
             playeUI.SetLateralPanelsIconAnimation(false, 200);
+            playeUI.continueText.SetTrigger("fadeIn");
 
 
             if (Input.GetKeyDown(KeyCode.Space))
@@ -73,9 +77,11 @@ public class BattleSystem : MonoBehaviour
             yield return null;
         }
 
+        playeUI.continueText.ResetTrigger("fadeIn");
         while (round.timeToFadeUpgradeOutCur > 0)
         {
             playeUI.SetLateralPanelsAnimation(false, 700);
+            playeUI.continueText.SetTrigger("fadeOut");
             // TODO: Tener otro panel que solo tenga los logos y cuando se muestre empezar la partida
 
             round.timeToFadeUpgradeOutCur -= Time.deltaTime;
@@ -97,7 +103,7 @@ public class BattleSystem : MonoBehaviour
         {
             // Imprimir Animacion de Round 1 Con su fade
             round.timeToStartCur -= Time.deltaTime;
-           // Debug.Log("Se Muestra Round: " + round.timeToStartCur);
+            // Debug.Log("Se Muestra Round: " + round.timeToStartCur);
 
             if (round.timeToStartCur < 0)
             {
@@ -106,6 +112,7 @@ public class BattleSystem : MonoBehaviour
                 //Cuando se haya terminado fade mostrar Fight que desaparezma y empieze la partida
                 playeUI.SetTopPanelsAnimation(true, 700);
                 playeUI.SetLateralPanelsIconAnimation(true, 200);
+
 
                 if (round.timeToStartFightCur < 0)
                 {
@@ -129,6 +136,9 @@ public class BattleSystem : MonoBehaviour
     {
         round.timeCur = round.timeMax;
 
+        gameManager.playerManager[0].SetPlayerInputs(true);
+        gameManager.playerManager[1].SetPlayerInputs(true);
+
         //Comprobar si algun persnaje muere si el que gane se lleva round win
         while (round.timeCur >= 0 && gameManager.playerManager[0].GetHealth() > 0 && gameManager.playerManager[1].GetHealth() > 0)
         {
@@ -143,18 +153,11 @@ public class BattleSystem : MonoBehaviour
         float healhPlayer2 = gameManager.playerManager[1].GetHealth() / gameManager.playerManager[1].GetHealthMax() * 100;
 
         if (healhPlayer1 > healhPlayer2)
-        {
             round.roundsWinPlayer2++;
-        }
         else if (healhPlayer1 < healhPlayer2)
-        {
             round.roundsWinPlayer1++;
-        }
         else
-        {
-            //empate se juega una ronda mas.
-            round.roundMax++; // Pensar si esto es correcto
-        }
+            round.roundMax++; //empate se juega una ronda mas.
 
         if (round.roundsWinPlayer1 == 2 || round.roundsWinPlayer2 == 2)
         {

@@ -169,6 +169,7 @@ public class PlayeUI : MonoBehaviour
     public Text roundTime;
     private Text winPlayerRound;
     private Text roundCur;
+    public Animator continueText;
 
     public PlayerReferences leftPlayer, rightPlayer;
     Color transparency = Color.white;
