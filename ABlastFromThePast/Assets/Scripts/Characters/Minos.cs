@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Minos : PlayerManager {
+public class Minos : PlayerManager
+{
 
     #region Internal Variables
-        public Transform distance_attack;
-        int pos_column;
-        Vector2Int[] blocks_affected;
-        int max_blocks;
+    public Transform distance_attack;
+    int pos_column;
+    Vector2Int[] blocks_affected;
+    int max_blocks;
     #endregion
 
     [SerializeField]
@@ -73,12 +74,13 @@ public class Minos : PlayerManager {
 
         // -------------------------------------------------- //
 
-        if (moveToPosition) 
+        if (moveToPosition && cast_ended)
             MovingToPosition(65f);
-       
+
         // -------------------------------------------------- //
-         // Color block = white 
-        if (can_color_white) {
+        // Color block = white 
+        if (can_color_white)
+        {
             for (int i = -1; i < 2; i++)
             { // horizontal
                 for (int j = -1; j < 2; j++)
@@ -103,14 +105,13 @@ public class Minos : PlayerManager {
 
         if (is_ultimateOn && cast_ended)
             StartCoroutine(StellarRain());
-        
     }
 
     public override void Skill()
     {
         if (cur_skillCD >= skillCD)
         {
-            anim.SetTrigger("skill");
+            StartCoroutine(base.CastingTime(1, false));
 
             // -------------------------------------------------- //
 
@@ -125,27 +126,54 @@ public class Minos : PlayerManager {
 
             // -------------------------------------------------- //
 
-            if (!playerMovement.GetIsMoving())
-            {
-                playerInput.enabled = false;
-                moveToPosition = true;
+            for (int i = -1; i < 2; i++)
+            { // horizontal
+                for (int j = -1; j < 2; j++)
+                { // vertical
+
+                    if (
+                        (pos_column + i) >= 0 &&
+                        (pos_column + i) < map.columnLenth &&
+                        (playerMovement.playerRow + j) >= 0 &&
+                        (playerMovement.playerRow + j) < map.rowLenth
+                      )
+                    {
+                        map.SetAlert((pos_column + i), (playerMovement.playerRow + j), true);
+                    }
+                }
+
+                // -------------------------------------------------- //
+
+                if (!playerMovement.GetIsMoving())
+                {
+                    playerInput.enabled = false;
+                    player_att_input.enabled = false;
+                    moveToPosition = true;
+                }
             }
         }
     }
 
-    protected override void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0)
+    protected override IEnumerator LookForBlocks(int rangeEffectColumn, float time)
     {
+        base.LookForBlocks(rangeEffectColumn, time);
+
+        anim.SetTrigger("skill");
+
         DeployParticles(Particles.Skill);
-        for (int i = -1; i < 2; i++) { // horizontal
-            for (int j = -1; j < 2; j++) { // vertical
+        for (int i = -1; i < 2; i++)
+        { // horizontal
+            for (int j = -1; j < 2; j++)
+            { // vertical
 
                 if (
                     (pos_column + i) >= 0 &&
                     (pos_column + i) < map.columnLenth &&
                     (playerMovement.playerRow + j) >= 0 &&
-                    (playerMovement.playerRow + j) < map.rowLenth 
+                    (playerMovement.playerRow + j) < map.rowLenth
                   )
                 {
+                    map.SetAlert((pos_column + i), (playerMovement.playerRow + j), false);
                     map.ColorBlocks((pos_column + i), (playerMovement.playerRow + j), Color.red);
 
                     if (map.blocks[(pos_column + i), (playerMovement.playerRow + j)].GetPlayerStatsBlock((int)thisPlayerIs) != null)
@@ -154,18 +182,25 @@ public class Minos : PlayerManager {
                     }
                 }
             }
-            cur_skillCD = 0;
         }
+        yield return new WaitForSeconds(0.5f);
+
+        cur_skillCD = 0;
+
+        can_color_white = true;
     }
+
 
     public override void Ultimate()
     {
         if (cur_ultimateCD >= ultimateCD)
         {
             anim.SetTrigger("ultimate");
+
+            is_ultimate_ready = false;
             is_ultimateOn = true;
-            StartCoroutine(CastingTime(1, true));
-            
+
+            StartCoroutine(CastingTime(1, false));
         }
     }
 
@@ -185,7 +220,6 @@ public class Minos : PlayerManager {
 
     void GetRandomBlocks()
     {
-     
         int i = 0;
         int blocks_created = 0;
         blocks_affected = new Vector2Int[max_blocks];
@@ -216,7 +250,8 @@ public class Minos : PlayerManager {
                 }
             }
 
-            if (!is_finded) {
+            if (!is_finded)
+            {
                 blocks_affected[i] = cpy;
                 i++;
                 blocks_created++;
@@ -224,14 +259,15 @@ public class Minos : PlayerManager {
         }
     }
 
-    private IEnumerator StellarRain() {
+    private IEnumerator StellarRain()
+    {
         cast_ended = false;
-        is_ultimateOn = false;
 
         int i = 0;
         float time_waiting = 0.35f;
 
-        while (i < max_blocks) {
+        while (i < max_blocks)
+        {
             map.ColorBlocks(blocks_affected[i].x, blocks_affected[i].y, Color.red);
             map.SetAlert(blocks_affected[i].x, blocks_affected[i].y, false);
 
@@ -250,22 +286,25 @@ public class Minos : PlayerManager {
             i++;
         }
 
-        if (i == max_blocks) {
+        if (i == max_blocks)
+        {
             cur_ultimateCD = 0;
+            is_ultimateOn = false;
+
+            playerInput.enabled = true;
+            player_att_input.enabled = true;
         }
-        
     }
 
     protected override IEnumerator CastingTime(float time_cast, bool value)
     {
         DeployParticles(Particles.UltimateCast);
         GetRandomBlocks();
-        
+
         // Aqui se pintan antes/durante el casteo
         //
         for (int i = 0; i < max_blocks; i++)
         {
-            //map.ColorBlocks(blocks_affected[i].x, blocks_affected[i].y, Color.yellow);
             map.SetAlert(blocks_affected[i].x, blocks_affected[i].y, true);
         }
         // ------------------------------------------------------------------------- //
