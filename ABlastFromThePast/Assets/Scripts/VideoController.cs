@@ -29,8 +29,11 @@ public class VideoData
 }
 
 public class VideoController : MonoBehaviour {
-    public RawImage rawImageSkill;
-    public VideoPlayer videoPlayerSkill;
+    public RawImage rawImage;
+    public VideoPlayer videoPlayer;
+
+    //public RawImage rawImageUltimate;
+    //public VideoPlayer videoPlayerUltimate;
 
     public RenderTexture render;
     //public RawImage rawImageUlti;
@@ -39,29 +42,24 @@ public class VideoController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         StartCoroutine(PlayVideo());
-        rawImageSkill.texture = render;
+
+
+        rawImage.texture = render;
+        //rawImageUltimate.texture = render;
     }
 
     IEnumerator PlayVideo()
     {
-        videoPlayerSkill.Prepare();
-        //videoPlayerUlti.Prepare();
+        videoPlayer.Prepare();
         WaitForSeconds waitForSeconds = new WaitForSeconds(0.5f);
-        while (!videoPlayerSkill.isPrepared)
+
+        while (!videoPlayer.isPrepared)
         {
             yield return waitForSeconds;
             break;
         }
 
-        //while (!videoPlayerUlti.isPrepared)
-        //{
-        //    yield return waitForSeconds;
-        //    break;
-        //}
-
-        rawImageSkill.texture = videoPlayerSkill.texture;
-        videoPlayerSkill.Play();
-        //rawImageUlti.texture = videoPlayerUlti.texture;
-        //videoPlayerUlti.Play();
-    }    
+        rawImage.texture = videoPlayer.texture;
+        videoPlayer.Play();
+    }
 }
