@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour {
                 case 0: playerManager[i] = Instantiate(objectPlayer[playerChoise[i]]).GetComponent<Santa>();  break;
                 case 1: playerManager[i] = Instantiate(objectPlayer[playerChoise[i]]).GetComponent<Minos>(); break;
                 case 2: playerManager[i] = Instantiate(objectPlayer[playerChoise[i]]).GetComponent<Polyphemus>(); break;
+                case 3: playerManager[i] = Instantiate(objectPlayer[playerChoise[i]]).GetComponent<Adventurer>(); break;
             }
 
             playerManager[i].name = (playerManager[i].namePlayer + (i + 1));
