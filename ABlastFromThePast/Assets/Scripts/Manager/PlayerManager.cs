@@ -523,6 +523,10 @@ public class PlayerManager : MonoBehaviour
 
     public void ResetCharacter()
     {
+        anim.SetTrigger("iddle");
+
+        // ----------------------- //
+
         health = health_max;
         shield = shield_max;
 

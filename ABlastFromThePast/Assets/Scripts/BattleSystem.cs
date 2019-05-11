@@ -88,6 +88,7 @@ public class BattleSystem : MonoBehaviour
             yield return null;
         }
 
+        playeUI.continueText.ResetTrigger("fadeOut");
         round.timeToFadeUpgradeOutCur = round.timeToFadeUpgradeOutMax;
         //playeUI.skills.SetActive(false);
         StartCoroutine(StartRound());

@@ -2875,6 +2875,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 957830188}
+        m_MethodName: ShowInfoCharacter
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &455351489
@@ -3216,7 +3227,7 @@ RectTransform:
   - {fileID: 622105064}
   - {fileID: 1592338053}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4827,12 +4838,12 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 957830188}
-        m_MethodName: ShowInfoMinos
-        m_Mode: 1
+        m_MethodName: ShowInfoCharacter
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
@@ -5585,7 +5596,7 @@ RectTransform:
   - {fileID: 2109041647}
   - {fileID: 271867423}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5627,8 +5638,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76c2a7cf6b2f17468629d9ba2726150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rawImageSkill: {fileID: 671070063}
-  videoPlayerSkill: {fileID: 2066896496}
+  rawImage: {fileID: 1378680126}
+  videoPlayer: {fileID: 1941235789}
   render: {fileID: 8600000, guid: 4f9fea377889277469ef670ea957f44c, type: 2}
 --- !u!114 &957830188
 MonoBehaviour:
@@ -7224,7 +7235,7 @@ RectTransform:
   m_Children:
   - {fileID: 678957294}
   - {fileID: 1086265692}
-  - {fileID: 671070062}
+  - {fileID: 1610985716}
   m_Father: {fileID: 271867423}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7239,7 +7250,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1279050743}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -8135,7 +8146,7 @@ RectTransform:
   m_Children:
   - {fileID: 991165041}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8193,7 +8204,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1404075052
 GameObject:
@@ -9972,7 +9983,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1688039631
 GameObject:
@@ -12357,8 +12368,8 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 957830188}
-        m_MethodName: ShowInfoSanta
-        m_Mode: 1
+        m_MethodName: ShowInfoCharacter
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
