@@ -5,23 +5,26 @@ using UnityEngine;
 [System.Serializable]
 public class Round
 {
-    public float timeToStartMax = 5;
+    public float timeToStartMax;
     public float timeToStartCur;
 
-    public float timeToStartFightMax = 2;
+    public float timeToStartFightMax;
     public float timeToStartFightCur;
 
-    public float timeMax = 60;
+    public float timeToFadeUpgradeOutMax;
+    public float timeToFadeUpgradeOutCur;
+
+    public float timeMax;
     public float timeCur;
 
     //public int roundMax;
     //public int roundCur;
 
-    public int roundsWinPlayer1 = 0;
-    public int roundsWinPlayer2 = 0;
+    public int roundsWinPlayer1;
+    public int roundsWinPlayer2;
 
-    public int roundCur = 0;
-    public int roundMax = 3;
+    public int roundCur;
+    public int roundMax;
 }
 
 public class BattleSystem : MonoBehaviour
@@ -38,14 +41,48 @@ public class BattleSystem : MonoBehaviour
 
     private void Start ()
     {
-        StartBattle();
+        Invoke("StartBattle", 1);
     }
     //private void Update () { }
 
     public void StartBattle()
     {
-        //StartCoroutine(StartRound(roundCur));
-        StartCoroutine(StartRound()); // Antes mostrar habilidades de subir
+        StartCoroutine(ChoiseSkills());
+    }
+
+    IEnumerator ChoiseSkills()
+    {
+        //playeUI.skills.SetActive(true);
+        bool stop = false;
+
+        gameManager.playerManager[0].ResetCharacter();
+        gameManager.playerManager[1].ResetCharacter();
+        round.timeToFadeUpgradeOutCur = round.timeToFadeUpgradeOutMax;
+
+        while (!stop)
+        {
+            // Imprimit tiempo pantalla
+            playeUI.SetLateralPanelsAnimation(true, 500);
+            playeUI.SetTopPanelsAnimation(false, 600);
+
+            if (Input.GetKeyDown(KeyCode.Space))
+                stop = true;
+
+            yield return null;
+        }
+
+        while (round.timeToFadeUpgradeOutCur > 0)
+        {
+            playeUI.SetLateralPanelsAnimation(false, 700);
+            // TODO: Tener otro panel que solo tenga los logos y cuando se muestre empezar la partida
+
+            round.timeToFadeUpgradeOutCur -= Time.deltaTime;
+            yield return null;
+        }
+
+        round.timeToFadeUpgradeOutCur = round.timeToFadeUpgradeOutMax;
+        //playeUI.skills.SetActive(false);
+        StartCoroutine(StartRound());
     }
 
     IEnumerator StartRound()
@@ -57,16 +94,21 @@ public class BattleSystem : MonoBehaviour
         while (!stopWhile)
         {
             // Imprimir Animacion de Round 1 Con su fade
-            round.timeToStartCur -= Time.deltaTime; Debug.Log("Se Muestra Round");
+            round.timeToStartCur -= Time.deltaTime;
+            Debug.Log("Se Muestra Round: " + round.timeToStartCur);
+
             if (round.timeToStartCur < 0)
             {
-                round.timeToStartFightCur -= Time.deltaTime; Debug.Log("Se Muestra Fight");
+                round.timeToStartFightCur -= Time.deltaTime;
+                Debug.Log("Se Muestra Fight");
                 //Cuando se haya terminado fade mostrar Fight que desaparezma y empieze la partida
-                playeUI.SetAnimationPanels(true);
+                playeUI.SetTopPanelsAnimation(true, 700);
+
                 if (round.timeToStartFightCur < 0)
                 {
                     // Termina el fade y empieza la partida
-                    StartCoroutine(TimeRound()); Debug.Log("Empieza la Partida"); 
+                    StartCoroutine(TimeRound());
+                    Debug.Log("Empieza la Partida"); 
                     // Mostrar Animation
 
                     // Reseteo los tiempos
@@ -142,28 +184,4 @@ public class BattleSystem : MonoBehaviour
     //    round.roundCur = -1;
     //    SceneManager.LoadScene("Menu");
     //}
-
-    IEnumerator ChoiseSkills()
-    {
-        //playeUI.skills.SetActive(true);
-        bool choised = false;
-
-        while (!choised)
-        {
-            // Imprimit tiempo pantalla
-            if (Input.GetKeyDown(KeyCode.Space)) // un intento
-            {
-                choised = true;
-                gameManager.playerManager[0].ResetCharacter();
-                gameManager.playerManager[1].ResetCharacter();
-                Debug.Log("Espacio");
-            }
-
-            yield return null;
-        }
-
-        //playeUI.skills.SetActive(false);
-        StartCoroutine(TimeRound());
-        //yield return null;
-    }
 }

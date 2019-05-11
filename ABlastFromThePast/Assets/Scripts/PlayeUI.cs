@@ -154,7 +154,7 @@ public class ObjectPoints
 
 public class PlayeUI : MonoBehaviour
 {
-
+    // NOW: Crear dos circulos para las rondas ganadas y que se ilumine para el jugador ganado
     public Text roundTime;
     private Text winPlayerRound;
     private Text roundCur;
@@ -220,11 +220,11 @@ public class PlayeUI : MonoBehaviour
         leftPlayer.UpdateHealthDamageBar(GameManager.instance.playerManager[0].GetHealth(), GameManager.instance.playerManager[0].GetHealthMax());
         rightPlayer.UpdateHealthDamageBar(GameManager.instance.playerManager[1].GetHealth(), GameManager.instance.playerManager[1].GetHealthMax());
 
-        //leftPlayer.UpdateSkillBar(GameManager.instance.playerStats[0].GetCurSkillCD(), GameManager.instance.playerStats[0].GetSkillCD());
-        //rightPlayer.UpdateSkillBar(GameManager.instance.playerStats[1].GetCurSkillCD(), GameManager.instance.playerStats[1].GetSkillCD());
+        leftPlayer.UpdateSkillBar(GameManager.instance.playerManager[0].GetCurSkillCD(), GameManager.instance.playerManager[0].GetSkillCD());
+        rightPlayer.UpdateSkillBar(GameManager.instance.playerManager[1].GetCurSkillCD(), GameManager.instance.playerManager[1].GetSkillCD());
 
-        //leftPlayer.UpdateUltimateBar(GameManager.instance.playerStats[0].GetCurUltimateCD(), GameManager.instance.playerStats[0].GetUltimateCD());
-        //rightPlayer.UpdateUltimateBar(GameManager.instance.playerStats[1].GetCurUltimateCD(), GameManager.instance.playerStats[1].GetUltimateCD());
+        leftPlayer.UpdateUltimateBar(GameManager.instance.playerManager[0].GetCurUltimateCD(), GameManager.instance.playerManager[0].GetUltimateCD());
+        rightPlayer.UpdateUltimateBar(GameManager.instance.playerManager[1].GetCurUltimateCD(), GameManager.instance.playerManager[1].GetUltimateCD());
 
         roundTime.text = battleSystem.round.timeCur.ToString("#");
         //rightPlayer.DebugLog();
@@ -241,7 +241,7 @@ public class PlayeUI : MonoBehaviour
 
     /* NOW: Separar el panel principal con el panel asdasd
      asdasd sssss */
-    public void SetAnimationPanels(bool value)
+    public void SetTopPanelsAnimation(bool value, int speed)
     {
         //Si es true se desplaza hacia dentro sino hacia fuera
 
@@ -249,35 +249,54 @@ public class PlayeUI : MonoBehaviour
                 objectPointsMain.clock,
                 objectPointsMain.panelStatsLeft,
                 objectPointsMain.panelStatsRight,
-                objectPointsMain.panelUpgradeLeft,
-                objectPointsMain.panelUpgradeRight
         };
 
         RectTransform[] startPoints = {
                 objectPointsStart.clock,
                 objectPointsStart.panelStatsLeft,
                 objectPointsStart.panelStatsRight,
-                objectPointsStart.panelUpgradeLeft,
-                objectPointsStart.panelUpgradeRight
         };
 
         RectTransform[] finishPoints = {
                 objectPointsFinish.clock,
                 objectPointsFinish.panelStatsLeft,
                 objectPointsFinish.panelStatsRight,
+        };
+
+        if (value)
+            for (int i = 0; i < mainPoints.Length; i++)
+                mainPoints[i].anchoredPosition = Vector2.MoveTowards(mainPoints[i].anchoredPosition, finishPoints[i].anchoredPosition, speed * Time.deltaTime);
+        else
+            for (int i = 0; i < mainPoints.Length; i++)
+                mainPoints[i].anchoredPosition = Vector2.MoveTowards(mainPoints[i].anchoredPosition, startPoints[i].anchoredPosition, speed * Time.deltaTime);
+    }
+
+    public void SetLateralPanelsAnimation(bool value, int speed)
+    {
+        //Si es true se desplaza hacia dentro sino hacia fuera
+
+        RectTransform[] mainPoints = {
+                objectPointsMain.panelUpgradeLeft,
+                objectPointsMain.panelUpgradeRight
+        };
+
+        RectTransform[] startPoints = {
+                objectPointsStart.panelUpgradeLeft,
+                objectPointsStart.panelUpgradeRight
+        };
+
+        RectTransform[] finishPoints = {
                 objectPointsFinish.panelUpgradeLeft,
                 objectPointsFinish.panelUpgradeRight
         };
 
         if (value)
             for (int i = 0; i < mainPoints.Length; i++)
-                mainPoints[i].anchoredPosition = Vector2.MoveTowards(mainPoints[i].anchoredPosition, finishPoints[i].anchoredPosition, speedUI * Time.deltaTime);
+                mainPoints[i].anchoredPosition = Vector2.MoveTowards(mainPoints[i].anchoredPosition, finishPoints[i].anchoredPosition, speed * Time.deltaTime);
         else
             for (int i = 0; i < mainPoints.Length; i++)
-                mainPoints[i].anchoredPosition = Vector2.MoveTowards(mainPoints[i].anchoredPosition, startPoints[i].anchoredPosition, speedUI * Time.deltaTime);
+                mainPoints[i].anchoredPosition = Vector2.MoveTowards(mainPoints[i].anchoredPosition, startPoints[i].anchoredPosition, speed * Time.deltaTime);
     }
-
-
 
 
 

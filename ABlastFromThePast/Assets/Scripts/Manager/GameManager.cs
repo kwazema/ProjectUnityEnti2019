@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour {
     string filePath;
     string jsonString;
 
+    // NOW: Añadir el systema de bloques con vida y los bloques rotos.
+    // NOW: Y cargar los datos del fichero en el Awake del PlayerManager.
+
     private void Awake()
     {
         if (instance == null)
