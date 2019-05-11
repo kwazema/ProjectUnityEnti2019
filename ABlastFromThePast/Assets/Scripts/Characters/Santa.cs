@@ -8,11 +8,12 @@ public class Santa : PlayerManager {
         int blocks_width;
 
         Vector2 enemy_position;
-        
+
     #endregion
 
 
 
+    GameObject BurnedEffect;
 
     protected override void Awake()
     {
@@ -39,7 +40,7 @@ public class Santa : PlayerManager {
 
         damageBasicAttack = 2;
         damageSkill = 15;
-        damageUltimate = 12;
+        damageUltimate = 20;
 
         skillCD = 2;
         ultimateCD = 7;
@@ -76,29 +77,11 @@ public class Santa : PlayerManager {
 
         if (moveToPosition) 
             MovingToPosition(95f, blocks_width);
-
-        // -------------------------------------------------- //
-        // Color block = white 
         
-        //if (can_color_white)
-        //{
-        //    for (int i = 0; i < blocks_width; i++)
-        //    {
-        //        if (
-        //            (playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) < map.columnLenth &&
-        //            (playerMovement.playerColumn + graphicMove) + (i * dirSkillZone) >= 0
-        //           )
-        //        {
-        //            map.ColorBlocks((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow, Color.white);
-        //        }
-        //    }
-        //    can_color_white = false;
-        //}
-
         // -------------------------------------------------- //
         // Comprueba si se ha activado el ultimate para empezar la coroutine.
         if (is_ultimateOn && cast_ended)
-            StartCoroutine(Leech(3));
+            StartCoroutine(Leech(2));
 
             // -------------------------------------------------- //
     }
@@ -127,28 +110,6 @@ public class Santa : PlayerManager {
             }
         }
     }
-
-    // DEPRECATED METHOD
-    //protected override void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0)
-    //{
-    //    for (int i = 0; i < rangeEffectColumn; i++)
-    //    {
-    //        if (
-    //            ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone)) < map.columnLenth &&
-    //            ((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone)) >= 0
-    //            )
-    //        {
-    //            map.ColorBlocks((playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow, Color.red);
-
-    //            if (map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].GetPlayerStatsBlock((int)thisPlayerIs) != null)
-    //            {
-    //                map.blocks[(playerMovement.playerColumn + graphicMove) + (i * dirSkillZone), playerMovement.playerRow].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
-    //            }
-    //        }
-    //    }
-    //    cur_skillCD = 0;
-    //}
-
 
     // Le pasas por parámetro el numero de bloques que quieres que se desplace    
     private void PushPlayer(int blocks_pushed) {
@@ -180,9 +141,6 @@ public class Santa : PlayerManager {
         Vector2 position;
 
         while (cur_block < rangeEffectColumn) {
-            // Creamos un gameobject para instanciar las particulas.
-            GameObject skillEffect;
-
             // Almacenamos la posicion horizontal del ataque.
             pos_x = ((playerMovement.playerColumn + graphicMove) + (cur_block * dirSkillZone));
 
@@ -197,7 +155,7 @@ public class Santa : PlayerManager {
                 // Almacenamos en un vector2 la posicion en que se va instanciar la partícula.
                 position = map.blocks[pos_x, pos_y].transform.position;
 
-                // Instanciamos la partícula
+                // Instanciamos el prefab de la partícula.
                 Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.Skill], position, Quaternion.identity);
 
                 // Ahora le pedimos al bloque que nos diga si hay alguien  en la posición de bloques afectados. 
@@ -227,11 +185,25 @@ public class Santa : PlayerManager {
             anim.SetTrigger("ultimate");
             DeployParticles(Particles.UltimateCast);
 
+            // -------------------------------------------------------------- //
+
+            is_ultimate_ready = false;
+            is_ultimateOn = true;
+
+            // -------------------------------------------------------------- //
+            enemy_position = game_manager.playerManager[player_to_attack].transform.position;
+            enemy_position = new Vector2(enemy_position.x, enemy_position.y + 1);
+
+            BurnedEffect = Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.Ultimate2], enemy_position, Quaternion.identity);
+            BurnedEffect.transform.SetParent(game_manager.playerManager[player_to_attack].transform);
+            BurnedEffect.SetActive(true);
+            // -------------------------------------------------------------- //
+
             StartCoroutine(CastingTime(2, true));
         }
     }
     
-    IEnumerator Leech(float use_time)
+    IEnumerator Leech(int dmgXsecond)
     {
         is_ultimateOn = false;
         cast_ended = false;
@@ -239,28 +211,26 @@ public class Santa : PlayerManager {
 
         GameObject LeechEffect;
 
-        GameObject BurnedEffect;
+        BurnedEffect = new GameObject();       
 
-        enemy_position = game_manager.playerManager[player_to_attack].transform.position;
-        enemy_position = new Vector2(enemy_position.x, enemy_position.y + 1);
-
-        BurnedEffect = Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.Ultimate2], enemy_position, Quaternion.identity);
-        BurnedEffect.transform.SetParent(game_manager.playerManager[player_to_attack].transform);
-        BurnedEffect.SetActive(true);
-
-        while (time < use_time)
+        while (time < GetDamageUltimate())
         {
-            game_manager.playerManager[player_to_attack].TakeDamage(GetDamageUltimate());
+            game_manager.playerManager[player_to_attack].TakeDamage(dmgXsecond);
 
-            LeechEffect = Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.Ultimate], enemy_position, Quaternion.identity);
-            LeechEffect.SetActive(true);
-
-            health += (GetDamageUltimate() / 3);
+            health += dmgXsecond / 2;
             if (health > health_max)
                 health = health_max;
 
-            yield return new WaitForSeconds(1);
-            time++;
+            // -------------------------------------------------------------- //
+            enemy_position = game_manager.playerManager[player_to_attack].transform.position;
+            enemy_position = new Vector2(enemy_position.x, enemy_position.y + 1);
+
+            LeechEffect = Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.Ultimate], enemy_position, Quaternion.identity);
+            LeechEffect.SetActive(true);
+            // -------------------------------------------------------------- //
+             
+            yield return new WaitForSeconds(0.05f);
+            time ++;
         }
 
         Destroy(BurnedEffect);

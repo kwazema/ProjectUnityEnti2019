@@ -167,7 +167,9 @@ public class Polyphemus : PlayerManager
         {
             anim.SetTrigger("ultimate");
 
+            is_ultimate_ready = false;
             is_ultimateOn = true;
+
             StartCoroutine(CastingTime(1.5f, false));
         }
     }

@@ -44,15 +44,14 @@ public class PlayerManager : MonoBehaviour
     [Header("<-- Exclusive Particles -->")]
     public GameObject[] ParticlesToInstantiate;
 
-
     //public Transform particles;
-
-    public BoxCollider2D boxReset;
+    [Header("<-- Colliders -->")]
+    public BoxCollider2D bodyCollider;
+    public BoxCollider2D minibodyCollider;
 
     #region Classes
     public PlayerMovement playerMovement;
     protected Map map;
-    protected Collider2D bodyCollider;
     protected PlayerInput playerInput;
     protected PlayerAttackInput player_att_input;
     protected GameObject player;
@@ -76,9 +75,7 @@ public class PlayerManager : MonoBehaviour
 
     protected Vector2 moveToBlock;
     protected float timeInPosition;
-
-    [Header("Test Header")]
-
+    
     [SerializeField]
     protected int damageBasicAttack;
     [SerializeField]
@@ -197,7 +194,7 @@ public class PlayerManager : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         player_att_input = GetComponent<PlayerAttackInput>();
 
-        bodyCollider = GameObject.Find(name + "/BodyCollider").GetComponent<Collider2D>();
+        //bodyCollider = GameObject.Find(name + "/BodyCollider").GetComponent<Collider2D>();
 
         game_manager = FindObjectOfType<GameManager>();
         anim = GameObject.Find(name + "/GraficCharacter").GetComponent<Animator>();
@@ -300,8 +297,6 @@ public class PlayerManager : MonoBehaviour
     // Le pasas por parametro el tiempo de casteo y si quieres que una vez acabado se reactiven los inputs.
     protected virtual IEnumerator CastingTime(float time_cast, bool value)
     {
-        is_ultimate_ready = false;
-
         player_att_input.enabled = false;
         playerInput.enabled = false;
 
@@ -313,8 +308,9 @@ public class PlayerManager : MonoBehaviour
         }
 
         cast_ended = true;
-        is_ultimateOn = true;
 
+        // Esto se encarga de devolverle los inputs al player una vez acabado el casteo. Si quieres que cuando acabe el casteo se pueda mover
+        // escribe true en el parametro, si quieres que no se pueda mover escribe false;
         if (value)
         {
             playerInput.enabled = true;
@@ -332,8 +328,8 @@ public class PlayerManager : MonoBehaviour
 
         // ----------------------- //
 
-        //GameObject.Find(name + "/BodyCollider").SetActive(false);
-        boxReset.enabled = false;
+        bodyCollider.enabled = false;
+        minibodyCollider.enabled = false;
 
         // ----------------------- //
 
@@ -438,6 +434,10 @@ public class PlayerManager : MonoBehaviour
                     noHaAtacado = true;
                     playerInput.enabled = true;
                     playerMovement.enabled = true;
+
+                    player_att_input.enabled = true;
+                    cast_ended = false;
+
                 }
             }
         }
@@ -464,10 +464,18 @@ public class PlayerManager : MonoBehaviour
     {
         Start();
 
+        // ----------------------- //
+
         Color transparency = Color.white;
         transparency.a = 1f;
 
         sprite.color = transparency;
+        // ----------------------- //
+
+        bodyCollider.enabled = true;
+        minibodyCollider.enabled = true;
+
+        // ----------------------- //
 
         playerInput.enabled = true;
         player_att_input.enabled = true;
