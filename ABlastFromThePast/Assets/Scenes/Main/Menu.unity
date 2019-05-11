@@ -4762,7 +4762,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.000010488362}
+  m_AnchoredPosition: {x: 0, y: 0.000015258789}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &439386392
@@ -7023,6 +7023,54 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 596825391}
+--- !u!1001 &601192201
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4607682654719020, guid: 9b1b75cc7ae3e4249965466c344317fb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 7.6157265
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607682654719020, guid: 9b1b75cc7ae3e4249965466c344317fb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 33.214
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607682654719020, guid: 9b1b75cc7ae3e4249965466c344317fb, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607682654719020, guid: 9b1b75cc7ae3e4249965466c344317fb, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607682654719020, guid: 9b1b75cc7ae3e4249965466c344317fb, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607682654719020, guid: 9b1b75cc7ae3e4249965466c344317fb, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607682654719020, guid: 9b1b75cc7ae3e4249965466c344317fb, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607682654719020, guid: 9b1b75cc7ae3e4249965466c344317fb, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114416539658666138, guid: 9b1b75cc7ae3e4249965466c344317fb,
+        type: 2}
+      propertyPath: basicAttack
+      value: 
+      objectReference: {fileID: 1088026552907978, guid: 4667fa842bda545468e885899e0fcd71,
+        type: 2}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9b1b75cc7ae3e4249965466c344317fb, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &602749931
 GameObject:
   m_ObjectHideFlags: 0

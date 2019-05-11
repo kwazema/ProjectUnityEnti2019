@@ -435,7 +435,8 @@ MonoBehaviour:
   enumPlayer: 1
   gameManager: {fileID: 0}
   basicShotSpawn: {fileID: 4771765798576682}
-  basicAttack: {fileID: 0}
+  basicAttack: {fileID: 1088026552907978, guid: 4667fa842bda545468e885899e0fcd71,
+    type: 2}
   shieldRender: {fileID: 212159867648045562}
 --- !u!114 &114468610764687496
 MonoBehaviour:
@@ -488,7 +489,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   upgrade: []
   numUpgrade: 0
-  animShield: {fileID: 0}
+  animShield: {fileID: 95640888953004244}
   particleSystem:
   - {fileID: 0}
   - {fileID: 0}
@@ -511,7 +512,7 @@ MonoBehaviour:
   whichIsThisPlayer: 0
   namePlayer: 
   upgrade_text: []
-  distance_attack: {fileID: 0}
+  distance_attack: {fileID: 4401199832456136}
 --- !u!198 &198122855308613254
 ParticleSystem:
   m_ObjectHideFlags: 1
