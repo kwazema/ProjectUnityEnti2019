@@ -12,14 +12,18 @@ public class CharacterStats
     public string description;
     public string history;
 
+    public int damageBasicAttack;
     public int healthMax;
     public int shieldMax;
 
-    public int damageBasicAttack;
+    public string nameSkill;
+    public string descSkill;
     public int damageSkill;
-    public int damageUltimate;
-
     public float skillCD;
+
+    public string nameUltimate;
+    public string descUltimate;
+    public int damageUltimate;
     public float ultimateCD;
 
     public float fireRate;
@@ -61,9 +65,12 @@ public class GameData : MonoBehaviour
 
     public ListCharacters listCharacters;
 
+
     private void Awake()
     {
         filePath = Application.dataPath + "/GameData/FileCharactersData.json";
+
+
 
         #region Save to Disc
         //jsonString = JsonUtility.ToJson(listCharacters);

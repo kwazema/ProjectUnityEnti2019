@@ -34,7 +34,7 @@ public class BattleChoose : MonoBehaviour
     {
         if (numSelected >= 2 && !loadScene)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("Start0") || Input.GetButton("Start1"))
             {
                 Invoke("FadeToImage", 1);
                 Invoke("LoadSceneBattleScene", 3);
@@ -86,7 +86,6 @@ public class BattleChoose : MonoBehaviour
            button[i].transform.position = offset + new Vector2(w * (width + margin), h * -(height + margin));
 
             w++;
-
             if (w == buttonInRow)
             {
                 h++;

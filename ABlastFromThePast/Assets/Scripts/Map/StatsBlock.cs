@@ -119,7 +119,7 @@ public class StatsBlock : MonoBehaviour {
     }
 
     public bool recovering;
-    void ResetBlock()
+    public void ResetBlock()
     {
         sp.sprite = blockNormal;
         healthCur = healthMax;

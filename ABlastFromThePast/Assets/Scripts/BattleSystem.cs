@@ -32,8 +32,11 @@ public class BattleSystem : MonoBehaviour
     public Round round;
     private GameManager gameManager;
     private PlayeUI playeUI;
+    private Map map;
+
     private void Awake()
     {
+        map = FindObjectOfType<Map>();
         gameManager = FindObjectOfType<GameManager>();
         playeUI = FindObjectOfType<PlayeUI>();
     }
@@ -61,6 +64,7 @@ public class BattleSystem : MonoBehaviour
         gameManager.playerManager[1].SetPlayerInputs(false);
 
         round.timeToFadeUpgradeOutCur = round.timeToFadeUpgradeOutMax;
+        map.ResetBlocks();
 
         while (!stop)
         {
@@ -71,7 +75,7 @@ public class BattleSystem : MonoBehaviour
             playeUI.continueText.SetTrigger("fadeIn");
 
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("Start0") || Input.GetButton("Start1"))
                 stop = true;
 
             yield return null;

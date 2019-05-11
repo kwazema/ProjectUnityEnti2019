@@ -94,4 +94,15 @@ public class Map : MonoBehaviour {
     {
         blocks[pos_x, pos_y].anim.SetBool("alert", setBool);
     }
+
+    public void ResetBlocks()
+    {
+        for (int i = 0; i < columnLenth; i++) // Horizontal
+        {
+            for (int j = 0; j < rowLenth; j++) // Vertical
+            {
+                blocks[i, j].ResetBlock();
+            }
+        }
+    }
 }

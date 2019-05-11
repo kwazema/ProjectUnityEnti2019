@@ -126,6 +126,12 @@ public class PlayerMovement : MonoBehaviour {
             {
                 int column = playerColumn;
                 int row = playerRow;
+                bool goMove = false;
+
+                if (map.blocks[playerColumn, playerRow].recovering)
+                {
+                    goMove = true;
+                }
 
                 //-------------- Move Right -------------- //
                 if (dirHorizontal > 0 && playerColumn < columnLenth - 1)
@@ -143,7 +149,9 @@ public class PlayerMovement : MonoBehaviour {
                 if (dirVertical > 0 && playerRow > 0)
                     playerRow -= dirVertical;
 
-                if (map.blocks[playerColumn, playerRow].recovering)
+
+
+                if (map.blocks[playerColumn, playerRow].recovering && goMove)
                 {
                     playerColumn = column;
                     playerRow = row;

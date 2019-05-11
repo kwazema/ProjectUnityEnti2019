@@ -253,8 +253,6 @@ public class PlayeUI : MonoBehaviour
 
     public int speedUI = 500;
 
-    /* NOW: Separar el panel principal con el panel asdasd
-     asdasd sssss */
     public void SetTopPanelsAnimation(bool value, int speed)
     {
         //Si es true se desplaza hacia dentro sino hacia fuera

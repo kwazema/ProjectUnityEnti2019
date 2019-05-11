@@ -67,7 +67,6 @@ public class Library : MonoBehaviour {
         videoController.videoPlayer.clip = videoData.skill;
 
         //skillC.text = lc.characterStats[index].
-        //TODO: Add skills and ultimate name to file
     }
 
     public void ShowNoInfo()
