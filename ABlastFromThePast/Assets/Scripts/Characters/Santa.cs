@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Santa : PlayerManager {
+
     #region Internal Variables
         public Transform distance_attack;
         int blocks_width;
@@ -11,12 +12,11 @@ public class Santa : PlayerManager {
 
     #endregion
 
-
-
     GameObject BurnedEffect;
 
     protected override void Awake()
     {
+        index = 0; // TODO: Estoy dudando que sea manual o lo haga GameManager
         base.Awake();
 
         upgrade_text[0] = "You gain " + 30 + " more of maximum health and " + 15 + " of maximum shield.";
@@ -32,22 +32,22 @@ public class Santa : PlayerManager {
 
         // -------------------------------------------------- //
 
-        #region Basic 
+        //#region Basic 
 
         //health_max = 1;
-        health = health_max;
-        shield = shield_max;
+        //health = health_max;
+        //shield = shield_max;
 
-        damageBasicAttack = 2;
-        damageSkill = 15;
-        damageUltimate = 20;
+        //damageBasicAttack = 2;
+        //damageSkill = 15;
+        //damageUltimate = 20;
 
-        skillCD = 2;
-        ultimateCD = 7;
+        //skillCD = 2;
+        //ultimateCD = 7;
 
-        fireRate = 0.1f;
-        recoveryShieldTime = 2;
-        #endregion
+        //fireRate = 0.1f;
+        //recoveryShieldTime = 2;
+        //#endregion
 
         // -------------------------------------------------- //
 

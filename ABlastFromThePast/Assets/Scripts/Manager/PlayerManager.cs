@@ -34,6 +34,7 @@ public class PlayerManager : MonoBehaviour
     public Sprite icon;
     public Sprite[] upgrade;
     public int numUpgrade;
+    public Animator animShield;
 
     //public GameObject[] particles_list;
     //public Transform[] particles_pos;
@@ -72,6 +73,8 @@ public class PlayerManager : MonoBehaviour
     #endregion
 
     #region Protected Variables
+
+    protected int index;
 
     protected Vector2 moveToBlock;
     protected float timeInPosition;
@@ -120,7 +123,6 @@ public class PlayerManager : MonoBehaviour
     protected bool can_color_white = false;
 
     protected int player_to_attack;
-
 
     #endregion
 
@@ -205,12 +207,15 @@ public class PlayerManager : MonoBehaviour
 
         //particle = GameObject.Find(name + "/DieParticle").GetComponent<ParticleSystem>();
         upgrade_text = new string[3];
+
+        LoadStatsFile();
     }
 
     protected virtual void Start()
     {
-        cur_skillCD = 0;
-        cur_ultimateCD = 0;
+
+        //cur_skillCD = 0;
+        //cur_ultimateCD = 0;
 
         is_skill_ready = false;
         is_ultimate_ready = false;
@@ -234,6 +239,36 @@ public class PlayerManager : MonoBehaviour
             GameObject.Find(name + "/BodyCollider").layer = 12;
     }
 
+    private void LoadStatsFile()
+    {
+        ListCharacters listCharacters = GameManager.instance.LoadFileToString();
+
+        //------------------ Set Varibles Max ------------------//
+
+        namePlayer = listCharacters.characterStats[index].name;
+        //listCharacters.characterStats[index].description = desc
+        //listCharacters.characterStats[index].history
+
+        health_max = listCharacters.characterStats[index].healthMax;
+        shield_max = listCharacters.characterStats[index].shieldMax;
+
+        damageBasicAttack = listCharacters.characterStats[index].damageBasicAttack;
+        damageSkill = listCharacters.characterStats[index].damageSkill;
+        damageUltimate = listCharacters.characterStats[index].damageUltimate;
+
+        skillCD = listCharacters.characterStats[index].skillCD;
+        ultimateCD = listCharacters.characterStats[index].ultimateCD;
+
+        fireRate = listCharacters.characterStats[index].fireRate;
+        recoveryShieldTime = (int)listCharacters.characterStats[index].recoveryShieldTime;
+
+        //------------------ Set Varibles Cur ------------------//
+
+        health = health_max;
+        shield = shield_max;
+    }
+
+
     protected virtual void Update()
     {
         if (shield <= 0)
@@ -254,6 +289,10 @@ public class PlayerManager : MonoBehaviour
 
         if (cur_ultimateCD == 0 && !is_ultimate_ready)
             StartCoroutine(UltimateRecovery());
+
+        // ----------------------------- //
+
+        //AnimReflectShield();
     }
 
     virtual public IEnumerator ShieldRecovery()
@@ -357,11 +396,36 @@ public class PlayerManager : MonoBehaviour
     //    SceneManager.LoadScene("Modojuego");
     //}
 
+    bool activeReflect = true; float timeCur = 1;
+    public void AnimReflectShield()
+    {
+        Debug.Log("Shield Up");
+        Debug.Log("Shield Bool: " + activeReflect);
+
+        if (activeReflect)
+        {
+            float randomTime = Random.Range(1, 5);
+            timeCur = randomTime;
+            activeReflect = false;
+        }
+        else
+        {
+            timeCur -= Time.deltaTime;
+            Debug.Log("Time: " + timeCur);
+            if (timeCur < 0)
+            {
+                animShield.SetTrigger("Reflect");
+                activeReflect = true;
+            }
+        }
+    }
+
     virtual public void TakeDamage(int enemyDamage)
     {
         if (isShieldActive)
         {
             shield -= enemyDamage;
+            animShield.SetTrigger("Impact");
             if (shield < 0)
             {
                 shield = 0;

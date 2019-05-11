@@ -10,6 +10,9 @@ public class StatsBlock : MonoBehaviour {
     private int columnPosition;
     private int rowPosition;
 
+    public int healthCur;
+    public int healthMax;
+
     #region Function Set
 
     public void SetColumn(int value) { columnPosition = value; }

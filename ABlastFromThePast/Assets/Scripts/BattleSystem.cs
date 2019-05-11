@@ -95,12 +95,12 @@ public class BattleSystem : MonoBehaviour
         {
             // Imprimir Animacion de Round 1 Con su fade
             round.timeToStartCur -= Time.deltaTime;
-            Debug.Log("Se Muestra Round: " + round.timeToStartCur);
+           // Debug.Log("Se Muestra Round: " + round.timeToStartCur);
 
             if (round.timeToStartCur < 0)
             {
                 round.timeToStartFightCur -= Time.deltaTime;
-                Debug.Log("Se Muestra Fight");
+               // Debug.Log("Se Muestra Fight");
                 //Cuando se haya terminado fade mostrar Fight que desaparezma y empieze la partida
                 playeUI.SetTopPanelsAnimation(true, 700);
 

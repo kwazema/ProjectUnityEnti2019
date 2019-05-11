@@ -17,6 +17,7 @@ public class Minos : PlayerManager
 
     protected override void Awake()
     {
+        index = 1; // TODO: Estoy dudando que sea manual o lo haga GameManager
         base.Awake();
 
         upgrade_text[0] = "You gain " + upgradeHral + " more of maximum health and " + 15 + " of maximum shield.";
@@ -32,21 +33,21 @@ public class Minos : PlayerManager
 
         // -------------------------------------------------- //
 
-        #region Basic Stats
+        //#region Basic Stats
 
-        health = health_max;
-        shield = shield_max;
+        //health = health_max;
+        //shield = shield_max;
 
-        damageBasicAttack = 2;
-        damageSkill = 10;
-        damageUltimate = 20;
+        //damageBasicAttack = 2;
+        //damageSkill = 10;
+        //damageUltimate = 20;
 
-        skillCD = 2;
-        ultimateCD = 6;
+        //skillCD = 2;
+        //ultimateCD = 6;
 
-        fireRate = 0.1f;
-        recoveryShieldTime = 2;
-        #endregion
+        //fireRate = 0.1f;
+        //recoveryShieldTime = 2;
+        //#endregion
 
         // -------------------------------------------------- //
 
