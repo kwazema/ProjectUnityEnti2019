@@ -9,7 +9,9 @@ public class Map : MonoBehaviour {
     public GameObject blockPrefab;
     public GameObject map;
     public StatsBlock[,] blocks;
-    public Sprite  blockSprite;
+
+    public Sprite  blockBlueNormal, blockBlueBroken, blockBlueVoid;
+    public Sprite  blockRedNormal, blockRedBroken, blockRedVoid;
 
     public GameObject pause_menu;
 
@@ -58,9 +60,25 @@ public class Map : MonoBehaviour {
                 blocks[i, j].SetColumn(i);
                 blocks[i, j].SetRow(j);
 
-                if (i >= column / 2)
+                if (i < column / 2)
                 {
-                    blocks[i, j].spriteBlock.sprite = blockSprite;
+                    blocks[i, j].sp.sprite = blockBlueNormal;
+
+                    blocks[i, j].blockNormal = blockBlueNormal;
+                    blocks[i, j].blockBroken = blockBlueBroken;
+                    blocks[i, j].blockVoid = blockBlueVoid;
+
+                    blocks[i, j].colorBlock = StatsBlock.ColorBlock.blue;
+                }
+                else
+                {
+                    blocks[i, j].sp.sprite = blockRedNormal;
+
+                    blocks[i, j].blockNormal = blockRedNormal;
+                    blocks[i, j].blockBroken = blockRedBroken;
+                    blocks[i, j].blockVoid = blockRedVoid;
+
+                    blocks[i, j].colorBlock = StatsBlock.ColorBlock.red;
                 }
             }
         }
@@ -69,7 +87,7 @@ public class Map : MonoBehaviour {
 
     public void ColorBlocks(int pos_x, int pos_y, Color color)
     {
-        blocks[pos_x, pos_y].spriteBlock.color = color;
+        blocks[pos_x, pos_y].sp.color = color;
     }
 
     public void SetAlert(int pos_x, int pos_y, bool setBool)

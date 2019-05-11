@@ -11,7 +11,16 @@ public class StatsBlock : MonoBehaviour {
     private int rowPosition;
 
     public int healthCur;
-    public int healthMax;
+    public int healthMax = 1;
+
+    public enum ColorBlock
+    {
+        blue,
+        red
+    }
+    public ColorBlock colorBlock;
+    public Sprite blockNormal, blockBroken, blockVoid;
+
 
     #region Function Set
 
@@ -23,7 +32,7 @@ public class StatsBlock : MonoBehaviour {
     //public PlayerManager playerManager;
 
     private PlayerMovement[] playerMovement;
-    public SpriteRenderer spriteBlock;
+    public SpriteRenderer sp;
     private GameManager gameManager;
     public Animator anim;
 
@@ -33,12 +42,14 @@ public class StatsBlock : MonoBehaviour {
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
-        spriteBlock = GetComponent<SpriteRenderer>();
+        sp = GetComponent<SpriteRenderer>();
         //InitPlayerMovement();
     }
 
-    private void Start() { }
-    private void Update() { }
+    private void Start()
+    {
+        healthCur = healthMax;
+    }
 
     //{
     //    playerMovement = new PlayerMovement[2];
@@ -72,7 +83,8 @@ public class StatsBlock : MonoBehaviour {
     {
         Collider2D[] playerBlock = Physics2D.OverlapBoxAll(transform.position, size, whatIsPlayer);
         PlayerManager playerManager = null;
-        
+        ReciveDamage(Random.Range(5, 30));
+
         for (int i = 0; i < playerBlock.Length; i++)
         {
             PlayerManager player = playerBlock[i].GetComponent<PlayerManager>();
@@ -83,6 +95,35 @@ public class StatsBlock : MonoBehaviour {
         }
 
         return playerManager;
+    }
+
+    void ReciveDamage(int damage)
+    {
+        if (!recovering)
+        {
+            healthCur -= damage;
+
+            if (healthCur <= 0)
+            {
+                recovering = true;
+                sp.sprite = blockVoid;
+
+                Invoke("ResetBlock", Random.Range(2, 6));
+            }
+            else if (healthCur < 50)
+            {
+                sp.sprite = blockBroken;
+
+            }
+        }
+    }
+
+    public bool recovering;
+    void ResetBlock()
+    {
+        sp.sprite = blockNormal;
+        healthCur = healthMax;
+        recovering = false;
     }
 
     //public bool IsPlayerInThisBlock()

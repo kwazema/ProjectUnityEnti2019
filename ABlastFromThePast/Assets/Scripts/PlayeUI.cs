@@ -121,6 +121,14 @@ public class PlayerReferences
         //Jugar con la tranparencia de la barra o con particulas o ambas
     }
 
+    public void UpdateShieldBar(bool value)
+    {
+        if (value)
+            shielBar.enabled = false;
+        else
+            shielBar.enabled = true;
+    }
+
     public void ResetFadeTimer()
     {
         damageFadeTimerCur = damageFadeTimerMax;
@@ -150,6 +158,9 @@ public class ObjectPoints
 
     public RectTransform panelUpgradeLeft;
     public RectTransform panelUpgradeRight;
+
+    public RectTransform panelUpgradeLeftIcon;
+    public RectTransform panelUpgradeRightIcon;
 }
 
 public class PlayeUI : MonoBehaviour
@@ -226,10 +237,12 @@ public class PlayeUI : MonoBehaviour
         leftPlayer.UpdateUltimateBar(GameManager.instance.playerManager[0].GetCurUltimateCD(), GameManager.instance.playerManager[0].GetUltimateCD());
         rightPlayer.UpdateUltimateBar(GameManager.instance.playerManager[1].GetCurUltimateCD(), GameManager.instance.playerManager[1].GetUltimateCD());
 
+        leftPlayer.UpdateShieldBar(GameManager.instance.playerManager[0].GetShieldState());
+        rightPlayer.UpdateShieldBar(GameManager.instance.playerManager[1].GetShieldState());
+
         roundTime.text = battleSystem.round.timeCur.ToString("#");
         //rightPlayer.DebugLog();
         //roundCur.text = (battleSystem.round.roundCur).ToString("Round 0");
-
     }
 
 
@@ -298,7 +311,32 @@ public class PlayeUI : MonoBehaviour
                 mainPoints[i].anchoredPosition = Vector2.MoveTowards(mainPoints[i].anchoredPosition, startPoints[i].anchoredPosition, speed * Time.deltaTime);
     }
 
+    public void SetLateralPanelsIconAnimation(bool value, int speed)
+    {
+        //Si es true se desplaza hacia dentro sino hacia fuera
 
+        RectTransform[] mainPoints = {
+                objectPointsMain.panelUpgradeLeftIcon,
+                objectPointsMain.panelUpgradeRightIcon
+        };
+
+        RectTransform[] startPoints = {
+                objectPointsStart.panelUpgradeLeftIcon,
+                objectPointsStart.panelUpgradeRightIcon
+        };
+
+        RectTransform[] finishPoints = {
+                objectPointsFinish.panelUpgradeLeftIcon,
+                objectPointsFinish.panelUpgradeRightIcon
+        };
+
+        if (value)
+            for (int i = 0; i < mainPoints.Length; i++)
+                mainPoints[i].anchoredPosition = Vector2.MoveTowards(mainPoints[i].anchoredPosition, finishPoints[i].anchoredPosition, speed * Time.deltaTime);
+        else
+            for (int i = 0; i < mainPoints.Length; i++)
+                mainPoints[i].anchoredPosition = Vector2.MoveTowards(mainPoints[i].anchoredPosition, startPoints[i].anchoredPosition, speed * Time.deltaTime);
+    }
 
 
 

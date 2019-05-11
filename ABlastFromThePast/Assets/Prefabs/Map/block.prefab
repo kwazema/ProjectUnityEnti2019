@@ -129,12 +129,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   disableBlock: 0
   comprobarPosition: 0
-  spriteBlock: {fileID: 0}
+  healthCur: 0
+  healthMax: 80
+  colorBlock: 0
+  blockNormal: {fileID: 0}
+  blockBroken: {fileID: 0}
+  blockVoid: {fileID: 0}
+  sp: {fileID: 0}
   anim: {fileID: 95852157799076950}
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 25600
   size: {x: 2.5, y: 2.5}
+  recovering: 0
 --- !u!212 &212585953406938488
 SpriteRenderer:
   m_ObjectHideFlags: 1

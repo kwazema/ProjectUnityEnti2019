@@ -64,6 +64,8 @@ public class BattleSystem : MonoBehaviour
             // Imprimit tiempo pantalla
             playeUI.SetLateralPanelsAnimation(true, 500);
             playeUI.SetTopPanelsAnimation(false, 600);
+            playeUI.SetLateralPanelsIconAnimation(false, 200);
+
 
             if (Input.GetKeyDown(KeyCode.Space))
                 stop = true;
@@ -103,6 +105,7 @@ public class BattleSystem : MonoBehaviour
                // Debug.Log("Se Muestra Fight");
                 //Cuando se haya terminado fade mostrar Fight que desaparezma y empieze la partida
                 playeUI.SetTopPanelsAnimation(true, 700);
+                playeUI.SetLateralPanelsIconAnimation(true, 200);
 
                 if (round.timeToStartFightCur < 0)
                 {
