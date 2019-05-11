@@ -29,24 +29,67 @@ public class VideoData
 }
 
 public class VideoController : MonoBehaviour {
-    public RawImage rawImage;
-    public VideoPlayer videoPlayer;
+    public RawImage rawImageSkill;
+    public VideoPlayer videoPlayerSkill;
+
+    public RenderTexture render;
+    //public RawImage rawImageUlti;
+    //public VideoPlayer videoPlayerUlti;
+
+    public VideoData videoData;
 
 	// Use this for initialization
 	void Start () {
         StartCoroutine(PlayVideo());
-	}
+        rawImageSkill.texture = render;
+    }
 
     IEnumerator PlayVideo()
     {
-        videoPlayer.Prepare();
+        videoPlayerSkill.Prepare();
+        //videoPlayerUlti.Prepare();
         WaitForSeconds waitForSeconds = new WaitForSeconds(0.5f);
-        while (!videoPlayer.isPrepared)
+        while (!videoPlayerSkill.isPrepared)
         {
             yield return waitForSeconds;
             break;
         }
-        rawImage.texture = videoPlayer.texture;
-        videoPlayer.Play();
-    }	
+
+        //while (!videoPlayerUlti.isPrepared)
+        //{
+        //    yield return waitForSeconds;
+        //    break;
+        //}
+
+        rawImageSkill.texture = videoPlayerSkill.texture;
+        videoPlayerSkill.Play();
+        //rawImageUlti.texture = videoPlayerUlti.texture;
+        //videoPlayerUlti.Play();
+    }
+
+    private void Update()
+    {
+        //WaitForSeconds waitForSeconds = new WaitForSeconds(5);
+        //videoPlayer.clip = videoData.basic;
+        //WaitForSeconds waitForSeconds2 = new WaitForSeconds(5);
+        //videoPlayer.clip = videoData.general;
+
+        if (Input.GetKeyDown(KeyCode.Escape) && videoPlayerSkill.clip != videoData.skill)
+        {
+            videoPlayerSkill.clip = videoData.skill;
+            rawImageSkill.texture = render;
+        } else if (Input.GetKeyDown(KeyCode.Escape) && videoPlayerSkill.clip == videoData.skill)
+        {
+            videoPlayerSkill.clip = videoData.ultimate;
+        }
+
+        //if (Input.GetKeyDown(KeyCode.Escape) && videoPlayerUlti.clip != videoData.skill)
+        //{
+        //    videoPlayerUlti.clip = videoData.skill;
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Escape) && videoPlayerUlti.clip == videoData.skill)
+        //{
+        //    videoPlayerUlti.clip = videoData.ultimate;
+        //}
+    }
 }
