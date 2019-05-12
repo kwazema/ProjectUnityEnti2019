@@ -68,7 +68,7 @@ public class GameData : MonoBehaviour
 
     private void Awake()
     {
-        filePath = Application.dataPath + "/GameData/FileCharactersData.json";
+        filePath = Application.persistentDataPath + "/GameData/FileCharactersData.json";
 
 
 

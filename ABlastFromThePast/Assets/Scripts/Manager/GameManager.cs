@@ -14,9 +14,13 @@ public class GameManager : MonoBehaviour {
     public int[] playerChoise;
     public GameObject pause_menu;
 
-    string filePath;
+    //string filePath;
+    string filePathPersistent;
     string jsonString;
 
+    string filePath;
+    //public TextAsset fileCharactersData;
+    public bool build;
 
     private void Awake()
     {
@@ -27,7 +31,18 @@ public class GameManager : MonoBehaviour {
 
         DontDestroyOnLoad(this);
 
-        filePath = Application.dataPath + "/GameData/FileCharactersData.json";
+        if (build)
+            filePath = "./Mono/FileCharactersData.json";
+        else
+            filePath = Application.dataPath + "/FileCharactersData.json";
+        
+        
+        //filePathPersistent = Application.persistentDataPath + "/GameData/FileCharactersData.json";
+
+        //ListCharacters lc = LoadFileToString();
+
+        //filePath = Path.Combine(Application.streamingAssetsPath, jsonString);
+        //SaveStringToFile(lc);
     }
 
     public ListCharacters LoadFileToString()
