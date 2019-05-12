@@ -115,3 +115,66 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: ButonTrigger
+    clip: {fileID: 8300000, guid: 274c9524aebb7da41b8706a9c7d912d6, type: 3}
+    mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.074
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ButonClick
+    clip: {fileID: 8300000, guid: f83aa42b6bd2e6b40838125551b3bcca, type: 3}
+    mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.063
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Start
+    clip: {fileID: 8300000, guid: edf2ca7ec9b5ad14c9d32c72ef743ca5, type: 3}
+    mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.072
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Fight
+    clip: {fileID: 8300000, guid: 5c34f30f00ab3d54184c7f938ab50040, type: 3}
+    mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Round1
+    clip: {fileID: 8300000, guid: 4b21362fd66edc84098a27a35fead167, type: 3}
+    mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Round2
+    clip: {fileID: 8300000, guid: d0e619c5816c2834db97e939f0639b51, type: 3}
+    mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Round3
+    clip: {fileID: 8300000, guid: 3e4cc4ab31e7f5d4ba36d337545d01b6, type: 3}
+    mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MusicBattle01
+    clip: {fileID: 8300000, guid: 5ca6726065a8bd241b20714583043810, type: 3}
+    mixer: {fileID: 243629440574500728, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.072
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: MusicBattle02
+    clip: {fileID: 8300000, guid: 9f1a16d94f39fb04983f7dc14cc7f322, type: 3}
+    mixer: {fileID: 243629440574500728, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.072
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}

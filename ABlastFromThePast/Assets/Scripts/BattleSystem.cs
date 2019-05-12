@@ -44,6 +44,12 @@ public class BattleSystem : MonoBehaviour
     private void Start ()
     {
         Invoke("StartBattle", 1);
+
+        if (Random.RandomRange(0, 100) > 50)
+            AudioManager.instance.Play("MusicBattle01");
+        else
+            AudioManager.instance.Play("MusicBattle02");
+
     }
     //private void Update () { }
 
@@ -110,6 +116,13 @@ public class BattleSystem : MonoBehaviour
         round.timeToStartCur = round.timeToStartMax;
         round.timeToStartFightCur = round.timeToStartFightMax;
 
+        switch (round.roundCur)
+        {
+            case 0: AudioManager.instance.Play("Round1"); break;
+            case 1: AudioManager.instance.Play("Round2"); break;
+            case 2: AudioManager.instance.Play("Round3"); break;
+        }
+
         while (!stopWhile)
         {
             // Imprimir Animacion de Round 1 Con su fade
@@ -145,6 +158,8 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator TimeRound()
     {
+        AudioManager.instance.Play("Fight");
+
         round.timeCur = round.timeMax;
 
         gameManager.playerManager[0].ResetCharacter();

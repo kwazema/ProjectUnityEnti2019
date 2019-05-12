@@ -65,6 +65,7 @@ public class ButtonSelector : MonoBehaviour {
     public void SelectAnim()
     {
         //Debug.Log("Select");
+        AudioManager.instance.Play("ButonClick");
 
         if (battleChoose.numSelected < 2)
         {
@@ -95,6 +96,7 @@ public class ButtonSelector : MonoBehaviour {
         Debug.Log("Point Enter");
         ResetAnim();
         animLogo.SetBool("Active", true);
+        AudioManager.instance.Play("ButonTrigger");
 
         fadeScale = true;
         if (battleChoose.numSelected < 2)

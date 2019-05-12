@@ -17043,7 +17043,6 @@ MonoBehaviour:
   textPlayer: {fileID: 1557576274}
   textContinue: {fileID: 2057462997}
   AnimContinue: {fileID: 2057462994}
-  selected: {fileID: 0}
   gameManager: {fileID: 0}
   players: 2
   animController:

@@ -42,6 +42,7 @@ public class BattleChoose : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("Start0") || Input.GetButton("Start1"))
             {
                 AnimContinue.SetTrigger("fadeOut");
+                AudioManager.instance.Play("Start");
 
                 Invoke("FadeToImage", 1);
                 Invoke("LoadSceneBattleScene", 3);
