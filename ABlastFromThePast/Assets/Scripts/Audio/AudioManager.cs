@@ -8,9 +8,18 @@ public class AudioManager : MonoBehaviour {
 
     public Sound[] sounds;
 
+    public static AudioManager instance = null;
+
 	// Use this for initialization
 	void Awake () {
-		foreach (Sound s in sounds)
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(this);
+
+        foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -29,6 +38,5 @@ public class AudioManager : MonoBehaviour {
             return;
         }
         s.source.Play();
-
     }
 }
