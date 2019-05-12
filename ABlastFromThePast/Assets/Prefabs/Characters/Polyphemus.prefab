@@ -274,7 +274,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1755725238453134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.389926, y: 7.8350577, z: 0}
+  m_LocalPosition: {x: -0.76258653, y: 9.153003, z: 0}
   m_LocalScale: {x: 19.636452, y: 19.636488, z: 19.636488}
   m_Children:
   - {fileID: 4606409956193518}
@@ -680,6 +680,8 @@ MonoBehaviour:
   basicAttack: {fileID: 1671478912391206, guid: 7fa224f827862094f8a9322621426912,
     type: 2}
   shieldRender: {fileID: 212102191953142454}
+  is_ultOn: 0
+  is_skillOn: 0
 --- !u!114 &114673410713811306
 MonoBehaviour:
   m_ObjectHideFlags: 1

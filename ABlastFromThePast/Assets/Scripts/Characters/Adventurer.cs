@@ -92,6 +92,8 @@ public class Adventurer : PlayerManager {
     {
         if (cur_skillCD >= skillCD)
         {
+            anim.SetBool("attack", false);
+
             is_skill_ready = false;
 
             // -------------------------------------------------- //
@@ -139,12 +141,16 @@ public class Adventurer : PlayerManager {
 
         yield return null;
         cur_skillCD = 0;
+
+        player_att_input.is_skillOn = false;
     }
 
     public override void Ultimate()
     {
         if (cur_ultimateCD >= ultimateCD)
         {
+            anim.SetBool("attack", false);
+
             anim.SetTrigger("ultimate");
 
             // -------------------------------------------------------------- //
@@ -213,6 +219,9 @@ public class Adventurer : PlayerManager {
         player_att_input.enabled = true;
 
         can_color_white = true;
+
+        player_att_input.is_ultOn = false;
+
     }
 
     protected override void SelectedZonaPlayer()

@@ -17,6 +17,8 @@ public class PlayerAttackInput : MonoBehaviour
     public SpriteRenderer shieldRender;
 
     int numPlayer;
+    public bool is_ultOn = false;
+    public bool is_skillOn = false;
 
     #region  Variables
     private float nextFire = 0.0f;
@@ -52,7 +54,7 @@ public class PlayerAttackInput : MonoBehaviour
 
     private void GetInputPlayer1()
     {
-        if (Input.GetButton("Attack0"))
+        if (Input.GetButton("Attack0") && !playerManager[0].GetIsShieldActive() && !is_skillOn && !is_ultOn)
             playerManager[0].anim.SetBool("attack", true);
         else
             playerManager[0].anim.SetBool("attack", false);
@@ -69,22 +71,24 @@ public class PlayerAttackInput : MonoBehaviour
 
         // ----------------------- //
 
-        if (!playerManager[0].GetIsShootting() && !playerManager[0].GetIsShieldActive())
+        if (!playerManager[0].GetIsShootting() && !playerManager[0].GetIsShieldActive() && !is_ultOn)
             if (Input.GetButtonDown("Skill0") && playerManager[0].GetIsSkillReady() && !playerMove.GetIsMoving())
                 SkillAttack();
 
         // ----------------------- //
 
-        if (!playerManager[0].GetIsShootting() && !playerManager[0].GetIsShieldActive()) 
+        if (!playerManager[0].GetIsShootting() && !playerManager[0].GetIsShieldActive() && !is_skillOn) 
             if (Input.GetButton("Ultimate0") && playerManager[0].is_ultimate_ready && !playerMove.GetIsMoving()) 
                 UltimateAttack();
 
         // ----------------------- //
 
-        if (Input.GetButton("Shield0") && !playerManager[0].GetShieldState() && !playerManager[0].GetIsShootting())
-            ActiveShield();
-        else
-            DeactivateShield();
+        if (!is_skillOn && !is_ultOn) {
+            if (Input.GetButton("Shield0") && !playerManager[0].GetShieldState() && !playerManager[0].GetIsShootting())
+                ActiveShield();
+            else
+                DeactivateShield();
+        }
 
         if (Input.GetButtonDown("Shield0") && !playerManager[0].GetShieldState() && !playerManager[0].GetIsShootting())
         {
@@ -94,7 +98,7 @@ public class PlayerAttackInput : MonoBehaviour
 
     private void GetInputPlayer2()
     {
-        if (Input.GetButton("Attack1"))
+        if (Input.GetButton("Attack1") && !playerManager[1].GetIsShieldActive())
             playerManager[1].anim.SetBool("attack", true);
         else
             playerManager[1].anim.SetBool("attack", false);
@@ -114,16 +118,18 @@ public class PlayerAttackInput : MonoBehaviour
 
         // ----------------------- //
 
-        if (!playerManager[1].GetIsShootting() && !playerManager[1].GetIsShieldActive())
+        if (!playerManager[1].GetIsShootting() && !playerManager[1].GetIsShieldActive() && !is_skillOn && !is_ultOn)
             if (Input.GetButton("Ultimate1") && playerManager[1].is_ultimate_ready && !playerMove.GetIsMoving())
                 UltimateAttack();
 
         // ----------------------- //
 
-        if (Input.GetButton("Shield1") && !playerManager[1].GetShieldState() && !playerManager[1].GetIsShootting())
-            ActiveShield();
-        else
-            DeactivateShield();
+        if (!is_skillOn && !is_ultOn) {
+            if (Input.GetButton("Shield1") && !playerManager[1].GetShieldState() && !playerManager[1].GetIsShootting())
+                ActiveShield();
+            else
+                DeactivateShield();
+        }
 
         if (Input.GetButtonDown("Shield1") && !playerManager[1].GetShieldState() && !playerManager[1].GetIsShootting())
         {
@@ -176,11 +182,17 @@ public class PlayerAttackInput : MonoBehaviour
 
     private void SkillAttack()
     {
+        is_skillOn = true;
+
         playerManager[numPlayer].Skill();
     }
 
     private void UltimateAttack()
     {
+        is_ultOn = true;
+
+        playerManager[1].anim.SetBool("attack", false);
+
         playerManager[numPlayer].Ultimate();
     }
 

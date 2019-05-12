@@ -464,7 +464,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public virtual void Skill() { }
+    public virtual void Skill() {  }
 
     protected virtual void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0) { }
 

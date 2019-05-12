@@ -203,7 +203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1418651364683610
 GameObject:
   m_ObjectHideFlags: 1
@@ -405,7 +405,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1325922399976486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.8207645, y: 7.414933, z: 0}
+  m_LocalPosition: {x: 3.341978, y: 13.141399, z: 0}
   m_LocalScale: {x: 19.636452, y: 19.636488, z: 19.636488}
   m_Children:
   - {fileID: 4454288735688916}
@@ -717,6 +717,8 @@ MonoBehaviour:
   basicAttack: {fileID: 1088026552907978, guid: 4667fa842bda545468e885899e0fcd71,
     type: 2}
   shieldRender: {fileID: 212159867648045562}
+  is_ultOn: 0
+  is_skillOn: 0
 --- !u!114 &114485137624816796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -18558,8 +18560,8 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1418651364683610}
   serializedVersion: 5
-  lengthInSec: 2
-  simulationSpeed: 1
+  lengthInSec: 1
+  simulationSpeed: 2
   stopAction: 0
   looping: 0
   prewarm: 0
@@ -18683,7 +18685,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
