@@ -5,7 +5,7 @@ using UnityEngine;
 public class Santa : PlayerManager {
 
     #region Internal Variables
-        public Transform distance_attack;
+        //public Transform distance_attack;
         int blocks_width;
 
         Vector2 enemy_position;
@@ -199,7 +199,7 @@ public class Santa : PlayerManager {
             BurnedEffect.SetActive(true);
             // -------------------------------------------------------------- //
 
-            StartCoroutine(CastingTime(2, true));
+            StartCoroutine(CastingTime(2, false));
         }
     }
     
@@ -235,6 +235,11 @@ public class Santa : PlayerManager {
 
         Destroy(BurnedEffect);
         cur_ultimateCD = 0;
+
+        // -------------------------------------------------------------- //
+
+        playerInput.enabled = true;
+        player_att_input.enabled = true;
     }
 
     protected override void SelectedZonaPlayer()

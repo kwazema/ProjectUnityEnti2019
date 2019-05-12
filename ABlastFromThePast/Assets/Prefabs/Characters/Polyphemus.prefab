@@ -274,7 +274,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1755725238453134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.261472, y: 19.30791, z: 0}
+  m_LocalPosition: {x: 22.470783, y: 17.870808, z: 0}
   m_LocalScale: {x: 19.636452, y: 19.636488, z: 19.636488}
   m_Children:
   - {fileID: 4606409956193518}
@@ -632,6 +632,8 @@ MonoBehaviour:
   - {fileID: 1000013462590818, guid: ecdd96beb7f93494880c052dfccf9dc1, type: 2}
   bodyCollider: {fileID: 61470531902553038}
   minibodyCollider: {fileID: 61092356119634606}
+  distance_attack: {fileID: 4667911299271022}
+  hitmarker_color: {fileID: 212628726062575216}
   playerMovement: {fileID: 0}
   anim: {fileID: 0}
   damageBasicAttack: 0
@@ -643,7 +645,6 @@ MonoBehaviour:
   whichIsThisPlayer: 0
   namePlayer: 
   upgrade_text: []
-  distance_attack: {fileID: 0}
   upgradeHral: 0
 --- !u!114 &114365140896107340
 MonoBehaviour:

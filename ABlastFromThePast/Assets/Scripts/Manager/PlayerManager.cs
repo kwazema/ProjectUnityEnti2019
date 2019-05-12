@@ -50,6 +50,11 @@ public class PlayerManager : MonoBehaviour
     public BoxCollider2D bodyCollider;
     public BoxCollider2D minibodyCollider;
 
+    [Header("<-- Hitmarker -->")]
+    public Transform distance_attack;
+    public SpriteRenderer hitmarker_color;
+
+
     #region Classes
     public PlayerMovement playerMovement;
     protected Map map;
@@ -231,9 +236,16 @@ public class PlayerManager : MonoBehaviour
         can_color_white = false;
 
         if (thisPlayerIs == ThisPlayerIs.Player1)
+        {
             GameObject.Find(name + "/BodyCollider").layer = 11;
-        else
+
+            hitmarker_color.color = Color.blue;
+        }
+        else {
             GameObject.Find(name + "/BodyCollider").layer = 12;
+
+            hitmarker_color.color = Color.red;
+        }
     }
 
     private void LoadStatsFile()
@@ -602,4 +614,49 @@ public class PlayerManager : MonoBehaviour
     {
         yield return null;
     }
+
+    protected Vector2Int[] GetRandomBlocks(int blocks)
+    {
+        Vector2Int[] blocks_affected;
+        int i = 0;
+        int blocks_created = 0;
+        blocks_affected = new Vector2Int[blocks];
+
+        int init_pos_x;
+        int max_pos_x;
+        if (player_to_attack == 0)
+        {
+            init_pos_x = 0;
+            max_pos_x = init_pos_x + (map.columnLenth) / 2;
+        }
+        else
+        {
+            init_pos_x = map.columnLenth - 1;
+            max_pos_x = init_pos_x - (map.columnLenth) / 2;
+        }
+
+        while (i < blocks)
+        {
+            Vector2Int cpy = new Vector2Int(Random.Range(init_pos_x, max_pos_x), Random.Range(0, map.rowLenth));
+
+            bool is_finded = false;
+            for (int j = 0; j < blocks_created && !is_finded; j++)
+            {
+                if (blocks_affected[j] == cpy)
+                {
+                    is_finded = true;
+                }
+            }
+
+            if (!is_finded)
+            {
+                blocks_affected[i] = cpy;
+                i++;
+                blocks_created++;
+            }
+        }
+
+        return blocks_affected;
+    }
+
 }

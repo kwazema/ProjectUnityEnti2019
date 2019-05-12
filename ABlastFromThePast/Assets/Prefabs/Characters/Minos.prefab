@@ -527,7 +527,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1983954572820804}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 82.64466, y: 0.50431895, z: 0}
+  m_LocalPosition: {x: 15.495108, y: 18.523615, z: 0}
   m_LocalScale: {x: 19.636452, y: 19.636488, z: 19.636488}
   m_Children:
   - {fileID: 4154742751632750}
@@ -881,6 +881,8 @@ MonoBehaviour:
   - {fileID: 0}
   bodyCollider: {fileID: 61197002837615626}
   minibodyCollider: {fileID: 61592558783381378}
+  distance_attack: {fileID: 4654876691078714}
+  hitmarker_color: {fileID: 212076490058607512}
   playerMovement: {fileID: 0}
   anim: {fileID: 0}
   damageBasicAttack: 0
@@ -892,7 +894,6 @@ MonoBehaviour:
   whichIsThisPlayer: 0
   namePlayer: Scepter
   upgrade_text: []
-  distance_attack: {fileID: 4654876691078714}
   upgradeHral: 0
 --- !u!114 &114750000472260484
 MonoBehaviour:
