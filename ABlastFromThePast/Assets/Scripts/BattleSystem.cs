@@ -85,6 +85,7 @@ public class BattleSystem : MonoBehaviour
         while (round.timeToFadeUpgradeOutCur > 0)
         {
             playeUI.SetLateralPanelsAnimation(false, 700);
+            playeUI.SetTopPanelsAnimation(false, 600);
             playeUI.continueText.SetTrigger("fadeOut");
             // TODO: Tener otro panel que solo tenga los logos y cuando se muestre empezar la partida
 
