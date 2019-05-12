@@ -33,6 +33,9 @@ public class PlayerReferences
     public Text upgrade02;
     public Text upgrade03;
 
+    public GameObject win1;
+    public GameObject win2;
+
     private float damageFadeTimerCur;
     private float damageFadeTimerMax = 1.3f;
     private float lastResivedDamage;
@@ -188,6 +191,18 @@ public class PlayerReferences
        // Debug.Log("Fade Timer Cur: " + damageFadeTimerCur);
     }
 
+    public void SetWinPlayer(int round)
+    {
+        if (round == 1)
+        {
+            win1.SetActive(true);
+        }
+        else
+        {
+            win2.SetActive(true);
+        }
+    }
+
 
     //            textHealth[i].text = gameManager.playerStats[i].GetHealth().ToString();
 
@@ -296,8 +311,6 @@ public class PlayeUI : MonoBehaviour
 
         roundTime.text = battleSystem.round.timeCur.ToString("#");
         clockBar.fillAmount = battleSystem.round.timeCur / battleSystem.round.timeMax;
-
-
 
         leftPlayer.UpdateUpgrade01(GameManager.instance.playerManager[0].upgrade_text[0]);
         leftPlayer.UpdateUpgrade02(GameManager.instance.playerManager[0].upgrade_text[1]);

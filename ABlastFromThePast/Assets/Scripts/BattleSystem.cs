@@ -191,11 +191,20 @@ public class BattleSystem : MonoBehaviour
         float healhPlayer2 = gameManager.playerManager[1].GetHealth() / gameManager.playerManager[1].GetHealthMax() * 100;
 
         if (healhPlayer1 > healhPlayer2)
-            round.roundsWinPlayer2++;
-        else if (healhPlayer1 < healhPlayer2)
+        {
             round.roundsWinPlayer1++;
+            playeUI.leftPlayer.SetWinPlayer(round.roundsWinPlayer1);
+        }
+        else if (healhPlayer1 < healhPlayer2)
+        {
+            round.roundsWinPlayer2++;
+            playeUI.rightPlayer.SetWinPlayer(round.roundsWinPlayer2);
+        }
         else
+        {
             round.roundMax++; //empate se juega una ronda mas.
+
+        }
 
         if (round.roundsWinPlayer1 == 2 || round.roundsWinPlayer2 == 2)
         {
