@@ -214,6 +214,8 @@ public class Polyphemus : PlayerManager
 
         Vector3 position;
 
+        FindObjectOfType<AudioManager>().Play("PolyphemusUlti");
+
         while (pos_x != last_block)
         {
             map.ColorBlocks(pos_x, pos_y, Color.red);
