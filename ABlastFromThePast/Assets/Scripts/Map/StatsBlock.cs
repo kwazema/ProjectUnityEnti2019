@@ -121,9 +121,18 @@ public class StatsBlock : MonoBehaviour {
     public bool recovering;
     public void ResetBlock()
     {
+        anim.SetBool("alert", false);
         sp.sprite = blockNormal;
         healthCur = healthMax;
         recovering = false;
+    }
+
+    public void DestroyBlock()
+    {
+        recovering = true;
+        sp.sprite = blockVoid;
+
+        Invoke("ResetBlock", Random.Range(3, 7));
     }
 
     //public bool IsPlayerInThisBlock()

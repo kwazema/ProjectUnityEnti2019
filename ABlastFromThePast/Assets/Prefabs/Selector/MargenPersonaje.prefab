@@ -106,7 +106,7 @@ Animator:
   m_GameObject: {fileID: 1138948666168906}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1121a7e052263474db740835ab33c93a, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animSelector: {fileID: 95256069760991664}
+  animLogo: {fileID: 95495470807314722}
   eventTrigger: {fileID: 0}
   image: {fileID: 114194294881982862}
   numButton: 0

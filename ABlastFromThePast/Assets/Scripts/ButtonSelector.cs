@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class ButtonSelector : MonoBehaviour {
 
     public Animator animSelector;
+    public Animator animLogo;
     public EventTrigger eventTrigger;
     //public SpriteRenderer sp;
     public Image image;
@@ -79,6 +80,8 @@ public class ButtonSelector : MonoBehaviour {
     {
         Debug.Log("Point Enter");
         ResetAnim();
+        animLogo.SetBool("Active", true);
+
         fadeScale = true;
         if (battleChoose.numSelected < 2)
         {
@@ -106,6 +109,7 @@ public class ButtonSelector : MonoBehaviour {
     {
         //Debug.Log("Point Exit");
         fadeScale = false;
+        animLogo.SetBool("Active", false);
 
         if (battleChoose.numSelected < 2)
         {

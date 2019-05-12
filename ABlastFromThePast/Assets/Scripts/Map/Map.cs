@@ -95,6 +95,11 @@ public class Map : MonoBehaviour {
         blocks[pos_x, pos_y].anim.SetBool("alert", setBool);
     }
 
+    public void DestroyBlock(int pos_x, int pos_y)
+    {
+        blocks[pos_x, pos_y].DestroyBlock();
+    }
+
     public void ResetBlocks()
     {
         for (int i = 0; i < columnLenth; i++) // Horizontal

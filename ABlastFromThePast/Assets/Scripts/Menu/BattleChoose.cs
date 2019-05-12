@@ -10,11 +10,12 @@ public class BattleChoose : MonoBehaviour
     public GameManager gameManager;
     public int players;
     private FadeImage fade;
-
+    public RuntimeAnimatorController[] animController;
     public int numSelected = 0;
 
     public ButtonSelector[] button;
     public GameObject prefabButton;
+    //public string[] nameController;
 
     private void Awake()
     {
@@ -80,10 +81,11 @@ public class BattleChoose : MonoBehaviour
         for (int i = 0; i < numCharacters ; i++) // Horizontal
         {
             //numCharacters / buttonInRow
-           button[i] = Instantiate(prefabButton).GetComponent<ButtonSelector>();
-           button[i].transform.SetParent(transform);
-           button[i].numButton = i;
-           button[i].transform.position = offset + new Vector2(w * (width + margin), h * -(height + margin));
+            button[i] = Instantiate(prefabButton).GetComponent<ButtonSelector>();
+            button[i].transform.SetParent(transform);
+            button[i].numButton = i;
+            button[i].transform.position = offset + new Vector2(w * (width + margin), h * -(height + margin));
+
 
             w++;
             if (w == buttonInRow)
@@ -95,6 +97,8 @@ public class BattleChoose : MonoBehaviour
 
             if (i >= gameManager.objectPlayer.Length)
                 button[i].SetInterectable(false);
+            else
+                button[i].animLogo.runtimeAnimatorController = animController[i];
         }
 
         for (int i = 0; i < gameManager.logoPlayer.Length; i++)

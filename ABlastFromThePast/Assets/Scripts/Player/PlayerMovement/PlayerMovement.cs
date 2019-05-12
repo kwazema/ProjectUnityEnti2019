@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour {
 
                 if (map.blocks[playerColumn, playerRow].recovering)
                 {
-                    goMove = true;
+                    //goMove = true;
                 }
 
                 //-------------- Move Right -------------- //
@@ -151,7 +151,7 @@ public class PlayerMovement : MonoBehaviour {
 
 
 
-                if (map.blocks[playerColumn, playerRow].recovering && goMove)
+                if (map.blocks[playerColumn, playerRow].recovering && !goMove)
                 {
                     playerColumn = column;
                     playerRow = row;
@@ -161,24 +161,30 @@ public class PlayerMovement : MonoBehaviour {
             {
                 int column = playerColumn;
                 int row = playerRow;
+                bool goMove = false;
+
+                if (map.blocks[playerColumn, playerRow].recovering)
+                {
+                   // goMove = true;
+                }
                 //if (Can i move?)
                 //-------------- Move Right -------------- //
-                if (dirHorizontal > 0 && playerColumn < map.columnLenth - 1 && !map.blocks[playerColumn, playerRow].recovering)
+                if (dirHorizontal > 0 && playerColumn < map.columnLenth - 1)
                     playerColumn += dirHorizontal;
 
                 //-------------- Move Left -------------- //
-                if (dirHorizontal < 0 && playerColumn > columnLenth && !map.blocks[playerColumn, playerRow].recovering)
+                if (dirHorizontal < 0 && playerColumn > columnLenth)
                     playerColumn += dirHorizontal;
 
                 //--------------- Move Up --------------- //
-                if (dirVertical < 0 && playerRow < rowLenth - 1 && !map.blocks[playerColumn, playerRow].recovering)
+                if (dirVertical < 0 && playerRow < rowLenth - 1)
                     playerRow -= dirVertical;
 
                 //-------------- Move Down -------------- //
-                if (dirVertical > 0 && playerRow > 0 && !map.blocks[playerColumn, playerRow].recovering)
+                if (dirVertical > 0 && playerRow > 0)
                     playerRow -= dirVertical;
 
-                if (map.blocks[playerColumn, playerRow].recovering)
+                if (map.blocks[playerColumn, playerRow].recovering && !goMove)
                 {
                     playerColumn = column;
                     playerRow = row;
