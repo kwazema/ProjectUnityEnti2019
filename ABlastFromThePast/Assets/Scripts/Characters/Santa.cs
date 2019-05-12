@@ -99,7 +99,7 @@ public class Santa : PlayerManager {
 
             oldPos = (Vector2)transform.position;
             moveToBlock = new Vector2(map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position.x, transform.position.y);
-            FindObjectOfType<AudioManager>().Play("SantaSkill");
+            AudioManager.instance.Play("SantaSkill");
 
             // -------------------------------------------------- //
 
@@ -184,7 +184,7 @@ public class Santa : PlayerManager {
         if (cur_ultimateCD >= ultimateCD) {
             anim.SetTrigger("ultimate");
             DeployParticles(Particles.UltimateCast);
-            FindObjectOfType<AudioManager>().Play("SantaUlti");
+            AudioManager.instance.Play("SantaUlti");
 
             // -------------------------------------------------------------- //
 

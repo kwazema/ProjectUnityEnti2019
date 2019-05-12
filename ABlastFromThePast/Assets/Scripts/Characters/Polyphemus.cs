@@ -99,7 +99,7 @@ public class Polyphemus : PlayerManager
         {
             anim.SetTrigger("skill");
             DeployParticles(Particles.Skill);
-            FindObjectOfType<AudioManager>().Play("PolyphemusSkill");
+            AudioManager.instance.Play("PolyphemusSkill");
             // -------------------------------------------------- //
 
             is_skill_ready = false;
@@ -214,7 +214,7 @@ public class Polyphemus : PlayerManager
 
         Vector3 position;
 
-        FindObjectOfType<AudioManager>().Play("PolyphemusUlti");
+        AudioManager.instance.Play("PolyphemusUlti");
 
         while (pos_x != last_block)
         {

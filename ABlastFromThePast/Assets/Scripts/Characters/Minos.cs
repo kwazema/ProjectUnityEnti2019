@@ -159,7 +159,7 @@ public class Minos : PlayerManager
         base.LookForBlocks(rangeEffectColumn, time);
 
         anim.SetTrigger("skill");
-        FindObjectOfType<AudioManager>().Play("MinosSkill");
+        AudioManager.instance.Play("MinosSkill");
 
         DeployParticles(Particles.Skill);
         for (int i = -1; i < 2; i++)
@@ -197,7 +197,7 @@ public class Minos : PlayerManager
         if (cur_ultimateCD >= ultimateCD)
         {
             anim.SetTrigger("ultimate");
-            FindObjectOfType<AudioManager>().Play("MinosUltiFirst");
+            AudioManager.instance.Play("MinosUltiFirst");
             is_ultimate_ready = false;
             is_ultimateOn = true;
 
@@ -278,7 +278,7 @@ public class Minos : PlayerManager
             Vector2 block_pos = map.blocks[blocks_affected[i].x, blocks_affected[i].y].transform.position;
 
             HitStellarRain = Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.Ultimate], block_pos, Quaternion.identity);
-            FindObjectOfType<AudioManager>().Play("MinosUltiImpact");
+            AudioManager.instance.Play("MinosUltiImpact");
 
             if (map.blocks[blocks_affected[i].x, blocks_affected[i].y].GetPlayerStatsBlock((int)thisPlayerIs) != null)
             {

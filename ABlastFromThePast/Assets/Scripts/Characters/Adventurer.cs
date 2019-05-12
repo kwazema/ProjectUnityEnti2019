@@ -123,7 +123,7 @@ public class Adventurer : PlayerManager {
         // -------------------------------------------------- //
 
         DeployParticles(Particles.Skill);
-        FindObjectOfType<AudioManager>().Play("AdventurerSkill");
+        AudioManager.instance.Play("AdventurerSkill");
 
         // -------------------------------------------------- //
 
@@ -165,13 +165,13 @@ public class Adventurer : PlayerManager {
             for (int i = 0; i < max_blocks; i++)
             {
                 map.SetAlert(blocks_affected[i].x, blocks_affected[i].y, true);
-                FindObjectOfType<AudioManager>().Play("AdventurerUlti");
+                AudioManager.instance.Play("AdventurerUlti");
             }
 
             // -------------------------------------------------------------- //
 
             StartCoroutine(CastingTime(2, false));
-            FindObjectOfType<AudioManager>().Stop("AdventurerUlti");
+            AudioManager.instance.Stop("AdventurerUlti");
         }
     }
 

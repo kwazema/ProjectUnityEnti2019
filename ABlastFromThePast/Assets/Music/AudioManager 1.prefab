@@ -1,0 +1,117 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1256923053359542}
+  m_IsPrefabParent: 1
+--- !u!1 &1256923053359542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4664621446675702}
+  - component: {fileID: 114196838346827512}
+  m_Layer: 0
+  m_Name: AudioManager 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4664621446675702
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1256923053359542}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.617905, y: -5.760137, z: 0.23046875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114196838346827512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1256923053359542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba7f631c8bde1e499015cb8bec3d673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: SantaUlti
+    clip: {fileID: 8300000, guid: 1d193028c43de954e90a586d6b77dae6, type: 3}
+    mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.572
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PolyphemusSkill
+    clip: {fileID: 8300000, guid: 7cc4baf21effa714b917cf6144fe9a5f, type: 3}
+    mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.598
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SantaSkill
+    clip: {fileID: 8300000, guid: b67befa0db003d2429f6148c19739013, type: 3}
+    mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.644
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinosSkill
+    clip: {fileID: 8300000, guid: c89020c3451787c498410d9c95dd0da4, type: 3}
+    mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.644
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinosUltiFirst
+    clip: {fileID: 8300000, guid: 5d4a217ab2c68cb43ba2156295f184e2, type: 3}
+    mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.644
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinosUltiImpact
+    clip: {fileID: 8300000, guid: a96212ef25cb544439097a2b373beca3, type: 3}
+    mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.644
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: AdventurerSkill
+    clip: {fileID: 8300000, guid: 3544eef692ffeeb4db857c55191422cf, type: 3}
+    mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.644
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: AdventurerUlti
+    clip: {fileID: 8300000, guid: 257a8f27f527e6e4199a89384d23fe3e, type: 3}
+    mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.644
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PolyphemusUlti
+    clip: {fileID: 8300000, guid: 420c83a33bb287d479eb93223f747013, type: 3}
+    mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.644
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

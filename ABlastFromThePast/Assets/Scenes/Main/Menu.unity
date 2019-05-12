@@ -8413,6 +8413,52 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1138150660}
+--- !u!1001 &1139101787
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4664621446675702, guid: 0f926fc5f9323e547a9a326cd83a208f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 7.617905
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664621446675702, guid: 0f926fc5f9323e547a9a326cd83a208f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -5.760137
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664621446675702, guid: 0f926fc5f9323e547a9a326cd83a208f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.23046875
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664621446675702, guid: 0f926fc5f9323e547a9a326cd83a208f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664621446675702, guid: 0f926fc5f9323e547a9a326cd83a208f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664621446675702, guid: 0f926fc5f9323e547a9a326cd83a208f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664621446675702, guid: 0f926fc5f9323e547a9a326cd83a208f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664621446675702, guid: 0f926fc5f9323e547a9a326cd83a208f, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256923053359542, guid: 0f926fc5f9323e547a9a326cd83a208f, type: 2}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0f926fc5f9323e547a9a326cd83a208f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1143136605
 GameObject:
   m_ObjectHideFlags: 0
@@ -16589,6 +16635,7 @@ MonoBehaviour:
   textPlayer: {fileID: 1557576274}
   textContinue: {fileID: 2057462997}
   AnimContinue: {fileID: 2057462994}
+  selected: {fileID: 0}
   gameManager: {fileID: 0}
   players: 2
   animController:
