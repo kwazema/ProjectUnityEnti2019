@@ -99,6 +99,7 @@ public class Polyphemus : PlayerManager
         {
             anim.SetTrigger("skill");
             DeployParticles(Particles.Skill);
+            FindObjectOfType<AudioManager>().Play("PolyphemusSkill");
             // -------------------------------------------------- //
 
             is_skill_ready = false;
