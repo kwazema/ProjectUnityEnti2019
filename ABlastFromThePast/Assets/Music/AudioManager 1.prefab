@@ -55,7 +55,7 @@ MonoBehaviour:
   - name: SantaUlti
     clip: {fileID: 8300000, guid: 1d193028c43de954e90a586d6b77dae6, type: 3}
     mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
-    volume: 0.2
+    volume: 0.12
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -69,35 +69,35 @@ MonoBehaviour:
   - name: SantaSkill
     clip: {fileID: 8300000, guid: b67befa0db003d2429f6148c19739013, type: 3}
     mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
-    volume: 0.2
+    volume: 0.18
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: MinosSkill
     clip: {fileID: 8300000, guid: c89020c3451787c498410d9c95dd0da4, type: 3}
     mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
-    volume: 0.2
+    volume: 0.1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: MinosUltiFirst
     clip: {fileID: 8300000, guid: 5d4a217ab2c68cb43ba2156295f184e2, type: 3}
     mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
-    volume: 0.2
+    volume: 0.13
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: MinosUltiImpact
     clip: {fileID: 8300000, guid: a96212ef25cb544439097a2b373beca3, type: 3}
     mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
-    volume: 0.644
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: AdventurerSkill
     clip: {fileID: 8300000, guid: 3544eef692ffeeb4db857c55191422cf, type: 3}
     mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
-    volume: 0.13
+    volume: 0.11
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -191,4 +191,39 @@ MonoBehaviour:
     volume: 0.015
     pitch: 1.4
     loop: 0
+    source: {fileID: 0}
+  - name: MusicMenu01
+    clip: {fileID: 8300000, guid: 64ba721b6209bb745be9e73236145dc3, type: 3}
+    mixer: {fileID: 243629440574500728, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.36
+    pitch: 1.4
+    loop: 1
+    source: {fileID: 0}
+  - name: MusicMenu02
+    clip: {fileID: 8300000, guid: 66a60aa9744ff1040b6a3236de7fe451, type: 3}
+    mixer: {fileID: 243629440574500728, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.06
+    pitch: 1.4
+    loop: 1
+    source: {fileID: 0}
+  - name: MusicMenu03
+    clip: {fileID: 8300000, guid: f3808123883c27848aaf28e4f20a7f4a, type: 3}
+    mixer: {fileID: 243629440574500728, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.5
+    pitch: 1.4
+    loop: 1
+    source: {fileID: 0}
+  - name: MusicMenu04
+    clip: {fileID: 8300000, guid: f3808123883c27848aaf28e4f20a7f4a, type: 3}
+    mixer: {fileID: 243629440574500728, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.5
+    pitch: 1.4
+    loop: 1
+    source: {fileID: 0}
+  - name: MusicMenu05
+    clip: {fileID: 8300000, guid: f3808123883c27848aaf28e4f20a7f4a, type: 3}
+    mixer: {fileID: 243629440574500728, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
+    volume: 0.5
+    pitch: 1.4
+    loop: 1
     source: {fileID: 0}

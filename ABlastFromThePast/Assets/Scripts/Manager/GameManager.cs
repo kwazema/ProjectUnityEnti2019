@@ -22,6 +22,12 @@ public class GameManager : MonoBehaviour {
     //public TextAsset fileCharactersData;
     public bool build;
 
+
+    public float volume = 0;
+    public float volumeMusic = 0;
+    public float volumeEffects = 0;
+
+
     private void Awake()
     {
         if (instance == null)

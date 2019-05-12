@@ -45,11 +45,17 @@ public class BattleSystem : MonoBehaviour
     {
         Invoke("StartBattle", 1);
 
-        if (Random.RandomRange(0, 100) > 50)
+        if (Random.Range(0, 100) > 50)
             AudioManager.instance.Play("MusicBattle01");
         else
             AudioManager.instance.Play("MusicBattle02");
 
+
+        AudioManager.instance.Stop("MusicMenu01");
+        AudioManager.instance.Stop("MusicMenu02");
+        AudioManager.instance.Stop("MusicMenu03");
+        AudioManager.instance.Stop("MusicMenu04");
+        AudioManager.instance.Stop("MusicMenu05");
     }
     //private void Update () { }
 

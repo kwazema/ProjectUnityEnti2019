@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SettingMenu : MonoBehaviour {
 
-    public Slider volumeBar;
+    //public Slider volumeBar;
     //public GameObject gameObject;
 
     //enum language
@@ -17,22 +17,35 @@ public class SettingMenu : MonoBehaviour {
     //};
 
     //language idiom;
-
+    public Slider volume;
+    public Slider volumeMusic;
+    public Slider volumeEffects;
     public AudioMixer audioMixer;
-  
+
+
+    private void Start()
+    {
+        volume.value = GameManager.instance.volume;
+        volumeMusic.value = GameManager.instance.volumeMusic;
+        volumeEffects.value = GameManager.instance.volumeEffects;
+    }
+
     public void MasterVolume ( float volume)
     {
         audioMixer.SetFloat("volume", volume);
+        GameManager.instance.volume = volume;
     }
 
     public void Music(float volume)
     {
         audioMixer.SetFloat("volumeMusic", volume);
+        GameManager.instance.volumeMusic = volume;
     }
 
     public void Effects(float volume)
     {
         audioMixer.SetFloat("volumeEffects", volume);
+        GameManager.instance.volumeEffects = volume;
     }
 
     public void Quality(int index)
