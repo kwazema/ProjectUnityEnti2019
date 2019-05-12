@@ -20,7 +20,7 @@ public class Minos : PlayerManager
         index = 1; // TODO: Estoy dudando que sea manual o lo haga GameManager
         base.Awake();
 
-        upgrade_text[0] = "You gain " + upgradeHral + " more of maximum health and " + 15 + " of maximum shield.";
+        upgrade_text[0] = "You gain " + 10 + " more of maximum health and " + 15 + " of maximum shield.";
         upgrade_text[1] = "You gain " + 4 + " more of basic damage and " + 10 + " of skill damage.";
         upgrade_text[2] = "You gain " + 35 + " more of ultimate damage.";
         //namePlayer = "Scepter"; // Nombre añadido desde el inspector

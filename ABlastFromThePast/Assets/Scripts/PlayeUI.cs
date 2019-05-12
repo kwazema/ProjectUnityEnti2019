@@ -36,6 +36,8 @@ public class PlayerReferences
     public GameObject win1;
     public GameObject win2;
 
+    public GameObject WinGame;
+
     private float damageFadeTimerCur;
     private float damageFadeTimerMax = 1.3f;
     private float lastResivedDamage;

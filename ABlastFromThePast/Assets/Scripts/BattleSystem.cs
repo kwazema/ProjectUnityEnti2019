@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class Round
@@ -227,14 +228,23 @@ public class BattleSystem : MonoBehaviour
 
     void WinPlayer()
     {
-        //playeUI.WinPlayer();
+        if (round.roundsWinPlayer1 > round.roundsWinPlayer2)
+        {
+            playeUI.leftPlayer.WinGame.SetActive(true);
+        }
+        else
+        {
+            playeUI.rightPlayer.WinGame.SetActive(true);
+        }
+    }
+    
+    void Fade()
+    {
+        FindObjectOfType<FadeImage>().FadeToBlack();
     }
 
-    //void GoToMenu()
-    //{
-    //    round.roundsWinPlayer1 = 0;
-    //    round.roundsWinPlayer2 = 0;
-    //    round.roundCur = -1;
-    //    SceneManager.LoadScene("Menu");
-    //}
+    void GoToMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }
