@@ -74,18 +74,6 @@ public class Adventurer : PlayerManager {
 
         if (is_ultimateOn && cast_ended)
             StartCoroutine(CryingBlock());
-
-        // -------------------------------------------------- //
-
-        if (can_color_white)
-        {
-            for (int i = 0; i < max_blocks; i++)
-            {
-                map.ColorBlocks(blocks_affected[i].x, blocks_affected[i].y, Color.white);
-            }
-
-            can_color_white = false;
-        }
     }
 
     public override void Skill()
@@ -112,10 +100,6 @@ public class Adventurer : PlayerManager {
 
     protected override IEnumerator LookForBlocks(int rangeEffectColumn, float time)
     {
-        can_color_white = false;
-
-        // -------------------------------------------------- //
-
         base.LookForBlocks(rangeEffectColumn, time);
 
         // -------------------------------------------------- //
@@ -218,7 +202,14 @@ public class Adventurer : PlayerManager {
         playerInput.enabled = true;
         player_att_input.enabled = true;
 
-        can_color_white = true;
+        // -------------------------------------------------------------- //
+
+        for (int i = 0; i < max_blocks; i++)
+        {
+            map.ColorBlocks(blocks_affected[i].x, blocks_affected[i].y, Color.white);
+        }
+
+        // -------------------------------------------------------------- //
 
         player_att_input.is_ultOn = false;
 

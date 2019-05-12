@@ -150,26 +150,26 @@ public class Polyphemus : PlayerManager
     }
 
             // Revisar !!!
-    protected override void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0)
-    {
-        //for (int i = 0; i < map.columnLenth; i++)
-        //{ // horizontal
-        //    if (
-        //        (pos_column + i) >= 0 &&
-        //        (pos_column + i) < map.columnLenth
-        //      )
-        //    {
+    //protected override void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0)
+    //{
+    //    //for (int i = 0; i < map.columnLenth; i++)
+    //    //{ // horizontal
+    //    //    if (
+    //    //        (pos_column + i) >= 0 &&
+    //    //        (pos_column + i) < map.columnLenth
+    //    //      )
+    //    //    {
 
-        //        map.ColorBlocks((pos_column + i), (playerMovement.playerRow), Color.red);
+    //    //        map.ColorBlocks((pos_column + i), (playerMovement.playerRow), Color.red);
 
-        //        if (map.blocks[(pos_column + i), (playerMovement.playerRow)].GetPlayerStatsBlock((int)thisPlayerIs) != null)
-        //        {
-        //            map.blocks[(pos_column + i), (playerMovement.playerRow)].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
-        //        }
-        //    }
-        //    cur_skillCD = 0;
-        //}
-    }
+    //    //        if (map.blocks[(pos_column + i), (playerMovement.playerRow)].GetPlayerStatsBlock((int)thisPlayerIs) != null)
+    //    //        {
+    //    //            map.blocks[(pos_column + i), (playerMovement.playerRow)].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
+    //    //        }
+    //    //    }
+    //    //    cur_skillCD = 0;
+    //    //}
+    //}
             // Revisar !!!
 
 

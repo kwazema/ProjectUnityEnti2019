@@ -10701,7 +10701,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 65597fad06120a045aae42ec22301d8e, type: 3}
   playerChoise: 
   pause_menu: {fileID: 0}
-  build: 1
+  build: 0
 --- !u!4 &1389265489
 Transform:
   m_ObjectHideFlags: 0
