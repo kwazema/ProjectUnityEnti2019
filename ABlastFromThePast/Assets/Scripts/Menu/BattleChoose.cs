@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 public class BattleChoose : MonoBehaviour
 {
     public Text textPlayer;
+    public Text textContinue;
+    public Animator AnimContinue;
+
+
     public GameManager gameManager;
     public int players;
     private FadeImage fade;
@@ -37,6 +41,8 @@ public class BattleChoose : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("Start0") || Input.GetButton("Start1"))
             {
+                AnimContinue.SetTrigger("fadeOut");
+
                 Invoke("FadeToImage", 1);
                 Invoke("LoadSceneBattleScene", 3);
 
@@ -53,7 +59,9 @@ public class BattleChoose : MonoBehaviour
         }
         else if (numSelected == 1)
         {
-            textPlayer.text = "¿Ready?";
+            textPlayer.text = "Are you Ready?";
+            textContinue.text = "Press Space/Start to Continue";
+            AnimContinue.SetTrigger("fadeIn");
 
             // Desliza de abajo a arriba "Ready"
             // en pequeño "Press Select/Space for Start"
