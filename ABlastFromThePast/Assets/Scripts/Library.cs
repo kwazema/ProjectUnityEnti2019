@@ -24,7 +24,12 @@ public class Library : MonoBehaviour {
 
     public Button skillPlay;
     public Button ultiPlay;
-    
+
+    public RawImage rawImage;
+    public RenderTexture render;
+
+    public int indexVideo;
+
     //private void Awake()
     //{
 
@@ -49,20 +54,19 @@ public class Library : MonoBehaviour {
         ultimateC.text = lc.characterStats[index].nameUltimate;
         ultiDamage.text = lc.characterStats[index].damageUltimate.ToString();
 
-
-
-
-
         //skillC.text = lc.characterStats[index].
     }
 
     public void PlaySkill(int index)
     {
+        rawImage.texture = render;
         videoController.videoPlayer.clip = videoData[index].skill;
     }
 
     public void PlayUlti(int index)
     {
+        Debug.Log(index);
+        rawImage.texture = render;
         videoController.videoPlayer.clip = videoData[index].ultimate;
     }
 
