@@ -37,6 +37,8 @@ public class Library : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        rawImage.texture = render;
+
         lc = GameManager.instance.LoadFileToString();
     }
 
@@ -74,6 +76,11 @@ public class Library : MonoBehaviour {
             rawImage.texture = render;
             videoController.videoPlayer.clip = videoData[index + 2].skill;
         }
+        else if (nameC.text == "Adventurer")
+        {
+            rawImage.texture = render;
+            videoController.videoPlayer.clip = videoData[index + 3].skill;
+        }
     }
 
     public void PlayUlti(int index)
@@ -91,6 +98,11 @@ public class Library : MonoBehaviour {
         {
             rawImage.texture = render;
             videoController.videoPlayer.clip = videoData[index + 2].ultimate;
+        }
+        else if (nameC.text == "Adventurer")
+        {
+            rawImage.texture = render;
+            videoController.videoPlayer.clip = videoData[index + 3].ultimate;
         }
         Debug.Log(index);
     }
