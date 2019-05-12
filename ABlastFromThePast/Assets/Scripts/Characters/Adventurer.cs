@@ -98,7 +98,6 @@ public class Adventurer : PlayerManager {
 
             oldPos = (Vector2)transform.position;
             moveToBlock = new Vector2(map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position.x, transform.position.y);
-
             // -------------------------------------------------- //
 
             if (!playerMovement.GetIsMoving())
@@ -124,6 +123,7 @@ public class Adventurer : PlayerManager {
         // -------------------------------------------------- //
 
         DeployParticles(Particles.Skill);
+        FindObjectOfType<AudioManager>().Play("AdventurerSkill");
 
         // -------------------------------------------------- //
 
@@ -165,11 +165,13 @@ public class Adventurer : PlayerManager {
             for (int i = 0; i < max_blocks; i++)
             {
                 map.SetAlert(blocks_affected[i].x, blocks_affected[i].y, true);
+                FindObjectOfType<AudioManager>().Play("AdventurerUlti");
             }
 
             // -------------------------------------------------------------- //
 
             StartCoroutine(CastingTime(2, false));
+            FindObjectOfType<AudioManager>().Stop("AdventurerUlti");
         }
     }
 
