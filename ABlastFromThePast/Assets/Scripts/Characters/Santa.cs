@@ -5,7 +5,6 @@ using UnityEngine;
 public class Santa : PlayerManager {
 
     #region Internal Variables
-        //public Transform distance_attack;
         int blocks_width;
 
         Vector2 enemy_position;

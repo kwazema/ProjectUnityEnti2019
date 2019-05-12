@@ -57,8 +57,13 @@ public class BattleSystem : MonoBehaviour
         //playeUI.skills.SetActive(true);
         bool stop = false;
 
-        gameManager.playerManager[0].ResetCharacter();
-        gameManager.playerManager[1].ResetCharacter();
+        //gameManager.playerManager[0].ResetCharacter();
+        //gameManager.playerManager[1].ResetCharacter();
+
+        yield return new WaitForSeconds(3f); // <-- Esto es para que cuando se muera se espere 3 segundos antes de enviar al personaje a su lugar
+
+        gameManager.playerManager[0].SetPlayerPos();
+        gameManager.playerManager[1].SetPlayerPos();
 
         gameManager.playerManager[0].SetPlayerInputs(false);
         gameManager.playerManager[1].SetPlayerInputs(false);
@@ -141,6 +146,9 @@ public class BattleSystem : MonoBehaviour
     IEnumerator TimeRound()
     {
         round.timeCur = round.timeMax;
+
+        gameManager.playerManager[0].ResetCharacter();
+        gameManager.playerManager[1].ResetCharacter();
 
         gameManager.playerManager[0].SetPlayerInputs(true);
         gameManager.playerManager[1].SetPlayerInputs(true);

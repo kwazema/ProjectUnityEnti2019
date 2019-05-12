@@ -49,6 +49,7 @@ public class PlayerManager : MonoBehaviour
     [Header("<-- Colliders -->")]
     public BoxCollider2D bodyCollider;
     public BoxCollider2D minibodyCollider;
+    public BoxCollider2D shieldCollider2D;
 
     [Header("<-- Hitmarker -->")]
     public Transform distance_attack;
@@ -284,7 +285,16 @@ public class PlayerManager : MonoBehaviour
         {
             StartCoroutine(ShieldRecovery());
             is_shield_broken = true;
+
+            shieldCollider2D.enabled = false;
         }
+
+        // ----------------------------- //
+
+        if (isShieldActive)
+            shieldCollider2D.enabled = true;
+        else
+            shieldCollider2D.enabled = false;
 
         // ----------------------------- //
 
@@ -301,7 +311,7 @@ public class PlayerManager : MonoBehaviour
 
         // ----------------------------- //
 
-        //AnimReflectShield();
+        AnimReflectShield();
     }
 
     virtual public IEnumerator ShieldRecovery()
@@ -396,6 +406,7 @@ public class PlayerManager : MonoBehaviour
         // ----------------------- //
 
         yield return new WaitForSeconds(3.5f);
+        
         //SceneManager.LoadScene("Menu");
         //FindObjectOfType<FadeImage>()
     }
@@ -533,62 +544,6 @@ public class PlayerManager : MonoBehaviour
         particleSystem[(int)value].gameObject.SetActive(true); //<-- Esta es la valida
     }
 
-    public void ResetCharacter()
-    {
-        anim.SetTrigger("iddle");
-
-        // ----------------------- //
-
-        health = health_max;
-        shield = shield_max;
-
-        // ----------------------- //
-
-        cur_skillCD = 0;
-        cur_ultimateCD = 0;
-
-        // ----------------------- //
-
-        if (thisPlayerIs == ThisPlayerIs.Player1)
-            playerMovement.playerColumn = 0;
-        else
-            playerMovement.playerColumn = map.columnLenth - 1;
-
-        playerMovement.playerRow = 0;
-
-        // ----------------------- //
-
-        Color transparency = Color.white;
-        transparency.a = 1f;
-
-        sprite.color = transparency;
-        // ----------------------- //
-
-        bodyCollider.enabled = true;
-        minibodyCollider.enabled = true;
-
-        // ----------------------- //
-
-        playerInput.enabled = true;
-        player_att_input.enabled = true;
-
-        // ----------------------- //
-
-        is_skill_ready = false;
-        is_ultimate_ready = false;
-
-        // ----------------------- //
-
-        isShieldActive = false;
-        moveToPosition = false;
-        returnOldPosition = false;
-        noHaAtacado = true;
-        cast_ended = false;
-        is_ultimateOn = false;
-        is_shield_broken = false;
-        is_shootting = false;
-        can_color_white = false;
-    }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -602,12 +557,6 @@ public class PlayerManager : MonoBehaviour
         {
             game_manager.playerManager[1].TakeDamage(GetDamageBasicAttack());
         }
-    }
-
-    public void SetPlayerInputs(bool value)
-    {
-        playerInput.enabled = value;
-        player_att_input.enabled = value;
     }
 
     protected virtual IEnumerator LookForBlocks(int rangeEffectColumn, float time)
@@ -658,5 +607,71 @@ public class PlayerManager : MonoBehaviour
 
         return blocks_affected;
     }
+
+    #region Funciones para llamar entre rondas
+    public void ResetCharacter()
+    {
+        health = health_max;
+        shield = shield_max;
+
+        // ----------------------- //
+
+        cur_skillCD = 0;
+        cur_ultimateCD = 0;
+
+        Color transparency = Color.white;
+        transparency.a = 1f;
+
+        sprite.color = transparency;
+        // ----------------------- //
+
+        bodyCollider.enabled = true;
+        minibodyCollider.enabled = true;
+
+        // ----------------------- //
+
+        is_skill_ready = false;
+        is_ultimate_ready = false;
+
+        // ----------------------- //
+
+        isShieldActive = false;
+        moveToPosition = false;
+        returnOldPosition = false;
+        noHaAtacado = true;
+        cast_ended = false;
+        is_ultimateOn = false;
+        is_shield_broken = false;
+        is_shootting = false;
+        can_color_white = false;
+    }
+
+    public void SetPlayerPos() {
+
+        if (thisPlayerIs == ThisPlayerIs.Player1)
+        {
+            playerMovement.playerColumn = 0;
+            playerMovement.playerRow = 0;
+        }
+        else
+        {
+            playerMovement.playerColumn = map.columnLenth - 1;
+            playerMovement.playerRow = map.rowLenth - 1;
+        }
+
+        
+    }
+
+    public void SetPlayerInputs(bool value)
+    {
+        playerInput.enabled = value;
+        player_att_input.enabled = value;
+
+        // ----------------------- //
+        if (value)
+            anim.SetTrigger("iddle");
+    }
+
+    #endregion
 
 }

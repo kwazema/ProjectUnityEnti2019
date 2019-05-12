@@ -37,7 +37,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4606409956193518}
   - component: {fileID: 61470531902553038}
-  - component: {fileID: 61712342570955198}
   m_Layer: 11
   m_Name: BodyCollider
   m_TagString: Untagged
@@ -55,8 +54,9 @@ GameObject:
   - component: {fileID: 4512593520163898}
   - component: {fileID: 212102191953142454}
   - component: {fileID: 95265485962555992}
+  - component: {fileID: 61554026477309960}
   m_Layer: 11
-  m_Name: SpriteShield
+  m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -241,11 +241,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4106937924707452}
+  - component: {fileID: 61092356119634606}
   - component: {fileID: 50934613887272866}
   - component: {fileID: 114673410713811306}
-  - component: {fileID: 114365140896107340}
   - component: {fileID: 114524888904208638}
-  - component: {fileID: 61092356119634606}
+  - component: {fileID: 114365140896107340}
   - component: {fileID: 114227726136350610}
   m_Layer: 10
   m_Name: Polyphemus
@@ -274,7 +274,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1755725238453134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.470783, y: 17.870808, z: 0}
+  m_LocalPosition: {x: -13.389926, y: 7.8350577, z: 0}
   m_LocalScale: {x: 19.636452, y: 19.636488, z: 19.636488}
   m_Children:
   - {fileID: 4606409956193518}
@@ -506,7 +506,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0036255196, y: 0}
+  m_Offset: {x: 0.00017022341, y: 0.046633296}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -517,21 +517,21 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.09924282, y: 0.15}
+  m_Size: {x: 0.07267262, y: 0.14349301}
   m_EdgeRadius: 0
---- !u!61 &61712342570955198
+--- !u!61 &61554026477309960
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1038721656756138}
-  m_Enabled: 1
+  m_GameObject: {fileID: 1052797082708554}
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.1, y: 0}
+  m_Offset: {x: 0.03926429, y: -0.045223758}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -542,7 +542,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.16}
+  m_Size: {x: 0.30887398, y: 0.95023334}
   m_EdgeRadius: 0
 --- !u!95 &95265485962555992
 Animator:
@@ -619,7 +619,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   upgrade: []
   numUpgrade: 0
-  animShield: {fileID: 0}
+  animShield: {fileID: 95265485962555992}
   particleSystem:
   - {fileID: 198210525986014602}
   - {fileID: 0}
@@ -632,10 +632,11 @@ MonoBehaviour:
   - {fileID: 1000013462590818, guid: ecdd96beb7f93494880c052dfccf9dc1, type: 2}
   bodyCollider: {fileID: 61470531902553038}
   minibodyCollider: {fileID: 61092356119634606}
+  shieldCollider2D: {fileID: 61554026477309960}
   distance_attack: {fileID: 4667911299271022}
   hitmarker_color: {fileID: 212628726062575216}
-  playerMovement: {fileID: 0}
-  anim: {fileID: 0}
+  playerMovement: {fileID: 114365140896107340}
+  anim: {fileID: 95395390139550636}
   damageBasicAttack: 0
   damageSkill: 0
   health_max: 350
@@ -668,7 +669,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1755725238453134}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04e2c1631b9505945aebc0c72cca7b70, type: 3}
   m_Name: 
@@ -685,7 +686,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1755725238453134}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5554edf7ab38a042beee9acf9d0dc4c, type: 3}
   m_Name: 
@@ -38035,7 +38036,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1052797082708554}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
