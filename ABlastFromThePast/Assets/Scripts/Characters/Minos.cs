@@ -112,6 +112,8 @@ public class Minos : PlayerManager
     {
         if (cur_skillCD >= skillCD)
         {
+            anim.SetBool("attack", false);
+
             StartCoroutine(base.CastingTime(1, false));
 
             // -------------------------------------------------- //
@@ -189,6 +191,8 @@ public class Minos : PlayerManager
         cur_skillCD = 0;
 
         can_color_white = true;
+
+        player_att_input.is_skillOn = false;
     }
 
 
@@ -196,6 +200,8 @@ public class Minos : PlayerManager
     {
         if (cur_ultimateCD >= ultimateCD)
         {
+            anim.SetBool("attack", false);
+
             anim.SetTrigger("ultimate");
             AudioManager.instance.Play("MinosUltiFirst");
             is_ultimate_ready = false;
@@ -298,6 +304,9 @@ public class Minos : PlayerManager
             playerInput.enabled = true;
             player_att_input.enabled = true;
         }
+
+        player_att_input.is_ultOn = false;
+
     }
 
     protected override IEnumerator CastingTime(float time_cast, bool value)

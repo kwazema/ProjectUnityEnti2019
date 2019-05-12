@@ -97,9 +97,15 @@ public class Polyphemus : PlayerManager
     {
         if (cur_skillCD >= skillCD && !playerMovement.GetIsMoving())
         {
+            player_att_input.enabled = false;
+            // -------------------------------------------------- //
+
+            anim.SetBool("attack", false);
+
             anim.SetTrigger("skill");
             DeployParticles(Particles.Skill);
             AudioManager.instance.Play("PolyphemusSkill");
+            
             // -------------------------------------------------- //
 
             is_skill_ready = false;
@@ -117,7 +123,11 @@ public class Polyphemus : PlayerManager
     // Skill que consiste en mejorar durante X tiempo el daño y la velocidad de ataque
     // Le pasamos por parámetro el timepo que queremos que dure y el nuevo valor de daño
     private IEnumerator Rage(float time, int dmg) {
-        
+
+        player_att_input.enabled = true;
+
+        player_att_input.is_skillOn = false;
+
         //Retornamos el control del personaje al jugador.
         playerInput.enabled = true;
 
@@ -167,6 +177,8 @@ public class Polyphemus : PlayerManager
     {
         if (cur_ultimateCD >= ultimateCD)
         {
+            anim.SetBool("attack", false);
+
             anim.SetTrigger("ultimate");
 
             is_ultimate_ready = false;
@@ -238,6 +250,11 @@ public class Polyphemus : PlayerManager
 
         playerInput.enabled = true;
         player_att_input.enabled = true;
+
+        player_att_input.is_ultOn = false;
+
+        
+
     }
 
     // Funciones para los upgrades al acabar ronda 

@@ -89,6 +89,12 @@ public class Santa : PlayerManager {
     {
         if (cur_skillCD >= skillCD)
         {
+            player_att_input.enabled = false;
+
+            // -------------------------------------------------- //
+
+            anim.SetBool("attack", false);
+
             anim.SetTrigger("skill");
 
             // -------------------------------------------------- //
@@ -176,12 +182,22 @@ public class Santa : PlayerManager {
             cur_block++;
         }
         cur_skillCD = 0;
+
+        // -------------------------------------------------- //
+
+        player_att_input.enabled = true;
+
+        // -------------------------------------------------- //
+
+        player_att_input.is_skillOn = false;
     }
 
 
     public override void Ultimate()
     {
         if (cur_ultimateCD >= ultimateCD) {
+            anim.SetBool("attack", false);
+
             anim.SetTrigger("ultimate");
             DeployParticles(Particles.UltimateCast);
             AudioManager.instance.Play("SantaUlti");
@@ -241,6 +257,9 @@ public class Santa : PlayerManager {
 
         playerInput.enabled = true;
         player_att_input.enabled = true;
+
+        player_att_input.is_ultOn = false;
+
     }
 
     protected override void SelectedZonaPlayer()
