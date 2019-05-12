@@ -59,15 +59,40 @@ public class Library : MonoBehaviour {
 
     public void PlaySkill(int index)
     {
-        rawImage.texture = render;
-        videoController.videoPlayer.clip = videoData[index].skill;
+        if (nameC.text == "Santa")
+        {
+            rawImage.texture = render;
+            videoController.videoPlayer.clip = videoData[index].skill;
+        }
+        else if (nameC.text == "Minos")
+        {
+            rawImage.texture = render;
+            videoController.videoPlayer.clip = videoData[index + 1].skill;
+        }
+        else if (nameC.text == "Polyphemus")
+        {
+            rawImage.texture = render;
+            videoController.videoPlayer.clip = videoData[index + 2].skill;
+        }
     }
 
     public void PlayUlti(int index)
     {
+        if (nameC.text == "Santa")
+        {
+            rawImage.texture = render;
+            videoController.videoPlayer.clip = videoData[index].ultimate;            
+        } else if (nameC.text == "Minos")
+        {
+            rawImage.texture = render;
+            videoController.videoPlayer.clip = videoData[index+1].ultimate;
+        }
+        else if (nameC.text == "Polyphemus")
+        {
+            rawImage.texture = render;
+            videoController.videoPlayer.clip = videoData[index + 2].ultimate;
+        }
         Debug.Log(index);
-        rawImage.texture = render;
-        videoController.videoPlayer.clip = videoData[index].ultimate;
     }
 
     public void ShowNoInfo()

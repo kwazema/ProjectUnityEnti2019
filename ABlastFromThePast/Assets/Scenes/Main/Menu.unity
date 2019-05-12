@@ -7233,7 +7233,7 @@ MonoBehaviour:
     ultimate: {fileID: 32900000, guid: 1aea539fd21b2f3459bc190494fa40ef, type: 3}
   - skill: {fileID: 32900000, guid: 9e78c87b8593a7042a15ffaec86256ca, type: 3}
     ultimate: {fileID: 32900000, guid: 67561605a224e0a49af02214ed8f417e, type: 3}
-  - skill: {fileID: 32900000, guid: 0ceea7815204c9048a762f496346b70e, type: 3}
+  - skill: {fileID: 32900000, guid: d5e46f5441ba58649be0f109b87728ae, type: 3}
     ultimate: {fileID: 32900000, guid: 1aea539fd21b2f3459bc190494fa40ef, type: 3}
   - skill: {fileID: 32900000, guid: 0ceea7815204c9048a762f496346b70e, type: 3}
     ultimate: {fileID: 32900000, guid: 1aea539fd21b2f3459bc190494fa40ef, type: 3}
