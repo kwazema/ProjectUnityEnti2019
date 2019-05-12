@@ -5443,20 +5443,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roundTime: {fileID: 1766663662}
   continueText: {fileID: 1316238103}
+  clockBar: {fileID: 1521254601}
   leftPlayer:
     name: {fileID: 852767833}
     damagedHealthBar: {fileID: 2088860724}
     healthBar: {fileID: 818076974}
     shielBar: {fileID: 269684464}
     skillBar: {fileID: 377674182}
+    EffectSkill:
+    - {fileID: 333133673}
+    - {fileID: 452503283}
     ultimateBar: {fileID: 703586750}
+    EffectUltimate:
+    - {fileID: 1396022671}
+    - {fileID: 70725}
   rightPlayer:
     name: {fileID: 64800918}
     damagedHealthBar: {fileID: 1032736875}
     healthBar: {fileID: 440238}
     shielBar: {fileID: 178087852}
     skillBar: {fileID: 96927516}
+    EffectSkill:
+    - {fileID: 1657358755}
+    - {fileID: 680234188}
     ultimateBar: {fileID: 2014237044}
+    EffectUltimate:
+    - {fileID: 148800913}
+    - {fileID: 2123367301}
   battleSystem: {fileID: 1527961417}
   skills: {fileID: 0}
   objectPointsMain:
@@ -9196,7 +9209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.008566034, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.79607844}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9208,7 +9221,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.126
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!222 &1521254602

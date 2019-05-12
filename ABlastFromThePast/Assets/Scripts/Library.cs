@@ -4,28 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
-//[System.Serializable]
-//public class VideoData
-//{
-//    public VideoClip general;
-
-//    public VideoClip basic;
-//    public VideoClip skill;
-//    public VideoClip ultimate;
-
-//    public VideoClip shield;
-
-//    public void SetGeneral(VideoPlayer vp)
-//    {
-//        vp.clip = general;
-//    }
-
-//    public void SetBasic(VideoPlayer vp)
-//    {
-//        vp.clip = basic;
-//    }
-//}
-
 public class Library : MonoBehaviour {
 
     public GameObject info;
@@ -73,7 +51,7 @@ public class Library : MonoBehaviour {
     {
         characters.SetActive(true);
         info.SetActive(false);
-        videoController.videoPlayer.clip = videoData.general;
+       // videoController.videoPlayer.clip = videoData.general;
         nameC.text = "";
         descriptionC.text = "";
         statsC.text = "";

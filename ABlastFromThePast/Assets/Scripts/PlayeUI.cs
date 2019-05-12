@@ -23,7 +23,10 @@ public class PlayerReferences
     public Image shielBar;
 
     public Image skillBar;
+    public GameObject[] EffectSkill;
+
     public Image ultimateBar;
+    public GameObject[] EffectUltimate;
 
     private float damageFadeTimerCur;
     private float damageFadeTimerMax = 1.3f;
@@ -105,20 +108,44 @@ public class PlayerReferences
         skillBar.fillAmount = valueCur / valueMax;
         //Jugar con la tranparencia de la barra o con particulas o ambas
 
-        //Example:
-            //if (value >= 1)
-            //    transparency.a = 1f;
-            //else
-            //    transparency.a = .3f;
+        Color transparency = skillBar.color;
 
-            //sliderUltimate[i].color = transparency;
-            //sliderUltimate[i].fillAmount = value;
+        if (skillBar.fillAmount > 0.99f)
+            transparency.a = 1f;
+        else
+            transparency.a = .3f;
+
+        skillBar.color = transparency;
+
+        for (int i = 0; i < EffectSkill.Length; i++)
+        {
+            if (skillBar.fillAmount > 0.99f)
+                EffectSkill[i].SetActive(true);
+            else
+                EffectSkill[i].SetActive(false);
+        }
     }
 
     public void UpdateUltimateBar(float valueCur, float valueMax)
     {
         ultimateBar.fillAmount = valueCur / valueMax;
-        //Jugar con la tranparencia de la barra o con particulas o ambas
+
+        Color transparency = ultimateBar.color;
+
+        if (ultimateBar.fillAmount > 0.99f)
+            transparency.a = 1f;
+        else
+            transparency.a = .3f;
+
+        ultimateBar.color = transparency;
+
+        for (int i = 0; i < EffectUltimate.Length; i++)
+        {
+            if (ultimateBar.fillAmount > 0.99f)
+                EffectUltimate[i].SetActive(true);
+            else
+                EffectUltimate[i].SetActive(false);
+        }
     }
 
     public void UpdateShieldBar(bool value)
@@ -167,9 +194,13 @@ public class PlayeUI : MonoBehaviour
 {
     // NOW: Crear dos circulos para las rondas ganadas y que se ilumine para el jugador ganado
     public Text roundTime;
-    private Text winPlayerRound;
-    private Text roundCur;
     public Animator continueText;
+    public Image clockBar;
+
+    //private Text winPlayerRound;
+    //private Text roundCur;
+
+
 
     public PlayerReferences leftPlayer, rightPlayer;
     Color transparency = Color.white;
@@ -242,6 +273,8 @@ public class PlayeUI : MonoBehaviour
         rightPlayer.UpdateShieldBar(GameManager.instance.playerManager[1].GetShieldState());
 
         roundTime.text = battleSystem.round.timeCur.ToString("#");
+        clockBar.fillAmount = battleSystem.round.timeCur / battleSystem.round.timeMax;
+
         //rightPlayer.DebugLog();
         //roundCur.text = (battleSystem.round.roundCur).ToString("Round 0");
     }

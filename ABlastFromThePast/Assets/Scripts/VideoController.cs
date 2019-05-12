@@ -7,21 +7,22 @@ using UnityEngine.UI;
 [System.Serializable]
 public class VideoData
 {
-    public VideoClip general;
+    // Todo esto en el video principa
+    //public VideoClip general;
+    //public VideoClip basic;
+    //public VideoClip shield;
 
-    public VideoClip basic;
     public VideoClip skill;
     public VideoClip ultimate;
 
-    public VideoClip shield;
 
 
-    public void SetGeneral(VideoPlayer vp)
+    public void SetSkillVideo(VideoPlayer vp)
     {
         vp.clip = skill;
     }
 
-    public void SetBasic(VideoPlayer vp)
+    public void SetUltimateVideo(VideoPlayer vp)
     {
         vp.clip = ultimate;
     }

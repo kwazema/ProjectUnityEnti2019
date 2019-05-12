@@ -76,6 +76,20 @@ public class ButtonSelector : MonoBehaviour {
         }
     }
 
+    public void PointEnterLibrary()
+    {
+        fadeScale = true;
+        animLogo.SetBool("Active", true);
+        SelectedBlue();
+    }
+
+    public void PointExitLibrary()
+    {
+        fadeScale = false;
+        animLogo.SetBool("Active", false);
+        SelectedNone();
+    }
+
     public void PointerEnterAnim()
     {
         Debug.Log("Point Enter");
