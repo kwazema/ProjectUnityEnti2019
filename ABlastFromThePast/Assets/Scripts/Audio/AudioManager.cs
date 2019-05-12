@@ -50,4 +50,13 @@ public class AudioManager : MonoBehaviour {
         s.source.Stop();
     }
 
+    public void GeneralButton()
+    {
+        instance.Play("GeneralButton");
+    }
+
+    public void GeneralButtonTrigger()
+    {
+        instance.Play("GeneralButtonTrigger");
+    }
 }

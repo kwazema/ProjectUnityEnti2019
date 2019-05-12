@@ -82,6 +82,7 @@ public class ButtonSelector : MonoBehaviour {
         fadeScale = true;
         animLogo.SetBool("Active", true);
         SelectedBlue();
+        AudioManager.instance.Play("ButonTrigger");
     }
 
     public void PointExitLibrary()

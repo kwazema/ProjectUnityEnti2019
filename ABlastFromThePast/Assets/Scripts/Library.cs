@@ -63,6 +63,7 @@ public class Library : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            AudioManager.instance.Play("GeneralButton");
             ShowNoInfo();
         }        
     }
