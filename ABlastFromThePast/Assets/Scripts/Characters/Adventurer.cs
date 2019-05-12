@@ -111,11 +111,19 @@ public class Adventurer : PlayerManager {
 
     protected override IEnumerator LookForBlocks(int rangeEffectColumn, float time)
     {
+        can_color_white = false;
+
+        // -------------------------------------------------- //
+
         base.LookForBlocks(rangeEffectColumn, time);
 
         // -------------------------------------------------- //
 
         anim.SetTrigger("skill");
+
+        // -------------------------------------------------- //
+
+        DeployParticles(Particles.Skill);
 
         // -------------------------------------------------- //
 
@@ -187,9 +195,8 @@ public class Adventurer : PlayerManager {
             map.ColorBlocks(blocks_affected[i].x, blocks_affected[i].y, Color.red);
 
             // -------------------- //
-            
-            // TODO: Implementar funcion que rompa bloques.
 
+            map.DestroyBlock(blocks_affected[i].x, blocks_affected[i].y);
         }
 
         // -------------------------------------------------------------- //

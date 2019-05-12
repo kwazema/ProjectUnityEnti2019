@@ -225,13 +225,18 @@ public class PlayerMovement : MonoBehaviour {
     void InitPlayerPosition()
     {
         if (PlayerInput.EnumPlayer.Player1 == playerInput.enumPlayer)
+        {
             playerColumn = 0;
-        else if (PlayerInput.EnumPlayer.Player2 == playerInput.enumPlayer)
+            playerRow = 0;
+        }
+        else if (PlayerInput.EnumPlayer.Player2 == playerInput.enumPlayer) {
             playerColumn = map.columnLenth - 1;
+            playerRow = map.rowLenth - 1;
+        }
 
         v2Position[0] = map.blocks[playerColumn, playerRow].transform.position;
         transform.position = v2Position[0];
 
-        playerRow = 0;
+        //playerRow = 0;
     }
 }
