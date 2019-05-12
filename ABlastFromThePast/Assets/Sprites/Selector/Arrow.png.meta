@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ef3b0ac833361884a99d67e6f8ca346d
+guid: 2da56a9c47a371c46a3c22fc84a63932
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -44,7 +44,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 132, y: 151, z: 147, w: 147}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -106,7 +106,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 169739e4f218975469c0ae33486b2ea1
+    spriteID: e3b03d400abd53247bf64bfcde702e7d
     vertices: []
     indices: 
     edges: []
