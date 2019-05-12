@@ -6,7 +6,7 @@ public class Minos : PlayerManager
 {
 
     #region Internal Variables
-    public Transform distance_attack;
+    //public Transform distance_attack;
     int pos_column;
     Vector2Int[] blocks_affected;
     int max_blocks;
@@ -219,46 +219,48 @@ public class Minos : PlayerManager
         }
     }
 
-    void GetRandomBlocks()
-    {
-        int i = 0;
-        int blocks_created = 0;
-        blocks_affected = new Vector2Int[max_blocks];
+    //protected Vector2Int[] GetRandomBlocks(int blocks)
+    //{
+    //    int i = 0;
+    //    int blocks_created = 0;
+    //    blocks_affected = new Vector2Int[max_blocks];
 
-        int init_pos_x;
-        int max_pos_x;
-        if (player_to_attack == 0)
-        {
-            init_pos_x = 0;
-            max_pos_x = init_pos_x + (map.columnLenth) / 2;
-        }
-        else
-        {
-            init_pos_x = map.columnLenth - 1;
-            max_pos_x = init_pos_x - (map.columnLenth) / 2;
-        }
+    //    int init_pos_x;
+    //    int max_pos_x;
+    //    if (player_to_attack == 0)
+    //    {
+    //        init_pos_x = 0;
+    //        max_pos_x = init_pos_x + (map.columnLenth) / 2;
+    //    }
+    //    else
+    //    {
+    //        init_pos_x = map.columnLenth - 1;
+    //        max_pos_x = init_pos_x - (map.columnLenth) / 2;
+    //    }
 
-        while (i < max_blocks)
-        {
-            Vector2Int cpy = new Vector2Int(Random.Range(init_pos_x, max_pos_x), Random.Range(0, map.rowLenth));
+    //    while (i < max_blocks)
+    //    {
+    //        Vector2Int cpy = new Vector2Int(Random.Range(init_pos_x, max_pos_x), Random.Range(0, map.rowLenth));
 
-            bool is_finded = false;
-            for (int j = 0; j < blocks_created && !is_finded; j++)
-            {
-                if (blocks_affected[j] == cpy)
-                {
-                    is_finded = true;
-                }
-            }
+    //        bool is_finded = false;
+    //        for (int j = 0; j < blocks_created && !is_finded; j++)
+    //        {
+    //            if (blocks_affected[j] == cpy)
+    //            {
+    //                is_finded = true;
+    //            }
+    //        }
 
-            if (!is_finded)
-            {
-                blocks_affected[i] = cpy;
-                i++;
-                blocks_created++;
-            }
-        }
-    }
+    //        if (!is_finded)
+    //        {
+    //            blocks_affected[i] = cpy;
+    //            i++;
+    //            blocks_created++;
+    //        }
+    //    }
+
+    //    return blocks_affected;
+    //}
 
     private IEnumerator StellarRain()
     {
@@ -300,10 +302,9 @@ public class Minos : PlayerManager
     protected override IEnumerator CastingTime(float time_cast, bool value)
     {
         DeployParticles(Particles.UltimateCast);
-        GetRandomBlocks();
-
+        blocks_affected = GetRandomBlocks(max_blocks); 
+        
         // Aqui se pintan antes/durante el casteo
-        //
         for (int i = 0; i < max_blocks; i++)
         {
             map.SetAlert(blocks_affected[i].x, blocks_affected[i].y, true);

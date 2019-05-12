@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1088026552907978}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.07, y: 29.71, z: 0}
+  m_LocalPosition: {x: 24.197926, y: 35.16959, z: 0}
   m_LocalScale: {x: 11.929664, y: 11.929668, z: 11.929668}
   m_Children:
   - {fileID: 4306600664062082}
@@ -66,13 +66,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1456294058327298}
-  m_LocalRotation: {x: -0, y: -0, z: -0.91125065, w: 0.41185227}
-  m_LocalPosition: {x: 0.016, y: 0.023, z: 0}
-  m_LocalScale: {x: 0.29755262, y: 0.2988894, z: 0.29755262}
+  m_LocalRotation: {x: -0, y: -0, z: -0.97482204, w: 0.22298448}
+  m_LocalPosition: {x: 0.02, y: 0.021, z: 0}
+  m_LocalScale: {x: 0.34993738, y: 0.41090554, z: 0.29755262}
   m_Children: []
   m_Father: {fileID: 4245060268265566}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -131.358}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -154.231}
 --- !u!50 &50611984292329450
 Rigidbody2D:
   serializedVersion: 4
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c5b33389cb1424292582c41267dc30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 1929802622985302, guid: 814392177535c6043940b74f238d0bd1,
+  particleSystem: {fileID: 1435763786244462, guid: 564a9e70005a50243b91dbc5433cc1f4,
     type: 2}
   shotSpeed: 0
 --- !u!212 &212583418840455126

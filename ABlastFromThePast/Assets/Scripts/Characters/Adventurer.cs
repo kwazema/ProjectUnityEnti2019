@@ -5,8 +5,8 @@ using UnityEngine;
 public class Adventurer : PlayerManager {
 
     #region Internal Variables
-    public Transform distance_attack;
-
+    int max_blocks;
+    Vector2Int[] blocks_affected;
     #endregion
 
     protected override void Awake()
@@ -24,7 +24,7 @@ public class Adventurer : PlayerManager {
     protected override void Start()
     {
         base.Start();
-
+        max_blocks = map.blocks.Length / 4;
         // -------------------------------------------------- //
 
         //#region Basic 
@@ -65,19 +65,33 @@ public class Adventurer : PlayerManager {
     {
         base.Update();
 
+        // -------------------------------------------------- //
+
         if (moveToPosition)
             MovingToPosition(95f, 1);
 
+        // -------------------------------------------------- //
+
+        if (is_ultimateOn && cast_ended)
+            StartCoroutine(CryingBlock());
+
+        // -------------------------------------------------- //
+
+        if (can_color_white)
+        {
+            for (int i = 0; i < max_blocks; i++)
+            {
+                map.ColorBlocks(blocks_affected[i].x, blocks_affected[i].y, Color.white);
+            }
+
+            can_color_white = false;
+        }
     }
 
     public override void Skill()
     {
         if (cur_skillCD >= skillCD)
         {
-            anim.SetTrigger("skill");
-
-            // -------------------------------------------------- //
-
             is_skill_ready = false;
 
             // -------------------------------------------------- //
@@ -97,8 +111,24 @@ public class Adventurer : PlayerManager {
 
     protected override IEnumerator LookForBlocks(int rangeEffectColumn, float time)
     {
-
         base.LookForBlocks(rangeEffectColumn, time);
+
+        // -------------------------------------------------- //
+
+        anim.SetTrigger("skill");
+
+        // -------------------------------------------------- //
+
+        int pos_x = playerMovement.playerColumn + graphicMove;
+        int pos_y = playerMovement.playerRow;
+
+        if (map.blocks[pos_x, pos_y].GetPlayerStatsBlock((int)thisPlayerIs) != null)
+        {
+            map.blocks[pos_x, pos_y].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
+        }
+
+        // -------------------------------------------------- //
+
         yield return null;
         cur_skillCD = 0;
     }
@@ -110,12 +140,70 @@ public class Adventurer : PlayerManager {
             anim.SetTrigger("ultimate");
 
             // -------------------------------------------------------------- //
+            Vector2 middleScreen = new Vector2(0, 10);
+
+            GameObject rain =  Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.Ultimate], middleScreen, Quaternion.identity);
+            rain.SetActive(true);
+
+            // -------------------------------------------------------------- //
 
             is_ultimate_ready = false;
             is_ultimateOn = true;
 
             // -------------------------------------------------------------- //
+
+            blocks_affected = GetRandomBlocks(max_blocks);
+
+            for (int i = 0; i < max_blocks; i++)
+            {
+                map.SetAlert(blocks_affected[i].x, blocks_affected[i].y, true);
+            }
+
+            // -------------------------------------------------------------- //
+
+            StartCoroutine(CastingTime(2, false));
         }
+    }
+
+    private IEnumerator CryingBlock()
+    {
+        is_ultimateOn = false;
+        cast_ended = false;
+
+        Vector2 position;
+
+
+        // -------------------------------------------------------------- //
+
+        for (int i = 0; i < max_blocks; i++)
+        {
+            position = map.blocks[blocks_affected[i].x, blocks_affected[i].y].transform.position;
+
+            Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.Skill], position, Quaternion.identity);
+
+            // -------------------- //
+
+            map.SetAlert(blocks_affected[i].x, blocks_affected[i].y, false);
+            map.ColorBlocks(blocks_affected[i].x, blocks_affected[i].y, Color.red);
+
+            // -------------------- //
+            
+            // TODO: Implementar funcion que rompa bloques.
+
+        }
+
+        // -------------------------------------------------------------- //
+
+        yield return new WaitForSeconds(0.2f);
+
+        // -------------------------------------------------------------- //
+
+        cur_ultimateCD = 0;
+
+        playerInput.enabled = true;
+        player_att_input.enabled = true;
+
+        can_color_white = true;
     }
 
     protected override void SelectedZonaPlayer()

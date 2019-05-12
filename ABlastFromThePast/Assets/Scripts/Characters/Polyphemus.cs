@@ -5,7 +5,7 @@ using UnityEngine;
 public class Polyphemus : PlayerManager
 {
     #region Internal Variables
-    public Transform distance_attack;
+    //public Transform distance_attack;
     
     int pos_x;
     int pos_y;
