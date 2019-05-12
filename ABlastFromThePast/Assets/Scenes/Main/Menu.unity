@@ -212,7 +212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &23958439
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2141,7 +2141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &271867423
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2152,9 +2152,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.0000799, y: 1.0000799, z: 1.0000799}
   m_Children:
-  - {fileID: 854221185}
+  - {fileID: 1279050744}
   - {fileID: 1738708778}
   - {fileID: 671070062}
+  - {fileID: 854221185}
   m_Father: {fileID: 957830184}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5293,7 +5294,7 @@ RectTransform:
   m_Children:
   - {fileID: 362554132}
   m_Father: {fileID: 271867423}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -7514,7 +7515,7 @@ GameObject:
   - component: {fileID: 1277517733}
   - component: {fileID: 1277517735}
   - component: {fileID: 1277517734}
-  - component: {fileID: 1277517736}
+  - component: {fileID: 1279050745}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -7587,8 +7588,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1279050744}
-  - component: {fileID: 1279050746}
-  - component: {fileID: 1279050745}
   m_Layer: 5
   m_Name: Book
   m_TagString: Untagged
@@ -7605,10 +7604,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 678957294}
-  - {fileID: 1086265692}
-  - {fileID: 671070062}
+  m_Children: []
   m_Father: {fileID: 271867423}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
