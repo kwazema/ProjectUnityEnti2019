@@ -20,6 +20,7 @@ public class PlayerReferences
 
     public Image damagedHealthBar;
     public Image healthBar;
+    public Text healthValue;
     public Image shielBar;
 
     public Image skillBar;
@@ -27,6 +28,10 @@ public class PlayerReferences
 
     public Image ultimateBar;
     public GameObject[] EffectUltimate;
+
+    public Text upgrade01;
+    public Text upgrade02;
+    public Text upgrade03;
 
     private float damageFadeTimerCur;
     private float damageFadeTimerMax = 1.3f;
@@ -101,6 +106,8 @@ public class PlayerReferences
         }
 
         lastResivedDamage = valueCur;
+
+        healthValue.text = valueCur.ToString() + "/" + valueMax.ToString();
     }
 
     public void UpdateSkillBar(float valueCur, float valueMax)
@@ -159,6 +166,21 @@ public class PlayerReferences
     public void ResetFadeTimer()
     {
         damageFadeTimerCur = damageFadeTimerMax;
+    }
+
+    public void UpdateUpgrade01(string value)
+    {
+        upgrade01.text = value;
+    }
+
+    public void UpdateUpgrade02(string value)
+    {
+        upgrade02.text = value;
+    }
+
+    public void UpdateUpgrade03(string value)
+    {
+        upgrade03.text = value;
     }
 
     public void DebugLog()
@@ -274,6 +296,16 @@ public class PlayeUI : MonoBehaviour
 
         roundTime.text = battleSystem.round.timeCur.ToString("#");
         clockBar.fillAmount = battleSystem.round.timeCur / battleSystem.round.timeMax;
+
+
+
+        leftPlayer.UpdateUpgrade01(GameManager.instance.playerManager[0].upgrade_text[0]);
+        leftPlayer.UpdateUpgrade02(GameManager.instance.playerManager[0].upgrade_text[1]);
+        leftPlayer.UpdateUpgrade03(GameManager.instance.playerManager[0].upgrade_text[2]);
+
+        rightPlayer.UpdateUpgrade01(GameManager.instance.playerManager[1].upgrade_text[0]);
+        rightPlayer.UpdateUpgrade02(GameManager.instance.playerManager[1].upgrade_text[1]);
+        rightPlayer.UpdateUpgrade03(GameManager.instance.playerManager[1].upgrade_text[2]);
 
         //rightPlayer.DebugLog();
         //roundCur.text = (battleSystem.round.roundCur).ToString("Round 0");
