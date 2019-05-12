@@ -10,7 +10,7 @@ public class Library : MonoBehaviour {
     public GameObject characters;
 
     public VideoController videoController;
-    public VideoData videoData;
+    public VideoData[] videoData;
 
     public ListCharacters lc;
 
@@ -19,7 +19,12 @@ public class Library : MonoBehaviour {
     public Text statsC;
     public Text skillC;
     public Text ultimateC;
+    public Text skillDamage;
+    public Text ultiDamage;
 
+    public Button skillPlay;
+    public Button ultiPlay;
+    
     //private void Awake()
     //{
 
@@ -32,19 +37,33 @@ public class Library : MonoBehaviour {
 
     public void ShowInfoCharacter(int index)
     {
-        nameC.text = "Name: " + lc.characterStats[index].name;
+        nameC.text = lc.characterStats[index].name;
 
-        descriptionC.text = "Description: " + lc.characterStats[index].description;
+        descriptionC.text = lc.characterStats[index].description;
 
         statsC.text = "Life: " + lc.characterStats[index].healthMax + "\nShield: " + lc.characterStats[index].shieldMax + "\nBasic damage: " +
-            lc.characterStats[index].damageBasicAttack + "\nFire Rate: "+ lc.characterStats[index].fireRate + "\nSkill Damage: " +
-            lc.characterStats[index].damageSkill + "\nSkill Cooldown: " + lc.characterStats[index].skillCD + "\nUltimate Damage: " +
-            lc.characterStats[index].damageUltimate + "\nUltimate Cooldown: " + lc.characterStats[index].ultimateCD;
+            lc.characterStats[index].damageBasicAttack;
+
+        skillC.text = lc.characterStats[index].nameSkill;
+        skillDamage.text = lc.characterStats[index].damageSkill.ToString();
+        ultimateC.text = lc.characterStats[index].nameUltimate;
+        ultiDamage.text = lc.characterStats[index].damageUltimate.ToString();
 
 
-        videoController.videoPlayer.clip = videoData.skill;
+
+
 
         //skillC.text = lc.characterStats[index].
+    }
+
+    public void PlaySkill(int index)
+    {
+        videoController.videoPlayer.clip = videoData[index].skill;
+    }
+
+    public void PlayUlti(int index)
+    {
+        videoController.videoPlayer.clip = videoData[index].ultimate;
     }
 
     public void ShowNoInfo()
