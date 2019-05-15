@@ -10,9 +10,7 @@ public class VideoData
     public string name;
     public VideoPlayer videoPlayer;
 
-    public VideoClip general;
-    public VideoClip skill;
-    public VideoClip ultimate;
+    public VideoClip video;
 
     //public RawImage rawContainer;
 
@@ -36,7 +34,7 @@ public class VideoController : MonoBehaviour
         //videoPlayer.targetTexture = render; Podemos escoger donde se reproducia
         //vd.rawContainer.texture = render;
         //StartCoroutine(PlayVideo(vd));
-        vd.videoPlayer.clip = vd.general;
+        vd.videoPlayer.clip = vd.video;
     }
 
     IEnumerator PlayVideo(VideoData videoData)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -13,6 +14,7 @@ public class Library : MonoBehaviour {
     //public VideoData[] videoData;
 
     public ListCharacters lc;
+    public VideoController vc;
 
     public Text nameC;
     public Text descriptionC;
@@ -56,53 +58,45 @@ public class Library : MonoBehaviour {
         //skillC.text = lc.characterStats[index].
     }
 
-    //public void PlaySkill(int index)
-    //{
-    //    if (nameC.text == "Santa")
-    //    {
-    //        rawImage.texture = render;
-    //        videoController.videoPlayer.clip = videoData[index].skill;
-    //    }
-    //    else if (nameC.text == "Minos")
-    //    {
-    //        rawImage.texture = render;
-    //        videoController.videoPlayer.clip = videoData[index + 1].skill;
-    //    }
-    //    else if (nameC.text == "Polyphemus")
-    //    {
-    //        rawImage.texture = render;
-    //        videoController.videoPlayer.clip = videoData[index + 2].skill;
-    //    }
-    //    else if (nameC.text == "Adventurer")
-    //    {
-    //        rawImage.texture = render;
-    //        videoController.videoPlayer.clip = videoData[index + 3].skill;
-    //    }
-    //}
+    public void PlaySkill()
+    {
+        if (nameC.text == "Santa")
+        {
+            vc.PlayVideoLibrary("SkillSanta");
+        }
+        else if (nameC.text == "Minos")
+        {
+            vc.PlayVideoLibrary("SkillMinos");
+        }
+        else if (nameC.text == "Polyphemus")
+        {
+            vc.PlayVideoLibrary("SkillPolyphemus");
+        }
+        else if (nameC.text == "Adventurer")
+        {
+            vc.PlayVideoLibrary("SkillAdventurer");
+        }
+    }
 
-    //public void PlayUlti(int index)
-    //{
-    //    if (nameC.text == "Santa")
-    //    {
-    //        rawImage.texture = render;
-    //        videoController.videoPlayer.clip = videoData[index].ultimate;            
-    //    } else if (nameC.text == "Minos")
-    //    {
-    //        rawImage.texture = render;
-    //        videoController.videoPlayer.clip = videoData[index + 1].ultimate;
-    //    }
-    //    else if (nameC.text == "Polyphemus")
-    //    {
-    //        rawImage.texture = render;
-    //        videoController.videoPlayer.clip = videoData[index + 2].ultimate;
-    //    }
-    //    else if (nameC.text == "Adventurer")
-    //    {
-    //        rawImage.texture = render;
-    //        videoController.videoPlayer.clip = videoData[index + 3].ultimate;
-    //    }
-    //    Debug.Log(index);
-    //}
+    public void PlayUlti()
+    {
+        if (nameC.text == "Santa")
+        {
+            vc.PlayVideoLibrary("UltiSanta");
+        }
+        else if (nameC.text == "Minos")
+        {
+            vc.PlayVideoLibrary("UltiMinos");
+        }
+        else if (nameC.text == "Polyphemus")
+        {
+            vc.PlayVideoLibrary("UltiPolyphemus");
+        }
+        else if (nameC.text == "Adventurer")
+        {
+            vc.PlayVideoLibrary("UltiAdventurer");
+        }
+    }
 
     public void ShowNoInfo()
     {
@@ -121,6 +115,8 @@ public class Library : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             AudioManager.instance.Play("GeneralButton");
+            //EventSystem eventSystem = FindObjectOfType<EventSystem>();
+            //eventSystem.SetSelectedGameObject(GameObject.Find("LibraryButtonSanta")); // Selecciona un nuevo boton
             ShowNoInfo();
         }        
     }
