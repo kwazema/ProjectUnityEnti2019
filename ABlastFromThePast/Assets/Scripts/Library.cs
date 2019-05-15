@@ -9,8 +9,8 @@ public class Library : MonoBehaviour {
     public GameObject info;
     public GameObject characters;
 
-    public VideoController videoController;
-    public VideoData[] videoData;
+    //public VideoController videoController;
+    //public VideoData[] videoData;
 
     public ListCharacters lc;
 
@@ -25,19 +25,16 @@ public class Library : MonoBehaviour {
     public Button skillPlay;
     public Button ultiPlay;
 
-    public RawImage rawImage;
-    public RenderTexture render;
+    //public RawImage rawImage;
+    //public RenderTexture render;
 
     public int indexVideo;
 
-    //private void Awake()
-    //{
+       
 
-    //}
-    // Use this for initialization
     void Start ()
     {
-        rawImage.texture = render;
+        //rawImage.texture = render;
 
         lc = GameManager.instance.LoadFileToString();
     }
@@ -59,53 +56,53 @@ public class Library : MonoBehaviour {
         //skillC.text = lc.characterStats[index].
     }
 
-    public void PlaySkill(int index)
-    {
-        if (nameC.text == "Santa")
-        {
-            rawImage.texture = render;
-            videoController.videoPlayer.clip = videoData[index].skill;
-        }
-        else if (nameC.text == "Minos")
-        {
-            rawImage.texture = render;
-            videoController.videoPlayer.clip = videoData[index + 1].skill;
-        }
-        else if (nameC.text == "Polyphemus")
-        {
-            rawImage.texture = render;
-            videoController.videoPlayer.clip = videoData[index + 2].skill;
-        }
-        else if (nameC.text == "Adventurer")
-        {
-            rawImage.texture = render;
-            videoController.videoPlayer.clip = videoData[index + 3].skill;
-        }
-    }
+    //public void PlaySkill(int index)
+    //{
+    //    if (nameC.text == "Santa")
+    //    {
+    //        rawImage.texture = render;
+    //        videoController.videoPlayer.clip = videoData[index].skill;
+    //    }
+    //    else if (nameC.text == "Minos")
+    //    {
+    //        rawImage.texture = render;
+    //        videoController.videoPlayer.clip = videoData[index + 1].skill;
+    //    }
+    //    else if (nameC.text == "Polyphemus")
+    //    {
+    //        rawImage.texture = render;
+    //        videoController.videoPlayer.clip = videoData[index + 2].skill;
+    //    }
+    //    else if (nameC.text == "Adventurer")
+    //    {
+    //        rawImage.texture = render;
+    //        videoController.videoPlayer.clip = videoData[index + 3].skill;
+    //    }
+    //}
 
-    public void PlayUlti(int index)
-    {
-        if (nameC.text == "Santa")
-        {
-            rawImage.texture = render;
-            videoController.videoPlayer.clip = videoData[index].ultimate;            
-        } else if (nameC.text == "Minos")
-        {
-            rawImage.texture = render;
-            videoController.videoPlayer.clip = videoData[index+1].ultimate;
-        }
-        else if (nameC.text == "Polyphemus")
-        {
-            rawImage.texture = render;
-            videoController.videoPlayer.clip = videoData[index + 2].ultimate;
-        }
-        else if (nameC.text == "Adventurer")
-        {
-            rawImage.texture = render;
-            videoController.videoPlayer.clip = videoData[index + 3].ultimate;
-        }
-        Debug.Log(index);
-    }
+    //public void PlayUlti(int index)
+    //{
+    //    if (nameC.text == "Santa")
+    //    {
+    //        rawImage.texture = render;
+    //        videoController.videoPlayer.clip = videoData[index].ultimate;            
+    //    } else if (nameC.text == "Minos")
+    //    {
+    //        rawImage.texture = render;
+    //        videoController.videoPlayer.clip = videoData[index + 1].ultimate;
+    //    }
+    //    else if (nameC.text == "Polyphemus")
+    //    {
+    //        rawImage.texture = render;
+    //        videoController.videoPlayer.clip = videoData[index + 2].ultimate;
+    //    }
+    //    else if (nameC.text == "Adventurer")
+    //    {
+    //        rawImage.texture = render;
+    //        videoController.videoPlayer.clip = videoData[index + 3].ultimate;
+    //    }
+    //    Debug.Log(index);
+    //}
 
     public void ShowNoInfo()
     {
@@ -127,4 +124,10 @@ public class Library : MonoBehaviour {
             ShowNoInfo();
         }        
     }
+
+    //public void PlayGeneralVideo()
+    //{
+    //    rawImage.texture = render;
+    //    videoController.videoPlayer.clip = videoData[4].skill;
+    //}
 }

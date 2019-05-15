@@ -231,7 +231,6 @@ public class ObjectPoints
 
 public class PlayeUI : MonoBehaviour
 {
-    // NOW: Crear dos circulos para las rondas ganadas y que se ilumine para el jugador ganado
     public Text roundTime;
     public Animator continueText;
     public Image clockBar;

@@ -15,7 +15,7 @@ public class Santa : PlayerManager {
 
     protected override void Awake()
     {
-        index = 0; // TODO: Estoy dudando que sea manual o lo haga GameManager
+        index = 0; 
         base.Awake();
 
         upgrade_text[0] = "You gain " + 30 + " more of maximum health and " + 15 + " of maximum shield.";

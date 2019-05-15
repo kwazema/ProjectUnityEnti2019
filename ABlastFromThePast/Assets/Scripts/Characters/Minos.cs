@@ -17,7 +17,7 @@ public class Minos : PlayerManager
 
     protected override void Awake()
     {
-        index = 1; // TODO: Estoy dudando que sea manual o lo haga GameManager
+        index = 1; 
         base.Awake();
 
         upgrade_text[0] = "You gain " + 10 + " more of maximum health and " + 15 + " of maximum shield.";

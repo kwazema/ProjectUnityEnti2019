@@ -7,60 +7,50 @@ using UnityEngine.UI;
 [System.Serializable]
 public class VideoData
 {
-    // Todo esto en el video principa
-    //public VideoClip general;
-    //public VideoClip basic;
-    //public VideoClip shield;
+    public string name;
+    public VideoPlayer videoPlayer;
 
+    public VideoClip general;
     public VideoClip skill;
     public VideoClip ultimate;
 
+    //public RawImage rawContainer;
 
-
-    public void SetSkillVideo(VideoPlayer vp)
-    {
-        vp.clip = skill;
-    }
-
-    public void SetUltimateVideo(VideoPlayer vp)
-    {
-        vp.clip = ultimate;
-    }
-
+    public bool loop;
 }
 
-public class VideoController : MonoBehaviour {
-    public RawImage rawImage;
-    public VideoPlayer videoPlayer;
+public class VideoController : MonoBehaviour
+{
+    public VideoData[] videoData;
 
-    //public RawImage rawImageUltimate;
-    //public VideoPlayer videoPlayerUltimate;
+    /*Tambien podemos eleguir que videodata y video player cargar*/
+    public void PlayVideoLibrary(string name)
+    {
+        VideoData vd = System.Array.Find(videoData, video => video.name == name);
 
-    public RenderTexture render;
-    //public RawImage rawImageUlti;
-    //public VideoPlayer videoPlayerUlti;
+        if (vd == null)
+        {
+            return;
+        }
 
-	// Use this for initialization
-	void Start () {
-        StartCoroutine(PlayVideo());
-
-
-        rawImage.texture = render;
-        //rawImageUltimate.texture = render;
+        //videoPlayer.targetTexture = render; Podemos escoger donde se reproducia
+        //vd.rawContainer.texture = render;
+        //StartCoroutine(PlayVideo(vd));
+        vd.videoPlayer.clip = vd.general;
     }
 
-    IEnumerator PlayVideo()
+    IEnumerator PlayVideo(VideoData videoData)
     {
-        videoPlayer.Prepare();
+        videoData.videoPlayer.Prepare();
         WaitForSeconds waitForSeconds = new WaitForSeconds(0.5f);
 
-        while (!videoPlayer.isPrepared)
+        while (!videoData.videoPlayer.isPrepared)
         {
             yield return waitForSeconds;
             break;
         }
 
-        rawImage.texture = videoPlayer.texture;
-        videoPlayer.Play();
+        videoData.videoPlayer.Play();
+        //videoData.rawImage.texture = videoData.videoPlayer.texture;
     }
 }

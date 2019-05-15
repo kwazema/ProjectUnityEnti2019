@@ -19,7 +19,7 @@ public class Polyphemus : PlayerManager
 
     protected override void Awake()
     {
-        index = 2; // TODO: Estoy dudando que sea manual o lo haga GameManager
+        index = 2;
         base.Awake();
 
         upgrade_text[0] = "You gain " + upgradeHral + " more of maximum health and " + 15 + " of maximum shield.";

@@ -41,6 +41,4 @@ public class VideoManager : MonoBehaviour
             SceneManager.LoadScene(1);
         }
     }
-
-
 }
