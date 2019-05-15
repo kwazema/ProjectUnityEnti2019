@@ -112,13 +112,13 @@ public class Library : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            AudioManager.instance.Play("GeneralButton");
-            //EventSystem eventSystem = FindObjectOfType<EventSystem>();
-            //eventSystem.SetSelectedGameObject(GameObject.Find("LibraryButtonSanta")); // Selecciona un nuevo boton
-            ShowNoInfo();
-        }        
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    AudioManager.instance.Play("GeneralButton");
+        //    //EventSystem eventSystem = FindObjectOfType<EventSystem>();
+        //    //eventSystem.SetSelectedGameObject(GameObject.Find("LibraryButtonSanta")); // Selecciona un nuevo boton
+        //    ShowNoInfo();
+        //}        
     }
 
     //public void PlayGeneralVideo()

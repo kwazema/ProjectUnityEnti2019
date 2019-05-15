@@ -201,10 +201,10 @@ public class BattleSystem : MonoBehaviour
             round.roundsWinPlayer2++;
             playeUI.rightPlayer.SetWinPlayer(round.roundsWinPlayer2);
         }
-        else
+        else if (healhPlayer1 == healhPlayer2)
         {
             round.roundMax++; //empate se juega una ronda mas.
-
+            // TODO: Comprobar porque entra
         }
 
         if (round.roundsWinPlayer1 == 2 || round.roundsWinPlayer2 == 2)
