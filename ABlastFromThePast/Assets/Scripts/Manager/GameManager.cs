@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
     string filePathPersistent;
     string jsonString;
 
-    string filePath;
+    string jsonData;
     //public TextAsset fileCharactersData;
     public bool build;
 
@@ -37,10 +37,12 @@ public class GameManager : MonoBehaviour {
 
         DontDestroyOnLoad(this);
 
-        if (build)
-            filePath = "./Mono/FileCharactersData.json";
-        else
-            filePath = Application.dataPath + "/FileCharactersData.json";
+        //if (build)
+        //   filePath = "./Mono/FileCharactersData.json";
+        //else
+        //   filePath = Application.dataPath + "/FileCharactersData.json";
+
+        jsonData = Resources.Load<TextAsset>("FileCharactersData").text;
         
         
         //filePathPersistent = Application.persistentDataPath + "/GameData/FileCharactersData.json";
@@ -54,10 +56,10 @@ public class GameManager : MonoBehaviour {
     public ListCharacters LoadFileToString()
     {
         // Parseamos el fichero a un string
-        string jsonString = File.ReadAllText(filePath);
+        //string jsonString = File.ReadAllText(filePath);
 
         // Parseamos el string a la clase
-        ListCharacters listCharacters = JsonUtility.FromJson<ListCharacters>(jsonString);
+        ListCharacters listCharacters = JsonUtility.FromJson<ListCharacters>(jsonData);
 
         return listCharacters;
     }
@@ -68,7 +70,7 @@ public class GameManager : MonoBehaviour {
         string jsonString = JsonUtility.ToJson(listCharacters);
 
         // Parseamos el string a json
-        File.WriteAllText(filePath, jsonString);
+        //File.WriteAllText(/*Path save*/, jsonString);
     }
 
     #region Como utilizar funciones FILE GameManager
