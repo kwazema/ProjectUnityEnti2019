@@ -13,6 +13,8 @@ public class ButtonSelector : MonoBehaviour {
     public Image image;
     private Button button;
 
+    public GameObject info, characters;
+
     private BattleChoose battleChoose;
     private bool buttonSelected;
 
@@ -151,5 +153,14 @@ public class ButtonSelector : MonoBehaviour {
     public void SetInterectable(bool value)
     {
         button.interactable = value;
+    }
+
+    public void ChangeToInfo()
+    {
+        transform.localScale = new Vector2(325, 325);
+        fadeScale = false;
+
+        info.SetActive(true);
+        characters.SetActive(false);
     }
 }

@@ -416,6 +416,7 @@ public class PlayerManager : MonoBehaviour
     //    SceneManager.LoadScene("Modojuego");
     //}
 
+        // TODO: Cuando recibes el golpe es cuando debe empezar a contar
     bool activeReflect = true; float timeCur = 1;
     public void AnimReflectShield()
     {
@@ -431,7 +432,7 @@ public class PlayerManager : MonoBehaviour
         else
         {
             timeCur -= Time.deltaTime;
-            Debug.Log("Time: " + timeCur);
+            //Debug.Log("Time: " + timeCur);
             if (timeCur < 0)
             {
                 animShield.SetTrigger("Reflect");
