@@ -16,13 +16,25 @@ public class Library : MonoBehaviour {
     public ListCharacters lc;
     public VideoController vc;
 
-    public Text nameC;
-    public Text descriptionC;
-    public Text statsC;
-    public Text skillC;
-    public Text ultimateC;
+    public Text nameCharacter;
+    public Text description;
+
+    public Text health;
+    public Text shield;
+
+    public Text damageAttack;
+    public Text noSe;
+
+    public Text nameSkill;
     public Text skillDamage;
+    public Text skillCD;
+    public Text skillDesc;
+
+    public Text nameUltimate;
     public Text ultiDamage;
+    public Text ultiCD;
+    public Text ultiDesc;
+
 
     public Button skillPlay;
     public Button ultiPlay;
@@ -43,36 +55,41 @@ public class Library : MonoBehaviour {
 
     public void ShowInfoCharacter(int index)
     {
-        nameC.text = lc.characterStats[index].name;
+        nameCharacter.text = lc.characterStats[index].name;
+        description.text = lc.characterStats[index].description;
 
-        descriptionC.text = lc.characterStats[index].description;
+        health.text = lc.characterStats[index].healthMax.ToString();
+        shield.text = lc.characterStats[index].shieldMax.ToString();
+        damageAttack.text = lc.characterStats[index].damageBasicAttack.ToString();
 
-        statsC.text = "Life: " + lc.characterStats[index].healthMax + "\nShield: " + lc.characterStats[index].shieldMax + "\nBasic damage: " +
-            lc.characterStats[index].damageBasicAttack;
-
-        skillC.text = lc.characterStats[index].nameSkill;
+        nameSkill.text = lc.characterStats[index].nameSkill;
         skillDamage.text = lc.characterStats[index].damageSkill.ToString();
-        ultimateC.text = lc.characterStats[index].nameUltimate;
+        skillCD.text = lc.characterStats[index].skillCD.ToString() + "s";
+        skillDesc.text = lc.characterStats[index].descSkill;
+
+        nameUltimate.text = lc.characterStats[index].nameUltimate;
         ultiDamage.text = lc.characterStats[index].damageUltimate.ToString();
+        ultiCD.text = lc.characterStats[index].ultimateCD.ToString() + "s";
+        ultiDesc.text = lc.characterStats[index].descUltimate;
 
         //skillC.text = lc.characterStats[index].
     }
 
     public void PlaySkill()
     {
-        if (nameC.text == "Santa")
+        if (nameCharacter.text == "Santa")
         {
             vc.PlayVideoLibrary("SkillSanta");
         }
-        else if (nameC.text == "Minos")
+        else if (nameCharacter.text == "Minos")
         {
             vc.PlayVideoLibrary("SkillMinos");
         }
-        else if (nameC.text == "Polyphemus")
+        else if (nameCharacter.text == "Polyphemus")
         {
             vc.PlayVideoLibrary("SkillPolyphemus");
         }
-        else if (nameC.text == "Adventurer")
+        else if (nameCharacter.text == "Adventurer")
         {
             vc.PlayVideoLibrary("SkillAdventurer");
         }
@@ -80,19 +97,19 @@ public class Library : MonoBehaviour {
 
     public void PlayUlti()
     {
-        if (nameC.text == "Santa")
+        if (nameCharacter.text == "Santa")
         {
             vc.PlayVideoLibrary("UltiSanta");
         }
-        else if (nameC.text == "Minos")
+        else if (nameCharacter.text == "Minos")
         {
             vc.PlayVideoLibrary("UltiMinos");
         }
-        else if (nameC.text == "Polyphemus")
+        else if (nameCharacter.text == "Polyphemus")
         {
             vc.PlayVideoLibrary("UltiPolyphemus");
         }
-        else if (nameC.text == "Adventurer")
+        else if (nameCharacter.text == "Adventurer")
         {
             vc.PlayVideoLibrary("UltiAdventurer");
         }
@@ -103,9 +120,9 @@ public class Library : MonoBehaviour {
         characters.SetActive(true);
         info.SetActive(false);
        // videoController.videoPlayer.clip = videoData.general;
-        nameC.text = "";
-        descriptionC.text = "";
-        statsC.text = "";
+        nameCharacter.text = "";
+        description.text = "";
+        //statsC.text = "";
         //skillC.text = " ";
         //ultimateC.text = "";
     }
