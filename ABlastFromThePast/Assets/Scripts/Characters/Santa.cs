@@ -58,6 +58,14 @@ public class Santa : PlayerManager {
 
         // -------------------------------------------------- //
 
+        float r = hitmarker_color.color.r;
+        float g = hitmarker_color.color.g;
+        float b = hitmarker_color.color.b;
+
+        sprite_distanceAttack.color = new Color(r, g, b, 0);
+
+        // -------------------------------------------------- //
+
         if (thisPlayerIs == ThisPlayerIs.Player1)
             player_to_attack = 1;
         else

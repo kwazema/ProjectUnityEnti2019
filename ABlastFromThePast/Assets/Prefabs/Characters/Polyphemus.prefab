@@ -290,7 +290,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1755725238453134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 42.46364, y: 30, z: 0}
+  m_LocalPosition: {x: 41.66944, y: 27.67633, z: 0}
   m_LocalScale: {x: 19.636452, y: 19.636488, z: 19.636488}
   m_Children:
   - {fileID: 4606409956193518}
@@ -646,6 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisPlayerIs: 0
+  sprite_distanceAttack: {fileID: 212628726062575216}
   icon: {fileID: 0}
   upgrade: []
   numUpgrade: 0

@@ -172,6 +172,8 @@ public class BattleSystem : MonoBehaviour
         gameManager.playerManager[0].ResetCharacter();
         gameManager.playerManager[1].ResetCharacter();
 
+        yield return new WaitForSeconds(2);
+
         gameManager.playerManager[0].SetPlayerInputs(true);
         gameManager.playerManager[1].SetPlayerInputs(true);
 
@@ -182,11 +184,10 @@ public class BattleSystem : MonoBehaviour
             yield return null;
         }
 
-        if (gameManager.playerManager[0].GetHealth() <= 0 || gameManager.playerManager[1].GetHealth() <= 0)
-            yield return new WaitForSeconds(1.5f); // <-- Esto es para que cuando se muera se espere 3 segundos antes de enviar al personaje a su lugar
-
+//        if (gameManager.playerManager[0].GetHealth() <= 0 || gameManager.playerManager[1].GetHealth() <= 0)
+//          yield return new WaitForSeconds(1.5f); // <-- Esto es para que cuando se muera se espere 3 segundos antes de enviar al personaje a su lugar
+        
         round.timeCur = round.timeMax;
-
 
         float healhPlayer1 = gameManager.playerManager[0].GetHealth() / gameManager.playerManager[0].GetHealthMax() * 100;
         float healhPlayer2 = gameManager.playerManager[1].GetHealth() / gameManager.playerManager[1].GetHealthMax() * 100;

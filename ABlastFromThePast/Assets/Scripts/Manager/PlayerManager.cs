@@ -30,6 +30,8 @@ public class PlayerManager : MonoBehaviour
         Ultimate2
     }
 
+    public SpriteRenderer sprite_distanceAttack;
+
     // Añadir las imagenes en el prefab
     public Sprite icon;
     public Sprite[] upgrade;
@@ -399,23 +401,24 @@ public class PlayerManager : MonoBehaviour
         Color transparency = Color.white;
         transparency.a = .5f;
 
-        // ----------------------- //
-
         sprite.color = transparency;
 
         // ----------------------- //
+        for (int i = 0; i < 2; i++) {
 
-        yield return new WaitForSeconds(3.5f);
+            transparency = GameManager.instance.playerManager[i].hitmarker_color.color;
+            transparency.a = 0;
+            GameManager.instance.playerManager[i].sprite_distanceAttack.color = transparency;
+        }
+
+
+        //yield return new WaitForSeconds(3.5f);
+        yield return null;
         
         //SceneManager.LoadScene("Menu");
         //FindObjectOfType<FadeImage>()
     }
-
-    //void Die()
-    //{
-    //    SceneManager.LoadScene("Modojuego");
-    //}
-
+    
         // TODO: Cuando recibes el golpe es cuando debe empezar a contar
     bool activeReflect = true; float timeCur = 1;
     public void AnimReflectShield()
@@ -610,8 +613,24 @@ public class PlayerManager : MonoBehaviour
     }
 
     #region Funciones para llamar entre rondas
+
     public void ResetCharacter()
     {
+        Color transparency = Color.white;
+        transparency.a = 1f;
+
+        sprite.color = transparency;
+
+        // ----------------------- //
+
+        anim.SetTrigger("marker");
+
+        transparency = hitmarker_color.color;
+        transparency.a = 1f;
+        sprite_distanceAttack.color = transparency;
+
+        // ----------------------- //
+
         health = health_max;
         shield = shield_max;
 
@@ -620,10 +639,6 @@ public class PlayerManager : MonoBehaviour
         cur_skillCD = 0;
         cur_ultimateCD = 0;
 
-        Color transparency = Color.white;
-        transparency.a = 1f;
-
-        sprite.color = transparency;
         // ----------------------- //
 
         bodyCollider.enabled = true;
@@ -659,8 +674,6 @@ public class PlayerManager : MonoBehaviour
             playerMovement.playerColumn = map.columnLenth - 1;
             playerMovement.playerRow = map.rowLenth - 1;
         }
-
-        
     }
 
     public void SetPlayerInputs(bool value)
