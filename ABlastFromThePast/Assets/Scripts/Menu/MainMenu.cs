@@ -8,6 +8,52 @@ using UnityEngine.EventSystems;
 public class MainMenu : MonoBehaviour {
 
     private EventSystem eventSystem;
+    private string lastSelectect;
+
+    private void Start()
+    {
+                Cursor.lockState = CursorLockMode.Locked;
+
+    }
+
+    private void Update()
+    {
+        // Si mueves el raton pierdes el focus
+        if (Input.GetAxis("Mouse X") < 0 || Input.GetAxis("Mouse X") > 0)
+        {
+            eventSystem.SetSelectedGameObject(null); // Desseleccionar boton
+
+            if (Cursor.visible == false)
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+        }
+
+        //Muentras no sea null y se haya cambiado el boton te guarda el string
+        if (eventSystem.currentSelectedGameObject != null)
+        {
+            if (lastSelectect != eventSystem.currentSelectedGameObject.name)
+            {
+                lastSelectect = eventSystem.currentSelectedGameObject.name;
+            }
+        }
+        
+        //Si usas las teclas y no tienes los focus te hace auto focus al ultimo boton 
+        if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
+        {
+            if (Cursor.visible == true)
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+
+            if (eventSystem.currentSelectedGameObject == null)
+            {
+                eventSystem.SetSelectedGameObject(GameObject.Find(lastSelectect)); // Selecciona un nuevo boton
+            }
+        }
+    }
 
     private void Awake()
     {
@@ -15,9 +61,12 @@ public class MainMenu : MonoBehaviour {
     }
 
     //eventSystem.firstSelectedGameObject = GameObject.Find("ChoosePlayerEng/Brayan");
+    
+
     public void Play() 
     {
         eventSystem.SetSelectedGameObject(GameObject.Find("MargenPersonaje(Clone)")); // Selecciona un nuevo boton
+        //eventSystem.SetSelectedGameObject(null); // Desseleccionar boton
     }
 
     public void Library()

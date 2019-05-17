@@ -23,9 +23,9 @@ public class GameManager : MonoBehaviour {
     public bool build;
 
 
-    public float volume = 0;
-    public float volumeMusic = 0;
-    public float volumeEffects = 0;
+    public float volume = 1;
+    public float volumeMusic = 1;
+    public float volumeEffects = 1;
 
 
     private void Awake()
