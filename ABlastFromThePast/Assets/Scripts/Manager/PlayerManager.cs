@@ -38,9 +38,6 @@ public class PlayerManager : MonoBehaviour
     public int numUpgrade;
     public Animator animShield;
 
-    //public GameObject[] particles_list;
-    //public Transform[] particles_pos;
-
     [Header("<-- Array Particles -->")]
     public ParticleSystem[] particleSystem;
 
@@ -87,23 +84,19 @@ public class PlayerManager : MonoBehaviour
     protected Vector2 moveToBlock;
     protected float timeInPosition;
     
-    [SerializeField]
     protected int damageBasicAttack;
-    [SerializeField]
     protected int damageSkill;
     protected int damageUltimate;
 
-    [SerializeField]
-    protected int health_max = 350;
+    protected int health_max;
     protected int health;
 
-    [SerializeField]
-    protected int shield_max = 50;
+    protected int shield_max;
     protected int shield;
     protected int recoveryShieldTime;
 
     protected float fireRate;
-    //protectedected float nextFire;
+    protected float nextFire;
 
     protected float skillCD;
     protected float cur_skillCD;
@@ -132,11 +125,48 @@ public class PlayerManager : MonoBehaviour
 
     protected int player_to_attack;
 
+    protected float casting_skill;
+    protected float casting_ult;
+
+    protected float duration_skill;
+    protected float duration_ult;
+    #endregion
+
+    #region Variables Mejoras
+    protected const int upgrade_health = 50;
+    protected const int upgrade_shield = 20;
+
+    // -------------------------------------------------------------- //
+
+    protected int upgrade_damage;
+    protected int upgrade_damageSkill;
+    protected int upgrade_damageUlt;
+
+    // -------------------------------------------------------------- //
+
+    protected float upgrade_skillCD;            // Cuando se trabaja con el 
+    protected float upgrade_ultCD;              // tiempo, los valores deberian
+                                                // de ser negativos ya que estamos
+    protected float upgrade_castingSkill;       // reduciendo el tiempo que dura algo.
+    protected float upgrade_castingUlt;
+
+    protected float upgrade_durationSkill;
+    protected float upgrade_durationUlt;
+
+    // -------------------------------------------------------------- //
+
+    protected bool isUpgraded_skill = false;
+    protected bool isUpgraded_ult = false;
+
+    protected string[] upgrade_description;
+
+    // Le pasas por parametro que descripcion quieres conseguir. El rango de valores va 
+    // desde el 0 hasta el 2.
+    public string GetUpgradeDescription(int upgrade) { return upgrade_description[upgrade]; }
     #endregion
 
     #region Public Variables
     public string namePlayer;
-    public string[] upgrade_text;
     #endregion
 
     #region Get Functions
@@ -214,7 +244,6 @@ public class PlayerManager : MonoBehaviour
         //particles_GO = GameObject.Find(name + "/DieParticle");
 
         //particle = GameObject.Find(name + "/DieParticle").GetComponent<ParticleSystem>();
-        upgrade_text = new string[3];
 
         LoadStatsFile();
     }
@@ -242,13 +271,30 @@ public class PlayerManager : MonoBehaviour
         {
             GameObject.Find(name + "/BodyCollider").layer = 11;
 
+            // -------------------------------------------------- //
+
             hitmarker_color.color = Color.blue;
+
+            // -------------------------------------------------- //
+
+            player_to_attack = 1;
         }
         else {
             GameObject.Find(name + "/BodyCollider").layer = 12;
 
+            // -------------------------------------------------- //
+
             hitmarker_color.color = Color.red;
+
+            // -------------------------------------------------- //
+
+            player_to_attack = 0;
         }
+
+        // -------------------------------------------------- //
+
+        upgrade_description[0] = "You get " + upgrade_health + " points of extra health and "
+                          + upgrade_shield + " points of extra shield.";
     }
 
     private void LoadStatsFile()
@@ -477,17 +523,7 @@ public class PlayerManager : MonoBehaviour
     public virtual void Ultimate() { }
 
 
-    public virtual void Upgrade1()
-    {
-    }
-
-    public virtual void Upgrade2()
-    {
-    }
-
-    public virtual void Upgrade3()
-    {
-    }
+   
 
     protected void MovingToPosition(float velocity, int blocks_width = 0, int blocks_height = 0)
     {
@@ -685,6 +721,16 @@ public class PlayerManager : MonoBehaviour
         if (value)
             anim.SetTrigger("iddle");
     }
+
+    public virtual void Upgrade1()
+    {
+        health_max += upgrade_health;
+        shield_max += upgrade_shield;
+    }
+
+    public virtual void Upgrade2() { }
+
+    public virtual void Upgrade3() { }
 
     #endregion
 

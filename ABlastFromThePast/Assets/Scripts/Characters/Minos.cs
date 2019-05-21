@@ -10,20 +10,13 @@ public class Minos : PlayerManager
     int pos_column;
     Vector2Int[] blocks_affected;
     int max_blocks;
+    int upgrade_maxBlocks;
     #endregion
-
-    [SerializeField]
-    int upgradeHral;
 
     protected override void Awake()
     {
         index = 1; 
         base.Awake();
-
-        upgrade_text[0] = "You gain " + 10 + " more of maximum health and " + 15 + " of maximum shield.";
-        upgrade_text[1] = "You gain " + 4 + " more of basic damage and " + 10 + " of skill damage.";
-        upgrade_text[2] = "You gain " + 35 + " more of ultimate damage.";
-        //namePlayer = "Scepter"; // Nombre añadido desde el inspector
     }
 
     // Use this for initialization
@@ -59,14 +52,23 @@ public class Minos : PlayerManager
 
         // -------------------------------------------------- //
 
-        if (thisPlayerIs == ThisPlayerIs.Player1)
-            player_to_attack = 1;
-        else
-            player_to_attack = 0;
+        casting_skill = 1f;
+        casting_ult= 1f;
+
+        max_blocks = 8;
 
         // -------------------------------------------------- //
 
-        max_blocks = 8;
+        upgrade_castingSkill = -.5f;
+        upgrade_damageSkill = 10;
+
+        upgrade_maxBlocks = 4;
+
+        // -------------------------------------------------- //
+
+        upgrade_description[1] = "Your skill gets " + upgrade_castingSkill +
+                                 " seconds less of casting time and " + upgrade_damageSkill + " extra damage.";
+        upgrade_description[2] = "You hit " + upgrade_maxBlocks + " blocks with the ultimate.";
     }
 
     protected override void Update()
@@ -114,7 +116,7 @@ public class Minos : PlayerManager
         {
             anim.SetBool("attack", false);
 
-            StartCoroutine(base.CastingTime(1, false));
+            StartCoroutine(base.CastingTime(casting_skill, false));
 
             // -------------------------------------------------- //
 
@@ -207,7 +209,7 @@ public class Minos : PlayerManager
             is_ultimate_ready = false;
             is_ultimateOn = true;
 
-            StartCoroutine(CastingTime(1, false));
+            StartCoroutine(CastingTime(casting_ult, false));
         }
     }
 
@@ -224,49 +226,6 @@ public class Minos : PlayerManager
             dirSkillZone = -1;
         }
     }
-
-    //protected Vector2Int[] GetRandomBlocks(int blocks)
-    //{
-    //    int i = 0;
-    //    int blocks_created = 0;
-    //    blocks_affected = new Vector2Int[max_blocks];
-
-    //    int init_pos_x;
-    //    int max_pos_x;
-    //    if (player_to_attack == 0)
-    //    {
-    //        init_pos_x = 0;
-    //        max_pos_x = init_pos_x + (map.columnLenth) / 2;
-    //    }
-    //    else
-    //    {
-    //        init_pos_x = map.columnLenth - 1;
-    //        max_pos_x = init_pos_x - (map.columnLenth) / 2;
-    //    }
-
-    //    while (i < max_blocks)
-    //    {
-    //        Vector2Int cpy = new Vector2Int(Random.Range(init_pos_x, max_pos_x), Random.Range(0, map.rowLenth));
-
-    //        bool is_finded = false;
-    //        for (int j = 0; j < blocks_created && !is_finded; j++)
-    //        {
-    //            if (blocks_affected[j] == cpy)
-    //            {
-    //                is_finded = true;
-    //            }
-    //        }
-
-    //        if (!is_finded)
-    //        {
-    //            blocks_affected[i] = cpy;
-    //            i++;
-    //            blocks_created++;
-    //        }
-    //    }
-
-    //    return blocks_affected;
-    //}
 
     private IEnumerator StellarRain()
     {
@@ -323,23 +282,14 @@ public class Minos : PlayerManager
         return base.CastingTime(time_cast, value);
     }
 
-    public override void Upgrade1()
-    {
-        health_max += 50;
-        shield_max += 15;
-
-        health = health_max;
-        shield = shield_max;
-    }
-
     public override void Upgrade2()
     {
-        damageBasicAttack += 4;
-        damageSkill += 10;
+        casting_skill += upgrade_castingSkill;
+        damageSkill += upgrade_damageSkill;
     }
 
     public override void Upgrade3()
     {
-        damageUltimate += 35;
+        max_blocks += upgrade_maxBlocks;
     }
 }

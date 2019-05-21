@@ -313,13 +313,6 @@ public class PlayeUI : MonoBehaviour
         roundTime.text = battleSystem.round.timeCur.ToString("#");
         clockBar.fillAmount = battleSystem.round.timeCur / battleSystem.round.timeMax;
 
-        leftPlayer.UpdateUpgrade01(GameManager.instance.playerManager[0].upgrade_text[0]);
-        leftPlayer.UpdateUpgrade02(GameManager.instance.playerManager[0].upgrade_text[1]);
-        leftPlayer.UpdateUpgrade03(GameManager.instance.playerManager[0].upgrade_text[2]);
-
-        rightPlayer.UpdateUpgrade01(GameManager.instance.playerManager[1].upgrade_text[0]);
-        rightPlayer.UpdateUpgrade02(GameManager.instance.playerManager[1].upgrade_text[1]);
-        rightPlayer.UpdateUpgrade03(GameManager.instance.playerManager[1].upgrade_text[2]);
 
         //rightPlayer.DebugLog();
         //roundCur.text = (battleSystem.round.roundCur).ToString("Round 0");
