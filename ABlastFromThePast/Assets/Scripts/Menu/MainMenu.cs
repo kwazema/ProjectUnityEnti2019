@@ -12,13 +12,12 @@ public class MainMenu : MonoBehaviour {
 
     private void Start()
     {
-                Cursor.lockState = CursorLockMode.Locked;
-
+      //  Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
     {
-        // Si mueves el raton pierdes el focus
+        // Si mueves el raton pierdes el focus del boton
         if (Input.GetAxis("Mouse X") < 0 || Input.GetAxis("Mouse X") > 0)
         {
             eventSystem.SetSelectedGameObject(null); // Desseleccionar boton
@@ -42,6 +41,7 @@ public class MainMenu : MonoBehaviour {
         //Si usas las teclas y no tienes los focus te hace auto focus al ultimo boton 
         if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
         {
+            Debug.Log("CLICK");
             if (Cursor.visible == true)
             {
                 Cursor.visible = false;
