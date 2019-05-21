@@ -23,9 +23,9 @@ public class GameManager : MonoBehaviour {
     public bool build;
 
 
-    public float volume = 1;
-    public float volumeMusic = 1;
-    public float volumeEffects = 1;
+    public float volume;
+    public float volumeMusic;
+    public float volumeEffects;
     ListCharacters lc;
 
     private void Awake()
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour {
 
         DontDestroyOnLoad(this);
         filePathPersistent = Application.persistentDataPath + "/FileCharactersData.json";
-        
+
         //if (build)
         //   filePath = "./Mono/FileCharactersData.json";
         //else
@@ -51,6 +51,10 @@ public class GameManager : MonoBehaviour {
         //lc = LoadFileToString();
 
         //filePath = Path.Combine(Application.streamingAssetsPath, jsonString);
+
+       volume = 1;
+       volumeMusic = 1;
+       volumeEffects = 1;
     }
 
     private void Start()

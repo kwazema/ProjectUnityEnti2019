@@ -233,6 +233,7 @@ public class PlayeUI : MonoBehaviour
 {
     public Text roundTime;
     public Animator continueText;
+    public Animator selectUpgradeText;
     public Image clockBar;
 
     //private Text winPlayerRound;
@@ -280,7 +281,16 @@ public class PlayeUI : MonoBehaviour
 
         leftPlayer.ResetFadeTimer();
         rightPlayer.ResetFadeTimer();
-        
+
+
+        leftPlayer.UpdateUpgrade01(GameManager.instance.playerManager[0].GetUpgradeDescription(0));
+        leftPlayer.UpdateUpgrade02(GameManager.instance.playerManager[0].GetUpgradeDescription(1));
+        leftPlayer.UpdateUpgrade03(GameManager.instance.playerManager[0].GetUpgradeDescription(2));
+
+        rightPlayer.UpdateUpgrade01(GameManager.instance.playerManager[1].GetUpgradeDescription(0));
+        rightPlayer.UpdateUpgrade02(GameManager.instance.playerManager[1].GetUpgradeDescription(1));
+        rightPlayer.UpdateUpgrade03(GameManager.instance.playerManager[1].GetUpgradeDescription(2));
+
         //leftPlayer.UpdateSprite()
         //for (int i = 0; i < iconUpgrade.Length; i++)
         //    for (int j = 0; j < iconUpgrade[i].spell.Length; j++)
