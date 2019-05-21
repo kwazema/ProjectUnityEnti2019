@@ -42,10 +42,10 @@ public class GameManager : MonoBehaviour {
         //else
         //   filePath = Application.dataPath + "/FileCharactersData.json";
 
-        jsonData = Resources.Load<TextAsset>("FileCharactersData").text;
         
-        
-        //filePathPersistent = Application.persistentDataPath + "/GameData/FileCharactersData.json";
+
+        //TextAsset /*jsonData2*/ = (text)Resources.Load("FileCharactersData");
+
 
         //ListCharacters lc = LoadFileToString();
 
@@ -55,8 +55,29 @@ public class GameManager : MonoBehaviour {
 
     public ListCharacters LoadFileToString()
     {
-        // Parseamos el fichero a un string
-        //string jsonString = File.ReadAllText(filePath);
+
+        //try
+        //{
+        //    filePathPersistent = Application.persistentDataPath + "/FileCharactersData.json";
+        //}
+        //catch (System.Exception)
+        //{
+        //    jsonData = Resources.Load<TextAsset>("FileCharactersData").text;
+        //    //Debug.Log(")
+        //    throw;
+        //}
+
+        filePathPersistent = Application.persistentDataPath + "/FileCharactersData.json";
+
+        if (filePathPersistent != null)
+        {
+            //Parseamos el fichero a un string
+            jsonData = File.ReadAllText(filePathPersistent);
+        }
+        else
+        {
+            jsonData = Resources.Load<TextAsset>("FileCharactersData").text;
+        }
 
         // Parseamos el string a la clase
         ListCharacters listCharacters = JsonUtility.FromJson<ListCharacters>(jsonData);
@@ -70,7 +91,7 @@ public class GameManager : MonoBehaviour {
         string jsonString = JsonUtility.ToJson(listCharacters);
 
         // Parseamos el string a json
-        //File.WriteAllText(/*Path save*/, jsonString);
+        File.WriteAllText(filePathPersistent, jsonString);
     }
 
     #region Como utilizar funciones FILE GameManager
