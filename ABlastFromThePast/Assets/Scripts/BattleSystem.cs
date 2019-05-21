@@ -249,15 +249,20 @@ public class BattleSystem : MonoBehaviour
         if (round.roundsWinPlayer1 > round.roundsWinPlayer2)
         {
             playeUI.leftPlayer.WinGame.SetActive(true);
+            playeUI.leftPlayer.WinGame.GetComponent<Animator>().SetTrigger("FadeIn");
+
             lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.gamesWin++;
             lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.gamesLose++;
         }
         else
         {
             playeUI.rightPlayer.WinGame.SetActive(true);
+            playeUI.rightPlayer.WinGame.GetComponent<Animator>().SetTrigger("FadeIn");
+
             lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.gamesLose++;
             lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.gamesWin++;
         }
+
         GameManager.instance.SaveStringToFile(lc);
     }
     

@@ -8615,6 +8615,7 @@ MonoBehaviour:
   infoGamesWon: {fileID: 326403526}
   infoGamesLost: {fileID: 1899251125}
   games: 
+  selected: 
   rankMenu: {fileID: 2071206305}
   infoMenu: {fileID: 53054946}
 --- !u!114 &957830188
@@ -20737,6 +20738,10 @@ Prefab:
       propertyPath: m_Delegates.Array.data[3].callback.m_TypeName
       value: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI, Version=1.0.0.0,
         Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307118012710516, guid: a773e704f49eef94fb649e3c5fa68491, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a773e704f49eef94fb649e3c5fa68491, type: 2}
