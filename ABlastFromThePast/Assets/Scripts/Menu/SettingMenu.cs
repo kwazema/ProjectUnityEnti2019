@@ -32,20 +32,20 @@ public class SettingMenu : MonoBehaviour {
 
     public void MasterVolume ( float volume)
     {
-        audioMixer.SetFloat("volume", volume);
-        GameManager.instance.volume = volume;
+        audioMixer.SetFloat("volume", Mathf.Log10(volume) * 20);
+        GameManager.instance.volume = Mathf.Log10(volume) * 20;
     }
 
     public void Music(float volume)
     {
-        audioMixer.SetFloat("volumeMusic", volume);
-        GameManager.instance.volumeMusic = volume;
+        audioMixer.SetFloat("volumeMusic", Mathf.Log10(volume) * 20);
+        GameManager.instance.volumeMusic = Mathf.Log10(volume) * 20;
     }
 
     public void Effects(float volume)
     {
-        audioMixer.SetFloat("volumeEffects", volume);
-        GameManager.instance.volumeEffects = volume;
+        audioMixer.SetFloat("volumeEffects", Mathf.Log10(volume) * 20);
+        GameManager.instance.volumeEffects = Mathf.Log10(volume) * 20;
     }
 
     public void Quality(int index)
