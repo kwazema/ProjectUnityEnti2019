@@ -6,7 +6,7 @@ public class Polyphemus : PlayerManager
 {
     #region Internal Variables
     //public Transform distance_attack;
-    
+
     int pos_x;
     int pos_y;
 
@@ -14,18 +14,10 @@ public class Polyphemus : PlayerManager
     int direction;
     #endregion
 
-    [SerializeField]
-    int upgradeHral;
-
     protected override void Awake()
     {
         index = 2;
         base.Awake();
-
-        upgrade_text[0] = "You gain " + upgradeHral + " more of maximum health and " + 15 + " of maximum shield.";
-        upgrade_text[1] = "You gain " + 4 + " more of basic damage and " + 10 + " of skill damage.";
-        upgrade_text[2] = "You gain " + 35 + " more of ultimate damage.";
-        //namePlayer = "Scepter"; // Nombre añadido desde el inspector
     }
 
     // Use this for initialization
@@ -57,17 +49,32 @@ public class Polyphemus : PlayerManager
 
         // -------------------------------------------------- //
 
-        //distance_attack.position = map.blocks[playerMovement.playerColumn + graphicMove, playerMovement.playerRow].transform.position;
+        casting_ult = 1.5f;
+        duration_skill = 3.5f;
 
         // -------------------------------------------------- //
 
-        if (thisPlayerIs == ThisPlayerIs.Player1)
-            player_to_attack = 1;
-        else
-            player_to_attack = 0;
+        upgrade_durationSkill = 2f;
 
         // -------------------------------------------------- //
 
+        // Comprobaciones que se hacen para saber en que dirección y hasta que posición 
+        // debe ir el laser beam.
+        if (player_to_attack == 1)  // El rayo irá hacia la derecha.
+        {
+            last_block = map.columnLenth;
+            direction = 1;
+        }
+        else // El rayo irá hacia la izquierda.
+        {
+            last_block = -1;
+            direction = -1;
+        }
+
+        // -------------------------------------------------- //
+
+        upgrade_description[1] = "Your skill gets " + upgrade_durationSkill + " seconds time longer.";
+        upgrade_description[2] = "Your ultimate affects 2 blocks rows, but you don't know what rows will be.";
     }
 
     protected override void Update()
@@ -80,7 +87,8 @@ public class Polyphemus : PlayerManager
         // Color block = white 
         if (can_color_white)
         {
-            for (int i = 0; i < map.columnLenth; i++) {
+            for (int i = 0; i < map.columnLenth; i++)
+            {
                 map.ColorBlocks(i, pos_y, Color.white);
             }
 
@@ -105,7 +113,7 @@ public class Polyphemus : PlayerManager
             anim.SetTrigger("skill");
             DeployParticles(Particles.Skill);
             AudioManager.instance.Play("PolyphemusSkill");
-            
+
             // -------------------------------------------------- //
 
             is_skill_ready = false;
@@ -116,13 +124,14 @@ public class Polyphemus : PlayerManager
 
             // -------------------------------------------------- //
 
-            StartCoroutine(Rage(3.5f, damageSkill));
+            StartCoroutine(Rage(duration_skill, damageSkill));
         }
     }
 
     // Skill que consiste en mejorar durante X tiempo el daño y la velocidad de ataque
     // Le pasamos por parámetro el timepo que queremos que dure y el nuevo valor de daño
-    private IEnumerator Rage(float time, int dmg) {
+    private IEnumerator Rage(float time, int dmg)
+    {
 
         player_att_input.enabled = true;
 
@@ -149,30 +158,6 @@ public class Polyphemus : PlayerManager
         damageBasicAttack = oldDamage;
     }
 
-            // Revisar !!!
-    //protected override void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0)
-    //{
-    //    //for (int i = 0; i < map.columnLenth; i++)
-    //    //{ // horizontal
-    //    //    if (
-    //    //        (pos_column + i) >= 0 &&
-    //    //        (pos_column + i) < map.columnLenth
-    //    //      )
-    //    //    {
-
-    //    //        map.ColorBlocks((pos_column + i), (playerMovement.playerRow), Color.red);
-
-    //    //        if (map.blocks[(pos_column + i), (playerMovement.playerRow)].GetPlayerStatsBlock((int)thisPlayerIs) != null)
-    //    //        {
-    //    //            map.blocks[(pos_column + i), (playerMovement.playerRow)].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
-    //    //        }
-    //    //    }
-    //    //    cur_skillCD = 0;
-    //    //}
-    //}
-            // Revisar !!!
-
-
     public override void Ultimate()
     {
         if (cur_ultimateCD >= ultimateCD)
@@ -186,7 +171,7 @@ public class Polyphemus : PlayerManager
 
             DeployParticles(Particles.UltimateCast);
 
-            StartCoroutine(CastingTime(1.5f, false));
+            StartCoroutine(CastingTime(casting_ult, false));
         }
     }
 
@@ -207,20 +192,9 @@ public class Polyphemus : PlayerManager
     private IEnumerator LaserBeam(float time)
     {
         cast_ended = false;
+        int pos_y2 = pos_y;
 
-        // Primero comprobamos los bloques que tendra que recorrer y la dirección en que va el rayo.
-        if (player_to_attack == 1)  // El rayo irá hacia la derecha.
-        {
-            last_block = map.columnLenth;
-            direction = 1;
-        }
-        else // El rayo irá hacia la izquierda.
-        {
-            last_block = -1;
-            direction = -1;
-        }
-
-        // Segundo cogemos la posicion del ciclope
+        // Cogemos la posicion del cíclope
         pos_x = playerMovement.playerColumn + direction;
         pos_y = playerMovement.playerRow;
 
@@ -230,16 +204,48 @@ public class Polyphemus : PlayerManager
 
         while (pos_x != last_block)
         {
-            map.ColorBlocks(pos_x, pos_y, Color.red);
-
             position = map.blocks[pos_x, pos_y].transform.position;
             Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.Ultimate], position, Quaternion.identity);
 
+            map.ColorBlocks(pos_x, pos_y, Color.red);
+
+            if (isUpgraded_ult)
+            {
+                int direction_y = 0;
+
+                if (Random.Range(0, 2) > 0)
+                    direction_y = 1;
+                else
+                    direction_y = -1;
+
+                if (
+                    playerMovement.playerRow + direction_y >= 0 &&
+                    playerMovement.playerRow + direction_y < map.rowLenth
+                    )
+                {
+                    pos_y2 = playerMovement.playerRow + direction_y;
+
+                    map.ColorBlocks(pos_x, pos_y2, Color.red);
+
+                    position = map.blocks[pos_x, pos_y2].transform.position;
+                    Instantiate(ParticlesToInstantiate[(int)ParticlesSkills.Ultimate], position, Quaternion.identity);
+
+
+                    if (map.blocks[pos_x, pos_y2].GetPlayerStatsBlock((int)thisPlayerIs) != null)
+                        map.blocks[pos_x, pos_y2].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
+
+                }
+            }
 
             if (map.blocks[pos_x, pos_y].GetPlayerStatsBlock((int)thisPlayerIs) != null)
                 map.blocks[pos_x, pos_y].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
 
             yield return new WaitForSeconds(time);
+            map.ColorBlocks(pos_x, pos_y, Color.white);
+
+            if (isUpgraded_ult)
+                map.ColorBlocks(pos_x, pos_y2, Color.white);
+
             pos_x += (1 * direction);
         }
 
@@ -252,29 +258,15 @@ public class Polyphemus : PlayerManager
         player_att_input.enabled = true;
 
         player_att_input.is_ultOn = false;
-
-        
-
-    }
-
-    // Funciones para los upgrades al acabar ronda 
-    public override void Upgrade1()
-    {
-        health_max += 50;
-        shield_max += 15;
-
-        health = health_max;
-        shield = shield_max;
     }
 
     public override void Upgrade2()
     {
-        damageBasicAttack += 4;
-        damageSkill += 10;
+        duration_skill += upgrade_durationSkill;
     }
 
     public override void Upgrade3()
     {
-        damageUltimate += 35;
+        isUpgraded_ult = true;
     }
 }

@@ -13,11 +13,6 @@ public class Adventurer : PlayerManager {
     {
         index = 3;
         base.Awake();
-
-        upgrade_text[0] = "You gain " + 30 + " more of maximum health and " + 15 + " of maximum shield.";
-        upgrade_text[1] = "You gain " + 2 + " more of basic damage and " + 5 + " of skill damage.";
-        upgrade_text[2] = "You gain " + 15 + " more of ultimate damage.";
-        //namePlayer = "Brayan"; // Nombre añadido desde el inspector
     }
 
     // Use this for initialization
@@ -60,12 +55,18 @@ public class Adventurer : PlayerManager {
 
         sprite_distanceAttack.color = new Color(r, g, b, 0);
 
-        // -------------------------------------------------- //
+        // -------------------------------------------------------------- //
 
-        if (thisPlayerIs == ThisPlayerIs.Player1)
-            player_to_attack = 1;
-        else
-            player_to_attack = 0;
+        casting_ult = 2f;
+
+        // -------------------------------------------------------------- //
+
+        upgrade_castingUlt = -2f;
+
+        // -------------------------------------------------------------- //
+
+        upgrade_description[1] = "Your skill affects in a cross area.";
+        upgrade_description[2] = "Your ultimate CD (cold down) gets " + upgrade_ultCD + " seconds less.";
     }
 
     // Update is called once per frame
@@ -89,6 +90,10 @@ public class Adventurer : PlayerManager {
         if (cur_skillCD >= skillCD)
         {
             anim.SetBool("attack", false);
+        
+            anim.SetTrigger("skill");
+
+            // -------------------------------------------------- //
 
             is_skill_ready = false;
 
@@ -112,10 +117,6 @@ public class Adventurer : PlayerManager {
 
         // -------------------------------------------------- //
 
-        anim.SetTrigger("skill");
-
-        // -------------------------------------------------- //
-
         DeployParticles(Particles.Skill);
         AudioManager.instance.Play("AdventurerSkill");
 
@@ -124,9 +125,49 @@ public class Adventurer : PlayerManager {
         int pos_x = playerMovement.playerColumn + graphicMove;
         int pos_y = playerMovement.playerRow;
 
-        if (map.blocks[pos_x, pos_y].GetPlayerStatsBlock((int)thisPlayerIs) != null)
+        if (!isUpgraded_skill)
         {
-            map.blocks[pos_x, pos_y].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
+            if (map.blocks[pos_x, pos_y].GetPlayerStatsBlock((int)thisPlayerIs) != null)
+            {
+                map.blocks[pos_x, pos_y].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
+            }
+        }
+        else
+        {
+            // comprueba el eje de las X // horizontal
+            for (int i = -1; i < 2; i++) {
+                if (pos_x + i < map.columnLenth && pos_x + i >= 0) {
+                    map.ColorBlocks(pos_x + i, pos_y, Color.red);
+
+                    if (map.blocks[pos_x + i, pos_y].GetPlayerStatsBlock((int)thisPlayerIs) != null)
+                        map.blocks[pos_x + i, pos_y].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
+                }
+            }
+
+            // comprueba el eje de las Y // Vertical
+            for (int i = -1; i < 2; i++)
+            {
+                if ((pos_y + i) >= 0 && (pos_y + i) < map.rowLenth) {
+                    map.ColorBlocks(pos_x, pos_y + i, Color.red);
+
+                    if (map.blocks[pos_x, pos_y + i].GetPlayerStatsBlock((int)thisPlayerIs) != null)
+                        map.blocks[pos_x, pos_y + i].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
+                }
+            }
+
+            yield return new WaitForSeconds(0.2f);
+
+            for (int i = -1; i < 2; i++)
+            {
+                if (pos_x + i < map.columnLenth && pos_x + i >= 0)
+                    map.ColorBlocks(pos_x + i, pos_y, Color.white);
+            }
+
+            for (int i = -1; i < 2; i++)
+            {
+                if ((pos_y + i) >= 0 && (pos_y + i) < map.rowLenth)
+                    map.ColorBlocks(pos_x, pos_y + i, Color.white);
+            }
         }
 
         // -------------------------------------------------- //
@@ -168,7 +209,7 @@ public class Adventurer : PlayerManager {
 
             // -------------------------------------------------------------- //
 
-            StartCoroutine(CastingTime(2, false));
+            StartCoroutine(CastingTime(casting_ult, false));
             AudioManager.instance.Stop("AdventurerUlti");
         }
     }
@@ -237,23 +278,13 @@ public class Adventurer : PlayerManager {
         }
     }
 
-    public override void Upgrade1()
-    {
-        health_max += 30;
-        shield_max += 20;
-
-        health = health_max;
-        shield = shield_max;
-    }
-
     public override void Upgrade2()
     {
-        damageBasicAttack += 2;
-        damageSkill += 5;
+        isUpgraded_skill = true;
     }
 
     public override void Upgrade3()
     {
-        damageUltimate += 15;
+        ultimateCD += upgrade_ultCD;
     }
 }

@@ -9,6 +9,9 @@ public class Santa : PlayerManager {
 
         Vector2 enemy_position;
 
+        int blocksMove;
+        int upgrade_blocksMove;
+
     #endregion
 
     GameObject BurnedEffect;
@@ -17,11 +20,6 @@ public class Santa : PlayerManager {
     {
         index = 0; 
         base.Awake();
-
-        upgrade_text[0] = "You gain " + 30 + " more of maximum health and " + 15 + " of maximum shield.";
-        upgrade_text[1] = "You gain " + 2 + " more of basic damage and " + 5 + " of skill damage.";
-        upgrade_text[2] = "You gain " + 15 + " more of ultimate damage.";
-        //namePlayer = "Brayan"; // Nombre añadido desde el inspector
     }
 
     // Use this for initialization
@@ -66,21 +64,30 @@ public class Santa : PlayerManager {
 
         // -------------------------------------------------- //
 
-        if (thisPlayerIs == ThisPlayerIs.Player1)
-            player_to_attack = 1;
-        else
-            player_to_attack = 0;
+        blocks_width = 3;
 
         // -------------------------------------------------- //
 
-        blocks_width = 3;
+        casting_ult = 2;
+        duration_ult = 2f;
+        blocksMove = 1;
+        
+        // -------------------------------------------------- //
+
+        upgrade_damageUlt = 10;
+        upgrade_blocksMove = 1;
+
+        // -------------------------------------------------- //
+
+        upgrade_description[1] = "Your skill deals " + upgrade_damageSkill + " points of extra damage and moves the enemy " + 
+                                  upgrade_blocksMove + " block the enemy position.";
+        upgrade_description[2] = "Your ultimate damage increases in " + upgrade_damageUlt + " points.";
     }
 
     // Update is called once per frame
     protected override void Update()
     {
         base.Update();
-        
 
         if (moveToPosition) 
             MovingToPosition(95f, blocks_width);
@@ -177,7 +184,7 @@ public class Santa : PlayerManager {
                 if (map.blocks[pos_x, pos_y].GetPlayerStatsBlock((int)thisPlayerIs) != null && !already_hit)
                 {
                     map.blocks[pos_x, pos_y].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
-                    PushPlayer(1);
+                    PushPlayer(blocksMove);
 
                     already_hit = true;
                 }
@@ -224,7 +231,7 @@ public class Santa : PlayerManager {
             BurnedEffect.SetActive(true);
             // -------------------------------------------------------------- //
 
-            StartCoroutine(CastingTime(2, false));
+            StartCoroutine(CastingTime(casting_ult, false));
         }
     }
     
@@ -267,7 +274,6 @@ public class Santa : PlayerManager {
         player_att_input.enabled = true;
 
         player_att_input.is_ultOn = false;
-
     }
 
     protected override void SelectedZonaPlayer()
@@ -284,23 +290,14 @@ public class Santa : PlayerManager {
         }
     }
 
-    public override void Upgrade1()
-    {
-        health_max += 30;
-        shield_max += 20;
-
-        health = health_max;
-        shield = shield_max;
-    }
-
     public override void Upgrade2()
     {
-        damageBasicAttack += 2;
-        damageSkill += 5;
+        blocksMove += upgrade_blocksMove;
+        damageSkill += upgrade_damageSkill;
     }
 
     public override void Upgrade3()
     {
-        damageUltimate += 15;
+        damageUltimate += upgrade_damageUlt;
     }
 }
