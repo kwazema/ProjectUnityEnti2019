@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
     public float volume = 1;
     public float volumeMusic = 1;
     public float volumeEffects = 1;
-
+    ListCharacters lc;
 
     private void Awake()
     {
@@ -36,27 +36,52 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
 
         DontDestroyOnLoad(this);
-
+        filePathPersistent = Application.persistentDataPath + "/FileCharactersData.json";
+        
         //if (build)
         //   filePath = "./Mono/FileCharactersData.json";
         //else
         //   filePath = Application.dataPath + "/FileCharactersData.json";
 
-        jsonData = Resources.Load<TextAsset>("FileCharactersData").text;
-        
-        
-        //filePathPersistent = Application.persistentDataPath + "/GameData/FileCharactersData.json";
 
-        //ListCharacters lc = LoadFileToString();
+
+        //TextAsset /*jsonData2*/ = (text)Resources.Load("FileCharactersData");
+
+
+        //lc = LoadFileToString();
 
         //filePath = Path.Combine(Application.streamingAssetsPath, jsonString);
+    }
+
+    private void Start()
+    {
+
         //SaveStringToFile(lc);
     }
 
     public ListCharacters LoadFileToString()
     {
-        // Parseamos el fichero a un string
-        //string jsonString = File.ReadAllText(filePath);
+
+        //try
+        //{
+        //    filePathPersistent = Application.persistentDataPath + "/FileCharactersData.json";
+        //}
+        //catch (System.Exception)
+        //{
+        //    jsonData = Resources.Load<TextAsset>("FileCharactersData").text;
+        //    //Debug.Log(")
+        //    throw;
+        //}
+
+        if (File.Exists(filePathPersistent))
+        {
+            //Parseamos el fichero a un string
+            jsonData = File.ReadAllText(filePathPersistent);
+        }
+        else
+        {
+            jsonData = Resources.Load<TextAsset>("FileCharactersData").text;
+        }
 
         // Parseamos el string a la clase
         ListCharacters listCharacters = JsonUtility.FromJson<ListCharacters>(jsonData);
@@ -64,13 +89,60 @@ public class GameManager : MonoBehaviour {
         return listCharacters;
     }
 
+    IEnumerator SaveFile(string jsonString)
+    {
+        FileInfo fileInfo = new FileInfo(filePathPersistent);
+
+        while (IsFileLocked(fileInfo))
+        {
+            Debug.Log("File Bloqued");
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        File.WriteAllText(filePathPersistent, jsonString);
+    }
+
+    bool IsFileLocked(FileInfo file)
+    {
+        FileStream stream = null;
+        try
+        {
+            stream = file.Open(FileMode.Open, FileAccess.Read, FileShare.None);
+        }
+        catch (IOException)
+        {
+            //the file is unavailable because it is:
+            //still being written to
+            //or being processed by another thread
+            //or does not exist (has already been processed)
+            return true;
+        }
+        finally
+        {
+            if (stream != null)
+                stream.Close();
+        }
+
+        //file is not locked
+        return false;
+    }
+
     public void SaveStringToFile(ListCharacters listCharacters)
     {
         // Parseamos la clase a un fichero string
         string jsonString = JsonUtility.ToJson(listCharacters);
 
-        // Parseamos el string a json
-        //File.WriteAllText(/*Path save*/, jsonString);
+        if (File.Exists(filePathPersistent))
+        {
+            // Parseamos el string a json
+            //File.WriteAllText(filePathPersistent, jsonString);
+            File.WriteAllText(filePathPersistent, jsonString);
+        }
+        else
+        {
+            File.CreateText(filePathPersistent);
+            StartCoroutine(SaveFile(jsonString));
+        }
     }
 
     #region Como utilizar funciones FILE GameManager

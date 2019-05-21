@@ -35,6 +35,8 @@ public class BattleSystem : MonoBehaviour
     private PlayeUI playeUI;
     private Map map;
 
+    public ListCharacters lc;
+
     private void Awake()
     {
         map = FindObjectOfType<Map>();
@@ -57,6 +59,8 @@ public class BattleSystem : MonoBehaviour
         AudioManager.instance.Stop("MusicMenu03");
         AudioManager.instance.Stop("MusicMenu04");
         AudioManager.instance.Stop("MusicMenu05");
+
+        lc = GameManager.instance.LoadFileToString();
     }
     //private void Update () { }
 
@@ -189,18 +193,30 @@ public class BattleSystem : MonoBehaviour
         
         round.timeCur = round.timeMax;
 
-        float healhPlayer1 = gameManager.playerManager[0].GetHealth() / gameManager.playerManager[0].GetHealthMax() * 100;
-        float healhPlayer2 = gameManager.playerManager[1].GetHealth() / gameManager.playerManager[1].GetHealthMax() * 100;
+        float healhPlayer1 = (float) gameManager.playerManager[0].GetHealth() / (float) gameManager.playerManager[0].GetHealthMax() * 100;
+        Debug.Log("Vida Player 1: " + healhPlayer1);
+        float healhPlayer2 = (float) gameManager.playerManager[1].GetHealth() / (float) gameManager.playerManager[1].GetHealthMax() * 100;
+        Debug.Log("Vida Player 2: " + healhPlayer2);
 
         if (healhPlayer1 > healhPlayer2)
         {
             round.roundsWinPlayer1++;
             playeUI.leftPlayer.SetWinPlayer(round.roundsWinPlayer1);
+            lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.roundsWin++;
+            lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.roundsLose++;
+
+            Debug.Log(lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.roundsWin);
+            Debug.Log(lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.roundsWin);
         }
         else if (healhPlayer1 < healhPlayer2)
         {
             round.roundsWinPlayer2++;
             playeUI.rightPlayer.SetWinPlayer(round.roundsWinPlayer2);
+            lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.roundsLose++;
+            lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.roundsWin++;
+
+            Debug.Log(lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.roundsWin);
+            Debug.Log(lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.roundsWin);
         }
         else if (healhPlayer1 == healhPlayer2)
         {
@@ -217,6 +233,7 @@ public class BattleSystem : MonoBehaviour
             Invoke("Fade", 4);
             Invoke("GoToMenu", 6);
 
+
         }
         else
         {
@@ -232,11 +249,16 @@ public class BattleSystem : MonoBehaviour
         if (round.roundsWinPlayer1 > round.roundsWinPlayer2)
         {
             playeUI.leftPlayer.WinGame.SetActive(true);
+            lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.gamesWin++;
+            lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.gamesLose++;
         }
         else
         {
             playeUI.rightPlayer.WinGame.SetActive(true);
+            lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.gamesLose++;
+            lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.gamesWin++;
         }
+        GameManager.instance.SaveStringToFile(lc);
     }
     
     void Fade()
