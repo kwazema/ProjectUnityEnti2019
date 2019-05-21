@@ -88,28 +88,47 @@ public class BattleSystem : MonoBehaviour
         round.timeToFadeUpgradeOutCur = round.timeToFadeUpgradeOutMax;
         map.ResetBlocks();
 
+        float timeForSelectUpgradeMax = 1;
+        float timeForSelectUpgrade = timeForSelectUpgradeMax;
+
         while (!stop)
         {
+            timeForSelectUpgrade -= Time.deltaTime;
+
             // Imprimit tiempo pantalla
             playeUI.SetLateralPanelsAnimation(true, 500);
             playeUI.SetTopPanelsAnimation(false, 600);
             playeUI.SetLateralPanelsIconAnimation(false, 200);
-            playeUI.continueText.SetTrigger("fadeIn");
+            playeUI.selectUpgradeText.SetTrigger("fadeIn");
+            playeUI.selectUpgradeText.SetTrigger("normal");
 
+            if (timeForSelectUpgrade < 0 /* Cuando se hayan escoguido las habilidades se puede empezar */)
+            {
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("Start0") || Input.GetButton("Start1"))
+                    stop = true;
 
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("Start0") || Input.GetButton("Start1"))
-                stop = true;
+                    playeUI.continueText.SetTrigger("fadeIn");
+
+                playeUI.selectUpgradeText.ResetTrigger("fadeIn");
+                playeUI.selectUpgradeText.ResetTrigger("normal");
+                // TODO: Botones de movimiento de player 1 izquierda player 2 derecha
+            }
+
 
             yield return null;
         }
 
         playeUI.continueText.ResetTrigger("fadeIn");
+        playeUI.selectUpgradeText.SetTrigger("fadeOut");
+
         while (round.timeToFadeUpgradeOutCur > 0)
         {
             playeUI.SetLateralPanelsAnimation(false, 700);
             playeUI.SetTopPanelsAnimation(false, 600);
             playeUI.continueText.SetTrigger("fadeOut");
             // TODO: Tener otro panel que solo tenga los logos y cuando se muestre empezar la partida
+
+
 
             round.timeToFadeUpgradeOutCur -= Time.deltaTime;
             yield return null;
@@ -193,15 +212,16 @@ public class BattleSystem : MonoBehaviour
         
         round.timeCur = round.timeMax;
 
-        float healhPlayer1 = (float) gameManager.playerManager[0].GetHealth() / (float) gameManager.playerManager[0].GetHealthMax() * 100;
+        float healhPlayer1 = (float)gameManager.playerManager[0].GetHealth() / (float)gameManager.playerManager[0].GetHealthMax() * 100;
         Debug.Log("Vida Player 1: " + healhPlayer1);
-        float healhPlayer2 = (float) gameManager.playerManager[1].GetHealth() / (float) gameManager.playerManager[1].GetHealthMax() * 100;
+        float healhPlayer2 = (float)gameManager.playerManager[1].GetHealth() / (float)gameManager.playerManager[1].GetHealthMax() * 100;
         Debug.Log("Vida Player 2: " + healhPlayer2);
 
         if (healhPlayer1 > healhPlayer2)
         {
             round.roundsWinPlayer1++;
             playeUI.leftPlayer.SetWinPlayer(round.roundsWinPlayer1);
+
             lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.roundsWin++;
             lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.roundsLose++;
 
@@ -212,6 +232,7 @@ public class BattleSystem : MonoBehaviour
         {
             round.roundsWinPlayer2++;
             playeUI.rightPlayer.SetWinPlayer(round.roundsWinPlayer2);
+
             lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.roundsLose++;
             lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.roundsWin++;
 
@@ -226,14 +247,9 @@ public class BattleSystem : MonoBehaviour
 
         if (round.roundsWinPlayer1 == 2 || round.roundsWinPlayer2 == 2)
         {
-                //Mostrar Ganador y puntuacion
-                //Mostrar boton para continuar
-                //volver menu
             Invoke("WinPlayer", 1);
             Invoke("Fade", 4);
-            Invoke("GoToMenu", 6);
-
-
+            Invoke("GoToMenu", 7);
         }
         else
         {
@@ -275,4 +291,27 @@ public class BattleSystem : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
+
+    //--------------- Upgrades -----------------//
+
+    public void UpgradePlayer1(int upgrade)
+    {
+        switch (upgrade)
+        {
+            case 0: GameManager.instance.playerManager[0].Upgrade1(); break;
+            case 1: GameManager.instance.playerManager[0].Upgrade2(); break;
+            case 2: GameManager.instance.playerManager[0].Upgrade3(); break;
+        }
+    }
+
+    public void UpgradePlayer2(int upgrade)
+    {
+        switch (upgrade)
+        {
+            case 0: GameManager.instance.playerManager[1].Upgrade1(); break;
+            case 1: GameManager.instance.playerManager[1].Upgrade2(); break;
+            case 2: GameManager.instance.playerManager[1].Upgrade3(); break;
+        }
+    }
+
 }
