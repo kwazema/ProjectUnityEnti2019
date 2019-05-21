@@ -193,8 +193,10 @@ public class BattleSystem : MonoBehaviour
         
         round.timeCur = round.timeMax;
 
-        float healhPlayer1 = gameManager.playerManager[0].GetHealth() / gameManager.playerManager[0].GetHealthMax() * 100;
-        float healhPlayer2 = gameManager.playerManager[1].GetHealth() / gameManager.playerManager[1].GetHealthMax() * 100;
+        float healhPlayer1 = (float) gameManager.playerManager[0].GetHealth() / (float) gameManager.playerManager[0].GetHealthMax() * 100;
+        Debug.Log("Vida Player 1: " + healhPlayer1);
+        float healhPlayer2 = (float) gameManager.playerManager[1].GetHealth() / (float) gameManager.playerManager[1].GetHealthMax() * 100;
+        Debug.Log("Vida Player 2: " + healhPlayer2);
 
         if (healhPlayer1 > healhPlayer2)
         {
@@ -232,7 +234,6 @@ public class BattleSystem : MonoBehaviour
             Invoke("GoToMenu", 6);
 
 
-            GameManager.instance.SaveStringToFile(lc);
         }
         else
         {
@@ -257,6 +258,7 @@ public class BattleSystem : MonoBehaviour
             lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.gamesLose++;
             lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.gamesWin++;
         }
+        GameManager.instance.SaveStringToFile(lc);
     }
     
     void Fade()

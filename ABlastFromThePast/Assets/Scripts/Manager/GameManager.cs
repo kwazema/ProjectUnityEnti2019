@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour {
         return listCharacters;
     }
 
-    IEnumerator SaveFile()
+    IEnumerator SaveFile(string jsonString)
     {
         FileInfo fileInfo = new FileInfo(filePathPersistent);
 
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour {
             yield return new WaitForSeconds(0.05f);
         }
 
-        File.WriteAllText(filePathPersistent, jsonData);
+        File.WriteAllText(filePathPersistent, jsonString);
     }
 
     bool IsFileLocked(FileInfo file)
@@ -136,12 +136,12 @@ public class GameManager : MonoBehaviour {
         {
             // Parseamos el string a json
             //File.WriteAllText(filePathPersistent, jsonString);
-            File.WriteAllText(filePathPersistent, jsonData);
+            File.WriteAllText(filePathPersistent, jsonString);
         }
         else
         {
             File.CreateText(filePathPersistent);
-            StartCoroutine(SaveFile());
+            StartCoroutine(SaveFile(jsonString));
         }
     }
 
