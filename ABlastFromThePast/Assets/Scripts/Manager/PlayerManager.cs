@@ -158,7 +158,7 @@ public class PlayerManager : MonoBehaviour
     protected bool isUpgraded_skill = false;
     protected bool isUpgraded_ult = false;
 
-    protected string[] upgrade_description;
+    protected string[] upgrade_description = new string[3];
 
     // Le pasas por parametro que descripcion quieres conseguir. El rango de valores va 
     // desde el 0 hasta el 2.
@@ -271,22 +271,14 @@ public class PlayerManager : MonoBehaviour
         {
             GameObject.Find(name + "/BodyCollider").layer = 11;
 
-            // -------------------------------------------------- //
-
             hitmarker_color.color = Color.blue;
-
-            // -------------------------------------------------- //
 
             player_to_attack = 1;
         }
         else {
             GameObject.Find(name + "/BodyCollider").layer = 12;
 
-            // -------------------------------------------------- //
-
             hitmarker_color.color = Color.red;
-
-            // -------------------------------------------------- //
 
             player_to_attack = 0;
         }
@@ -311,6 +303,7 @@ public class PlayerManager : MonoBehaviour
         shield_max = listCharacters.characterStats[index].shieldMax;
 
         damageBasicAttack = listCharacters.characterStats[index].damageBasicAttack;
+        Debug.Log("damageBasicAttack: " + damageBasicAttack + " " + namePlayer);
         damageSkill = listCharacters.characterStats[index].damageSkill;
         damageUltimate = listCharacters.characterStats[index].damageUltimate;
 
@@ -589,13 +582,17 @@ public class PlayerManager : MonoBehaviour
     {
         DeployParticles(Particles.Hit);
 
-        if (thisPlayerIs == ThisPlayerIs.Player1)
+        int dmg;
+
+        if (thisPlayerIs == ThisPlayerIs.Player2)
         {
-            game_manager.playerManager[0].TakeDamage(GetDamageBasicAttack());
+            dmg = game_manager.playerManager[0].GetDamageBasicAttack();
+            game_manager.playerManager[1].TakeDamage(dmg);
         }
         else
         {
-            game_manager.playerManager[1].TakeDamage(GetDamageBasicAttack());
+            dmg = game_manager.playerManager[1].GetDamageBasicAttack();
+            game_manager.playerManager[0].TakeDamage(dmg);
         }
     }
 

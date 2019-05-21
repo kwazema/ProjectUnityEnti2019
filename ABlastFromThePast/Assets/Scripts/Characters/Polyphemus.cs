@@ -50,7 +50,7 @@ public class Polyphemus : PlayerManager
         // -------------------------------------------------- //
 
         casting_ult = 1.5f;
-        duration_skill = 3.5f;
+        duration_skill = 4.5f;
 
         // -------------------------------------------------- //
 
@@ -144,7 +144,7 @@ public class Polyphemus : PlayerManager
         int oldDamage = damageBasicAttack;
 
         // Cambiamos el daño al nuevo valor;
-        damageBasicAttack *= dmg;
+        damageBasicAttack += dmg;
 
         float time_cur = 0;
         while (time_cur < time)
@@ -232,13 +232,12 @@ public class Polyphemus : PlayerManager
 
 
                     if (map.blocks[pos_x, pos_y2].GetPlayerStatsBlock((int)thisPlayerIs) != null)
-                        map.blocks[pos_x, pos_y2].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
-
+                        map.blocks[pos_x, pos_y2].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageUltimate());
                 }
             }
 
             if (map.blocks[pos_x, pos_y].GetPlayerStatsBlock((int)thisPlayerIs) != null)
-                map.blocks[pos_x, pos_y].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageSkill());
+                map.blocks[pos_x, pos_y].GetPlayerStatsBlock((int)thisPlayerIs).TakeDamage(GetDamageUltimate());
 
             yield return new WaitForSeconds(time);
             map.ColorBlocks(pos_x, pos_y, Color.white);

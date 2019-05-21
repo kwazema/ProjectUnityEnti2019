@@ -61,7 +61,7 @@
       "shieldMax": 50,
       "nameSkill": "Rage Up",
       "descSkill": "Fuels himself with Rage and it's basic attacks damage is increased during a short amount of time.",
-      "damageSkill": 2,
+      "damageSkill": 4,
       "skillCD": 4.0,
       "nameUltimate": "Earthquake",
       "descUltimate": "Casts the Power of Gaia to affect the row he's at, dealing 80 damage.",
