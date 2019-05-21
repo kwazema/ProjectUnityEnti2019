@@ -246,6 +246,9 @@ public class PlayerManager : MonoBehaviour
         //particle = GameObject.Find(name + "/DieParticle").GetComponent<ParticleSystem>();
 
         LoadStatsFile();
+
+        upgrade_description[0] = "You get " + upgrade_health + " points of extra health and "
+                        + upgrade_shield + " points of extra shield.";
     }
 
     protected virtual void Start()
@@ -285,8 +288,7 @@ public class PlayerManager : MonoBehaviour
 
         // -------------------------------------------------- //
 
-        upgrade_description[0] = "You get " + upgrade_health + " points of extra health and "
-                          + upgrade_shield + " points of extra shield.";
+      
     }
 
     private void LoadStatsFile()

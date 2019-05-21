@@ -17,6 +17,10 @@ public class Minos : PlayerManager
     {
         index = 1; 
         base.Awake();
+
+        upgrade_description[1] = "Your skill gets " + upgrade_castingSkill +
+                                 " seconds less of casting time and " + upgrade_damageSkill + " extra damage.";
+        upgrade_description[2] = "You hit " + upgrade_maxBlocks + " blocks with the ultimate.";
     }
 
     // Use this for initialization
@@ -66,9 +70,7 @@ public class Minos : PlayerManager
 
         // -------------------------------------------------- //
 
-        upgrade_description[1] = "Your skill gets " + upgrade_castingSkill +
-                                 " seconds less of casting time and " + upgrade_damageSkill + " extra damage.";
-        upgrade_description[2] = "You hit " + upgrade_maxBlocks + " blocks with the ultimate.";
+        
     }
 
     protected override void Update()

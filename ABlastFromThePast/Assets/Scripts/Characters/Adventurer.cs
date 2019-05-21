@@ -13,6 +13,9 @@ public class Adventurer : PlayerManager {
     {
         index = 3;
         base.Awake();
+
+        upgrade_description[1] = "Your skill affects in a cross area.";
+        upgrade_description[2] = "Your ultimate CD (cold down) gets " + upgrade_ultCD + " seconds less.";
     }
 
     // Use this for initialization
@@ -65,8 +68,12 @@ public class Adventurer : PlayerManager {
 
         // -------------------------------------------------------------- //
 
-        upgrade_description[1] = "Your skill affects in a cross area.";
-        upgrade_description[2] = "Your ultimate CD (cold down) gets " + upgrade_ultCD + " seconds less.";
+        
+
+
+        Debug.Log("0: " + upgrade_description[0]);
+        Debug.Log("1: " + upgrade_description[1]);
+        Debug.Log("2: " + upgrade_description[2]);
     }
 
     // Update is called once per frame

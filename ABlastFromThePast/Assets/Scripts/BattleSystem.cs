@@ -79,6 +79,10 @@ public class BattleSystem : MonoBehaviour
 
         if (round.roundCur != 0)
 
+
+        gameManager.playerManager[0].anim.SetBool("attack", false);
+        gameManager.playerManager[1].anim.SetBool("attack", false);
+
         gameManager.playerManager[0].SetPlayerPos();
         gameManager.playerManager[1].SetPlayerPos();
 

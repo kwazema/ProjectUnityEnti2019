@@ -20,6 +20,10 @@ public class Santa : PlayerManager {
     {
         index = 0; 
         base.Awake();
+
+        upgrade_description[1] = "Your skill deals " + upgrade_damageSkill + " points of extra damage and moves the enemy " +
+                          upgrade_blocksMove + " block the enemy position.";
+        upgrade_description[2] = "Your ultimate damage increases in " + upgrade_damageUlt + " points.";
     }
 
     // Use this for initialization
@@ -79,9 +83,7 @@ public class Santa : PlayerManager {
 
         // -------------------------------------------------- //
 
-        upgrade_description[1] = "Your skill deals " + upgrade_damageSkill + " points of extra damage and moves the enemy " + 
-                                  upgrade_blocksMove + " block the enemy position.";
-        upgrade_description[2] = "Your ultimate damage increases in " + upgrade_damageUlt + " points.";
+
     }
 
     // Update is called once per frame
