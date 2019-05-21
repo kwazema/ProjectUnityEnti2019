@@ -35,6 +35,8 @@ public class BattleSystem : MonoBehaviour
     private PlayeUI playeUI;
     private Map map;
 
+    public ListCharacters lc;
+
     private void Awake()
     {
         map = FindObjectOfType<Map>();
@@ -57,6 +59,8 @@ public class BattleSystem : MonoBehaviour
         AudioManager.instance.Stop("MusicMenu03");
         AudioManager.instance.Stop("MusicMenu04");
         AudioManager.instance.Stop("MusicMenu05");
+
+        lc = GameManager.instance.LoadFileToString();
     }
     //private void Update () { }
 
@@ -196,11 +200,21 @@ public class BattleSystem : MonoBehaviour
         {
             round.roundsWinPlayer1++;
             playeUI.leftPlayer.SetWinPlayer(round.roundsWinPlayer1);
+            lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.roundsWin++;
+            lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.roundsLose++;
+
+            Debug.Log(lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.roundsWin);
+            Debug.Log(lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.roundsWin);
         }
         else if (healhPlayer1 < healhPlayer2)
         {
             round.roundsWinPlayer2++;
             playeUI.rightPlayer.SetWinPlayer(round.roundsWinPlayer2);
+            lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.roundsLose++;
+            lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.roundsWin++;
+
+            Debug.Log(lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.roundsWin);
+            Debug.Log(lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.roundsWin);
         }
         else if (healhPlayer1 == healhPlayer2)
         {
@@ -217,6 +231,8 @@ public class BattleSystem : MonoBehaviour
             Invoke("Fade", 4);
             Invoke("GoToMenu", 6);
 
+
+            GameManager.instance.SaveStringToFile(lc);
         }
         else
         {
@@ -232,10 +248,14 @@ public class BattleSystem : MonoBehaviour
         if (round.roundsWinPlayer1 > round.roundsWinPlayer2)
         {
             playeUI.leftPlayer.WinGame.SetActive(true);
+            lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.gamesWin++;
+            lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.gamesLose++;
         }
         else
         {
             playeUI.rightPlayer.WinGame.SetActive(true);
+            lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.gamesLose++;
+            lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.gamesWin++;
         }
     }
     
