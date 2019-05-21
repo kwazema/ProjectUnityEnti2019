@@ -29,6 +29,7 @@ public class Statistics : MonoBehaviour
 
     //Array para guardar las partidas ganadas
     public int[] games;
+    public int[] selected;
 
     //GAMEOBJECTS para setear al normal
     public GameObject rankMenu;
@@ -39,6 +40,7 @@ public class Statistics : MonoBehaviour
     {
         charactersList = GameManager.instance.LoadFileToString();
         games = new int[4];
+        selected = new int[4];
 
         AssociatePosition();
     }
@@ -49,7 +51,9 @@ public class Statistics : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             games[i] = charactersList.characterStats[i].gameStats.gamesWin;
+            selected[i] = 0;
         }
+
 
         System.Array.Sort(games);
 
@@ -59,10 +63,10 @@ public class Statistics : MonoBehaviour
         {
             for (int k = 0; k < 4; k++)
             {
-                if (charactersList.characterStats[k].gameStats.gamesWin == games[j - 1])
+                if ((charactersList.characterStats[k].gameStats.gamesWin == games[j - 1]) && (selected[k] != 1))
                 {
                     ranking.text += "\n" + charactersList.characterStats[k].name + " Wins: " + games[j - 1];
-
+                    selected[k] = 1;
                     switch (assigned)
                     {
                         case 0:
