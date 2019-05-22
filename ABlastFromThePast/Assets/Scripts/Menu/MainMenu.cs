@@ -116,6 +116,15 @@ public class MainMenu : MonoBehaviour {
         eventSystem.SetSelectedGameObject(GameObject.Find("Button")); // Selecciona un nuevo boton
     }
 
+    public void Stadistics()
+    {
+        eventSystem.SetSelectedGameObject(GameObject.Find("LibraryButtonSanta")); // Selecciona un nuevo boton
+    }
+
+    public void BackToQuit()
+    {
+        eventSystem.SetSelectedGameObject(GameObject.Find("QuitButton")); // Selecciona un nuevo boton
+    }
 
     public void Quit()
     {

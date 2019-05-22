@@ -26,7 +26,7 @@ public class BattleChoose : MonoBehaviour
 
         gameManager = FindObjectOfType<GameManager>();
         fade = FindObjectOfType<FadeImage>();
-        button = InstantiateButtons(12, 6, new Vector2(-6.5f, 1), 1.5f, 1.2f, 1);
+        button = InstantiateButtons(12, 6, new Vector2(-6.5f, 0.8f), 1.5f, 1.85f, 1);
     }
 
     void Start () {
@@ -50,6 +50,11 @@ public class BattleChoose : MonoBehaviour
                 loadScene = true;
             }
         }
+    }
+
+    private void LateUpdate()
+    {
+        
     }
 
     public void Play()

@@ -34,10 +34,15 @@ public class PlayerReferences
     public Text upgrade02;
     public Text upgrade03;
 
+    public Button buttonUpgrade01;
+    public Button buttonUpgrade02;
+    public Button buttonUpgrade03;
+
     public GameObject win1;
     public GameObject win2;
 
     public GameObject WinGame;
+
 
     private float damageFadeTimerCur;
     private float damageFadeTimerMax = 1.3f;
@@ -126,7 +131,7 @@ public class PlayerReferences
         if (skillBar.fillAmount > 0.99f)
             transparency.a = 1f;
         else
-            transparency.a = .3f;
+            transparency.a = .5f;
 
         skillBar.color = transparency;
 
@@ -148,7 +153,7 @@ public class PlayerReferences
         if (ultimateBar.fillAmount > 0.99f)
             transparency.a = 1f;
         else
-            transparency.a = .3f;
+            transparency.a = .5f;
 
         ultimateBar.color = transparency;
 
@@ -170,7 +175,7 @@ public class PlayerReferences
         if (shielBar.fillAmount > 0.99f)
             transparency.a = 1f;
         else
-            transparency.a = .3f;
+            transparency.a = .5f;
 
         shielBar.color = transparency;
     }

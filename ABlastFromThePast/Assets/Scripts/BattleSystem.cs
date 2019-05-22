@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 [System.Serializable]
 public class Round
@@ -36,6 +37,7 @@ public class BattleSystem : MonoBehaviour
     private Map map;
 
     public ListCharacters lc;
+    public EventSystem eventSystem;
 
     private void Awake()
     {
@@ -62,7 +64,54 @@ public class BattleSystem : MonoBehaviour
 
         lc = GameManager.instance.LoadFileToString();
     }
-    //private void Update () { }
+
+    private string lastSelectect;
+
+    private void Update ()
+    {
+        //// Si mueves el raton pierdes el focus del boton
+        //if (Input.GetAxis("Mouse X") < 0 || Input.GetAxis("Mouse X") > 0)
+        //{
+        //    eventSystem.SetSelectedGameObject(null); // Desseleccionar boton
+
+        //    if (Cursor.visible == false)
+        //    {
+        //        Cursor.visible = true;
+        //        Cursor.lockState = CursorLockMode.None;
+        //    }
+        //}
+
+        ////Muentras no sea null y se haya cambiado el boton te guarda el string
+        //if (eventSystem.currentSelectedGameObject != null)
+        //{
+        //    if (lastSelectect != eventSystem.currentSelectedGameObject.name)
+        //    {
+        //        lastSelectect = eventSystem.currentSelectedGameObject.name;
+        //    }
+        //}
+
+        //if (Input.GetButtonDown("Pause0") || Input.GetButtonDown("Pause1"))
+        //{
+        //    eventSystem.SetSelectedGameObject(GameObject.Find("Button")); // Selecciona un nuevo boton
+        //}
+
+        ////Si usas las teclas y no tienes los focus te hace auto focus al ultimo boton 
+        //if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical") || Input.GetAxisRaw("Joy0Y") != 0 || Input.GetAxisRaw("Joy0X") != 0 || Input.GetAxisRaw("Joy1Y") != 0 || Input.GetAxisRaw("Joy1X") != 0)
+        //{
+        //    if (Cursor.visible == true)
+        //    {
+        //        Cursor.visible = false;
+        //        Cursor.lockState = CursorLockMode.Locked;
+        //    }
+
+        //    if (eventSystem.currentSelectedGameObject == null)
+        //    {
+        //        eventSystem.SetSelectedGameObject(GameObject.Find(lastSelectect)); // Selecciona un nuevo boton
+        //    }
+        //}
+    }
+
+
 
     public void StartBattle()
     {
@@ -76,9 +125,9 @@ public class BattleSystem : MonoBehaviour
 
         //gameManager.playerManager[0].ResetCharacter();
         //gameManager.playerManager[1].ResetCharacter();
+        eventSystem.SetSelectedGameObject(GameObject.Find("uppgrade01p1")); // Selecciona un nuevo boton
 
         if (round.roundCur != 0)
-
 
         gameManager.playerManager[0].anim.SetBool("attack", false);
         gameManager.playerManager[1].anim.SetBool("attack", false);
@@ -101,12 +150,12 @@ public class BattleSystem : MonoBehaviour
 
             // Imprimit tiempo pantalla
             playeUI.SetLateralPanelsAnimation(true, 500);
-            playeUI.SetTopPanelsAnimation(false, 600);
+            playeUI.SetTopPanelsAnimation(false, 700);
             playeUI.SetLateralPanelsIconAnimation(false, 200);
             playeUI.selectUpgradeText.SetTrigger("fadeIn");
             playeUI.selectUpgradeText.SetTrigger("normal");
 
-            if (timeForSelectUpgrade < 0 /* Cuando se hayan escoguido las habilidades se puede empezar */)
+            if (selectPlayer1 && selectPlayer2)
             {
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetButton("Start0") || Input.GetButton("Start1"))
                     stop = true;
@@ -122,13 +171,16 @@ public class BattleSystem : MonoBehaviour
             yield return null;
         }
 
+        selectPlayer1 = false;
+        selectPlayer2 = false;
+
         playeUI.continueText.ResetTrigger("fadeIn");
         playeUI.selectUpgradeText.SetTrigger("fadeOut");
 
         while (round.timeToFadeUpgradeOutCur > 0)
         {
             playeUI.SetLateralPanelsAnimation(false, 700);
-            playeUI.SetTopPanelsAnimation(false, 600);
+            playeUI.SetTopPanelsAnimation(false, 500);
             playeUI.continueText.SetTrigger("fadeOut");
             // TODO: Tener otro panel que solo tenga los logos y cuando se muestre empezar la partida
 
@@ -192,17 +244,17 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator TimeRound()
     {
-        AudioManager.instance.Play("Fight");
 
         round.timeCur = round.timeMax;
 
         gameManager.playerManager[0].ResetCharacter();
         gameManager.playerManager[1].ResetCharacter();
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
 
         gameManager.playerManager[0].SetPlayerInputs(true);
         gameManager.playerManager[1].SetPlayerInputs(true);
+        AudioManager.instance.Play("Fight");
 
         //Comprobar si algun persnaje muere si el que gane se lleva round win
         while (round.timeCur >= 0 && gameManager.playerManager[0].GetHealth() > 0 && gameManager.playerManager[1].GetHealth() > 0)
@@ -298,24 +350,58 @@ public class BattleSystem : MonoBehaviour
 
     //--------------- Upgrades -----------------//
 
+    public bool selectPlayer1, selectPlayer2;
+
     public void UpgradePlayer1(int upgrade)
     {
-        switch (upgrade)
+        if (!selectPlayer1)
         {
-            case 0: GameManager.instance.playerManager[0].Upgrade1(); break;
-            case 1: GameManager.instance.playerManager[0].Upgrade2(); break;
-            case 2: GameManager.instance.playerManager[0].Upgrade3(); break;
+            switch (upgrade)
+            {
+                case 0:
+                    GameManager.instance.playerManager[0].Upgrade1();
+                    playeUI.leftPlayer.buttonUpgrade01.interactable = false;
+                    break;
+
+                case 1:
+                    GameManager.instance.playerManager[0].Upgrade2();
+                    playeUI.leftPlayer.buttonUpgrade02.interactable = false;
+                    break;
+
+                case 2:
+                    GameManager.instance.playerManager[0].Upgrade3();
+                    playeUI.leftPlayer.buttonUpgrade03.interactable = false;
+                    break;
+            }
         }
+
+        selectPlayer1 = true;
+        eventSystem.SetSelectedGameObject(GameObject.Find("uppgrade01p2")); // Selecciona un nuevo boton
     }
 
     public void UpgradePlayer2(int upgrade)
     {
-        switch (upgrade)
+        if (!selectPlayer2)
         {
-            case 0: GameManager.instance.playerManager[1].Upgrade1(); break;
-            case 1: GameManager.instance.playerManager[1].Upgrade2(); break;
-            case 2: GameManager.instance.playerManager[1].Upgrade3(); break;
-        }
-    }
+            switch (upgrade)
+            {
+                case 0:
+                    GameManager.instance.playerManager[1].Upgrade1();
+                    playeUI.rightPlayer.buttonUpgrade01.interactable = false;
+                    break;
 
+                case 1:
+                    GameManager.instance.playerManager[1].Upgrade2();
+                    playeUI.rightPlayer.buttonUpgrade02.interactable = false;
+                    break;
+
+                case 2:
+                    GameManager.instance.playerManager[1].Upgrade3();
+                    playeUI.rightPlayer.buttonUpgrade03.interactable = false;
+                    break;
+            }
+        }
+
+        selectPlayer2 = true;
+    }
 }

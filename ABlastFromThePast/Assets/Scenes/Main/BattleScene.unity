@@ -1387,7 +1387,7 @@ GameObject:
   - component: {fileID: 169207138}
   - component: {fileID: 169207137}
   m_Layer: 5
-  m_Name: uppgrade03
+  m_Name: uppgrade03p1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1426,7 +1426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1436,7 +1436,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 0.2509804}
     m_PressedColor: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 0.5019608}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.34082413, g: 0.4043834, b: 0.6509434, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -4122,6 +4122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GO_Canvas: {fileID: 501605950}
   myCanvas: {fileID: 501605953}
+  eventSystem: {fileID: 2041795716}
 --- !u!1 &540767977
 GameObject:
   m_ObjectHideFlags: 0
@@ -5424,7 +5425,7 @@ GameObject:
   - component: {fileID: 744691046}
   - component: {fileID: 744691045}
   m_Layer: 5
-  m_Name: uppgrade01
+  m_Name: uppgrade01p2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5463,7 +5464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -5473,7 +5474,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 0.2509804}
     m_PressedColor: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 0.5019608}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.6981132, g: 0.32016504, b: 0.30624774, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -6245,6 +6246,9 @@ MonoBehaviour:
     upgrade01: {fileID: 597070186}
     upgrade02: {fileID: 1490939502}
     upgrade03: {fileID: 1779922879}
+    buttonUpgrade01: {fileID: 863202590}
+    buttonUpgrade02: {fileID: 1470077000}
+    buttonUpgrade03: {fileID: 169207137}
     win1: {fileID: 938213146}
     win2: {fileID: 134549996}
     WinGame: {fileID: 1183693304}
@@ -6265,6 +6269,9 @@ MonoBehaviour:
     upgrade01: {fileID: 886407037}
     upgrade02: {fileID: 37080125}
     upgrade03: {fileID: 404790149}
+    buttonUpgrade01: {fileID: 744691045}
+    buttonUpgrade02: {fileID: 1033858357}
+    buttonUpgrade03: {fileID: 1649763460}
     win1: {fileID: 402381996}
     win2: {fileID: 1916201130}
     WinGame: {fileID: 784668021}
@@ -6604,7 +6611,7 @@ GameObject:
   - component: {fileID: 863202592}
   - component: {fileID: 863202591}
   m_Layer: 5
-  m_Name: uppgrade01
+  m_Name: uppgrade01p1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6643,7 +6650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -6653,7 +6660,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 0.2509804}
     m_PressedColor: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 0.5019608}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.34082413, g: 0.4043834, b: 0.6509434, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -7881,7 +7888,7 @@ GameObject:
   - component: {fileID: 1033858358}
   - component: {fileID: 1033858357}
   m_Layer: 5
-  m_Name: uppgrade02
+  m_Name: uppgrade02p2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7920,7 +7927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -7930,7 +7937,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 0.2509804}
     m_PressedColor: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 0.5019608}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.6981132, g: 0.32016504, b: 0.30624774, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -9723,7 +9730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1415595733
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10131,7 +10138,7 @@ GameObject:
   - component: {fileID: 1470077001}
   - component: {fileID: 1470077000}
   m_Layer: 5
-  m_Name: uppgrade02
+  m_Name: uppgrade02p1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10170,7 +10177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -10180,7 +10187,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 0.2509804}
     m_PressedColor: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 0.5019608}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.34082413, g: 0.4043834, b: 0.6509434, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -10737,6 +10744,9 @@ MonoBehaviour:
     roundMax: 3
   lc:
     characterStats: []
+  eventSystem: {fileID: 2041795716}
+  selectPlayer1: 0
+  selectPlayer2: 0
 --- !u!1 &1531669876
 GameObject:
   m_ObjectHideFlags: 0
@@ -11587,7 +11597,7 @@ GameObject:
   - component: {fileID: 1649763461}
   - component: {fileID: 1649763460}
   m_Layer: 5
-  m_Name: uppgrade03
+  m_Name: uppgrade03p2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11626,7 +11636,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 2
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -11636,7 +11646,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
     m_HighlightedColor: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 0.2509804}
     m_PressedColor: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 0.5019608}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.6981132, g: 0.32016504, b: 0.30624774, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -13036,7 +13046,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1787825360
 RectTransform:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 
 public class GoToMenu : MonoBehaviour {
@@ -11,7 +12,7 @@ public class GoToMenu : MonoBehaviour {
     public Canvas myCanvas;
     bool active = false;
     private FadeImage fade;
-
+    public EventSystem eventSystem;
     private void Awake()
     {
        // fade = FindObjectOfType<FadeImage>();
@@ -35,14 +36,15 @@ public class GoToMenu : MonoBehaviour {
         Time.timeScale = 1;
         SceneManager.LoadScene("Menu");
     }
-
+        
     private void Update()
     {
-        
+
+
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            
-             if (Time.timeScale == 0)
+            if (Time.timeScale == 0)
                 ClosePauseMenu();
 
             //if (Time.timeScale == 0)

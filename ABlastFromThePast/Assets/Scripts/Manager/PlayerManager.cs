@@ -493,7 +493,7 @@ public class PlayerManager : MonoBehaviour
         hitted = true;
 
         sprite.color = Color.red;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.08f);
         sprite.color = Color.white;
 
         hitted = false;

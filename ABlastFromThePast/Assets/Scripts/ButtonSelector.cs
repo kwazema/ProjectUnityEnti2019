@@ -13,6 +13,8 @@ public class ButtonSelector : MonoBehaviour {
     public Image image;
     private Button button;
 
+    public GameObject logoPlayer1, logoPlayer2;
+
     public GameObject info, characters;
 
     private BattleChoose battleChoose;
@@ -60,8 +62,10 @@ public class ButtonSelector : MonoBehaviour {
     private void SelectedNone()
     {
         animSelector.SetTrigger("None");
+
+
     }
-    
+
     //-------------------------------------------//
 
     public void SelectAnim()
@@ -108,17 +112,20 @@ public class ButtonSelector : MonoBehaviour {
             {
                 if (battleChoose.numSelected == 0)
                 {
+                    logoPlayer1.SetActive(true);
                     SelectedBlue();
                     // Working: Que se cambie el color del fondo
                     // Working: Añadir una animacion que el boton se haga un poco mas grande
                 }
                 else if (battleChoose.numSelected == 1)
                 {
+                    logoPlayer2.SetActive(true);
                     SelectedRed();
                 }
             }
             else
             {
+                logoPlayer2.SetActive(true);
                 SelectedBlueRed();
             }
         }
@@ -134,10 +141,13 @@ public class ButtonSelector : MonoBehaviour {
         {
             if (!buttonSelected)
             {
+                logoPlayer1.SetActive(false);
+                logoPlayer2.SetActive(false);
                 SelectedNone();
             }
             else
             {
+                logoPlayer2.SetActive(false);
                 SelectedBlue();
             }       
         }
