@@ -19,8 +19,10 @@ public class Polyphemus : PlayerManager
         index = 2;
         base.Awake();
 
-        upgrade_description[1] = "Your skill gets " + upgrade_durationSkill + " seconds time longer.";
-        upgrade_description[2] = "Your ultimate affects 2 blocks rows, but you don't know what rows will be.";
+        upgrade_durationSkill = 2f;
+
+        upgrade_description[1] = "Your skill gets " + upgrade_durationSkill.ToString() + " seconds longer.";
+        upgrade_description[2] = "Your ultimate affects 2 random rows.";
     }
 
     // Use this for initialization
@@ -57,7 +59,7 @@ public class Polyphemus : PlayerManager
 
         // -------------------------------------------------- //
 
-        upgrade_durationSkill = 2f;
+
 
         // -------------------------------------------------- //
 
@@ -73,10 +75,6 @@ public class Polyphemus : PlayerManager
             last_block = -1;
             direction = -1;
         }
-
-        // -------------------------------------------------- //
-
-        
     }
 
     protected override void Update()

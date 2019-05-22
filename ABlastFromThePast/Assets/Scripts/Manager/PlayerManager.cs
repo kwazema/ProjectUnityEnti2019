@@ -247,8 +247,8 @@ public class PlayerManager : MonoBehaviour
 
         LoadStatsFile();
 
-        upgrade_description[0] = "You get " + upgrade_health + " points of extra health and "
-                        + upgrade_shield + " points of extra shield.";
+        upgrade_description[0] = "You get " + upgrade_health.ToString() + " extra health and "
+                        + upgrade_shield.ToString() + " extra shield.";
     }
 
     protected virtual void Start()
