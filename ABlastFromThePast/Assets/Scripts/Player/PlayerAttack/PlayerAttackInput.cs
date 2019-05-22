@@ -37,6 +37,9 @@ public class PlayerAttackInput : MonoBehaviour
         playerManager[1] = gameManager.playerManager[1];
 
         numPlayer = (int)enumPlayer;
+
+        if (numPlayer == 1)
+            playerManager[numPlayer].floatingText.GetComponent<Transform>().transform.Rotate(0, 180, 0);
     }
 
     void Update()
@@ -99,6 +102,7 @@ public class PlayerAttackInput : MonoBehaviour
         {
             playerManager[numPlayer].AnimReflectShield();
         }
+
     }
 
     private void GetInputPlayer2()
@@ -132,7 +136,8 @@ public class PlayerAttackInput : MonoBehaviour
 
         // ----------------------- //
 
-        if (!is_skillOn && !is_ultOn) {
+        if (!is_skillOn && !is_ultOn)
+        {
             if (Input.GetButton("Shield1") && !playerManager[1].GetShieldState() && !playerManager[1].GetIsShootting())
                 ActiveShield();
             else
@@ -141,6 +146,7 @@ public class PlayerAttackInput : MonoBehaviour
 
         if (Input.GetButtonDown("Shield1") && !playerManager[1].GetShieldState() && !playerManager[1].GetIsShootting())
         {
+            playerManager[numPlayer].AnimReflectShield();
         }
     }
 
@@ -176,14 +182,21 @@ public class PlayerAttackInput : MonoBehaviour
 
     private void ActiveShield()
     {
+
+
+
+        playerManager[numPlayer].floatingText.SetActive(true);
         playerManager[numPlayer].SetIsShieldActive(true);
         shieldRender.enabled = true;
         playerManager[numPlayer].AnimReflectShield();
+
+
 
     }
 
     private void DeactivateShield()
     {
+        playerManager[numPlayer].floatingText.SetActive(false);
         playerManager[numPlayer].SetIsShieldActive(false);
         shieldRender.enabled = false;
     }

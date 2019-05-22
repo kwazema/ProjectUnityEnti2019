@@ -340,7 +340,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1325922399976486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.944185, y: 20.028234, z: 0}
+  m_LocalPosition: {x: 19.486086, y: 17.313955, z: 0}
   m_LocalScale: {x: 16.588116, y: 16.588144, z: 16.588144}
   m_Children:
   - {fileID: 4958460883844664}
@@ -442,7 +442,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1604981717556526}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.019, y: 0.241, z: 5.845741}
+  m_LocalPosition: {x: 0.014, y: 0.204, z: 0}
   m_LocalScale: {x: 0.06028412, y: 0.060284015, z: -0.30142006}
   m_Children: []
   m_Father: {fileID: 4607682654719020}
@@ -463,7 +463,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: a87150face1349c4a9528b6515f83291, type: 3}
+  - {fileID: 2100000, guid: ef6441ec95c9edd4db7b044d745bf120, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -621,17 +621,17 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1604981717556526}
-  m_Text: 0
+  m_Text: 50
   m_OffsetZ: 0
-  m_CharacterSize: 1
+  m_CharacterSize: 0.04
   m_LineSpacing: 1
   m_Anchor: 1
   m_Alignment: 0
-  m_TabSize: 4
-  m_FontSize: 0
+  m_TabSize: 5
+  m_FontSize: 200
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: a87150face1349c4a9528b6515f83291, type: 3}
+  m_Font: {fileID: 12800000, guid: ef6441ec95c9edd4db7b044d745bf120, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294909952
@@ -773,6 +773,8 @@ MonoBehaviour:
   is_ultimate_ready: 0
   whichIsThisPlayer: 0
   namePlayer: Santa
+  floatingTextShield: {fileID: 102197269785895796}
+  floatingText: {fileID: 1604981717556526}
 --- !u!198 &198122855308613254
 ParticleSystem:
   m_ObjectHideFlags: 1

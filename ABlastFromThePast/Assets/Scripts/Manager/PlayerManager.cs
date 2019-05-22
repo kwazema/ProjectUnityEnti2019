@@ -247,8 +247,8 @@ public class PlayerManager : MonoBehaviour
 
         LoadStatsFile();
 
-        upgrade_description[0] = "You get " + upgrade_health.ToString() + " extra health and "
-                        + upgrade_shield.ToString() + " extra shield.";
+        upgrade_description[0] = "You get " + upgrade_health + " points of extra health and "
+                        + upgrade_shield + " points of extra shield.";
     }
 
     protected virtual void Start()
@@ -324,6 +324,8 @@ public class PlayerManager : MonoBehaviour
 
     protected virtual void Update()
     {
+        floatingTextShield.text = shield.ToString();
+
         if (shield <= 0)
         {
             StartCoroutine(ShieldRecovery());
@@ -354,7 +356,7 @@ public class PlayerManager : MonoBehaviour
 
         // ----------------------------- //
 
-        AnimReflectShield();
+        //AnimReflectShield();
     }
 
     virtual public IEnumerator ShieldRecovery()
@@ -747,5 +749,11 @@ public class PlayerManager : MonoBehaviour
     public virtual void Upgrade3() { }
 
     #endregion
+
+    // -------- TEXT FLOATING ------- //
+
+    public TextMesh floatingTextShield;
+    public GameObject floatingText;
+
 
 }
