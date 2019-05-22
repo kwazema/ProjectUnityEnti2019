@@ -77,9 +77,14 @@ public class PlayerAttackInput : MonoBehaviour
 
         // ----------------------- //
 
-        if (!playerManager[0].GetIsShootting() && !playerManager[0].GetIsShieldActive() && !is_skillOn) 
+        if (!playerManager[0].GetIsShootting() && !playerManager[0].GetIsShieldActive() && !is_skillOn)
+        {
             if (Input.GetButton("Ultimate0") && playerManager[0].is_ultimate_ready && !playerMove.GetIsMoving()) 
                 UltimateAttack();
+
+            //if (Input.GetAxisRaw("UltimateAxis0") > 0 && playerManager[0].is_ultimate_ready && !playerMove.GetIsMoving())
+            //    UltimateAttack();
+        }
 
         // ----------------------- //
 
@@ -121,6 +126,9 @@ public class PlayerAttackInput : MonoBehaviour
         if (!playerManager[1].GetIsShootting() && !playerManager[1].GetIsShieldActive() && !is_skillOn && !is_ultOn)
             if (Input.GetButton("Ultimate1") && playerManager[1].is_ultimate_ready && !playerMove.GetIsMoving())
                 UltimateAttack();
+
+           //if (Input.GetAxisRaw("UltimateAxis1") > 0 && playerManager[0].is_ultimate_ready && !playerMove.GetIsMoving())
+           //     UltimateAttack();
 
         // ----------------------- //
 

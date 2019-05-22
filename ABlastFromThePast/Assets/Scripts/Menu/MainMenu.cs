@@ -37,11 +37,38 @@ public class MainMenu : MonoBehaviour {
                 lastSelectect = eventSystem.currentSelectedGameObject.name;
             }
         }
-        
-        //Si usas las teclas y no tienes los focus te hace auto focus al ultimo boton 
-        if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
+
+        //dirHorizontal = Input.GetAxisRaw("Joy0X");
+
+        //if (Input.GetKeyDown(KeyCode.A))
+        //    dirHorizontal = -1f;
+
+        //if (Input.GetKeyDown(KeyCode.D))
+        //    dirHorizontal = 1f;
+
+        ////--------------- Direction Vertical --------------- //
+        //if (dirHorizontal == 0)
+        //{
+        //    dirVertical = Input.GetAxisRaw("Joy0Y");
+
+        //    if (Input.GetKeyDown(KeyCode.W))
+        //        dirVertical = 1f;
+
+        //    if (Input.GetKeyDown(KeyCode.S))
+        //        dirVertical = -1f;
+        //}
+
+        //Input.get
+
+        if (Input.GetButtonDown("VerticalJ"))
         {
             Debug.Log("CLICK");
+
+        }
+
+        //Si usas las teclas y no tienes los focus te hace auto focus al ultimo boton 
+        if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical") || Input.GetAxisRaw("Joy0Y") != 0 || Input.GetAxisRaw("Joy0X") != 0 || Input.GetAxisRaw("Joy1Y") != 0 || Input.GetAxisRaw("Joy1X") != 0)
+        {
             if (Cursor.visible == true)
             {
                 Cursor.visible = false;
