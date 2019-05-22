@@ -18,9 +18,17 @@ public class Minos : PlayerManager
         index = 1; 
         base.Awake();
 
-        upgrade_description[1] = "Your skill gets " + upgrade_castingSkill +
-                                 " seconds less of casting time and " + upgrade_damageSkill + " extra damage.";
-        upgrade_description[2] = "You hit " + upgrade_maxBlocks + " blocks with the ultimate.";
+        // -------------------------------------------------- //
+
+        upgrade_castingSkill = -.2f;
+        upgrade_damageSkill = 10;
+        upgrade_maxBlocks = 8;
+
+        // -------------------------------------------------- //
+
+        upgrade_description[1] = "Your skill gets " + upgrade_castingSkill.ToString() +
+                                 " seconds less of casting time and " + upgrade_damageSkill.ToString() + " extra damage.";
+        upgrade_description[2] = "You hit " + upgrade_maxBlocks.ToString() + " extra blocks with the ultimate.";
     }
 
     // Use this for initialization
@@ -63,14 +71,6 @@ public class Minos : PlayerManager
 
         // -------------------------------------------------- //
 
-        upgrade_castingSkill = -.5f;
-        upgrade_damageSkill = 10;
-
-        upgrade_maxBlocks = 4;
-
-        // -------------------------------------------------- //
-
-        
     }
 
     protected override void Update()
@@ -211,7 +211,7 @@ public class Minos : PlayerManager
             is_ultimate_ready = false;
             is_ultimateOn = true;
 
-            StartCoroutine(CastingTime(casting_ult, false));
+            StartCoroutine(CastingTime(casting_ult, true));
         }
     }
 
@@ -267,7 +267,6 @@ public class Minos : PlayerManager
         }
 
         player_att_input.is_ultOn = false;
-
     }
 
     protected override IEnumerator CastingTime(float time_cast, bool value)

@@ -14,8 +14,10 @@ public class Adventurer : PlayerManager {
         index = 3;
         base.Awake();
 
+        upgrade_castingUlt = -2f;
+
         upgrade_description[1] = "Your skill affects in a cross area.";
-        upgrade_description[2] = "Your ultimate CD (cold down) gets " + upgrade_ultCD + " seconds less.";
+        upgrade_description[2] = "Your ultimate CD (cold down) gets " + upgrade_ultCD.ToString() + " seconds less.";
     }
 
     // Use this for initialization
@@ -61,19 +63,6 @@ public class Adventurer : PlayerManager {
         // -------------------------------------------------------------- //
 
         casting_ult = 2f;
-
-        // -------------------------------------------------------------- //
-
-        upgrade_castingUlt = -2f;
-
-        // -------------------------------------------------------------- //
-
-        
-
-
-        Debug.Log("0: " + upgrade_description[0]);
-        Debug.Log("1: " + upgrade_description[1]);
-        Debug.Log("2: " + upgrade_description[2]);
     }
 
     // Update is called once per frame
@@ -216,7 +205,7 @@ public class Adventurer : PlayerManager {
 
             // -------------------------------------------------------------- //
 
-            StartCoroutine(CastingTime(casting_ult, false));
+            StartCoroutine(CastingTime(casting_ult, true));
             AudioManager.instance.Stop("AdventurerUlti");
         }
     }
