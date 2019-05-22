@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -485,6 +485,18 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    protected bool hitted = false;
+
+    private IEnumerator ColorHit() {
+        hitted = true;
+
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(1);
+        sprite.color = Color.white;
+
+        hitted = false;
+    }
+
     virtual public void TakeDamage(int enemyDamage)
     {
         if (isShieldActive)
@@ -495,11 +507,17 @@ public class PlayerManager : MonoBehaviour
             {
                 shield = 0;
                 health += shield;
+
+                if (!hitted)
+                    StartCoroutine(ColorHit());
             }
         }
         else
         {
             health -= enemyDamage;
+
+            if (!hitted)
+                StartCoroutine(ColorHit());
         }
 
         if (health <= 0)
@@ -509,16 +527,13 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public virtual void Skill() {  }
+    //protected virtual void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0) { }
 
-    protected virtual void LookForwardBlocks(int rangeEffectColumn, int rangeEfectRow = 0) { }
+    public virtual void Skill() {  }
 
     protected virtual void SelectedZonaPlayer() { }
 
     public virtual void Ultimate() { }
-
-
-   
 
     protected void MovingToPosition(float velocity, int blocks_width = 0, int blocks_height = 0)
     {
