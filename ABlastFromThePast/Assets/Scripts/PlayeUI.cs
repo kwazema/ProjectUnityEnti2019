@@ -21,6 +21,7 @@ public class PlayerReferences
     public Image damagedHealthBar;
     public Image healthBar;
     public Text healthValue;
+
     public Image shielBar;
 
     public Image skillBar;
@@ -160,12 +161,18 @@ public class PlayerReferences
         }
     }
 
-    public void UpdateShieldBar(bool value)
+    public void UpdateShieldBar(float valueCur, float valueMax)
     {
-        if (value)
-            shielBar.enabled = false;
+        shielBar.fillAmount = valueCur / valueMax;
+
+        Color transparency = shielBar.color;
+
+        if (shielBar.fillAmount > 0.99f)
+            transparency.a = 1f;
         else
-            shielBar.enabled = true;
+            transparency.a = .3f;
+
+        shielBar.color = transparency;
     }
 
     public void ResetFadeTimer()
@@ -205,8 +212,7 @@ public class PlayerReferences
         }
     }
 
-
-    //            textHealth[i].text = gameManager.playerStats[i].GetHealth().ToString();
+    //textHealth[i].text = gameManager.playerStats[i].GetHealth().ToString();
 
     //  Hacer funciones para cada uso
     // Si no puedo acceder a gameManager porque esta fuera de esta clase cual es la mejor forma?
@@ -282,7 +288,6 @@ public class PlayeUI : MonoBehaviour
         leftPlayer.ResetFadeTimer();
         rightPlayer.ResetFadeTimer();
 
-
         leftPlayer.UpdateUpgrade01(GameManager.instance.playerManager[0].GetUpgradeDescription(0));
         leftPlayer.UpdateUpgrade02(GameManager.instance.playerManager[0].GetUpgradeDescription(1));
         leftPlayer.UpdateUpgrade03(GameManager.instance.playerManager[0].GetUpgradeDescription(2));
@@ -317,8 +322,8 @@ public class PlayeUI : MonoBehaviour
         leftPlayer.UpdateUltimateBar(GameManager.instance.playerManager[0].GetCurUltimateCD(), GameManager.instance.playerManager[0].GetUltimateCD());
         rightPlayer.UpdateUltimateBar(GameManager.instance.playerManager[1].GetCurUltimateCD(), GameManager.instance.playerManager[1].GetUltimateCD());
 
-        leftPlayer.UpdateShieldBar(GameManager.instance.playerManager[0].GetShieldState());
-        rightPlayer.UpdateShieldBar(GameManager.instance.playerManager[1].GetShieldState());
+        leftPlayer.UpdateShieldBar(GameManager.instance.playerManager[0].GetShield(), GameManager.instance.playerManager[0].GetShieldMax());
+        rightPlayer.UpdateShieldBar(GameManager.instance.playerManager[1].GetShield(), GameManager.instance.playerManager[1].GetShieldMax());
 
         roundTime.text = battleSystem.round.timeCur.ToString("#");
         clockBar.fillAmount = battleSystem.round.timeCur / battleSystem.round.timeMax;
