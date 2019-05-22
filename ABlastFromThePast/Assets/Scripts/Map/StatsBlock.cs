@@ -11,7 +11,7 @@ public class StatsBlock : MonoBehaviour {
     private int rowPosition;
 
     public int healthCur;
-    public int healthMax = 1;
+    private int healthMax = 50;
 
     public enum ColorBlock
     {
@@ -108,9 +108,9 @@ public class StatsBlock : MonoBehaviour {
                 recovering = true;
                 sp.sprite = blockVoid;
 
-                Invoke("ResetBlock", Random.Range(2, 6));
+                Invoke("ResetBlock", Random.Range(4, 6));
             }
-            else if (healthCur < 50)
+            else if (healthCur < (healthMax / 2))
             {
                 sp.sprite = blockBroken;
 

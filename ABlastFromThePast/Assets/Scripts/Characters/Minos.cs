@@ -26,8 +26,8 @@ public class Minos : PlayerManager
 
         // -------------------------------------------------- //
 
-        upgrade_description[1] = "Your skill gets " + upgrade_castingSkill.ToString() +
-                                 " seconds less of casting time and " + upgrade_damageSkill.ToString() + " extra damage.";
+        upgrade_description[1] = upgrade_castingSkill.ToString() +
+                                 " seconds less Skill casting time and +" + upgrade_damageSkill.ToString() + " skill damage.";
         upgrade_description[2] = "You hit " + upgrade_maxBlocks.ToString() + " extra blocks with the ultimate.";
     }
 
