@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using XInputDotNetPure;
 
 [System.Serializable]
 public class Round
@@ -69,49 +70,8 @@ public class BattleSystem : MonoBehaviour
 
     private void Update ()
     {
-        //// Si mueves el raton pierdes el focus del boton
-        //if (Input.GetAxis("Mouse X") < 0 || Input.GetAxis("Mouse X") > 0)
-        //{
-        //    eventSystem.SetSelectedGameObject(null); // Desseleccionar boton
-
-        //    if (Cursor.visible == false)
-        //    {
-        //        Cursor.visible = true;
-        //        Cursor.lockState = CursorLockMode.None;
-        //    }
-        //}
-
-        ////Muentras no sea null y se haya cambiado el boton te guarda el string
-        //if (eventSystem.currentSelectedGameObject != null)
-        //{
-        //    if (lastSelectect != eventSystem.currentSelectedGameObject.name)
-        //    {
-        //        lastSelectect = eventSystem.currentSelectedGameObject.name;
-        //    }
-        //}
-
-        //if (Input.GetButtonDown("Pause0") || Input.GetButtonDown("Pause1"))
-        //{
-        //    eventSystem.SetSelectedGameObject(GameObject.Find("Button")); // Selecciona un nuevo boton
-        //}
-
-        ////Si usas las teclas y no tienes los focus te hace auto focus al ultimo boton 
-        //if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical") || Input.GetAxisRaw("Joy0Y") != 0 || Input.GetAxisRaw("Joy0X") != 0 || Input.GetAxisRaw("Joy1Y") != 0 || Input.GetAxisRaw("Joy1X") != 0)
-        //{
-        //    if (Cursor.visible == true)
-        //    {
-        //        Cursor.visible = false;
-        //        Cursor.lockState = CursorLockMode.Locked;
-        //    }
-
-        //    if (eventSystem.currentSelectedGameObject == null)
-        //    {
-        //        eventSystem.SetSelectedGameObject(GameObject.Find(lastSelectect)); // Selecciona un nuevo boton
-        //    }
-        //}
+      
     }
-
-
 
     public void StartBattle()
     {
@@ -126,8 +86,6 @@ public class BattleSystem : MonoBehaviour
         //gameManager.playerManager[0].ResetCharacter();
         //gameManager.playerManager[1].ResetCharacter();
         eventSystem.SetSelectedGameObject(GameObject.Find("uppgrade01p1")); // Selecciona un nuevo boton
-
-        if (round.roundCur != 0)
 
         gameManager.playerManager[0].anim.SetBool("attack", false);
         gameManager.playerManager[1].anim.SetBool("attack", false);
@@ -152,6 +110,7 @@ public class BattleSystem : MonoBehaviour
             playeUI.SetLateralPanelsAnimation(true, 500);
             playeUI.SetTopPanelsAnimation(false, 700);
             playeUI.SetLateralPanelsIconAnimation(false, 200);
+
             playeUI.selectUpgradeText.SetTrigger("fadeIn");
             playeUI.selectUpgradeText.SetTrigger("normal");
 
@@ -199,6 +158,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator StartRound()
     {
         bool stopWhile = false;
+
         round.timeToStartCur = round.timeToStartMax;
         round.timeToStartFightCur = round.timeToStartFightMax;
 
@@ -208,6 +168,9 @@ public class BattleSystem : MonoBehaviour
             case 1: AudioManager.instance.Play("Round2"); break;
             case 2: AudioManager.instance.Play("Round3"); break;
         }
+
+        StartCoroutine(ControllerManager.ControllerVibration(0, 1, 1, 0.25f, 0.5f));
+        StartCoroutine(ControllerManager.ControllerVibration(1, 1, 1, 0.25f, 0.5f));
 
         while (!stopWhile)
         {
@@ -254,8 +217,12 @@ public class BattleSystem : MonoBehaviour
 
         gameManager.playerManager[0].SetPlayerInputs(true);
         gameManager.playerManager[1].SetPlayerInputs(true);
+
         AudioManager.instance.Play("Fight");
 
+        StartCoroutine(ControllerManager.ControllerVibration(0, 1, 1, 0.5f, 0.3f));
+        StartCoroutine(ControllerManager.ControllerVibration(1, 1, 1, 0.5f, 0.3f));
+        
         //Comprobar si algun persnaje muere si el que gane se lleva round win
         while (round.timeCur >= 0 && gameManager.playerManager[0].GetHealth() > 0 && gameManager.playerManager[1].GetHealth() > 0)
         {

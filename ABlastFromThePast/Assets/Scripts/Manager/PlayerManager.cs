@@ -499,12 +499,42 @@ public class PlayerManager : MonoBehaviour
         hitted = false;
     }
 
+    void VibrationDamage(int damage)
+    {
+
+        int playerIndex = 0;
+
+        if ((int)thisPlayerIs == 0)
+        {
+            playerIndex = 1;
+        }
+
+        if (damage >= 40)
+        {
+            StartCoroutine(ControllerManager.ControllerVibration(playerIndex, 1, 1, 0.4f));
+        }
+        else if (damage >= 25)
+        {
+            StartCoroutine(ControllerManager.ControllerVibration(playerIndex, 0.8f, 0.8f, 0.3f));
+        }
+        else if (damage >= 10)
+        {
+            StartCoroutine(ControllerManager.ControllerVibration(playerIndex, 0.6f, 0.6f, 0.2f));
+        }
+        else if (damage >= 1)
+        {
+            StartCoroutine(ControllerManager.ControllerVibration(playerIndex, 0.3f, 0.3f, 0.1f));
+        }
+    }
+
     virtual public void TakeDamage(int enemyDamage)
     {
         if (isShieldActive)
         {
             shield -= enemyDamage;
+
             animShield.SetTrigger("Impact");
+
             if (shield < 0)
             {
                 shield = 0;
@@ -517,6 +547,7 @@ public class PlayerManager : MonoBehaviour
         else
         {
             health -= enemyDamage;
+            VibrationDamage(enemyDamage);
 
             if (!hitted)
                 StartCoroutine(ColorHit());

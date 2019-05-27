@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure; // Required in C#
 
 public class PlayerAttackInput : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class PlayerAttackInput : MonoBehaviour
     public Transform basicShotSpawn;
     public GameObject basicAttack;
     public SpriteRenderer shieldRender;
+
+    private GamePadState state;
+    private GamePadState prevState;
 
     int numPlayer;
     public bool is_ultOn = false;
@@ -39,11 +43,17 @@ public class PlayerAttackInput : MonoBehaviour
         numPlayer = (int)enumPlayer;
 
         if (numPlayer == 1)
+        {
             playerManager[numPlayer].floatingText.GetComponent<Transform>().transform.Rotate(0, 180, 0);
+            playerManager[numPlayer].floatingText.GetComponent<Transform>().transform.position = new Vector3(playerManager[numPlayer].floatingText.GetComponent<Transform>().transform.position.x, playerManager[numPlayer].floatingText.GetComponent<Transform>().transform.position.y, -2f);
+        }
     }
 
     void Update()
     {
+        prevState = state;
+        state = GamePad.GetState((PlayerIndex)enumPlayer);
+
         GetInput();
     }
 
@@ -92,13 +102,13 @@ public class PlayerAttackInput : MonoBehaviour
         // ----------------------- //
 
         if (!is_skillOn && !is_ultOn) {
-            if (Input.GetButton("Shield0") && !playerManager[0].GetShieldState() && !playerManager[0].GetIsShootting())
+            if ((state.Triggers.Right > 0.25f || Input.GetButton("Shield0")) && !playerManager[0].GetShieldState() && !playerManager[0].GetIsShootting())
                 ActiveShield();
             else
                 DeactivateShield();
         }
 
-        if (Input.GetButtonDown("Shield0") && !playerManager[0].GetShieldState() && !playerManager[0].GetIsShootting())
+        if ((state.Triggers.Right > 0.25f || Input.GetButton("Shield0")) && !playerManager[0].GetShieldState() && !playerManager[0].GetIsShootting())
         {
             playerManager[numPlayer].AnimReflectShield();
         }
@@ -138,13 +148,13 @@ public class PlayerAttackInput : MonoBehaviour
 
         if (!is_skillOn && !is_ultOn)
         {
-            if (Input.GetButton("Shield1") && !playerManager[1].GetShieldState() && !playerManager[1].GetIsShootting())
+            if ((state.Triggers.Right > 0.25f || Input.GetButton("Shield1")) && !playerManager[1].GetShieldState() && !playerManager[1].GetIsShootting())
                 ActiveShield();
             else
                 DeactivateShield();
         }
 
-        if (Input.GetButtonDown("Shield1") && !playerManager[1].GetShieldState() && !playerManager[1].GetIsShootting())
+        if ((state.Triggers.Right > 0.25f || Input.GetButton("Shield1")) && !playerManager[1].GetShieldState() && !playerManager[1].GetIsShootting())
         {
             playerManager[numPlayer].AnimReflectShield();
         }
@@ -182,16 +192,10 @@ public class PlayerAttackInput : MonoBehaviour
 
     private void ActiveShield()
     {
-
-
-
         playerManager[numPlayer].floatingText.SetActive(true);
         playerManager[numPlayer].SetIsShieldActive(true);
         shieldRender.enabled = true;
         playerManager[numPlayer].AnimReflectShield();
-
-
-
     }
 
     private void DeactivateShield()

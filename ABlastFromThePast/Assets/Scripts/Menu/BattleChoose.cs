@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class BattleChoose : MonoBehaviour
@@ -9,7 +10,6 @@ public class BattleChoose : MonoBehaviour
     public Text textPlayer;
     public Text textContinue;
     public Animator AnimContinue;
-
 
     public GameManager gameManager;
     public int players;
@@ -20,12 +20,14 @@ public class BattleChoose : MonoBehaviour
     public ButtonSelector[] button;
     public GameObject prefabButton;
     //public string[] nameController;
+    private StandaloneInputModule standalone;
 
     private void Awake()
     {
-
+        standalone = FindObjectOfType<StandaloneInputModule>();
         gameManager = FindObjectOfType<GameManager>();
         fade = FindObjectOfType<FadeImage>();
+
         button = InstantiateButtons(12, 6, new Vector2(-6.5f, 0.8f), 1.5f, 1.85f, 1);
     }
 
@@ -52,16 +54,16 @@ public class BattleChoose : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
-    {
-        
-    }
-
     public void Play()
     {
         if (numSelected == 0)
         {
             textPlayer.text = "Choose for Player " + (numSelected + 2);
+
+            standalone.horizontalAxis = "HorizontalP2";
+            standalone.verticalAxis = "VerticalP2";
+
+            StartCoroutine(ControllerManager.ControllerVibrationSpam(1, 0.8f, 0.8f, 0.15f, 0.1f, 6));
         }
         else if (numSelected == 1)
         {
@@ -125,6 +127,9 @@ public class BattleChoose : MonoBehaviour
 
     public void ResetChoised()
     {
+        standalone.horizontalAxis = "HorizontalP1";
+        standalone.verticalAxis = "VerticalP1";
+
         for (int i = 0; i < button.Length; i++)
         {
             button[i].ResetButton();
