@@ -759,10 +759,27 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void SetPlayerInputs(bool value)
+    //public void SetPlayerInputs(bool value)
+    //{
+    //    playerInput.enabled = value;
+    //    player_att_input.enabled = value;
+
+    //    // ----------------------- //
+    //    if (value)
+    //        anim.SetTrigger("iddle");
+    //}
+
+    public IEnumerator SetPlayerInputs(bool value)
     {
-        playerInput.enabled = value;
-        player_att_input.enabled = value;
+        float cur_time = 0;
+        while (cur_time < 5)
+        {
+            playerInput.enabled = value;
+            player_att_input.enabled = value;
+
+            yield return new WaitForSeconds(0.1f);
+            cur_time += Time.deltaTime;
+        }
 
         // ----------------------- //
         if (value)

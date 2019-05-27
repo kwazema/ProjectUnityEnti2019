@@ -93,8 +93,8 @@ public class BattleSystem : MonoBehaviour
         gameManager.playerManager[0].SetPlayerPos();
         gameManager.playerManager[1].SetPlayerPos();
 
-        gameManager.playerManager[0].SetPlayerInputs(false);
-        gameManager.playerManager[1].SetPlayerInputs(false);
+        StartCoroutine(gameManager.playerManager[0].SetPlayerInputs(false));
+        StartCoroutine(gameManager.playerManager[1].SetPlayerInputs(false));
 
         round.timeToFadeUpgradeOutCur = round.timeToFadeUpgradeOutMax;
         map.ResetBlocks();
@@ -218,8 +218,8 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
-        gameManager.playerManager[0].SetPlayerInputs(true);
-        gameManager.playerManager[1].SetPlayerInputs(true);
+        StartCoroutine(gameManager.playerManager[0].SetPlayerInputs(true));
+        StartCoroutine(gameManager.playerManager[1].SetPlayerInputs(true));
 
         AudioManager.instance.Play("Fight");
 
