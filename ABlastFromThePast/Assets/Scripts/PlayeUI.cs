@@ -23,12 +23,15 @@ public class PlayerReferences
     public Text healthValue;
 
     public Image shielBar;
+    public Image shieldBttn;
 
     public Image skillBar;
     public GameObject[] EffectSkill;
+    public Image skillBttn;
 
     public Image ultimateBar;
     public GameObject[] EffectUltimate;
+    public Image ultBttn;
 
     public Text upgrade01;
     public Text upgrade02;
@@ -127,13 +130,20 @@ public class PlayerReferences
         //Jugar con la tranparencia de la barra o con particulas o ambas
 
         Color transparency = skillBar.color;
+        Color transparencyBttn = skillBttn.color;
 
         if (skillBar.fillAmount > 0.99f)
+        {
             transparency.a = 1f;
-        else
+            transparencyBttn.a = 1f;
+        }
+        else {
             transparency.a = .5f;
+            transparencyBttn.a = .5f;
+        } 
 
         skillBar.color = transparency;
+        skillBttn.color = transparencyBttn;
 
         for (int i = 0; i < EffectSkill.Length; i++)
         {
@@ -149,13 +159,20 @@ public class PlayerReferences
         ultimateBar.fillAmount = valueCur / valueMax;
 
         Color transparency = ultimateBar.color;
+        Color transparencyBttn = ultBttn.color;
 
         if (ultimateBar.fillAmount > 0.99f)
+        {
             transparency.a = 1f;
-        else
+            transparencyBttn.a = 1f;
+        }
+        else {
             transparency.a = .5f;
+            transparencyBttn.a = .5f;
+        }
 
         ultimateBar.color = transparency;
+        ultBttn.color = transparencyBttn;
 
         for (int i = 0; i < EffectUltimate.Length; i++)
         {
@@ -166,18 +183,37 @@ public class PlayerReferences
         }
     }
 
-    public void UpdateShieldBar(float valueCur, float valueMax)
+    public void UpdateShieldBar(float valueCur, float valueMax, bool shieldState)
     {
         shielBar.fillAmount = valueCur / valueMax;
 
         Color transparency = shielBar.color;
+        Color transparencyBttn = shieldBttn.color;
 
-        if (shielBar.fillAmount > 0.99f)
+        //if (shielBar.fillAmount > 0.99f)
+        //{
+        //    transparency.a = 1f;
+        //    transparencyBttn.a = 1f;
+        //}
+        //else
+        //{
+        //    transparency.a = .5f;
+        //    transparencyBttn.a = .5f;
+        //}
+
+        if (!shieldState)
+        {
             transparency.a = 1f;
+            transparencyBttn.a = 1f;
+        }
         else
+        {
             transparency.a = .5f;
+            transparencyBttn.a = .5f;
+        }
 
         shielBar.color = transparency;
+        shieldBttn.color = transparencyBttn;
     }
 
     public void ResetFadeTimer()
@@ -327,8 +363,8 @@ public class PlayeUI : MonoBehaviour
         leftPlayer.UpdateUltimateBar(GameManager.instance.playerManager[0].GetCurUltimateCD(), GameManager.instance.playerManager[0].GetUltimateCD());
         rightPlayer.UpdateUltimateBar(GameManager.instance.playerManager[1].GetCurUltimateCD(), GameManager.instance.playerManager[1].GetUltimateCD());
 
-        leftPlayer.UpdateShieldBar(GameManager.instance.playerManager[0].GetShield(), GameManager.instance.playerManager[0].GetShieldMax());
-        rightPlayer.UpdateShieldBar(GameManager.instance.playerManager[1].GetShield(), GameManager.instance.playerManager[1].GetShieldMax());
+        leftPlayer.UpdateShieldBar(GameManager.instance.playerManager[0].GetShield(), GameManager.instance.playerManager[0].GetShieldMax(), GameManager.instance.playerManager[0].GetShieldState());
+        rightPlayer.UpdateShieldBar(GameManager.instance.playerManager[1].GetShield(), GameManager.instance.playerManager[1].GetShieldMax(), GameManager.instance.playerManager[1].GetShieldState());
 
         roundTime.text = battleSystem.round.timeCur.ToString("#");
         clockBar.fillAmount = battleSystem.round.timeCur / battleSystem.round.timeMax;
