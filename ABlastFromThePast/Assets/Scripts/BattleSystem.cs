@@ -158,6 +158,7 @@ public class BattleSystem : MonoBehaviour
     IEnumerator StartRound()
     {
         bool stopWhile = false;
+
         round.timeToStartCur = round.timeToStartMax;
         round.timeToStartFightCur = round.timeToStartFightMax;
 

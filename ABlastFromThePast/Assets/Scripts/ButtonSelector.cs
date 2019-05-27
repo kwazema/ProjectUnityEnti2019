@@ -28,8 +28,8 @@ public class ButtonSelector : MonoBehaviour {
         eventTrigger = GetComponent<EventTrigger>();
         button = GetComponent<Button>();
         battleChoose = FindObjectOfType<BattleChoose>();
-    }
 
+    }
 
     private void Update()
     {
@@ -104,6 +104,8 @@ public class ButtonSelector : MonoBehaviour {
         ResetAnim();
         animLogo.SetBool("Active", true);
         AudioManager.instance.Play("ButonTrigger");
+
+        //StartCoroutine(ControllerManager.ControllerVibration(battleChoose.numSelected, 0.4f, 0.4f, 0.15f));
 
         fadeScale = true;
         if (battleChoose.numSelected < 2)

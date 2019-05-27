@@ -3,16 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using XInputDotNetPure; // Required in C#
 
 
 public class MainMenu : MonoBehaviour {
 
     private EventSystem eventSystem;
+
     private string lastSelectect;
+
+    private GamePadState state;
+    private GamePadState prevState;
+
+    private void Awake()
+    {
+        eventSystem = FindObjectOfType<EventSystem>();
+    }
 
     private void Start()
     {
-      //  Cursor.lockState = CursorLockMode.Locked;
+
+    }
+
+    public void Vibration()
+    {
+        StartCoroutine(ControllerManager.ControllerVibrationSpam(0, 0.8f, 0.8f, 0.15f, 0.1f, 6));
     }
 
     private void Update()
@@ -35,40 +50,31 @@ public class MainMenu : MonoBehaviour {
             if (lastSelectect != eventSystem.currentSelectedGameObject.name)
             {
                 lastSelectect = eventSystem.currentSelectedGameObject.name;
+
+                if (Input.GetAxisRaw("Joy0Y") != 0)
+                    StartCoroutine(ControllerManager.ControllerVibration(0, 0.2f, 0.3f, 0.15f));
+                else if (Input.GetAxisRaw("Joy0X") > 0)
+                    StartCoroutine(ControllerManager.ControllerVibration(0, 0f, 0.3f, 0.15f));
+                else if (Input.GetAxisRaw("Joy0X") < 0)
+                    StartCoroutine(ControllerManager.ControllerVibration(0, 0.2f, 0f, 0.15f));
+                else if (Input.GetAxisRaw("Joy1Y") != 0)
+                    StartCoroutine(ControllerManager.ControllerVibration(0, 0.2f, 0.3f, 0.15f));
+                else if (Input.GetAxisRaw("Joy1X") > 0)
+                    StartCoroutine(ControllerManager.ControllerVibration(1, 0f, 0.3f, 0.15f));
+                else if (Input.GetAxisRaw("Joy1X") < 0)
+                    StartCoroutine(ControllerManager.ControllerVibration(1, 0.2f, 0f, 0.15f));
             }
         }
 
-        //dirHorizontal = Input.GetAxisRaw("Joy0X");
-
-        //if (Input.GetKeyDown(KeyCode.A))
-        //    dirHorizontal = -1f;
-
-        //if (Input.GetKeyDown(KeyCode.D))
-        //    dirHorizontal = 1f;
-
-        ////--------------- Direction Vertical --------------- //
-        //if (dirHorizontal == 0)
-        //{
-        //    dirVertical = Input.GetAxisRaw("Joy0Y");
-
-        //    if (Input.GetKeyDown(KeyCode.W))
-        //        dirVertical = 1f;
-
-        //    if (Input.GetKeyDown(KeyCode.S))
-        //        dirVertical = -1f;
-        //}
-
-        //Input.get
-
-        if (Input.GetButtonDown("VerticalJ"))
-        {
-            Debug.Log("CLICK");
-
-        }
-
         //Si usas las teclas y no tienes los focus te hace auto focus al ultimo boton 
-        if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical") || Input.GetAxisRaw("Joy0Y") != 0 || Input.GetAxisRaw("Joy0X") != 0 || Input.GetAxisRaw("Joy1Y") != 0 || Input.GetAxisRaw("Joy1X") != 0)
+        if (
+            Input.GetButtonDown("HorizontalP1") || Input.GetButtonDown("VerticalP1") || 
+            Input.GetButtonDown("HorizontalP2") || Input.GetButtonDown("VerticalP2") || 
+            Input.GetAxisRaw("Joy0Y") != 0 || Input.GetAxisRaw("Joy0X") != 0 || 
+            Input.GetAxisRaw("Joy1Y") != 0 || Input.GetAxisRaw("Joy1X") != 0
+            )
         {
+
             if (Cursor.visible == true)
             {
                 Cursor.visible = false;
@@ -80,15 +86,15 @@ public class MainMenu : MonoBehaviour {
                 eventSystem.SetSelectedGameObject(GameObject.Find(lastSelectect)); // Selecciona un nuevo boton
             }
         }
-    }
 
-    private void Awake()
-    {
-        eventSystem = FindObjectOfType<EventSystem>();
-    }
+        prevState = state;
+        state = GamePad.GetState((PlayerIndex)0);
 
-    //eventSystem.firstSelectedGameObject = GameObject.Find("ChoosePlayerEng/Brayan");
-    
+        if (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed)
+        {
+            StartCoroutine(ControllerManager.ControllerVibration(0, 0.4f, 0.4f, 0.15f));
+        }
+    }
 
     public void Play() 
     {

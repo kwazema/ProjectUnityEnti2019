@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using XInputDotNetPure; // Required in C#
+using XInputDotNetPure; // Required in C#
 
 public class PlayerInput : MonoBehaviour {
 
@@ -15,6 +15,9 @@ public class PlayerInput : MonoBehaviour {
 
     private PlayerMovement playerMovement;
 
+    GamePadState state;
+    GamePadState prevState;
+
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -23,12 +26,15 @@ public class PlayerInput : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        //playerMovement = gameObject.GetComponent<Player1Movement>(); // Diferencia?
+
     }
 
     // Update is called once per frame
     void Update ()
     {
+        prevState = state;
+        state = GamePad.GetState((PlayerIndex)enumPlayer);
+
         getAxisMovement();
 
         IsInput();
