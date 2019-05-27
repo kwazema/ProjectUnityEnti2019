@@ -52,17 +52,17 @@ public class MainMenu : MonoBehaviour {
                 lastSelectect = eventSystem.currentSelectedGameObject.name;
 
                 if (Input.GetAxisRaw("Joy0Y") != 0)
-                    StartCoroutine(ControllerManager.ControllerVibration(0, 0.2f, 0.3f, 0.15f));
+                    StartCoroutine(ControllerManager.ControllerVibration(0, 0.05f, 0.1f, 0.1f));
                 else if (Input.GetAxisRaw("Joy0X") > 0)
-                    StartCoroutine(ControllerManager.ControllerVibration(0, 0f, 0.3f, 0.15f));
+                    StartCoroutine(ControllerManager.ControllerVibration(0, 0f, 0.1f, 0.1f));
                 else if (Input.GetAxisRaw("Joy0X") < 0)
-                    StartCoroutine(ControllerManager.ControllerVibration(0, 0.2f, 0f, 0.15f));
+                    StartCoroutine(ControllerManager.ControllerVibration(0, 0.05f, 0f, 0.1f));
                 else if (Input.GetAxisRaw("Joy1Y") != 0)
-                    StartCoroutine(ControllerManager.ControllerVibration(0, 0.2f, 0.3f, 0.15f));
+                    StartCoroutine(ControllerManager.ControllerVibration(0, 0.05f, 0.1f, 0.1f));
                 else if (Input.GetAxisRaw("Joy1X") > 0)
-                    StartCoroutine(ControllerManager.ControllerVibration(1, 0f, 0.3f, 0.15f));
+                    StartCoroutine(ControllerManager.ControllerVibration(1, 0f, 0.1f, 0.1f));
                 else if (Input.GetAxisRaw("Joy1X") < 0)
-                    StartCoroutine(ControllerManager.ControllerVibration(1, 0.2f, 0f, 0.15f));
+                    StartCoroutine(ControllerManager.ControllerVibration(1, 0.05f, 0f, 0.1f));
             }
         }
 
