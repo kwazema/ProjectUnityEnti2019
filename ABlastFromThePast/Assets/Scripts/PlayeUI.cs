@@ -285,6 +285,10 @@ public class PlayeUI : MonoBehaviour
 
     //private Text winPlayerRound;
     //private Text roundCur;
+    public Animator imageRound1;
+    public Animator imageRound2;
+    public Animator imageRound3;
+    public Animator imageFight;
 
 
 

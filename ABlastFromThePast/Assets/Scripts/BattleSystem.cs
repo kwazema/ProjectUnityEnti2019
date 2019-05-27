@@ -164,7 +164,10 @@ public class BattleSystem : MonoBehaviour
 
         switch (round.roundCur)
         {
-            case 0: AudioManager.instance.Play("Round1"); break;
+            case 0:
+                AudioManager.instance.Play("Round1");
+                playeUI.imageRound1.SetTrigger("fadeIn"); // TODO: Terminat animación botones
+                break;
             case 1: AudioManager.instance.Play("Round2"); break;
             case 2: AudioManager.instance.Play("Round3"); break;
         }
