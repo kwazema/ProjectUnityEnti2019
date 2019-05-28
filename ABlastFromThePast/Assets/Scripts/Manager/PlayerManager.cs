@@ -502,28 +502,28 @@ public class PlayerManager : MonoBehaviour
     void VibrationDamage(int damage)
     {
 
-        int playerIndex = 0;
+        //int playerIndex = 0;
 
-        if ((int)thisPlayerIs == 0)
-        {
-            playerIndex = 1;
-        }
+        //if ((int)thisPlayerIs == 0)
+        //{
+        //    playerIndex = 1;
+        //}
 
         if (damage >= 40)
         {
-            StartCoroutine(ControllerManager.ControllerVibration(playerIndex, 1, 1, 0.4f));
+            StartCoroutine(ControllerManager.ControllerVibration((int)thisPlayerIs, 1, 1, 0.4f));
         }
         else if (damage >= 25)
         {
-            StartCoroutine(ControllerManager.ControllerVibration(playerIndex, 0.8f, 0.8f, 0.3f));
+            StartCoroutine(ControllerManager.ControllerVibration((int)thisPlayerIs, 0.8f, 0.8f, 0.3f));
         }
         else if (damage >= 10)
         {
-            StartCoroutine(ControllerManager.ControllerVibration(playerIndex, 0.6f, 0.6f, 0.2f));
+            StartCoroutine(ControllerManager.ControllerVibration((int)thisPlayerIs, 0.6f, 0.6f, 0.2f));
         }
         else if (damage >= 1)
         {
-            StartCoroutine(ControllerManager.ControllerVibration(playerIndex, 0.3f, 0.3f, 0.1f));
+            StartCoroutine(ControllerManager.ControllerVibration((int)thisPlayerIs, 0.3f, 0.3f, 0.1f));
         }
     }
 
