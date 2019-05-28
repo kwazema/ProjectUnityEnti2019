@@ -62,7 +62,7 @@ MonoBehaviour:
   - name: PolyphemusSkill
     clip: {fileID: 8300000, guid: 7cc4baf21effa714b917cf6144fe9a5f, type: 3}
     mixer: {fileID: 243016214182795802, guid: e944a6ae63eef994cbe77eda6492b197, type: 2}
-    volume: 1
+    volume: 0.114
     pitch: 1
     loop: 0
     source: {fileID: 0}

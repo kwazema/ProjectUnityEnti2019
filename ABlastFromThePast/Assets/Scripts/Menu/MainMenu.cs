@@ -44,6 +44,18 @@ public class MainMenu : MonoBehaviour {
             }
         }
 
+
+
+        //if ((Input.GetAxisRaw("HorizontalP1") != 0 || Input.GetAxisRaw("VerticalP1") != 0))
+        //{
+        //    prevState = state;
+        //    state = GamePad.GetState((PlayerIndex)0);
+        //}
+        //else if ((Input.GetAxisRaw("HorizontalP2") != 0 || Input.GetAxisRaw("VerticalP2") != 0))
+        //{
+
+        //}
+
         //Muentras no sea null y se haya cambiado el boton te guarda el string
         if (eventSystem.currentSelectedGameObject != null)
         {
@@ -51,12 +63,12 @@ public class MainMenu : MonoBehaviour {
             {
                 lastSelectect = eventSystem.currentSelectedGameObject.name;
 
-                if (Input.GetAxisRaw("HorizontalP1") != 0)
+                if (prevState.DPad.Right == ButtonState.Released || state.DPad.Right == ButtonState.Released)
                     StartCoroutine(ControllerManager.ControllerVibration(0, 0.1f, 0.1f, 0.1f));
                 else if (Input.GetAxisRaw("HorizontalP2") != 0)
                     StartCoroutine(ControllerManager.ControllerVibration(1, 0.1f, 0.1f, 0.1f));
                 else if (Input.GetAxisRaw("VerticalP1") != 0)
-                    StartCoroutine(ControllerManager.ControllerVibration(0, 0.1f, 0f, 0.1f));
+                    StartCoroutine(ControllerManager.ControllerVibration(0, 0.1f, 0.1f, 0.1f));
                 else if (Input.GetAxisRaw("VerticalP2") != 0)
                     StartCoroutine(ControllerManager.ControllerVibration(1, 0.1f, 0.1f, 0.1f));
             }

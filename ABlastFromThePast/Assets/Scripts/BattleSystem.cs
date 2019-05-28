@@ -56,7 +56,6 @@ public class BattleSystem : MonoBehaviour
         else
             AudioManager.instance.Play("MusicBattle02");
 
-
         AudioManager.instance.Stop("MusicMenu01");
         AudioManager.instance.Stop("MusicMenu02");
         AudioManager.instance.Stop("MusicMenu03");
@@ -64,6 +63,9 @@ public class BattleSystem : MonoBehaviour
         AudioManager.instance.Stop("MusicMenu05");
 
         lc = GameManager.instance.LoadFileToString();
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private string lastSelectect;
