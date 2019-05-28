@@ -47,12 +47,15 @@ public class PlayerAttackInput : MonoBehaviour
             playerManager[numPlayer].floatingText.GetComponent<Transform>().transform.Rotate(0, 180, 0);
             playerManager[numPlayer].floatingText.GetComponent<Transform>().transform.position = new Vector3(playerManager[numPlayer].floatingText.GetComponent<Transform>().transform.position.x, playerManager[numPlayer].floatingText.GetComponent<Transform>().transform.position.y, -2f);
         }
+        state = GamePad.GetState((PlayerIndex)enumPlayer);
+
+        Debug.Log("State: " + state.PacketNumber);
+        Debug.Log("Enum Player: " + enumPlayer);
     }
 
     void Update()
     {
-        prevState = state;
-        state = GamePad.GetState((PlayerIndex)enumPlayer);
+        //prevState = state;
 
         GetInput();
     }

@@ -70,7 +70,7 @@ public class Statistics : MonoBehaviour
                     switch (assigned)
                     {
                         case 0:
-                            Debug.Log("Entro primero");
+                            //Debug.Log("Entro primero");
                             first.sprite = charactersIcons[k];
                             break;
                         case 1:

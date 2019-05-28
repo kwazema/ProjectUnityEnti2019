@@ -169,10 +169,18 @@ public class BattleSystem : MonoBehaviour
         {
             case 0:
                 AudioManager.instance.Play("Round1");
-                playeUI.imageRound1.SetTrigger("fadeIn"); // TODO: Terminat animación botones
+                playeUI.imageRound1.SetTrigger("Fade");
                 break;
-            case 1: AudioManager.instance.Play("Round2"); break;
-            case 2: AudioManager.instance.Play("Round3"); break;
+
+            case 1:
+                AudioManager.instance.Play("Round2");
+                playeUI.imageRound2.SetTrigger("Fade");
+                break
+                    ;
+            case 2:
+                AudioManager.instance.Play("Round3");
+                playeUI.imageRound3.SetTrigger("Fade");
+                break;
         }
 
         StartCoroutine(ControllerManager.ControllerVibration(0, 1, 1, 0.25f, 0.5f));
@@ -199,6 +207,12 @@ public class BattleSystem : MonoBehaviour
                     StartCoroutine(TimeRound());
                     //Debug.Log("Empieza la Partida"); 
                     // Mostrar Animation
+                    //switch (round.roundCur)
+                    //{
+                    //    case 0: playeUI.imageRound1.SetTrigger("Fade"); break;
+                    //    case 1: playeUI.imageRound2.SetTrigger("Fade"); break;
+                    //    case 2: playeUI.imageRound3.SetTrigger("Fade"); break;
+                    //}
 
                     // Reseteo los tiempos
                     round.timeToStartCur = round.timeToStartMax;
@@ -228,6 +242,7 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(gameManager.playerManager[1].SetPlayerInputs(true));
 
         AudioManager.instance.Play("Fight");
+        playeUI.imageFight.SetTrigger("Fade");
 
         StartCoroutine(ControllerManager.ControllerVibration(0, 1, 1, 0.5f, 0.3f));
         StartCoroutine(ControllerManager.ControllerVibration(1, 1, 1, 0.5f, 0.3f));
