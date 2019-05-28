@@ -186,7 +186,7 @@ public class PlayerReferences
     public void UpdateShieldBar(float valueCur, float valueMax, bool shieldState)
     {
         shielBar.fillAmount = valueCur / valueMax;
-
+        
         Color transparency = shielBar.color;
         Color transparencyBttn = shieldBttn.color;
 
