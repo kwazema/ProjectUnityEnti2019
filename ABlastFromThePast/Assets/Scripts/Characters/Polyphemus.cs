@@ -81,7 +81,7 @@ public class Polyphemus : PlayerManager
     {
         base.Update();
 
-        Debug.Log("DMG: " + damageBasicAttack);
+        //Debug.Log("DMG: " + damageBasicAttack);
 
         // -------------------------------------------------- //
         // Color block = white 

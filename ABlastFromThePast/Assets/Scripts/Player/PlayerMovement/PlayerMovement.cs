@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour {
     void Start()
     {
         //player1Input = gameObject.GetComponent<Player1Input>(); // Diferencia?
-        Debug.Log("This player is: " + playerStats.whichIsThisPlayer);
+        //Debug.Log("This player is: " + playerStats.whichIsThisPlayer);
 
         //------- Init Movemen --------- //
         v2Position = new Vector2[2];
@@ -86,7 +86,7 @@ public class PlayerMovement : MonoBehaviour {
 
             moveToSecondBlock = true;
 
-            Debug.Log("Me muevo y click");
+            //Debug.Log("Me muevo y click");
         }
 
         // Si tenemos una posición guardada cambiar el numPosition para movernos a la siguiente posició.
@@ -216,7 +216,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             playerColumn = nextColumn;
             playerRow = nextRow;
-            Debug.Log("Paso 4: Sobre escribe Segunda Pos");
+            //Debug.Log("Paso 4: Sobre escribe Segunda Pos");
         }
 
         MovementAction(dirHorizontal, dirVertical);

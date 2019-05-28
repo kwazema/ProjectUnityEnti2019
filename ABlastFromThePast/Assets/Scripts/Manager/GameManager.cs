@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour {
 
         while (IsFileLocked(fileInfo))
         {
-            Debug.Log("File Bloqued");
+            //Debug.Log("File Bloqued");
             yield return new WaitForSeconds(0.05f);
         }
 

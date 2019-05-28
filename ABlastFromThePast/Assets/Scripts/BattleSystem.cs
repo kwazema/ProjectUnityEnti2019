@@ -93,6 +93,9 @@ public class BattleSystem : MonoBehaviour
         gameManager.playerManager[0].SetPlayerPos();
         gameManager.playerManager[1].SetPlayerPos();
 
+        //gameManager.playerManager[0].SetPlayerInputs(false);
+        //gameManager.playerManager[1].SetPlayerInputs(false);
+
         StartCoroutine(gameManager.playerManager[0].SetPlayerInputs(false));
         StartCoroutine(gameManager.playerManager[1].SetPlayerInputs(false));
 
@@ -194,7 +197,7 @@ public class BattleSystem : MonoBehaviour
                 {
                     // Termina el fade y empieza la partida
                     StartCoroutine(TimeRound());
-                    Debug.Log("Empieza la Partida"); 
+                    //Debug.Log("Empieza la Partida"); 
                     // Mostrar Animation
 
                     // Reseteo los tiempos
@@ -218,6 +221,9 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
+        //gameManager.playerManager[0].SetPlayerInputs(true);
+        //gameManager.playerManager[1].SetPlayerInputs(true);
+
         StartCoroutine(gameManager.playerManager[0].SetPlayerInputs(true));
         StartCoroutine(gameManager.playerManager[1].SetPlayerInputs(true));
 
@@ -239,9 +245,9 @@ public class BattleSystem : MonoBehaviour
         round.timeCur = round.timeMax;
 
         float healhPlayer1 = (float)gameManager.playerManager[0].GetHealth() / (float)gameManager.playerManager[0].GetHealthMax() * 100;
-        Debug.Log("Vida Player 1: " + healhPlayer1);
+        //Debug.Log("Vida Player 1: " + healhPlayer1);
         float healhPlayer2 = (float)gameManager.playerManager[1].GetHealth() / (float)gameManager.playerManager[1].GetHealthMax() * 100;
-        Debug.Log("Vida Player 2: " + healhPlayer2);
+        //Debug.Log("Vida Player 2: " + healhPlayer2);
 
         if (healhPlayer1 > healhPlayer2)
         {
@@ -251,8 +257,8 @@ public class BattleSystem : MonoBehaviour
             lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.roundsWin++;
             lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.roundsLose++;
 
-            Debug.Log(lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.roundsWin);
-            Debug.Log(lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.roundsWin);
+            //Debug.Log(lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.roundsWin);
+            //Debug.Log(lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.roundsWin);
         }
         else if (healhPlayer1 < healhPlayer2)
         {
@@ -262,8 +268,8 @@ public class BattleSystem : MonoBehaviour
             lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.roundsLose++;
             lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.roundsWin++;
 
-            Debug.Log(lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.roundsWin);
-            Debug.Log(lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.roundsWin);
+            //Debug.Log(lc.characterStats[GameManager.instance.playerChoise[0]].gameStats.roundsWin);
+            //Debug.Log(lc.characterStats[GameManager.instance.playerChoise[1]].gameStats.roundsWin);
         }
         else if (healhPlayer1 == healhPlayer2)
         {

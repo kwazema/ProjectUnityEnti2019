@@ -305,7 +305,7 @@ public class PlayerManager : MonoBehaviour
         shield_max = listCharacters.characterStats[index].shieldMax;
 
         damageBasicAttack = listCharacters.characterStats[index].damageBasicAttack;
-        Debug.Log("damageBasicAttack: " + damageBasicAttack + " " + namePlayer);
+        //Debug.Log("damageBasicAttack: " + damageBasicAttack + " " + namePlayer);
         damageSkill = listCharacters.characterStats[index].damageSkill;
         damageUltimate = listCharacters.characterStats[index].damageUltimate;
 
@@ -345,7 +345,7 @@ public class PlayerManager : MonoBehaviour
 
         if (cur_skillCD == 0)
         {
-            Debug.Log("cur_skillCD 1: " + cur_skillCD);
+            //Debug.Log("cur_skillCD 1: " + cur_skillCD);
             StartCoroutine(SkillRecovery());
         }
 
@@ -466,8 +466,8 @@ public class PlayerManager : MonoBehaviour
     bool activeReflect = true; float timeCur = 1;
     public void AnimReflectShield()
     {
-        Debug.Log("Shield Up");
-        Debug.Log("Shield Bool: " + activeReflect);
+        //Debug.Log("Shield Up");
+        //Debug.Log("Shield Bool: " + activeReflect);
 
         if (activeReflect)
         {
@@ -771,19 +771,26 @@ public class PlayerManager : MonoBehaviour
 
     public IEnumerator SetPlayerInputs(bool value)
     {
-        float cur_time = 0;
-        while (cur_time < 5)
+
+        if (value)
         {
             playerInput.enabled = value;
             player_att_input.enabled = value;
 
-            yield return new WaitForSeconds(0.1f);
-            cur_time += Time.deltaTime;
-        }
-
-        // ----------------------- //
-        if (value)
             anim.SetTrigger("iddle");
+        }
+        else {
+            float cur_time = 0;
+            while (cur_time < 4)
+            {
+                //Debug.Log("CUR TIME:" + cur_time);
+                playerInput.enabled = value;
+                player_att_input.enabled = value;
+
+                yield return null;
+                cur_time += Time.deltaTime;
+            }
+        }
     }
 
     public virtual void Upgrade1()
