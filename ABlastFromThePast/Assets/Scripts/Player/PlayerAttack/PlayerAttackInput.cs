@@ -47,7 +47,6 @@ public class PlayerAttackInput : MonoBehaviour
             playerManager[numPlayer].floatingText.GetComponent<Transform>().transform.Rotate(0, 180, 0);
             playerManager[numPlayer].floatingText.GetComponent<Transform>().transform.position = new Vector3(playerManager[numPlayer].floatingText.GetComponent<Transform>().transform.position.x, playerManager[numPlayer].floatingText.GetComponent<Transform>().transform.position.y, -2f);
         }
-        state = GamePad.GetState((PlayerIndex)enumPlayer);
 
         Debug.Log("State: " + state.PacketNumber);
         Debug.Log("Enum Player: " + enumPlayer);
@@ -55,7 +54,8 @@ public class PlayerAttackInput : MonoBehaviour
 
     void Update()
     {
-        //prevState = state;
+        prevState = state;
+        state = GamePad.GetState((PlayerIndex)enumPlayer);
 
         GetInput();
     }
@@ -105,13 +105,13 @@ public class PlayerAttackInput : MonoBehaviour
         // ----------------------- //
 
         if (!is_skillOn && !is_ultOn) {
-            if ((state.Triggers.Right > 0.25f || Input.GetButton("Shield0")) && !playerManager[0].GetShieldState() && !playerManager[0].GetIsShootting())
+            if ((state.Triggers.Left > 0.25f || Input.GetButton("Shield0")) && !playerManager[0].GetShieldState() && !playerManager[0].GetIsShootting())
                 ActiveShield();
             else
                 DeactivateShield();
         }
 
-        if ((state.Triggers.Right > 0.25f || Input.GetButton("Shield0")) && !playerManager[0].GetShieldState() && !playerManager[0].GetIsShootting())
+        if ((state.Triggers.Left > 0.25f || Input.GetButton("Shield0")) && !playerManager[0].GetShieldState() && !playerManager[0].GetIsShootting())
         {
             playerManager[numPlayer].AnimReflectShield();
         }
@@ -151,13 +151,13 @@ public class PlayerAttackInput : MonoBehaviour
 
         if (!is_skillOn && !is_ultOn)
         {
-            if ((state.Triggers.Right > 0.25f || Input.GetButton("Shield1")) && !playerManager[1].GetShieldState() && !playerManager[1].GetIsShootting())
+            if ((state.Triggers.Left > 0.25f || Input.GetButton("Shield1")) && !playerManager[1].GetShieldState() && !playerManager[1].GetIsShootting())
                 ActiveShield();
             else
                 DeactivateShield();
         }
 
-        if ((state.Triggers.Right > 0.25f || Input.GetButton("Shield1")) && !playerManager[1].GetShieldState() && !playerManager[1].GetIsShootting())
+        if ((state.Triggers.Left > 0.25f || Input.GetButton("Shield1")) && !playerManager[1].GetShieldState() && !playerManager[1].GetIsShootting())
         {
             playerManager[numPlayer].AnimReflectShield();
         }
