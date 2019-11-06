@@ -74,7 +74,7 @@ public class GameData : MonoBehaviour
 
         #region Save to Disc
         //jsonString = JsonUtility.ToJson(listCharacters);
-        //File.WriteAllText(filePath, jsonString);
+        File.WriteAllText(filePath, jsonString);
         #endregion
 
         #region Load out Disc
